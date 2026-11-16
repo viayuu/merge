@@ -1,0 +1,11 @@
+{
+  "created": "2026-11-16T14:06:10.129912+08:00",
+  "device": "NVIDIA GeForce RTX 3090",
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "seed": 3407,
+  "matched_tensors": 382,
+  "matched_coordinates": 4960487,
+  "all_tensor_hashes_exact": true,
+  "historical_epoch0_available": false
+}

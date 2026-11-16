@@ -1,0 +1,6 @@
+{
+  "decoder.hyper_Wq_first.weight": 87040,
+  "decoder.hyper_Wq_last.weight": 87040,
+  "decoder.hyper_Wk.weight": 87040,
+  "decoder.hyper_Wv.weight": 87040
+}

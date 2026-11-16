@@ -112,3 +112,36 @@
 | 2026-11-16T12:06:18 | ACVRP diagnosis | experiment_runs/20261116_acvrp_audit/verification.json | verified | 原数据10次控制；论文精度复现；RNG-only因果控制通过 |
 | 2026-11-16T12:06:18 | ACVRP diagnosis | experiment_runs/20261116_acvrp_audit/analyze_audit.py | verified | 原数据10次控制；论文精度复现；RNG-only因果控制通过 |
 | 2026-11-16T12:06:18 | ACVRP diagnosis | experiment_runs/20261116_acvrp_audit/README.md | verified | 原数据10次控制；论文精度复现；RNG-only因果控制通过 |
+| 2026-11-16T13:56:06 | common-base audit | refine-logs/EXPERIMENT_PLAN_before_common_base_audit_20261116_135606.md | snapshot | 保存审计前研究状态 |
+| 2026-11-16T13:56:06 | common-base audit | refine-logs/EXPERIMENT_PLAN.md | current | 重建候选、9+2分组与可执行探索范围；不宣称历史base完整认证 |
+| 2026-11-16T13:56:06 | common-base audit | refine-logs/EXPERIMENT_PLAN_20261116_135606.md | versioned snapshot | 包含已完成初始化取证 |
+| 2026-11-16T13:56:06 | common-base audit | refine-logs/EXPERIMENT_TRACKER_before_common_base_audit_20261116_135606.md | snapshot | 保存审计前研究状态 |
+| 2026-11-16T13:56:06 | common-base audit | refine-logs/EXPERIMENT_TRACKER.md | current | 重建候选、9+2分组与可执行探索范围；不宣称历史base完整认证 |
+| 2026-11-16T13:56:06 | common-base audit | refine-logs/EXPERIMENT_TRACKER_20261116_135606.md | versioned snapshot | 包含已完成初始化取证 |
+| 2026-11-16T13:56:06 | common-base audit | RESEARCH_BRIEF_before_common_base_audit_20261116_135606.md | snapshot | 保存审计前研究状态 |
+| 2026-11-16T13:56:06 | common-base audit | RESEARCH_BRIEF.md | current | 重建候选、9+2分组与可执行探索范围；不宣称历史base完整认证 |
+| 2026-11-16T13:56:06 | common-base audit | RESEARCH_BRIEF_20261116_135606.md | versioned snapshot | 包含已完成初始化取证 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/RESULTS.md | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/README.md | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/checkpoint_inventory.json | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/init_cpu_seed3407.json | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/init_4090_seed3407.json | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/init_3090_seed3407.json | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/candidate_comparison.json | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/expert_groups.csv | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T13:56:06 | common-base audit | experiment_runs/20261116_common_base_audit/implementation_check.json | evidence | 随机指纹、候选差异、统计分组；无训练和性能评测 |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/RESULTS_before_independent_verification_20261116_140855.md | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/RESULTS_20261116_140855.md | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/RESULTS.md | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/README.md | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/evidence_verification.json | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/fresh_init_4090_verification.json | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/fresh_init_3090_verification.json | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/initialization_evidence.png | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/initialization_evidence.pdf | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/verify_evidence.py | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/verify_fresh_init.py | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/plot_evidence.py | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/coordinate_fingerprint_check.json | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
+| 2026-11-16T14:20:00 | common-base code and paper crosscheck | experiment_runs/20261116_common_base_audit/CODE_PAPER_ASSESSMENT.md | verified | 复核原训练路径、论文H.2及11专家初始化分组，未运行性能实验 |
+| 2026-11-16T14:20:00 | common-base code and paper crosscheck | experiment_runs/20261116_common_base_audit/code_paper_crosscheck.json | verified | 复核原训练路径、论文H.2及11专家初始化分组，未运行性能实验 |

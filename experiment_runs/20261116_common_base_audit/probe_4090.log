@@ -1,0 +1,15 @@
+/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/site-packages/torch/__init__.py:1144: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:432.)
+  _C._set_default_tensor_type(t)
+4090 acvrp_checkpoint_300 72 / 72
+4090 atsp_checkpoint_300 73 / 73
+4090 cvrp_checkpoint_300 72 / 72
+4090 cvrpb_checkpoint_300 72 / 72
+4090 cvrptw_checkpoint_300 72 / 72
+4090 ocvrp_checkpoint_300 72 / 72
+4090 ocvrptw_checkpoint_300 72 / 72
+4090 op_checkpoint_300 72 / 72
+4090 pctsp_checkpoint_300 72 / 72
+4090 pdtsp_checkpoint_300 1 / 1
+4090 tsp_checkpoint_300 73 / 73
+4090 unified_checkpoint_500 0 / 0
+Saved /public/home/shiys/merge/experiment_runs/20261116_common_base_audit/init_4090_seed3407.pt

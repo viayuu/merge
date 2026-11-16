@@ -59,3 +59,13 @@ checkpoint输出仅包含 `model_state_dict` 与必要合并信息，不平均op
 正式执行已获用户授权，45项队列已在 `tmux urs_merge_20261116` 启动，启动时4个worker处于RUNNING。硬件访问见 `GPU_ACCESS_AUDIT.md`：admin01为登录节点；Slurm allocation 1475在gpu05提供2×RTX4090 24GB，1465在gpu03提供2×RTX3090 24GB。每个allocation使用一个srun step，内部两个worker各占一张卡。默认环境为easynco；全程按原默认batch执行，持续检查日志、退出状态与结果完整性。45/45项已于2026-11-16完成，无失败、无减batch。正式结论见[实验结果](EXPERIMENT_RESULTS.md)：当前直接平均与所测插值未接近URS。
 
 完成记录：2026-11-16 01:42:51全部45项输出齐全；本次计算step与tmux已正常退出。原始状态与结果位于 `experiment_runs/20261116_four_gpu/`。
+
+## Common Base可行性复核（2026-11-16）
+
+本次已按seed3407和原模型构造顺序重建CPU、4090、3090初始化。两种GPU候选都精确匹配11专家所有未更新随机参数；但完整候选在4个decoder矩阵的348160个坐标上不同。训练终点在这些差异坐标的相关性强烈提示两组：A=TSP/ATSP/CVRP/ACVRP/CVRPB/OCVRP/OCVRPTW/OP/PDTSP（4090候选），B=CVRPTW/PCTSP（3090候选）。分组是强统计推断，不是作者完整谱系证明，也不等于确认历史物理训练GPU。
+
+因此可继续“同组专家＋明确标注的重建随机初始化base”的TA/TIES/DARE探索；不能把全部11模型直接宣称为共享一个已验证预训练base的标准复现。建议先CVRP+OCVRP，再CVRP/CVRPB/OCVRP/OCVRPTW。TA在scale=1/K时等于已有平均，DARE先检查单专家低drop率。所有后续性能评测仍使用原数据、原gap；本次仅完成候选重建与加载/有限性检查，没有运行新性能矩阵。
+
+完整证据与限制：[Common Base专项审计](../experiment_runs/20261116_common_base_audit/RESULTS.md)。历史45项结果与用户已有merge.py编辑均保留。
+
+本方案原表中“真实共同base”的前提针对严格历史复现；本补充允许明确记录候选来源与不确定性的探索性适配，不放宽对历史谱系的事实表述。

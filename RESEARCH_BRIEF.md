@@ -11,3 +11,5 @@
 运行：默认 `conda activate easynco`；长任务放tmux；不设此前取消的pilot或GPU小时上限。当前shell位于admin01登录节点，实际通过已有Slurm allocation 1475（gpu05，2×RTX4090 24GB）和1465（gpu03，2×RTX3090 24GB）使用四张卡。每个allocation建立一个srun step，内部两个worker分别绑定两张卡；依据见 `refine-logs/GPU_ACCESS_AUDIT.md`。正式运行固定N=100、每任务1,000例、greedy、seed=3407、增强8/128，全程沿用原默认batch。
 
 非目标：继续算子选择、重新找idea、设计新merge算法、用MoE/ensemble替代单一固定参数模型、为这轮代码建立新的数据或复杂评测基础设施。本次负结果限定于已测平均/插值配置。
+
+Common Base最新状态：已完成[专项审计](experiment_runs/20261116_common_base_audit/RESULTS.md)，得到通过未更新随机参数指纹校验的两种CUDA初始化候选，专家统计上呈9+2组。允许同组、重建base的TA/TIES/DARE探索；没有获得作者完整起点谱系，也尚无新性能结果。

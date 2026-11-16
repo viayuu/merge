@@ -1,0 +1,288 @@
+{
+  "acvrp_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "atsp_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "cvrp_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "cvrpb_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "cvrptw_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "ocvrp_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "ocvrptw_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "op_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "pctsp_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "pdtsp_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  },
+  "tsp_checkpoint_300": {
+    "decoder.hyper_Wq_first.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wq_last.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wk.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    },
+    "decoder.hyper_Wv.weight": {
+      "diff_coords": 87040,
+      "zero_moment_diff_coords": 0,
+      "exact_a_on_diff": 0,
+      "exact_b_on_diff": 0
+    }
+  }
+}

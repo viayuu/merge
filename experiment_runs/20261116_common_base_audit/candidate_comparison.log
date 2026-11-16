@@ -1,0 +1,12 @@
+acvrp_checkpoint_300 delta/init 0.7742 ambiguous cosine4090/3090 0.86667 -0.00116 q95/q99 0.13311 0.21099
+atsp_checkpoint_300 delta/init 0.833 ambiguous cosine4090/3090 0.85119 -6e-05 q95/q99 0.14143 0.22375
+cvrp_checkpoint_300 delta/init 0.7582 ambiguous cosine4090/3090 0.89052 -0.00047 q95/q99 0.13206 0.1951
+cvrpb_checkpoint_300 delta/init 0.7448 ambiguous cosine4090/3090 0.8916 -0.00029 q95/q99 0.13118 0.20528
+cvrptw_checkpoint_300 delta/init 1.0198 ambiguous cosine4090/3090 0.00027 0.88841 q95/q99 0.17127 0.37513
+ocvrp_checkpoint_300 delta/init 0.73 ambiguous cosine4090/3090 0.89632 0.00063 q95/q99 0.12707 0.20183
+ocvrptw_checkpoint_300 delta/init 0.7269 ambiguous cosine4090/3090 0.8932 -0.00156 q95/q99 0.12284 0.20255
+op_checkpoint_300 delta/init 0.7751 ambiguous cosine4090/3090 0.903 -0.00053 q95/q99 0.13202 0.21429
+pctsp_checkpoint_300 delta/init 1.1121 ambiguous cosine4090/3090 -0.0001 0.90307 q95/q99 0.18475 0.39039
+pdtsp_checkpoint_300 delta/init 0.8398 ambiguous cosine4090/3090 0.90907 -0.00024 q95/q99 0.13997 0.19968
+tsp_checkpoint_300 delta/init 0.9545 ambiguous cosine4090/3090 0.87507 -0.00036 q95/q99 0.14544 0.25811
+unified_checkpoint_500 delta/init 1.0237 ambiguous cosine4090/3090 0.78873 -0.00024 q95/q99 0.17391 0.26052

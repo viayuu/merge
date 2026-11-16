@@ -1,0 +1,526 @@
+{
+  "candidate_hashes_and_all_tensor_hashes_match": true,
+  "difference_coordinates": 348160,
+  "shared_coordinates": 4612327,
+  "groups_are_inferred_not_historical_full_base_proof": true,
+  "experts": {
+    "acvrp_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": 0.8666690296834242,
+      "candidate_cosine_3090": -0.0011634266020646876,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "atsp_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 614528,
+        "3090": 614528
+      },
+      "candidate_cosine_4090": 0.8511924301969026,
+      "candidate_cosine_3090": -5.801436214567467e-05,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "cvrp_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": 0.8905190553106781,
+      "candidate_cosine_3090": -0.00046868183718162457,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "cvrpb_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": 0.8916001146549548,
+      "candidate_cosine_3090": -0.00029101781584968465,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "cvrptw_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": 0.0002748983368885292,
+      "candidate_cosine_3090": 0.8884033697975237,
+      "inferred_group": "3090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "ocvrp_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": 0.8963190525903278,
+      "candidate_cosine_3090": 0.0006291882782809973,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "ocvrptw_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": 0.8931932585945055,
+      "candidate_cosine_3090": -0.00156120762063591,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "op_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": 0.9030020271933509,
+      "candidate_cosine_3090": -0.0005306164630959831,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "pctsp_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "candidate_cosine_4090": -9.652392380030009e-05,
+      "candidate_cosine_3090": 0.9030658599191375,
+      "inferred_group": "3090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "pdtsp_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 1664,
+        "3090": 1664
+      },
+      "candidate_cosine_4090": 0.9090636233364807,
+      "candidate_cosine_3090": -0.00023904077912347119,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    },
+    "tsp_checkpoint_300": {
+      "exact_witness_coordinates": {
+        "cpu": 0,
+        "4090": 614528,
+        "3090": 614528
+      },
+      "candidate_cosine_4090": 0.8750726378260321,
+      "candidate_cosine_3090": -0.00036155153588542316,
+      "inferred_group": "4090",
+      "additional_exact_witness_search": {
+        "decoder.hyper_Wq_first.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wk.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        },
+        "decoder.hyper_Wv.weight": {
+          "zero_moment_diagnostic_coordinates": 0,
+          "exact_candidate_a_coordinates": 0,
+          "exact_candidate_b_coordinates": 0
+        }
+      }
+    }
+  },
+  "expert_order": [
+    "acvrp_checkpoint_300",
+    "atsp_checkpoint_300",
+    "cvrp_checkpoint_300",
+    "cvrpb_checkpoint_300",
+    "ocvrp_checkpoint_300",
+    "ocvrptw_checkpoint_300",
+    "op_checkpoint_300",
+    "pdtsp_checkpoint_300",
+    "tsp_checkpoint_300",
+    "cvrptw_checkpoint_300",
+    "pctsp_checkpoint_300"
+  ],
+  "pairwise_cosine": [
+    [
+      0.9999999999999393,
+      0.7367501946033418,
+      0.7724595543523818,
+      0.7740766473726811,
+      0.7772643532816562,
+      0.7744115527929702,
+      0.7830060506937789,
+      0.7881279225728499,
+      0.7576547545796275,
+      -6.603900448785292e-05,
+      -0.0007141808053610229
+    ],
+    [
+      0.7367501946033418,
+      0.9999999999999375,
+      0.7589700613154898,
+      0.7587167449620155,
+      0.7627968416879449,
+      0.7604260694513447,
+      0.7680626894747122,
+      0.7740826022171591,
+      0.7486192844083508,
+      0.00017009445781322578,
+      0.00022027811731461768
+    ],
+    [
+      0.7724595543523818,
+      0.7589700613154898,
+      0.9999999999999384,
+      0.7976837369384507,
+      0.8031757759888142,
+      0.7994020374536369,
+      0.8058327913625507,
+      0.8122551699895746,
+      0.7800817610334131,
+      -0.0006380453298224107,
+      -9.088579011704592e-05
+    ],
+    [
+      0.7740766473726811,
+      0.7587167449620155,
+      0.7976837369384507,
+      0.999999999999939,
+      0.802618982835685,
+      0.7979600431652876,
+      0.8070456660443284,
+      0.8128068302579275,
+      0.7810061001712024,
+      0.0011421252846357229,
+      -9.605432674977617e-06
+    ],
+    [
+      0.7772643532816562,
+      0.7627968416879449,
+      0.8031757759888142,
+      0.802618982835685,
+      0.9999999999999418,
+      0.8041337436352161,
+      0.8113067079104638,
+      0.8177728274838115,
+      0.7841189305155267,
+      0.00293124858365536,
+      0.000866509282819313
+    ],
+    [
+      0.7744115527929702,
+      0.7604260694513447,
+      0.7994020374536369,
+      0.7979600431652876,
+      0.8041337436352161,
+      0.9999999999999408,
+      0.8088518234673282,
+      0.8129866959524974,
+      0.781587439693964,
+      0.0006588053892824154,
+      -0.00157376481725758
+    ],
+    [
+      0.7830060506937789,
+      0.7680626894747122,
+      0.8058327913625507,
+      0.8070456660443284,
+      0.8113067079104638,
+      0.8088518234673282,
+      0.9999999999999334,
+      0.8243599364239576,
+      0.7901248878019806,
+      0.0002229801788943376,
+      0.0004208079510682416
+    ],
+    [
+      0.7881279225728499,
+      0.7740826022171591,
+      0.8122551699895746,
+      0.8128068302579275,
+      0.8177728274838115,
+      0.8129866959524974,
+      0.8243599364239576,
+      0.9999999999999327,
+      0.7979594734088135,
+      0.001726545730058439,
+      6.111517490633002e-05
+    ],
+    [
+      0.7576547545796275,
+      0.7486192844083508,
+      0.7800817610334131,
+      0.7810061001712024,
+      0.7841189305155267,
+      0.781587439693964,
+      0.7901248878019806,
+      0.7979594734088135,
+      0.9999999999999305,
+      -0.00012546447140723686,
+      0.00034259639772477637
+    ],
+    [
+      -6.603900448785292e-05,
+      0.00017009445781322578,
+      -0.0006380453298224107,
+      0.0011421252846357229,
+      0.00293124858365536,
+      0.0006588053892824154,
+      0.0002229801788943376,
+      0.001726545730058439,
+      -0.00012546447140723686,
+      0.9999999999999353,
+      0.8024269463093945
+    ],
+    [
+      -0.0007141808053610229,
+      0.00022027811731461768,
+      -9.088579011704592e-05,
+      -9.605432674977617e-06,
+      0.000866509282819313,
+      -0.00157376481725758,
+      0.0004208079510682416,
+      6.111517490633002e-05,
+      0.00034259639772477637,
+      0.8024269463093945,
+      0.9999999999999372
+    ]
+  ],
+  "within_group_range": [
+    0.7367501946033418,
+    0.8243599364239576
+  ],
+  "cross_group_range": [
+    -0.00157376481725758,
+    0.00293124858365536
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "source_commit": "69c6766219e40d18fd8b371fedfc208241e5be9e",
+  "earliest_full_release": "aa179e8",
+  "code_comparison": {
+    "model/Model.py": {
+      "first_release_vs_current_full_ast_equal_ignoring_header": true
+    },
+    "model/Model_LIB.py": {
+      "first_release_vs_current_full_ast_equal_ignoring_header": true
+    },
+    "Trainer.py": {
+      "first_release_vs_current_full_ast_equal_ignoring_header": true
+    },
+    "args.py": {
+      "first_release_vs_current_full_ast_equal_ignoring_header": true
+    },
+    "train.py": {
+      "first_release_vs_current_full_ast_equal_ignoring_header": true
+    },
+    "utils/utils.py": {
+      "first_release_vs_current_full_ast_equal_ignoring_header": false
+    }
+  },
+  "model_parameter_count": 4960487,
+  "different_candidate_coordinates": 348160,
+  "experts": {
+    "acvrp_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": 0.8666690296834242,
+        "3090": -0.0011634266020646876
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "atsp_checkpoint_300": {
+      "unused_random_numel": 614528,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 614528,
+        "3090": 614528
+      },
+      "diagnostic_cosine": {
+        "4090": 0.8511924301969026,
+        "3090": -5.801436214567467e-05
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "cvrp_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": 0.8905190553106781,
+        "3090": -0.00046868183718162457
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "cvrpb_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": 0.8916001146549548,
+        "3090": -0.00029101781584968465
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "cvrptw_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": 0.0002748983368885292,
+        "3090": 0.8884033697975237
+      },
+      "inferred_candidate_type": "3090"
+    },
+    "ocvrp_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": 0.8963190525903278,
+        "3090": 0.0006291882782809973
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "ocvrptw_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": 0.8931932585945055,
+        "3090": -0.00156120762063591
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "op_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": 0.9030020271933509,
+        "3090": -0.0005306164630959831
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "pctsp_checkpoint_300": {
+      "unused_random_numel": 612864,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 612864,
+        "3090": 612864
+      },
+      "diagnostic_cosine": {
+        "4090": -9.652392380030009e-05,
+        "3090": 0.9030658599191375
+      },
+      "inferred_candidate_type": "3090"
+    },
+    "pdtsp_checkpoint_300": {
+      "unused_random_numel": 1664,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 1664,
+        "3090": 1664
+      },
+      "diagnostic_cosine": {
+        "4090": 0.9090636233364807,
+        "3090": -0.00023904077912347119
+      },
+      "inferred_candidate_type": "4090"
+    },
+    "tsp_checkpoint_300": {
+      "unused_random_numel": 614528,
+      "exact_candidate_matches": {
+        "cpu": 0,
+        "4090": 614528,
+        "3090": 614528
+      },
+      "diagnostic_cosine": {
+        "4090": 0.8750726378260321,
+        "3090": -0.00036155153588542316
+      },
+      "inferred_candidate_type": "4090"
+    }
+  },
+  "historical_full_initialization_proven": false,
+  "initialization_groups_are_statistical_inferences": true,
+  "seed_function_unchanged_from_first_release": true
+}

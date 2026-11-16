@@ -10,7 +10,7 @@
 | 原评测及汇总 | DONE | 原test.py可导出JSON；runner输出CSV/Markdown论文对照 |
 | 代码审阅 | APPROVE | 两项汇总问题与相对路径问题已修复；源码备份修复也经复核 |
 | B0 CPU通路检查 | PASS | 2模型×2任务，每组合2例；原数据、无增强；JSON/CSV完整 |
-| 共同base | UNRESOLVED | 未核实共同训练起点；本批不执行标准TA/TIES/DARE，也不以通用URS冒充base |
+| 共同base | CANDIDATES_RECONSTRUCTED | 历史完整base未获证实；两种CUDA候选通过未更新随机指纹，统计上呈9+2组。可做同组重建base探索；不能混称11模型共享预训练base |
 | GPU访问 | VERIFIED | admin01为登录节点；已有Slurm 1475/gpu05双4090、1465/gpu03双3090均可用；每allocation一个srun、内部双worker；见GPU_ACCESS_AUDIT.md |
 | B1两任务正式评测 | COMPLETED | 12项：本地URS×2、两专家×2、三种插值×2；12/12成功 |
 | B2四任务正式评测 | COMPLETED | 新增8项：四专家均值×4，新增两任务的URS与本任务专家；复用B1重叠结果 |
@@ -28,3 +28,11 @@ B0仅验证代码通路，没有正式motivation结论。日志为 `refine-logs/
 ## ACVRP差异原因补充（2026-11-16）
 
 已用原数据完成10次ACVRP对照复跑。原3090单任务进程结果可逐位重复；4090上同一进程ATSP→ACVRP得到URS 3.060408%、ACVRP专家2.006599%，保留两位正好是论文3.06%/2.01%。原程序全进程设seed一次，ATSP推进了后续ACVRP随机节点标识的序列；此前每任务独立进程重设seed改变了这一输入。仅推进等量随机数、不运行ATSP时，20批标识与所有分数逐位相同，确认随机序列机制。GPU型号另有较小影响。原数据、参考分数和此前45项结果均保留；当前负面合并结论不变。详情：[ACVRP专项排查](../experiment_runs/20261116_acvrp_audit/RESULTS.md)。
+
+## Common Base可行性复核（2026-11-16）
+
+本次已按seed3407和原模型构造顺序重建CPU、4090、3090初始化。两种GPU候选都精确匹配11专家所有未更新随机参数；但完整候选在4个decoder矩阵的348160个坐标上不同。训练终点在这些差异坐标的相关性强烈提示两组：A=TSP/ATSP/CVRP/ACVRP/CVRPB/OCVRP/OCVRPTW/OP/PDTSP（4090候选），B=CVRPTW/PCTSP（3090候选）。分组是强统计推断，不是作者完整谱系证明，也不等于确认历史物理训练GPU。
+
+因此可继续“同组专家＋明确标注的重建随机初始化base”的TA/TIES/DARE探索；不能把全部11模型直接宣称为共享一个已验证预训练base的标准复现。建议先CVRP+OCVRP，再CVRP/CVRPB/OCVRP/OCVRPTW。TA在scale=1/K时等于已有平均，DARE先检查单专家低drop率。所有后续性能评测仍使用原数据、原gap；本次仅完成候选重建与加载/有限性检查，没有运行新性能矩阵。
+
+完整证据与限制：[Common Base专项审计](../experiment_runs/20261116_common_base_audit/RESULTS.md)。历史45项结果与用户已有merge.py编辑均保留。

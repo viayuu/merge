@@ -1,0 +1,34 @@
+{
+  "base_strict_load": true,
+  "tasks": [
+    "cvrp",
+    "ocvrp"
+  ],
+  "ta_scale_half_vs_average_max_abs_difference": 5.960464477539063e-08,
+  "methods": {
+    "task-arithmetic": {
+      "arguments": {
+        "scale": 0.4
+      },
+      "strict_load": true,
+      "all_finite": true
+    },
+    "ties": {
+      "arguments": {
+        "density": 0.2,
+        "scale": 1
+      },
+      "strict_load": true,
+      "all_finite": true
+    },
+    "dare-ta": {
+      "arguments": {
+        "drop_rate": 0.1,
+        "scale": 0.5,
+        "seed": 0
+      },
+      "strict_load": true,
+      "all_finite": true
+    }
+  }
+}

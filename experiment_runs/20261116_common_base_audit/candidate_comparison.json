@@ -1,0 +1,432 @@
+{
+  "initialization_device_difference": {
+    "decoder.hyper_Wq_first.weight": 87040,
+    "decoder.hyper_Wq_last.weight": 87040,
+    "decoder.hyper_Wk.weight": 87040,
+    "decoder.hyper_Wv.weight": 87040
+  },
+  "total_numel": 4960487,
+  "difference_numel": 348160,
+  "checkpoints": {
+    "acvrp_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.7742267847061157,
+      "delta_abs_quantiles": {
+        "50": 0.030105041339993477,
+        "90": 0.10285349190235138,
+        "95": 0.1331096738576889,
+        "99": 0.21098899841308594,
+        "100": 2.262770891189575
+      },
+      "delta_fraction_abs_gt_0_002": 0.8048635125160217,
+      "ambiguous_coordinates_cosine_4090": 0.8666710257530212,
+      "ambiguous_coordinates_cosine_3090": -0.0011634307447820902,
+      "ambiguous_coordinates_l2_to_4090": 52.32617950439453,
+      "ambiguous_coordinates_l2_to_3090": 141.08151245117188,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.7742267847061157,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.9442554116249084,
+          "cosine_3090": -0.0029821281787008047
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8692110776901245,
+          "cosine_3090": -0.0011908741435036063
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.831395149230957,
+          "cosine_3090": 0.0014230851083993912
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.8362001180648804,
+          "cosine_3090": -0.002094120951369405
+        }
+      }
+    },
+    "atsp_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.833038330078125,
+      "delta_abs_quantiles": {
+        "50": 0.033571138978004456,
+        "90": 0.11063075065612793,
+        "95": 0.1414289027452469,
+        "99": 0.2237488031387329,
+        "100": 2.0474693775177
+      },
+      "delta_fraction_abs_gt_0_002": 0.8050328493118286,
+      "ambiguous_coordinates_cosine_4090": 0.8511934280395508,
+      "ambiguous_coordinates_cosine_3090": -5.801446968689561e-05,
+      "ambiguous_coordinates_l2_to_4090": 55.58157730102539,
+      "ambiguous_coordinates_l2_to_3090": 141.68841552734375,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.833038330078125,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.8063360452651978,
+          "cosine_3090": -0.0015412148786708713
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8776400089263916,
+          "cosine_3090": -0.000905287335626781
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.8672077059745789,
+          "cosine_3090": 0.0018382738344371319
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.8565244674682617,
+          "cosine_3090": 0.00042602350004017353
+        }
+      }
+    },
+    "cvrp_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.7581990361213684,
+      "delta_abs_quantiles": {
+        "50": 0.03191739693284035,
+        "90": 0.10456930100917816,
+        "95": 0.1320599615573883,
+        "99": 0.1951039433479309,
+        "100": 1.0309815406799316
+      },
+      "delta_fraction_abs_gt_0_002": 0.8064391613006592,
+      "ambiguous_coordinates_cosine_4090": 0.8905202150344849,
+      "ambiguous_coordinates_cosine_3090": -0.00046868339995853603,
+      "ambiguous_coordinates_l2_to_4090": 46.82939529418945,
+      "ambiguous_coordinates_l2_to_3090": 139.6403350830078,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.7581990361213684,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.9025984406471252,
+          "cosine_3090": -0.00182344822678715
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8871243000030518,
+          "cosine_3090": -0.001982467481866479
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.8773778676986694,
+          "cosine_3090": 0.0009142393246293068
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.895702600479126,
+          "cosine_3090": 0.0009526389185339212
+        }
+      }
+    },
+    "cvrpb_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.7447642683982849,
+      "delta_abs_quantiles": {
+        "50": 0.028490707278251648,
+        "90": 0.10078281164169312,
+        "95": 0.13117815554141998,
+        "99": 0.205280601978302,
+        "100": 1.2273221015930176
+      },
+      "delta_fraction_abs_gt_0_002": 0.8040976524353027,
+      "ambiguous_coordinates_cosine_4090": 0.8916020393371582,
+      "ambiguous_coordinates_cosine_3090": -0.00029101886320859194,
+      "ambiguous_coordinates_l2_to_4090": 46.480934143066406,
+      "ambiguous_coordinates_l2_to_3090": 139.39646911621094,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.7447642683982849,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.9094188809394836,
+          "cosine_3090": -0.000393772148527205
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8865711688995361,
+          "cosine_3090": -0.0027387412264943123
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.8868123888969421,
+          "cosine_3090": 0.0018624316435307264
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.8847009539604187,
+          "cosine_3090": 8.518050890415907e-05
+        }
+      }
+    },
+    "cvrptw_checkpoint_300": {
+      "delta_l2_over_init_l2": 1.0197585821151733,
+      "delta_abs_quantiles": {
+        "50": 0.027971286326646805,
+        "90": 0.11216514557600021,
+        "95": 0.17126935720443726,
+        "99": 0.3751303553581238,
+        "100": 2.0032315254211426
+      },
+      "delta_fraction_abs_gt_0_002": 0.8038922548294067,
+      "ambiguous_coordinates_cosine_4090": 0.00027489918284118176,
+      "ambiguous_coordinates_cosine_3090": 0.8884057998657227,
+      "ambiguous_coordinates_l2_to_4090": 140.08152770996094,
+      "ambiguous_coordinates_l2_to_3090": 47.5577507019043,
+      "candidate_initialization_group": "3090",
+      "delta_l2_over_matching_candidate_init_l2": 0.7349104285240173,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": -0.002034637611359358,
+          "cosine_3090": 0.9135953783988953
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": -0.0008591711521148682,
+          "cosine_3090": 0.887199878692627
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.0045580025762319565,
+          "cosine_3090": 0.8652660846710205
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": -0.0007399831665679812,
+          "cosine_3090": 0.8897179365158081
+        }
+      }
+    },
+    "ocvrp_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.7300452589988708,
+      "delta_abs_quantiles": {
+        "50": 0.028370389714837074,
+        "90": 0.097887322306633,
+        "95": 0.12707334756851196,
+        "99": 0.20183342695236206,
+        "100": 1.8369941711425781
+      },
+      "delta_fraction_abs_gt_0_002": 0.8038533329963684,
+      "ambiguous_coordinates_cosine_4090": 0.8963209986686707,
+      "ambiguous_coordinates_cosine_3090": 0.0006291910540312529,
+      "ambiguous_coordinates_l2_to_4090": 45.393733978271484,
+      "ambiguous_coordinates_l2_to_3090": 139.1538848876953,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.7300452589988708,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.9258517622947693,
+          "cosine_3090": -0.0019469629041850567
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8879343271255493,
+          "cosine_3090": 0.002148181200027466
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.8713148832321167,
+          "cosine_3090": 0.00021287600975483656
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.9028002023696899,
+          "cosine_3090": 0.0020276885479688644
+        }
+      }
+    },
+    "ocvrptw_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.7268632054328918,
+      "delta_abs_quantiles": {
+        "50": 0.02664901874959469,
+        "90": 0.09388327598571777,
+        "95": 0.12283875048160553,
+        "99": 0.20254749059677124,
+        "100": 1.5386905670166016
+      },
+      "delta_fraction_abs_gt_0_002": 0.803378164768219,
+      "ambiguous_coordinates_cosine_4090": 0.893195390701294,
+      "ambiguous_coordinates_cosine_3090": -0.001561213401146233,
+      "ambiguous_coordinates_l2_to_4090": 46.38386917114258,
+      "ambiguous_coordinates_l2_to_3090": 139.92343139648438,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.7268632054328918,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.9261608123779297,
+          "cosine_3090": -0.0012356261722743511
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8838661909103394,
+          "cosine_3090": 0.0005519732367247343
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.8756987452507019,
+          "cosine_3090": -0.0018695788457989693
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.8895479440689087,
+          "cosine_3090": -0.0036559109576046467
+        }
+      }
+    },
+    "op_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.7750934362411499,
+      "delta_abs_quantiles": {
+        "50": 0.029409095644950867,
+        "90": 0.10159599781036377,
+        "95": 0.1320154368877411,
+        "99": 0.21428851783275604,
+        "100": 0.8012202978134155
+      },
+      "delta_fraction_abs_gt_0_002": 0.804145872592926,
+      "ambiguous_coordinates_cosine_4090": 0.9030039310455322,
+      "ambiguous_coordinates_cosine_3090": -0.0005306187667883933,
+      "ambiguous_coordinates_l2_to_4090": 43.54234313964844,
+      "ambiguous_coordinates_l2_to_3090": 138.43353271484375,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.7750934362411499,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.9408233165740967,
+          "cosine_3090": -0.0013455960433930159
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.9029747247695923,
+          "cosine_3090": -0.0021863600704818964
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.8807186484336853,
+          "cosine_3090": 0.0008270315011031926
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.8918706178665161,
+          "cosine_3090": 0.0004862062633037567
+        }
+      }
+    },
+    "pctsp_checkpoint_300": {
+      "delta_l2_over_init_l2": 1.1120778322219849,
+      "delta_abs_quantiles": {
+        "50": 0.02916334569454193,
+        "90": 0.12063893675804138,
+        "95": 0.1847461760044098,
+        "99": 0.39038851857185364,
+        "100": 1.5092899799346924
+      },
+      "delta_fraction_abs_gt_0_002": 0.8034664988517761,
+      "ambiguous_coordinates_cosine_4090": -9.652427979744971e-05,
+      "ambiguous_coordinates_cosine_3090": 0.9030681252479553,
+      "ambiguous_coordinates_l2_to_4090": 138.47096252441406,
+      "ambiguous_coordinates_l2_to_3090": 43.58315658569336,
+      "candidate_initialization_group": "3090",
+      "delta_l2_over_matching_candidate_init_l2": 0.8598502278327942,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.0017274380661547184,
+          "cosine_3090": 0.9301868677139282
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": -0.0026262211613357067,
+          "cosine_3090": 0.8946162462234497
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": -0.002043649088591337,
+          "cosine_3090": 0.9005757570266724
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.00257431180216372,
+          "cosine_3090": 0.8895527124404907
+        }
+      }
+    },
+    "pdtsp_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.8398207426071167,
+      "delta_abs_quantiles": {
+        "50": 0.04370729997754097,
+        "90": 0.11414435505867004,
+        "95": 0.1399730145931244,
+        "99": 0.19967854022979736,
+        "100": 0.95361328125
+      },
+      "delta_fraction_abs_gt_0_002": 0.9623411893844604,
+      "ambiguous_coordinates_cosine_4090": 0.9090651273727417,
+      "ambiguous_coordinates_cosine_3090": -0.000239041808526963,
+      "ambiguous_coordinates_l2_to_4090": 42.22677993774414,
+      "ambiguous_coordinates_l2_to_3090": 138.48410034179688,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.8398207426071167,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.9179757833480835,
+          "cosine_3090": -0.0017729613464325666
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8985674381256104,
+          "cosine_3090": -0.001200254773721099
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.9007604122161865,
+          "cosine_3090": -0.0007609944441355765
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.9195519685745239,
+          "cosine_3090": 0.002784004667773843
+        }
+      }
+    },
+    "tsp_checkpoint_300": {
+      "delta_l2_over_init_l2": 0.954547643661499,
+      "delta_abs_quantiles": {
+        "50": 0.029682423919439316,
+        "90": 0.10979201644659042,
+        "95": 0.14543861150741577,
+        "99": 0.25810861587524414,
+        "100": 1.420892357826233
+      },
+      "delta_fraction_abs_gt_0_002": 0.8013741374015808,
+      "ambiguous_coordinates_cosine_4090": 0.8750743269920349,
+      "ambiguous_coordinates_cosine_3090": -0.00036155275302007794,
+      "ambiguous_coordinates_l2_to_4090": 50.80352783203125,
+      "ambiguous_coordinates_l2_to_3090": 141.17897033691406,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 0.954547643661499,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.8518010377883911,
+          "cosine_3090": -0.003510137554258108
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.8780264854431152,
+          "cosine_3090": -0.001373938168399036
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.870218813419342,
+          "cosine_3090": 0.0023804735392332077
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.9009454250335693,
+          "cosine_3090": 0.001121072331443429
+        }
+      }
+    },
+    "unified_checkpoint_500": {
+      "delta_l2_over_init_l2": 1.0237493515014648,
+      "delta_abs_quantiles": {
+        "50": 0.04751535505056381,
+        "90": 0.13812768459320068,
+        "95": 0.1739118993282318,
+        "99": 0.2605248987674713,
+        "100": 1.8947113752365112
+      },
+      "delta_fraction_abs_gt_0_002": 0.9706444144248962,
+      "ambiguous_coordinates_cosine_4090": 0.7887343764305115,
+      "ambiguous_coordinates_cosine_3090": -0.00023693672847002745,
+      "ambiguous_coordinates_l2_to_4090": 67.5346450805664,
+      "ambiguous_coordinates_l2_to_3090": 144.29119873046875,
+      "candidate_initialization_group": "4090",
+      "delta_l2_over_matching_candidate_init_l2": 1.0237493515014648,
+      "per_differing_tensor": {
+        "decoder.hyper_Wq_first.weight": {
+          "cosine_4090": 0.8083418011665344,
+          "cosine_3090": -0.001385815441608429
+        },
+        "decoder.hyper_Wq_last.weight": {
+          "cosine_4090": 0.7772029042243958,
+          "cosine_3090": -0.0024672234430909157
+        },
+        "decoder.hyper_Wk.weight": {
+          "cosine_4090": 0.7674992084503174,
+          "cosine_3090": 0.0017718635499477386
+        },
+        "decoder.hyper_Wv.weight": {
+          "cosine_4090": 0.8025009632110596,
+          "cosine_3090": 0.0010471855057403445
+        }
+      }
+    }
+  }
+}
