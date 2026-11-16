@@ -1,0 +1,8 @@
+START unified__ocvrp 3090_0
+START specialist_ocvrp__ocvrp 3090_1
+COMPLETED specialist_ocvrp__ocvrp 3090_1
+START average_4__cvrpb 3090_1
+COMPLETED unified__ocvrp 3090_0
+START average_4__ocvrp 3090_0
+COMPLETED average_4__cvrpb 3090_1
+COMPLETED average_4__ocvrp 3090_0

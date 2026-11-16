@@ -1,0 +1,12 @@
+task,scale,episodes,augmentation_factor,paper_urs_gap_pct,paper_stl_gap_pct,paper_reference,source_table,page
+tsp,100,1000,8,0.57,0.08,https://arxiv.org/abs/2509.23413v3,Table 3,6
+atsp,100,1000,128,2.26,0.62,https://arxiv.org/abs/2509.23413v3,Table 3,6
+cvrp,100,1000,8,1.81,1.63,https://arxiv.org/abs/2509.23413v3,Table 3,6
+acvrp,100,1000,128,3.06,2.01,https://arxiv.org/abs/2509.23413v3,Table 2,6
+cvrpb,100,1000,8,1.46,1.59,https://arxiv.org/abs/2509.23413v3,Table 2,6
+cvrptw,100,1000,8,6.13,4.50,https://arxiv.org/abs/2509.23413v3,Table 2,6
+ocvrp,100,1000,8,3.24,2.25,https://arxiv.org/abs/2509.23413v3,Table 2,6
+ocvrptw,100,1000,8,5.07,3.22,https://arxiv.org/abs/2509.23413v3,Table 2,6
+op,100,1000,8,0.45,0.11,https://arxiv.org/abs/2509.23413v3,Table 2,6
+pctsp,100,1000,8,1.06,-0.09,https://arxiv.org/abs/2509.23413v3,Table 2,6
+pdtsp,100,1000,8,4.98,3.22,https://arxiv.org/abs/2509.23413v3,Table 2,6

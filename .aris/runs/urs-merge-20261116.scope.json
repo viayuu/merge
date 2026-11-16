@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-16",
+  "timezone": "Asia/Shanghai",
+  "scope": "targeted_research_and_experiment_planning",
+  "idea_source": "user_fixed",
+  "AUTO_PROCEED": true,
+  "ARXIV_DOWNLOAD": true,
+  "PILOT_MAX_HOURS": null,
+  "PILOT_TIMEOUT_HOURS": null,
+  "MAX_PILOT_IDEAS": null,
+  "MAX_TOTAL_GPU_HOURS": null,
+  "skipped_by_user_scope": [
+    "brainstorming",
+    "idea_ranking",
+    "pilot_execution"
+  ],
+  "pilot_executed": false,
+  "implementation_executed": false,
+  "helper_root": "/public/home/shiys/.codex/Auto-claude-code-research-in-sleep",
+  "helper_resolution_source": "/public/home/shiys/.aris/repo",
+  "executor_identity_note": "codex-gpt-6 records developer-described family; exact deployment variant not exposed",
+  "arxiv_api": {
+    "helper": "tools/arxiv_fetch.py",
+    "query": "ti:\"model merging\" AND (all:\"routing\" OR all:\"combinatorial\")",
+    "exit_code": 0,
+    "result_count": 8,
+    "contribution": "Mostly LLM MoE routing; not direct VRP evidence. Primary VRP evidence independently verified through web."
+  },
+  "stock_pipeline_gate": "BLOCKED: user-scoped idea-generation skip and missing independently reported reviewer identities; no receipts fabricated",
+  "gpu_probe": "nvidia-smi could not communicate with NVIDIA driver; no repair attempted",
+  "planning_deliverable": "complete",
+  "pilot_status": "NOT_RUN"
+}

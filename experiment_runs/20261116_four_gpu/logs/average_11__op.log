@@ -1,0 +1,74 @@
+Assigned CUDA device: NVIDIA GeForce RTX 4090
+[2026-11-16 01:41:10] utils.py(410) : ================================================================================
+[2026-11-16 01:41:10] utils.py(411) : URS: A Unified Neural Routing Solver for Cross-Problem Zero-Shot Generalization
+[2026-11-16 01:41:10] utils.py(412) : Paper URL: https://arxiv.org/pdf/2509.23413
+[2026-11-16 01:41:10] utils.py(413) : Code  URL: https://github.com/CIAM-Group/URS
+[2026-11-16 01:41:10] utils.py(414) : >>> Start testing at 2026-11-16 01:41:10
+[2026-11-16 01:41:10] utils.py(415) : ================================================================================
+[2026-11-16 01:41:10] utils.py(417) : [Hardware & Environment]
+[2026-11-16 01:41:10] utils.py(418) :   Python             : 3.9.23
+[2026-11-16 01:41:10] utils.py(419) :   PyTorch            : 2.5.1+cu124
+[2026-11-16 01:41:10] utils.py(420) :   CUDA available     : True
+[2026-11-16 01:41:10] utils.py(421) :   CUDA runtime       : 12.4
+[2026-11-16 01:41:10] utils.py(422) :   cuDNN              : 90100
+[2026-11-16 01:41:10] utils.py(423) :   Active device      : cuda:0 (NVIDIA GeForce RTX 4090)
+[2026-11-16 01:41:10] utils.py(424) :   GPU count          : 1
+[2026-11-16 01:41:10] utils.py(425) :   Seed               : 3407
+[2026-11-16 01:41:10] utils.py(426) :   Data directory     : /public/home/shiys/merge/URS/dataset
+[2026-11-16 01:41:10] utils.py(427) :   Working directory  : /public/home/shiys/merge/URS
+[2026-11-16 01:41:10] utils.py(428) : [Logging & Tracking]
+[2026-11-16 01:41:10] utils.py(429) :   Result directory   : ./result_test/op_1tasks/20261116_014110_aug_op_average_11_1tasks_range100_100
+[2026-11-16 01:41:10] utils.py(430) :   Log file           : ./result_test/op_1tasks/20261116_014110_aug_op_average_11_1tasks_range100_100/run.log
+[2026-11-16 01:41:10] utils.py(431) : ================================================================================
+[2026-11-16 01:41:10] mask_registry.py(28) : First initializing MaskRegistry...
+[2026-11-16 01:41:10] mask_registry.py(29) : Registered basic mask: visited
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: visited
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: op
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: pc
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: tw
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: l
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: pd
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: bp
+[2026-11-16 01:41:10] mask_registry.py(33) : Registered mask for constraint: vrp
+[2026-11-16 01:41:11] test.py(35) : USE_CUDA: True, CUDA_DEVICE_NUM: 0
+[2026-11-16 01:41:11] test.py(36) : env_params{'test_problem_list': ['op'], 'test_scale_list': [100], 'data_dir': '/public/home/shiys/merge/URS/dataset', 'scale_range_lib': [3000, 7001]}
+[2026-11-16 01:41:11] test.py(36) : model_params{'embedding_dim': 128, 'encoder_layer_num': 12, 'ff_hidden_dim': 512, 'logit_clipping': 50, 'demand_max1': True, 'eval_type': 'greedy'}
+[2026-11-16 01:41:11] test.py(36) : tester_params{'use_cuda': True, 'cuda_device_num': 0, 'model_load': '/public/home/shiys/merge/checkpoints/average_11.pt', 'test_episodes': [1000], 'augmentation_enable': True, 'aug_factor': [8, 128], 'test_batch_size_small': [1000, 125, 50, 8], 'test_batch_size_large': [16, 8, 2, 1, 1], 'summary_problems_per_row': 6, 'detailed_log': False}
+[2026-11-16 01:41:11] test.py(36) : logger_params{'log_file': {'desc': 'aug_op_average_11_1tasks_range100_100', 'filename': 'run.log', 'filepath': './result_test/op_1tasks/20261116_014110_aug_op_average_11_1tasks_range100_100'}}
+[2026-11-16 01:41:11] Tester.py(51) : 1 problems for testing: ['op']
+/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/site-packages/torch/__init__.py:1144: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:432.)
+  _C._set_default_tensor_type(t)
+/public/home/shiys/merge/URS/Tester.py:76: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_fullname, map_location=device)
+[2026-11-16 01:41:11] Tester.py(78) : Model loaded successfully!!!
+[2026-11-16 01:41:11] Tester.py(79) : Model loaded from: /public/home/shiys/merge/checkpoints/average_11.pt
+[2026-11-16 01:41:11] Tester.py(82) : Number of parameters: 4.96M
+[2026-11-16 01:41:11] Tester.py(100) : 1 scales for testing: [100]. The corresponding episodes: [1000]
+[2026-11-16 01:41:11] Tester.py(102) : Augmentation enabled: True, Augmentation factor: 8 for symmetric problems, 128 for asymmetric problems
+[2026-11-16 01:41:11] DataFinder.py(372) : The solution file not found: problem=op, scale=100, oracle=compass
+[2026-11-16 01:41:11] Tester.py(122) : Found data path for 1000 OP100            ==> data: op100_n10000_seed1234.pt, solution: None
+[2026-11-16 01:41:12] Tester.py(137) : Total test tasks: 1
+[2026-11-16 01:41:12] Tester.py(148) : ========================================================================
+[2026-11-16 01:41:12] Tester.py(149) : ========================================================================
+/public/home/shiys/merge/URS/data/DataReader.py:293: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(filename)[start:start + total_episodes]
+[2026-11-16 01:41:12] Tester.py(163) : Successfully load 1000 OP100 instances ==> oracle score: 33.1900
+[2026-11-16 01:41:12] Tester.py(176) : Testing 1000 OP100 instances with aug_factor: 8 and batch_size: 1000
+[2026-11-16 01:41:12] Tester.py(204) : Before solution construction, reset time estimator and averageMeter...
+[2026-11-16 01:41:16] Tester.py(275) : episode 1000/1000, Elapsed[0.07m], Remain[0.00m], score:29.036, aug_score:30.223
+[2026-11-16 01:41:16] Tester.py(288) : ************* Test Done: OP100 ************* 
+[2026-11-16 01:41:16] Tester.py(289) : problem size: 100, pomo size: 100, aug factor: 8, oracle score: 33.1900 
+[2026-11-16 01:41:16] Tester.py(291) : NO-AUG SCORE:29.0358, GAP:12.516%
+[2026-11-16 01:41:16] Tester.py(293) : AUGMENTATION SCORE:30.2230, GAP:8.939%
+[2026-11-16 01:41:16] Tester.py(296) : Total time: 3.99 sec, 0.07 min
+[2026-11-16 01:41:16] Tester.py(297) : Avg time per episode: 0.00 sec
+[2026-11-16 01:41:16] Tester.py(190) : Completed 1/1 Tasks. Time used so far: 4.1s
+[2026-11-16 01:41:16] Tester.py(509) : =============================== Summary of experimental results ===================================
+[2026-11-16 01:41:16] Tester.py(510) : Mode: Augmentation
+[2026-11-16 01:41:16] Tester.py(513) : ### Scale 100
+[2026-11-16 01:41:16] Tester.py(513) : |      OP      |
+[2026-11-16 01:41:16] Tester.py(513) : |    Gap  Time |
+[2026-11-16 01:41:16] Tester.py(513) : | 8.939%  4.0s |
+[2026-11-16 01:41:16] Tester.py(513) : — — — — — — — —
+[2026-11-16 01:41:31] Tester.py(516) : Summary excel is saved to: ./result_test/op_1tasks/20261116_014110_aug_op_average_11_1tasks_range100_100/test_summary_20261116_014126_893949.xlsx
+[2026-11-16 01:41:32] test.py(185) : JSON results: /public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__op.json

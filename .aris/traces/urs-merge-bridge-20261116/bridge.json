@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-16T00:54:04.553018+08:00",
+  "scope": "implementation_and_small_sanity",
+  "dataset_policy": "original_URS_data_and_evaluator",
+  "auto_deploy_full_suite": false,
+  "review_route": {
+    "backend": "codex",
+    "source": "host-default",
+    "model_requested": "gpt-6-astra",
+    "effort_requested": "xhigh",
+    "fork_turns": "none",
+    "actual_model": null,
+    "actual_effort": null,
+    "agent_id": "/root/implementation_review"
+  },
+  "review_completed": true,
+  "review_substantive_verdict": "APPROVE",
+  "review_identity_receipt": "not available from native transport",
+  "review_path": "refine-logs/EXPERIMENT_CODE_REVIEW.md",
+  "sanity_exit": 0,
+  "sanity_device": "cpu",
+  "gpu_available": false,
+  "formal_experiments": "NOT_RUN",
+  "new_dataset_created": false
+}

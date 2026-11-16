@@ -1,0 +1,67 @@
+Evaluating unified_checkpoint_500.pt
+[2026-11-16 00:50:48] utils.py(410) : ================================================================================
+[2026-11-16 00:50:48] utils.py(411) : URS: A Unified Neural Routing Solver for Cross-Problem Zero-Shot Generalization
+[2026-11-16 00:50:48] utils.py(412) : Paper URL: https://arxiv.org/pdf/2509.23413
+[2026-11-16 00:50:48] utils.py(413) : Code  URL: https://github.com/CIAM-Group/URS
+[2026-11-16 00:50:48] utils.py(414) : >>> Start testing at 2026-11-16 00:50:48
+[2026-11-16 00:50:48] utils.py(415) : ================================================================================
+[2026-11-16 00:50:48] utils.py(417) : [Hardware & Environment]
+[2026-11-16 00:50:48] utils.py(418) :   Python             : 3.9.23
+[2026-11-16 00:50:48] utils.py(419) :   PyTorch            : 2.5.1+cu124
+[2026-11-16 00:50:48] utils.py(420) :   CUDA available     : False
+[2026-11-16 00:50:48] utils.py(421) :   CUDA runtime       : 12.4
+[2026-11-16 00:50:48] utils.py(422) :   cuDNN              : 90100
+[2026-11-16 00:50:48] utils.py(423) :   Active device      : cpu (--cuda < 0)
+[2026-11-16 00:50:48] utils.py(424) :   GPU count          : 0
+[2026-11-16 00:50:48] utils.py(425) :   Seed               : 3407
+[2026-11-16 00:50:48] utils.py(426) :   Data directory     : /public/home/shiys/merge/URS/dataset
+[2026-11-16 00:50:48] utils.py(427) :   Working directory  : /public/home/shiys/merge/URS
+[2026-11-16 00:50:48] utils.py(428) : [Logging & Tracking]
+[2026-11-16 00:50:48] utils.py(429) :   Result directory   : ./result_test/cvrp_cvrptw_2tasks/20261116_005048_no_aug_cvrp_cvrptw_unified_checkpoint_500_2tasks_range100_100
+[2026-11-16 00:50:48] utils.py(430) :   Log file           : ./result_test/cvrp_cvrptw_2tasks/20261116_005048_no_aug_cvrp_cvrptw_unified_checkpoint_500_2tasks_range100_100/run.log
+[2026-11-16 00:50:48] utils.py(431) : ================================================================================
+[2026-11-16 00:50:48] mask_registry.py(28) : First initializing MaskRegistry...
+[2026-11-16 00:50:48] mask_registry.py(29) : Registered basic mask: visited
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: visited
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: op
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: pc
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: tw
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: l
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: pd
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: bp
+[2026-11-16 00:50:48] mask_registry.py(33) : Registered mask for constraint: vrp
+[2026-11-16 00:50:48] test.py(35) : USE_CUDA: False, CUDA_DEVICE_NUM: -1
+[2026-11-16 00:50:48] test.py(36) : env_params{'test_problem_list': ['cvrp', 'cvrptw'], 'test_scale_list': [100], 'data_dir': '/public/home/shiys/merge/URS/dataset', 'scale_range_lib': [3000, 7001]}
+[2026-11-16 00:50:48] test.py(36) : model_params{'embedding_dim': 128, 'encoder_layer_num': 12, 'ff_hidden_dim': 512, 'logit_clipping': 50, 'demand_max1': True, 'eval_type': 'greedy'}
+[2026-11-16 00:50:48] test.py(36) : tester_params{'use_cuda': False, 'cuda_device_num': -1, 'model_load': '/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt', 'test_episodes': [2], 'augmentation_enable': False, 'aug_factor': [8, 128], 'test_batch_size_small': [1000, 125, 50, 8], 'test_batch_size_large': [16, 8, 2, 1, 1], 'summary_problems_per_row': 6, 'detailed_log': False}
+[2026-11-16 00:50:48] test.py(36) : logger_params{'log_file': {'desc': 'no_aug_cvrp_cvrptw_unified_checkpoint_500_2tasks_range100_100', 'filename': 'run.log', 'filepath': './result_test/cvrp_cvrptw_2tasks/20261116_005048_no_aug_cvrp_cvrptw_unified_checkpoint_500_2tasks_range100_100'}}
+[2026-11-16 00:50:48] Tester.py(51) : 2 problems for testing: ['cvrp', 'cvrptw']
+/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/site-packages/torch/__init__.py:1144: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:432.)
+  _C._set_default_tensor_type(t)
+/public/home/shiys/merge/URS/Tester.py:76: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_fullname, map_location=device)
+[2026-11-16 00:50:48] Tester.py(78) : Model loaded successfully!!!
+[2026-11-16 00:50:48] Tester.py(79) : Model loaded from: /public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt
+[2026-11-16 00:50:48] Tester.py(82) : Number of parameters: 4.96M
+[2026-11-16 00:50:48] Tester.py(100) : 1 scales for testing: [100]. The corresponding episodes: [2]
+[2026-11-16 00:50:48] Tester.py(102) : Augmentation enabled: False, Augmentation factor: 8 for symmetric problems, 128 for asymmetric problems
+[2026-11-16 00:50:48] Tester.py(122) : Found data path for    2 CVRP100          ==> data: cvrp100_uniform.pkl, solution: hgs_cvrp100_uniform.pkl
+[2026-11-16 00:50:48] Tester.py(122) : Found data path for    2 CVRPTW100        ==> data: cvrptw100_1000uni.pkl, solution: hgs_pyvrp_cvrptw100_1000uni.pkl
+Traceback (most recent call last):
+  File "/public/home/shiys/merge/URS/test.py", line 154, in <module>
+    copy_all_src(tester.result_folder)
+  File "/public/home/shiys/merge/URS/utils/utils.py", line 375, in copy_all_src
+    shutil.copy(src_abspath, dst_filepath)
+  File "/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/shutil.py", line 427, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/shutil.py", line 264, in copyfile
+    with open(src, 'rb') as fsrc:
+FileNotFoundError: [Errno 2] No such file or directory: '/public/home/shiys/merge/URS/_ops.py'
+Traceback (most recent call last):
+  File "/public/home/shiys/merge/merge_lab/evaluate.py", line 52, in <module>
+    main()
+  File "/public/home/shiys/merge/merge_lab/evaluate.py", line 45, in main
+    subprocess.run(command, cwd=URS, check=True)
+  File "/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/public/home/shiys/miniconda3/envs/easynco/bin/python', '/public/home/shiys/merge/URS/test.py', '--data_dir', '/public/home/shiys/merge/URS/dataset', '--problem_set', 'train_problem_list', '--test_scale_list', '100', '--test_episodes', '1000', '--problem_set', 'cvrp,cvrptw', '--test_episodes', '2', '--disable_aug', '--cuda', '-1', '--model_load', '/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt', '--output_json', '/public/home/shiys/merge/results/code_smoke/unified_checkpoint_500.json']' returned non-zero exit status 1.

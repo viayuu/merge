@@ -1,0 +1,12 @@
+START unified_gpu05_standalone
+START specialist_gpu05_standalone
+FINISHED specialist_gpu05_standalone 0
+specialist_gpu05_standalone [('acvrp', 2.144895875453949, 2.0021906499237976)]
+START specialist_gpu05_after_atsp
+FINISHED unified_gpu05_standalone 0
+unified_gpu05_standalone [('acvrp', 2.1666828870773314, 3.0382889233796266)]
+START unified_gpu05_after_atsp
+FINISHED specialist_gpu05_after_atsp 0
+specialist_gpu05_after_atsp [('atsp', 1.9608595609664916, 24.808068293965484), ('acvrp', 2.1449885725975038, 2.0065989346418545)]
+FINISHED unified_gpu05_after_atsp 0
+unified_gpu05_after_atsp [('atsp', 1.606577605009079, 2.2581379294175443), ('acvrp', 2.167148005962372, 3.060408013508771)]

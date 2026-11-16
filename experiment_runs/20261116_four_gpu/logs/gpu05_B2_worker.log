@@ -1,0 +1,8 @@
+START unified__cvrpb 4090_0
+START specialist_cvrpb__cvrpb 4090_1
+COMPLETED specialist_cvrpb__cvrpb 4090_1
+COMPLETED unified__cvrpb 4090_0
+START average_4__cvrp 4090_1
+START average_4__cvrptw 4090_0
+COMPLETED average_4__cvrptw 4090_0
+COMPLETED average_4__cvrp 4090_1

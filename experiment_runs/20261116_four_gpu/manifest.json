@@ -1,0 +1,457 @@
+{
+  "created": "2026-11-16T01:16:27.429946+08:00",
+  "run_id": "20261116_four_gpu",
+  "protocol": {
+    "data_dir": "/public/home/shiys/merge/URS/dataset",
+    "scale": 100,
+    "episodes": 1000,
+    "eval_type": "greedy",
+    "seed": 3407,
+    "aug_factor": [
+      8,
+      128
+    ],
+    "test_batch_size_small": [
+      1000,
+      125,
+      50,
+      8
+    ],
+    "task_execution": "one original test.py subprocess per model-task; same seed per task",
+    "alpha_definition": "(1-alpha)*CVRP + alpha*CVRPTW",
+    "base_dependent_methods": "BASE_UNVERIFIED; not run"
+  },
+  "slots": [
+    {
+      "name": "4090_0",
+      "allocation": "1475",
+      "node": "gpu05",
+      "gpu": 0
+    },
+    {
+      "name": "4090_1",
+      "allocation": "1475",
+      "node": "gpu05",
+      "gpu": 1
+    },
+    {
+      "name": "3090_0",
+      "allocation": "1465",
+      "node": "gpu03",
+      "gpu": 0
+    },
+    {
+      "name": "3090_1",
+      "allocation": "1465",
+      "node": "gpu03",
+      "gpu": 1
+    }
+  ],
+  "jobs": [
+    {
+      "id": "unified__cvrp",
+      "phase": "B1",
+      "model": "unified",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__cvrp.log"
+    },
+    {
+      "id": "unified__cvrptw",
+      "phase": "B1",
+      "model": "unified",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__cvrptw.log"
+    },
+    {
+      "id": "specialist_cvrp__cvrp",
+      "phase": "B1",
+      "model": "specialist_cvrp",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_cvrp__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_cvrp__cvrp.log"
+    },
+    {
+      "id": "specialist_cvrp__cvrptw",
+      "phase": "B1",
+      "model": "specialist_cvrp",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_cvrp__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_cvrp__cvrptw.log"
+    },
+    {
+      "id": "specialist_cvrptw__cvrp",
+      "phase": "B1",
+      "model": "specialist_cvrptw",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_cvrptw__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_cvrptw__cvrp.log"
+    },
+    {
+      "id": "specialist_cvrptw__cvrptw",
+      "phase": "B1",
+      "model": "specialist_cvrptw",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_cvrptw__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_cvrptw__cvrptw.log"
+    },
+    {
+      "id": "interp_025__cvrp",
+      "phase": "B1",
+      "model": "interp_025",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/interp_025.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/interp_025__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/interp_025__cvrp.log"
+    },
+    {
+      "id": "interp_025__cvrptw",
+      "phase": "B1",
+      "model": "interp_025",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/interp_025.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/interp_025__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/interp_025__cvrptw.log"
+    },
+    {
+      "id": "average_2__cvrp",
+      "phase": "B1",
+      "model": "average_2",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_2.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_2__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_2__cvrp.log"
+    },
+    {
+      "id": "average_2__cvrptw",
+      "phase": "B1",
+      "model": "average_2",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_2.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_2__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_2__cvrptw.log"
+    },
+    {
+      "id": "interp_075__cvrp",
+      "phase": "B1",
+      "model": "interp_075",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/interp_075.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/interp_075__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/interp_075__cvrp.log"
+    },
+    {
+      "id": "interp_075__cvrptw",
+      "phase": "B1",
+      "model": "interp_075",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/interp_075.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/interp_075__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/interp_075__cvrptw.log"
+    },
+    {
+      "id": "unified__cvrpb",
+      "phase": "B2",
+      "model": "unified",
+      "task": "cvrpb",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__cvrpb.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__cvrpb.log"
+    },
+    {
+      "id": "unified__ocvrp",
+      "phase": "B2",
+      "model": "unified",
+      "task": "ocvrp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__ocvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__ocvrp.log"
+    },
+    {
+      "id": "specialist_cvrpb__cvrpb",
+      "phase": "B2",
+      "model": "specialist_cvrpb",
+      "task": "cvrpb",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/cvrpb_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_cvrpb__cvrpb.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_cvrpb__cvrpb.log"
+    },
+    {
+      "id": "specialist_ocvrp__ocvrp",
+      "phase": "B2",
+      "model": "specialist_ocvrp",
+      "task": "ocvrp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/ocvrp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_ocvrp__ocvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_ocvrp__ocvrp.log"
+    },
+    {
+      "id": "average_4__cvrp",
+      "phase": "B2",
+      "model": "average_4",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_4.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_4__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_4__cvrp.log"
+    },
+    {
+      "id": "average_4__cvrpb",
+      "phase": "B2",
+      "model": "average_4",
+      "task": "cvrpb",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_4.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_4__cvrpb.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_4__cvrpb.log"
+    },
+    {
+      "id": "average_4__cvrptw",
+      "phase": "B2",
+      "model": "average_4",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_4.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_4__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_4__cvrptw.log"
+    },
+    {
+      "id": "average_4__ocvrp",
+      "phase": "B2",
+      "model": "average_4",
+      "task": "ocvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_4.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_4__ocvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_4__ocvrp.log"
+    },
+    {
+      "id": "unified__tsp",
+      "phase": "B3",
+      "model": "unified",
+      "task": "tsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__tsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__tsp.log"
+    },
+    {
+      "id": "unified__atsp",
+      "phase": "B3",
+      "model": "unified",
+      "task": "atsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__atsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__atsp.log"
+    },
+    {
+      "id": "unified__acvrp",
+      "phase": "B3",
+      "model": "unified",
+      "task": "acvrp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__acvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__acvrp.log"
+    },
+    {
+      "id": "unified__ocvrptw",
+      "phase": "B3",
+      "model": "unified",
+      "task": "ocvrptw",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__ocvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__ocvrptw.log"
+    },
+    {
+      "id": "unified__op",
+      "phase": "B3",
+      "model": "unified",
+      "task": "op",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__op.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__op.log"
+    },
+    {
+      "id": "unified__pctsp",
+      "phase": "B3",
+      "model": "unified",
+      "task": "pctsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__pctsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__pctsp.log"
+    },
+    {
+      "id": "unified__pdtsp",
+      "phase": "B3",
+      "model": "unified",
+      "task": "pdtsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__pdtsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/unified__pdtsp.log"
+    },
+    {
+      "id": "specialist_tsp__tsp",
+      "phase": "B3",
+      "model": "specialist_tsp",
+      "task": "tsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/tsp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_tsp__tsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_tsp__tsp.log"
+    },
+    {
+      "id": "specialist_atsp__atsp",
+      "phase": "B3",
+      "model": "specialist_atsp",
+      "task": "atsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/atsp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_atsp__atsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_atsp__atsp.log"
+    },
+    {
+      "id": "specialist_acvrp__acvrp",
+      "phase": "B3",
+      "model": "specialist_acvrp",
+      "task": "acvrp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/acvrp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_acvrp__acvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_acvrp__acvrp.log"
+    },
+    {
+      "id": "specialist_ocvrptw__ocvrptw",
+      "phase": "B3",
+      "model": "specialist_ocvrptw",
+      "task": "ocvrptw",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/ocvrptw_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_ocvrptw__ocvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_ocvrptw__ocvrptw.log"
+    },
+    {
+      "id": "specialist_op__op",
+      "phase": "B3",
+      "model": "specialist_op",
+      "task": "op",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/op_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_op__op.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_op__op.log"
+    },
+    {
+      "id": "specialist_pctsp__pctsp",
+      "phase": "B3",
+      "model": "specialist_pctsp",
+      "task": "pctsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/pctsp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_pctsp__pctsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_pctsp__pctsp.log"
+    },
+    {
+      "id": "specialist_pdtsp__pdtsp",
+      "phase": "B3",
+      "model": "specialist_pdtsp",
+      "task": "pdtsp",
+      "checkpoint": "/public/home/shiys/merge/URS/pretrained/pdtsp_checkpoint_300.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_pdtsp__pdtsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/specialist_pdtsp__pdtsp.log"
+    },
+    {
+      "id": "average_11__tsp",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "tsp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__tsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__tsp.log"
+    },
+    {
+      "id": "average_11__atsp",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "atsp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__atsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__atsp.log"
+    },
+    {
+      "id": "average_11__cvrp",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "cvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__cvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__cvrp.log"
+    },
+    {
+      "id": "average_11__acvrp",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "acvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__acvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__acvrp.log"
+    },
+    {
+      "id": "average_11__cvrpb",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "cvrpb",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__cvrpb.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__cvrpb.log"
+    },
+    {
+      "id": "average_11__cvrptw",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "cvrptw",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__cvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__cvrptw.log"
+    },
+    {
+      "id": "average_11__ocvrp",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "ocvrp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__ocvrp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__ocvrp.log"
+    },
+    {
+      "id": "average_11__ocvrptw",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "ocvrptw",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__ocvrptw.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__ocvrptw.log"
+    },
+    {
+      "id": "average_11__op",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "op",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__op.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__op.log"
+    },
+    {
+      "id": "average_11__pctsp",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "pctsp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__pctsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__pctsp.log"
+    },
+    {
+      "id": "average_11__pdtsp",
+      "phase": "B3",
+      "model": "average_11",
+      "task": "pdtsp",
+      "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+      "output": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/average_11__pdtsp.json",
+      "log": "/public/home/shiys/merge/experiment_runs/20261116_four_gpu/logs/average_11__pdtsp.log"
+    }
+  ]
+}

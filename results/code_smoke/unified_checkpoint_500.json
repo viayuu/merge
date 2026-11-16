@@ -1,0 +1,82 @@
+{
+  "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+  "data_dir": "/public/home/shiys/merge/URS/dataset",
+  "seed": 3407,
+  "device": "cpu",
+  "model_params": {
+    "embedding_dim": 128,
+    "encoder_layer_num": 12,
+    "ff_hidden_dim": 512,
+    "logit_clipping": 50,
+    "demand_max1": true,
+    "eval_type": "greedy"
+  },
+  "tester_params": {
+    "use_cuda": false,
+    "cuda_device_num": -1,
+    "model_load": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+    "test_episodes": [
+      2
+    ],
+    "augmentation_enable": false,
+    "aug_factor": [
+      8,
+      128
+    ],
+    "test_batch_size_small": [
+      1000,
+      125,
+      50,
+      8
+    ],
+    "test_batch_size_large": [
+      16,
+      8,
+      2,
+      1,
+      1
+    ],
+    "summary_problems_per_row": 6,
+    "detailed_log": false
+  },
+  "result_folder": "/public/home/shiys/merge/URS/result_test/cvrp_cvrptw_2tasks/20261116_005206_no_aug_cvrp_cvrptw_unified_checkpoint_500_2tasks_range100_100",
+  "rows": [
+    {
+      "task": "cvrp",
+      "scale": 100,
+      "no_aug_gap": 1.4558863941187015,
+      "aug_gap": 1.4558863941187015,
+      "no_aug_score": 16.766788482666016,
+      "aug_score": 16.766788482666016,
+      "oracle_score": 16.526185989379883,
+      "episodes": 2.0,
+      "aug_factor": 1.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 1000.0,
+      "time": 0.2741127014160156,
+      "avg_time": 0.1370563507080078,
+      "data_path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+      "reference_available": true
+    },
+    {
+      "task": "cvrptw",
+      "scale": 100,
+      "no_aug_gap": 6.8411001954836115,
+      "aug_gap": 6.8411001954836115,
+      "no_aug_score": 26.144817352294922,
+      "aug_score": 26.144817352294922,
+      "oracle_score": 24.470748901367188,
+      "episodes": 2.0,
+      "aug_factor": 1.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 1000.0,
+      "time": 0.32706379890441895,
+      "avg_time": 0.16353189945220947,
+      "data_path": "/public/home/shiys/merge/URS/dataset/cvrptw/cvrptw100_1000uni.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/cvrptw/hgs_pyvrp_cvrptw100_1000uni.pkl",
+      "reference_available": true
+    }
+  ],
+  "missing": []
+}

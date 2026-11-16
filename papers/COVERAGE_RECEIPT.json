@@ -1,0 +1,92 @@
+{
+  "shard_id": "classical_merge_5",
+  "assigned_unit_ids": [
+    "arxiv:2509.23413",
+    "arxiv:2203.05482",
+    "arxiv:2212.04089",
+    "arxiv:2306.01708",
+    "arxiv:2311.03099"
+  ],
+  "covered_unit_ids": [
+    "arxiv:2509.23413",
+    "arxiv:2203.05482",
+    "arxiv:2212.04089",
+    "arxiv:2306.01708",
+    "arxiv:2311.03099"
+  ],
+  "status": "complete",
+  "entries": [
+    {
+      "arxiv_id": "2509.23413",
+      "title": "URS: A Unified Neural Routing Solver for Cross-Problem Zero-Shot Generalization",
+      "version_reported_by_arxiv": "v3",
+      "revision_date": "2026-08-11",
+      "venue": "ICML 2026",
+      "source_url": "https://arxiv.org/abs/2509.23413",
+      "pdf_url": "https://arxiv.org/pdf/2509.23413",
+      "pdf_path": "papers/2509.23413.pdf",
+      "text_path": "papers/2509.23413.txt",
+      "bytes": 817040,
+      "sha256": "cc434d56f0290f46bf041f97bc7cfca1449e22651c88ca869e559b9e9d2c97e8",
+      "read_scope": "abstract + targeted full-text methods/assumptions/evaluation/appendix; not exhaustive line-by-line reading"
+    },
+    {
+      "arxiv_id": "2203.05482",
+      "title": "Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time",
+      "version_reported_by_arxiv": "v3",
+      "revision_date": "2022-07-01",
+      "venue": "ICML 2022",
+      "source_url": "https://arxiv.org/abs/2203.05482",
+      "pdf_url": "https://arxiv.org/pdf/2203.05482",
+      "pdf_path": "papers/2203.05482.pdf",
+      "text_path": "papers/2203.05482.txt",
+      "bytes": 1616512,
+      "sha256": "226ac91243bdf4ebe79652991f59fa1c0c84d5d624a50b88210bf7e9316869e3",
+      "read_scope": "abstract + targeted full-text methods/assumptions/evaluation/appendix; not exhaustive line-by-line reading"
+    },
+    {
+      "arxiv_id": "2212.04089",
+      "title": "Editing Models with Task Arithmetic",
+      "version_reported_by_arxiv": "v3",
+      "revision_date": "2023-03-31",
+      "venue": "ICLR 2023",
+      "source_url": "https://arxiv.org/abs/2212.04089",
+      "pdf_url": "https://arxiv.org/pdf/2212.04089",
+      "pdf_path": "papers/2212.04089.pdf",
+      "text_path": "papers/2212.04089.txt",
+      "bytes": 7763394,
+      "sha256": "6d8bb9f18b58f6cafae018139746afc90023be5dc18586b665863db5028c4191",
+      "read_scope": "abstract + targeted full-text methods/assumptions/evaluation/appendix; not exhaustive line-by-line reading"
+    },
+    {
+      "arxiv_id": "2306.01708",
+      "title": "TIES-Merging: Resolving Interference When Merging Models",
+      "version_reported_by_arxiv": "v2",
+      "revision_date": "2023-10-27",
+      "venue": "NeurIPS 2023",
+      "source_url": "https://arxiv.org/abs/2306.01708",
+      "pdf_url": "https://arxiv.org/pdf/2306.01708",
+      "pdf_path": "papers/2306.01708.pdf",
+      "text_path": "papers/2306.01708.txt",
+      "bytes": 1179222,
+      "sha256": "828742490193a58a3be52c339318f341e7eafced2ffa919d8e45e0ffeebaeb6f",
+      "read_scope": "abstract + targeted full-text methods/assumptions/evaluation/appendix; not exhaustive line-by-line reading"
+    },
+    {
+      "arxiv_id": "2311.03099",
+      "title": "Language Models are Super Mario: Absorbing Abilities from Homologous Models as a Free Lunch",
+      "version_reported_by_arxiv": "v3",
+      "revision_date": "2024-06-13",
+      "venue": "ICML 2024",
+      "source_url": "https://arxiv.org/abs/2311.03099",
+      "pdf_url": "https://arxiv.org/pdf/2311.03099",
+      "pdf_path": "papers/2311.03099.pdf",
+      "text_path": "papers/2311.03099.txt",
+      "bytes": 41032228,
+      "sha256": "2072d68a55aa86280b47f55523781a17e70029aecf9bef23dc6e6b22ab6c175f",
+      "read_scope": "abstract + targeted full-text methods/assumptions/evaluation/appendix; not exhaustive line-by-line reading"
+    }
+  ],
+  "errors": [],
+  "source_note": "Canonical arXiv fetch helper unresolved in project/default skill path; used live arXiv primary pages plus downloaded PDFs. No local paper library existed before retrieval."
+}

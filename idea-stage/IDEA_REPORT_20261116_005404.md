@@ -1,0 +1,96 @@
+# URS 专家模型合并：调研结论与实验路线
+
+日期：2026-11-16。已按用户最新要求更新实施口径：**使用原数据、原评测，与原论文结果对照，不另建数据集。** 代码与小样本检查状态见 [实验追踪](../refine-logs/EXPERIMENT_TRACKER.md)。
+
+## 先回答三个问题
+
+**值得做吗？** 值得做小规模验证。本地 11 个 URS 单任务专家与通用模型架构一致，可以直接尝试参数平均。能否保留多任务能力仍需实测；merge 没有必然优于联合训练的保证。
+
+**先做什么？** 先统一评测与确认权重起点，再做 2→4→11 个专家的递进实验。先平均和插值，有真实共同 base 才加入 Task Arithmetic、TIES，随后再试 DARE。
+
+**如何判断 motivation？** 在原论文相同任务、数据与解码设置下，逐项比较合并模型与论文URS的gap，同时列出论文STL和可选本地URS复跑。差值以百分点表示，负数更好。先看2/4任务，再完整看11任务；本轮不沿用此前新数据集上的1%/置信区间判据。
+
+## 本地 URS 是否适合做
+
+| 已核实事项 | 对实验的意义 |
+|---|---|
+| 11 个 specialist + 1 个 unified 均在本地，并逐个 strict load 成功 | 无需先重训或重新下载模型 |
+| 全部 382 个参数张量、4,960,487 个参数、0 buffer，key/shape 相同 | 具备全参数融合的结构条件；不是功能兼容保证 |
+| 专家 epoch=300、通用 epoch=500 | 历史专家训练成本与此次合并成本必须分开 |
+| checkpoint 无初始化、seed、训练命令 | 共同 base 未证实；相同闲置参数仅为线索 |
+| 11 个 seen、99 个 unseen，任务通过统一输入和条件模块表达 | 一个固定模型可以沿用原 URS 任务接口；不等于无需任务信息 |
+| 589 个资源清单内数据文件已在本地 | 直接用于原论文同数据集对照，无需新数据 |
+
+源码版本：`69c6766219e40d18fd8b371fedfc208241e5be9e`。证据与行号见 [本地审计](evidence/urs_audit.md)；模型来源记录在 `.urs-setup/manifest.json`。此前审计仅CPU读权重和静态检查；当前实现为URS增加原始结果字段与可选JSON导出，并修复源码备份误复制虚拟文件的启动错误；保留原数据、gap和推理循环。
+
+## Literature Landscape
+
+本轮按“经典合并方法 → routing 近邻 → URS 适用条件”调研。5 篇重点论文已下载 PDF、抽取正文并阅读方法/限制；不声称全文逐字读完。论文与覆盖清单见 [PDF 下载记录](../papers/DOWNLOAD_MANIFEST.json)、[coverage receipt](../papers/COVERAGE_RECEIPT.json)。
+
+| 方法/论文 | 核心用途 | URS 首轮安排 |
+|---|---|---|
+| [Model soups, ICML 2022](https://arxiv.org/abs/2203.05482) | 同坐标参数平均；greedy soup 需验证集选成员 | 先用固定全专家均匀平均；不预设独立训练模型能落在同一低误差区域 |
+| [Task Arithmetic, ICLR 2023](https://arxiv.org/abs/2212.04089) | 共同起点上的任务 delta 相加 | 只有真 base 可验证时运行标准版本；lambda=1/K 应等于平均 |
+| [TIES, NeurIPS 2023](https://arxiv.org/abs/2306.01708) | 清理小 delta、解决符号冲突、聚合同符号坐标 | 第二条重点 merge 基线；固定 retain=20%、lambda=1；后续探索保留各配置结果 |
+| [DARE, ICML 2024](https://arxiv.org/abs/2311.03099) | 稀疏化并重缩放 delta，搭配 TA/TIES | 第二批；先小 drop、单专家自检、3个mask seeds |
+| [Fisher merging](https://arxiv.org/abs/2111.09832)、[RegMean](https://arxiv.org/abs/2212.09849) | 用参数重要性/激活统计引导合并 | 数据辅助后备，不能归为完全无数据，也非缺 base 的自动解法 |
+| [Git Re-Basin](https://arxiv.org/abs/2209.04836) | 先做功能保持的排列对齐再合并 | 独立初始化的后备诊断；注意力、残差、hypernetwork 需专门对齐规则 |
+| [AdaMerging, ICLR 2024](https://arxiv.org/abs/2310.02575) | 用无标签样本调任务/层系数 | 后备；原熵最小化不等于 routing 目标优化，不能直接借用 test-time tuning 协议 |
+
+普通平均计算不需要 base，但上述文献的成功证据常来自共同预训练模型的不同微调分支。共同随机初始化、共同预训练起点和完全独立初始化应分别记录；不能仅因模型形状相同就混为一谈。[经典方法详细笔记](evidence/classical_merge_literature.md)
+
+## Novelty Verification
+
+**已经有直接近邻，motivation pilot 仍值得做。** [MPSF-FL（2026）](https://arxiv.org/html/2604.10652v1) 已在 VRP 中采用 TIES 参数聚合：多任务预训练后，多轮单任务客户端训练与全局合并。其 Algorithm 1 输出客户端模型集合，与本次“直接拿现成 URS 专家，一次离线得到固定部署模型”有具体设定差异。
+
+[MoSES（NeurIPS 2025）](https://arxiv.org/html/2510.21453v1) 已有复用专门求解器构成统一 solver 的动机，采用共享骨干、LoRA 专家和动态组合。它与固定单一权重合并不同，但使“复用单任务能力”本身不足以充当新贡献。
+
+本轮未检出完全相同 URS 实验设定的已验证结果；这不是不存在先行工作的证明。当前研究问题是：**不使用通用模型权重、不追加联合训练、不保留多个动态专家，能否从现成单任务专家得到一个接近 URS 的固定模型？** 成功只先支持可行性，后续论文贡献还需结合真实失败模式和结果确定。
+
+新鲜上下文审阅给出 `PROCEED`，限于进入 motivation pilot；明确不能宣称首次 VRP merge、理论优于 URS或总训练更省。审阅具体模型身份没有运行端回执，因此不登记为通过完整工作流所需的身份验证收据。[查新证据](evidence/co_prior_art.md) · [审阅原文](evidence/novelty_review.md)
+
+## 最小实验矩阵
+
+| 阶段 | 内容 | 回答的问题 |
+|---|---|---|
+| 0 | 谱系、模型和原数据调用链核验；论文结果表 | 能否公平测量；标准 task-vector merge 是否适用 |
+| 1 | CVRP+CVRPTW；U、两个专家、平均、5点插值 | 两种能力能否同时保留，还是退化为一个专家 |
+| 2 | CVRP/CVRPB/CVRPTW/OCVRP；4专家融合 | 更复杂约束下是否出现跨任务干扰 |
+| 3 | 全部11源任务；固定候选对比 U 与专家 | 完整 motivation 是否得到支持 |
+| 4 | 冻结模型后看99 unseen | 后续泛化证据；不是首轮必须通过的门槛 |
+
+2任务另用 TSP+ATSP 作结构差异诊断。平均作为每阶段必跑方法；TA/TIES/DARE 按共同 base 证据决定是否适用。若某方法只在使用通用 URS 作 anchor 后成功，必须另列，不能把成功归因于现成单任务专家。
+
+主轨只合并发布专家；共享 base 后重新训练专家属于独立后备轨。不能将后备轨成功混写为“零新增训练合并发布模型成功”。
+
+## 与原论文怎样对比
+
+使用 `URS/dataset` 原发布文件，直接调用原 `DataFinder`、`DataReader`、`Tester`。正式对照为N=100、原顺序前1000例、greedy+POMO、对称8/非对称128倍增强。原参考分数、包含硬编码值在内的原gap公式均保留，不新增或拆分校准/测试集。
+
+[论文结果CSV](../merge_lab/paper_results.csv) 的11条URS和STL数值已从v3第6页Table 2/3逐项核实。[来源说明](../merge_lab/paper_results.md)。汇总显示原 `aug_gap`、论文gap及 `本次gap - 论文gap`（百分点）；负值更好，不与相对百分比混写。
+
+各模型保持同一任务顺序、seed、batch、POMO、增强及mask。关闭增强仍是POMO多起点；非对称随机node ID沿用原入口行为。小样本只作通路检查，不与论文1000例成绩作有效性对照；原论文值和本地通用URS重跑值分开显示。
+
+若探索不同merge系数，保留各配置结果并注明同数据集上的探索；不宣称独立held-out确认。原专家跨任务评测可帮助区分单专家泛化与融合收益，但本轮不增加搜索框架或新的评测体系。
+
+## External Critical Review
+
+前一轮方案审阅保留在 [历史审阅原文](evidence/plan_review.md)，其中独立校准集、held-out和paired CI建议已由本轮用户明确指令替代。当前有效依据为 [实施方案](../refine-logs/EXPERIMENT_PLAN.md)，代码另做一次聚焦正确性的审阅，记录在 `refine-logs/EXPERIMENT_CODE_REVIEW.md`。
+
+## 交付与执行边界
+
+实现和命令见 [merge_lab/README.md](../merge_lab/README.md)，实施范围见 [EXPERIMENT_PLAN.md](../refine-logs/EXPERIMENT_PLAN.md)。只新增合并、调用原评测和结果汇总三个脚本；不建数据生成模块、复杂调度框架或大型测试套件。
+
+当前GPU不可见，代码检查可使用CPU；正式实验状态以tracker为准。用户指定1张RTX4090 24GB、无GPU小时上限，长任务使用tmux。
+
+下方为上一轮完整idea-discovery证据gate的历史状态；本轮按用户指定idea实施，不重新运行被跳过的brainstorm，也不伪造reviewer身份收据。
+
+<!-- ARIS_IDEA_DISCOVERY_EVIDENCE_GATE:START -->
+## Evidence Gate
+**Status:** BLOCKED
+
+The workflow is not complete. Required stage evidence is missing:
+- BLOCKED: idea-creator evidence missing (status=skipped)
+- BLOCKED: novelty-check review evidence missing (status=done)
+- BLOCKED: research-review review evidence missing (status=done)
+<!-- ARIS_IDEA_DISCOVERY_EVIDENCE_GATE:END -->

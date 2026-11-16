@@ -1,0 +1,49 @@
+GPU utilization and ownership snapshot, 2026-11-16 Asia/Shanghai
+Method: read-only BatchMode SSH to already trusted GPU hosts. Queried only GPUs allocated to existing jobs 1465/1475; ps restricted to shiys. No Slurm steps added or experiments interrupted.
+Both GPUs on each host have this run's gpu_test.py processes. Utilization is an instantaneous sample; gpu05 0% does not imply worker absence.
+Follow-up log correlation: both gpu05 CVRP tasks finished inference at 01:23:44 and wrote Excel/JSON at 01:24:05. The 01:23:55 utilization sample fell in result writing, explaining its 0% value. The augmented gaps were unified 1.813% and specialist_cvrp 1.631%.
+Second gpu05 sample, every 2 seconds from 01:24:46 to 01:24:54: both cards 4 MiB / 0%. Queue state subsequently showed specialist_cvrptw__cvrp and interp_025__cvrp running in these two slots, with gpu03 B1 already 6/6 completed. This captures inter-task startup gaps; the snapshot does not establish sustained full utilization.
+
+gpu03
+2026-11-16T01:23:39+08:00
+3, GPU-cb24f168-9f18-f0d5-6f4a-6d2406958f50, NVIDIA GeForce RTX 3090, 15084 MiB, 24576 MiB, 99 %
+4, GPU-cb626bdb-4319-2f5e-b91f-17fcaa44a83d, NVIDIA GeForce RTX 3090, 15118 MiB, 24576 MiB, 99 %
+1252182, GPU-cb24f168-9f18-f0d5-6f4a-6d2406958f50, /public/home/shiys/miniconda3/envs/easynco/bin/python, 15074 MiB
+1252106, GPU-cb626bdb-4319-2f5e-b91f-17fcaa44a83d, /public/home/shiys/miniconda3/envs/easynco/bin/python, 15108 MiB
+1154014 1153912       01:23 /public/home/shiys/miniconda3/envs/easynco/bin/python /public/home/shiys/merge/experiment_runs/20261116_four_gpu/run_queue.py --node gpu03 B1
+1252106 1154014       00:21 /public/home/shiys/miniconda3/envs/easynco/bin/python /public/home/shiys/merge/experiment_runs/20261116_four_gpu/gpu_test.py --data_dir /public/home/shiys/merge/URS/dataset --problem_set cvrptw --test_scale_list 100 --test_episodes 1000 --seed 3407 --eval_type greedy --cuda 0 --aug_factor 8 128 --test_batch_size_small 1000 125 50 8 --model_load /public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt --output_json /public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_cvrptw__cvrptw.json
+1252182 1154014       00:21 /public/home/shiys/miniconda3/envs/easynco/bin/python /public/home/shiys/merge/experiment_runs/20261116_four_gpu/gpu_test.py --data_dir /public/home/shiys/merge/URS/dataset --problem_set cvrptw --test_scale_list 100 --test_episodes 1000 --seed 3407 --eval_type greedy --cuda 0 --aug_factor 8 128 --test_batch_size_small 1000 125 50 8 --model_load /public/home/shiys/merge/checkpoints/interp_025.pt --output_json /public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/interp_025__cvrptw.json
+
+gpu05
+2026-11-16T01:23:55+08:00
+0, GPU-71479e7e-f8bd-e430-66ed-f8db9f0d47be, NVIDIA GeForce RTX 4090, 2904 MiB, 24564 MiB, 0 %
+1, GPU-597c682a-4b7f-7609-80a6-8ced791f5c5d, NVIDIA GeForce RTX 4090, 2904 MiB, 24564 MiB, 0 %
+616727, GPU-71479e7e-f8bd-e430-66ed-f8db9f0d47be, /public/home/shiys/miniconda3/envs/easynco/bin/python, 2896 MiB
+616728, GPU-597c682a-4b7f-7609-80a6-8ced791f5c5d, /public/home/shiys/miniconda3/envs/easynco/bin/python, 2896 MiB
+ 616710  616703       01:39 /public/home/shiys/miniconda3/envs/easynco/bin/python /public/home/shiys/merge/experiment_runs/20261116_four_gpu/run_queue.py --node gpu05 B1
+ 616727  616710       01:35 /public/home/shiys/miniconda3/envs/easynco/bin/python /public/home/shiys/merge/experiment_runs/20261116_four_gpu/gpu_test.py --data_dir /public/home/shiys/merge/URS/dataset --problem_set cvrp --test_scale_list 100 --test_episodes 1000 --seed 3407 --eval_type greedy --cuda 0 --aug_factor 8 128 --test_batch_size_small 1000 125 50 8 --model_load /public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt --output_json /public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/unified__cvrp.json
+ 616728  616710       01:35 /public/home/shiys/miniconda3/envs/easynco/bin/python /public/home/shiys/merge/experiment_runs/20261116_four_gpu/gpu_test.py --data_dir /public/home/shiys/merge/URS/dataset --problem_set cvrp --test_scale_list 100 --test_episodes 1000 --seed 3407 --eval_type greedy --cuda 0 --aug_factor 8 128 --test_batch_size_small 1000 125 50 8 --model_load /public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt --output_json /public/home/shiys/merge/experiment_runs/20261116_four_gpu/results/specialist_cvrp__cvrp.json
+
+
+B3 follow-up snapshot (read-only SSH; no new Slurm steps)
+The gpu03 ACVRP workers transitioned at 01:33:48 to average_11__acvrp and unified__ocvrptw; sample below is startup gap. gpu05 queue still reported unified__atsp and specialist_atsp__atsp. Samples are instantaneous, not evidence of sustained utilization.
+gpu03
+2026-11-16T01:33:57+08:00
+3, GPU-cb24f168-9f18-f0d5-6f4a-6d2406958f50, NVIDIA GeForce RTX 3090, 2 MiB, 24576 MiB, 0 %
+4, GPU-cb626bdb-4319-2f5e-b91f-17fcaa44a83d, NVIDIA GeForce RTX 3090, 2 MiB, 24576 MiB, 0 %
+
+gpu05
+2026-11-16T01:34:17+08:00
+0, GPU-71479e7e-f8bd-e430-66ed-f8db9f0d47be, NVIDIA GeForce RTX 4090, 2714 MiB, 24564 MiB, 0 %
+1, GPU-597c682a-4b7f-7609-80a6-8ced791f5c5d, NVIDIA GeForce RTX 4090, 2714 MiB, 24564 MiB, 0 %
+622756, GPU-71479e7e-f8bd-e430-66ed-f8db9f0d47be, /public/home/shiys/miniconda3/envs/easynco/bin/python, 2706 MiB
+622757, GPU-597c682a-4b7f-7609-80a6-8ced791f5c5d, /public/home/shiys/miniconda3/envs/easynco/bin/python, 2706 MiB
+
+Log correlation: both gpu05 ATSP workers ended inference at 01:34:08 and wrote JSON at 01:34:33. Its 01:34:17 sample again captured report-writing time, not inference.
+
+B3 active-inference follow-up:
+gpu03
+2026-11-16T01:35:00+08:00
+3, NVIDIA GeForce RTX 3090, 2 MiB, 24576 MiB, 0 %
+4, NVIDIA GeForce RTX 3090, 15434 MiB, 24576 MiB, 99 %
+The physical GPU 4 slot is running average_11__acvrp; its log showed progress 100/1000 at 01:34:29 with augmentation 128. This verifies active inference at 99% utilization. The peer GPU was between workloads at the sampling instant.

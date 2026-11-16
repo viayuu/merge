@@ -1,0 +1,64 @@
+{
+  "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+  "data_dir": "/public/home/shiys/merge/URS/dataset",
+  "seed": 3407,
+  "device": "cuda:0",
+  "model_params": {
+    "embedding_dim": 128,
+    "encoder_layer_num": 12,
+    "ff_hidden_dim": 512,
+    "logit_clipping": 50,
+    "demand_max1": true,
+    "eval_type": "greedy"
+  },
+  "tester_params": {
+    "use_cuda": true,
+    "cuda_device_num": 0,
+    "model_load": "/public/home/shiys/merge/checkpoints/average_11.pt",
+    "test_episodes": [
+      1000
+    ],
+    "augmentation_enable": true,
+    "aug_factor": [
+      8,
+      128
+    ],
+    "test_batch_size_small": [
+      1000,
+      125,
+      50,
+      8
+    ],
+    "test_batch_size_large": [
+      16,
+      8,
+      2,
+      1,
+      1
+    ],
+    "summary_problems_per_row": 6,
+    "detailed_log": false
+  },
+  "result_folder": "/public/home/shiys/merge/URS/result_test/tsp_1tasks/20261116_013939_aug_tsp_average_11_1tasks_range100_100",
+  "rows": [
+    {
+      "task": "tsp",
+      "scale": 100,
+      "no_aug_gap": 13.261252901430346,
+      "aug_gap": 9.704690019854327,
+      "no_aug_score": 8.783705711364746,
+      "aug_score": 8.507884979248047,
+      "oracle_score": 7.755260944366455,
+      "episodes": 1000.0,
+      "aug_factor": 8.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 1000.0,
+      "time": 5.20077657699585,
+      "avg_time": 0.005200776576995849,
+      "data_path": "/public/home/shiys/merge/URS/dataset/tsp/test_TSP100_n10000.txt",
+      "solution_path": null,
+      "reference_available": true
+    }
+  ],
+  "missing": []
+}

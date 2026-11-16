@@ -1,0 +1,25 @@
+{
+  "backend": "codex",
+  "host": "codex",
+  "source": "host-default",
+  "transport": "native",
+  "tier": "regular",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "xhigh",
+  "reported_model": null,
+  "reported_effort": null,
+  "actual_model_source": "not_exposed_by_native_spawn_response",
+  "agent_id": "/root/novelty_review",
+  "session_uuid": null,
+  "cwd": "/public/home/shiys/merge",
+  "fork_turns": "none",
+  "raw_response": "idea-stage/evidence/novelty_review.md",
+  "substantive_verdict": "PROCEED",
+  "review_receipt_status": "REVIEW_UNAVAILABLE_IDENTITY",
+  "quality_read": "fresh-context review; no cross-family acceptance",
+  "completion": "completed",
+  "input_paths": [
+    "idea-stage/evidence/co_prior_art.md",
+    "idea-stage/evidence/classical_merge_literature.md"
+  ]
+}

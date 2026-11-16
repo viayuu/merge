@@ -1,0 +1,6 @@
+START unified_gpu03_standalone
+START specialist_gpu03_standalone
+FINISHED specialist_gpu03_standalone 0
+specialist_gpu03_standalone [('acvrp', 2.1448405623435973, 1.9995601919644683)]
+FINISHED unified_gpu03_standalone 0
+unified_gpu03_standalone [('acvrp', 2.1667575001716615, 3.041837207079519)]

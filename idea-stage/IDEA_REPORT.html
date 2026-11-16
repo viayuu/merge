@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS 专家模型合并：原数据评测与实施</title>
+
+<meta name="generator" content="ARIS render-html (academic, v1)">
+<meta name="aris:source-path" content="idea-stage/IDEA_REPORT.md">
+<meta name="aris:source-sha256" content="e741059ec335f64e00b3d50d5a954258970b75fb80542510b10f3fd0025912dc">
+<meta name="aris:generated-at" content="2026-11-15 16:54 UTC">
+
+<!-- offline mode: MathJax + highlight.js skipped; math and code blocks render as plain text -->
+
+<style>
+:root {
+  --bg: #fdfcf7;
+  --bg-soft: #f4f1ea;
+  --bg-code: #f8f5ec;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #6b6b6b;
+  --primary: #1a4a8c;
+  --primary-soft: #2d6cb8;
+  --accent: #b8390e;
+  --warn: #b45309;
+  --warn-bg: #fef3c7;
+  --info-bg: #dbeafe;
+  --good-bg: #d1fae5;
+  --good: #065f46;
+  --bad-bg: #fee2e2;
+  --bad: #991b1b;
+  --border: #d6d0c0;
+  --border-soft: #e8e3d5;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Source Serif Pro", "Source Serif 4", "Crimson Pro", "Georgia", "Songti SC", "STSong", serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  padding: 40px 32px;
+}
+
+nav.toc {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  font-size: 13px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border-right: 1px solid var(--border-soft);
+  padding-right: 16px;
+}
+nav.toc h3 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+nav.toc ol li { margin: 5px 0; counter-increment: toc; }
+nav.toc ol li::before { content: counter(toc) ". "; color: var(--ink-muted); margin-right: 4px; }
+nav.toc a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+nav.toc a:hover { color: var(--primary); border-bottom-color: var(--primary); }
+nav.toc ul { list-style: none; padding-left: 14px; margin: 3px 0; font-size: 12px; }
+nav.toc ul li::before { content: "→ "; color: var(--border); }
+
+main { min-width: 0; }
+
+header.hero {
+  border-bottom: 3px double var(--primary);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+header.hero .eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+header.hero h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+header.hero .subtitle {
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+  font-style: italic;
+}
+header.hero .byline {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+header.hero .byline strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+header.hero .meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border-soft);
+  padding-top: 14px;
+}
+header.hero .meta span strong { color: var(--ink-soft); }
+header.hero .meta code {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 11px;
+  background: var(--bg-soft);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+}
+
+h2 {
+  font-size: 24px;
+  margin: 44px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  font-weight: 700;
+}
+h2 .num { color: var(--primary); font-weight: 600; margin-right: 8px; }
+h3 { font-size: 19px; margin: 28px 0 10px; color: var(--primary); font-weight: 600; }
+h4 { font-size: 16px; margin: 20px 0 8px; color: var(--ink); font-weight: 600; }
+
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 10px 0; }
+ul li, ol li { margin: 4px 0; }
+ul li::marker { color: var(--primary); }
+
+strong { color: var(--accent); font-weight: 600; }
+em { color: var(--ink-soft); }
+
+a { color: var(--primary); }
+a:hover { color: var(--accent); }
+
+code:not(.hljs) {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.86em;
+  background: var(--bg-code);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+}
+
+pre {
+  background: #fafaf6;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  padding: 0;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin: 14px 0;
+}
+pre code, pre code.hljs {
+  background: transparent !important;
+  display: block;
+  padding: 14px 18px !important;
+  font-size: 13px;
+  line-height: 1.55;
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", monospace;
+  color: var(--ink);
+}
+pre.diagram {
+  background: #f9f6ed;
+  border-left: 4px solid var(--accent);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.callout {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-left: 4px solid;
+  font-size: 15px;
+}
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.callout-info { background: var(--info-bg); border-left-color: var(--primary); }
+.callout-info .callout-title { color: var(--primary); }
+.callout-warn { background: var(--warn-bg); border-left-color: var(--warn); }
+.callout-warn .callout-title { color: var(--warn); }
+.callout-good { background: var(--good-bg); border-left-color: var(--good); }
+.callout-good .callout-title { color: var(--good); }
+.callout-bad { background: var(--bad-bg); border-left-color: var(--bad); }
+.callout-bad .callout-title { color: var(--bad); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+thead { background: var(--primary); color: white; }
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+th { font-weight: 600; font-size: 13px; letter-spacing: 0.02em; }
+tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+
+details.qa, details {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 0;
+}
+details summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary);
+  list-style: none;
+  user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▸ ";
+  margin-right: 4px;
+  display: inline-block;
+  transition: transform 0.15s;
+}
+details[open] summary::before { transform: rotate(90deg); }
+details[open] summary { border-bottom: 1px solid var(--border-soft); }
+details > :not(summary) { padding: 10px 14px; }
+details p:first-of-type { margin-top: 8px; }
+
+mjx-container[display="true"] { margin: 12px 0 !important; }
+
+footer.aris-footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+footer.aris-footer a { color: var(--ink-muted); border-bottom: 1px dotted var(--border); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 20px; padding: 20px 16px; }
+  nav.toc {
+    position: static;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding-right: 0;
+    padding-bottom: 14px;
+  }
+  header.hero h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+}
+@media print {
+  nav.toc { display: none; }
+  .layout { grid-template-columns: 1fr; padding: 0; }
+  body { background: white; }
+  header.hero { border-bottom-color: var(--ink); }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="toc">
+  <h3>Contents</h3>
+  <ol>
+<li><a href="#先回答三个问题">先回答三个问题</a>
+</li>
+<li><a href="#本地-urs-是否适合做">本地 URS 是否适合做</a>
+</li>
+<li><a href="#literature-landscape">Literature Landscape</a>
+</li>
+<li><a href="#novelty-verification">Novelty Verification</a>
+</li>
+<li><a href="#最小实验矩阵">最小实验矩阵</a>
+</li>
+<li><a href="#与原论文怎样对比">与原论文怎样对比</a>
+</li>
+<li><a href="#external-critical-review">External Critical Review</a>
+</li>
+<li><a href="#交付与执行边界">交付与执行边界</a>
+</li>
+<li><a href="#evidence-gate">Evidence Gate</a>
+</li>
+</ol>
+</nav>
+
+<main>
+<header class="hero">
+  
+  <h1>URS 专家模型合并：原数据评测与实施</h1>
+  
+  
+  <div class="meta">
+    <span><strong>Source:</strong> <code>idea-stage/IDEA_REPORT.md</code></span>
+    <span><strong>SHA256:</strong> <code>e741059ec335</code></span>
+    <span><strong>Rendered:</strong> 2026-11-15 16:54 UTC</span>
+    
+  </div>
+</header>
+
+<h1 id="urs-专家模型合并调研结论与实验路线">URS 专家模型合并：调研结论与实验路线</h1>
+<p>日期：2026-11-16。已按用户最新要求更新实施口径：<strong>使用原数据、原评测，与原论文结果对照，不另建数据集。</strong> 代码与小样本检查状态见 <a href="../refine-logs/EXPERIMENT_TRACKER.md">实验追踪</a>。</p>
+<h2 id="先回答三个问题">先回答三个问题</h2>
+<p><strong>值得做吗？</strong> 值得做小规模验证。本地 11 个 URS 单任务专家与通用模型架构一致，可以直接尝试参数平均。能否保留多任务能力仍需实测；merge 没有必然优于联合训练的保证。</p>
+<p><strong>先做什么？</strong> 先统一评测与确认权重起点，再做 2→4→11 个专家的递进实验。先平均和插值，有真实共同 base 才加入 Task Arithmetic、TIES，随后再试 DARE。</p>
+<p><strong>如何判断 motivation？</strong> 在原论文相同任务、数据与解码设置下，逐项比较合并模型与论文URS的gap，同时列出论文STL和可选本地URS复跑。差值以百分点表示，负数更好。先看2/4任务，再完整看11任务；本轮不沿用此前新数据集上的1%/置信区间判据。</p>
+<h2 id="本地-urs-是否适合做">本地 URS 是否适合做</h2>
+<table><thead><tr><th>已核实事项</th><th>对实验的意义</th></tr></thead><tbody><tr><td>11 个 specialist + 1 个 unified 均在本地，并逐个 strict load 成功</td><td>无需先重训或重新下载模型</td></tr><tr><td>全部 382 个参数张量、4,960,487 个参数、0 buffer，key/shape 相同</td><td>具备全参数融合的结构条件；不是功能兼容保证</td></tr><tr><td>专家 epoch=300、通用 epoch=500</td><td>历史专家训练成本与此次合并成本必须分开</td></tr><tr><td>checkpoint 无初始化、seed、训练命令</td><td>共同 base 未证实；相同闲置参数仅为线索</td></tr><tr><td>11 个 seen、99 个 unseen，任务通过统一输入和条件模块表达</td><td>一个固定模型可以沿用原 URS 任务接口；不等于无需任务信息</td></tr><tr><td>589 个资源清单内数据文件已在本地</td><td>直接用于原论文同数据集对照，无需新数据</td></tr></tbody></table>
+<p>源码版本：<code>69c6766219e40d18fd8b371fedfc208241e5be9e</code>。证据与行号见 <a href="evidence/urs_audit.md">本地审计</a>；模型来源记录在 <code>.urs-setup/manifest.json</code>。此前审计仅CPU读权重和静态检查；当前实现为URS增加原始结果字段与可选JSON导出，并修复源码备份误复制虚拟文件的启动错误；保留原数据、gap和推理循环。</p>
+<h2 id="literature-landscape">Literature Landscape</h2>
+<p>本轮按“经典合并方法 → routing 近邻 → URS 适用条件”调研。5 篇重点论文已下载 PDF、抽取正文并阅读方法/限制；不声称全文逐字读完。论文与覆盖清单见 <a href="../papers/DOWNLOAD_MANIFEST.json">PDF 下载记录</a>、<a href="../papers/COVERAGE_RECEIPT.json">coverage receipt</a>。</p>
+<table><thead><tr><th>方法/论文</th><th>核心用途</th><th>URS 首轮安排</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2203.05482">Model soups, ICML 2022</a></td><td>同坐标参数平均；greedy soup 需验证集选成员</td><td>先用固定全专家均匀平均；不预设独立训练模型能落在同一低误差区域</td></tr><tr><td><a href="https://arxiv.org/abs/2212.04089">Task Arithmetic, ICLR 2023</a></td><td>共同起点上的任务 delta 相加</td><td>只有真 base 可验证时运行标准版本；lambda=1/K 应等于平均</td></tr><tr><td><a href="https://arxiv.org/abs/2306.01708">TIES, NeurIPS 2023</a></td><td>清理小 delta、解决符号冲突、聚合同符号坐标</td><td>第二条重点 merge 基线；固定 retain=20%、lambda=1；后续探索保留各配置结果</td></tr><tr><td><a href="https://arxiv.org/abs/2311.03099">DARE, ICML 2024</a></td><td>稀疏化并重缩放 delta，搭配 TA/TIES</td><td>第二批；先小 drop、单专家自检、3个mask seeds</td></tr><tr><td><a href="https://arxiv.org/abs/2111.09832">Fisher merging</a>、<a href="https://arxiv.org/abs/2212.09849">RegMean</a></td><td>用参数重要性/激活统计引导合并</td><td>数据辅助后备，不能归为完全无数据，也非缺 base 的自动解法</td></tr><tr><td><a href="https://arxiv.org/abs/2209.04836">Git Re-Basin</a></td><td>先做功能保持的排列对齐再合并</td><td>独立初始化的后备诊断；注意力、残差、hypernetwork 需专门对齐规则</td></tr><tr><td><a href="https://arxiv.org/abs/2310.02575">AdaMerging, ICLR 2024</a></td><td>用无标签样本调任务/层系数</td><td>后备；原熵最小化不等于 routing 目标优化，不能直接借用 test-time tuning 协议</td></tr></tbody></table>
+<p>普通平均计算不需要 base，但上述文献的成功证据常来自共同预训练模型的不同微调分支。共同随机初始化、共同预训练起点和完全独立初始化应分别记录；不能仅因模型形状相同就混为一谈。<a href="evidence/classical_merge_literature.md">经典方法详细笔记</a></p>
+<h2 id="novelty-verification">Novelty Verification</h2>
+<p><strong>已经有直接近邻，motivation pilot 仍值得做。</strong> <a href="https://arxiv.org/html/2604.10652v1">MPSF-FL（2026）</a> 已在 VRP 中采用 TIES 参数聚合：多任务预训练后，多轮单任务客户端训练与全局合并。其 Algorithm 1 输出客户端模型集合，与本次“直接拿现成 URS 专家，一次离线得到固定部署模型”有具体设定差异。</p>
+<p><a href="https://arxiv.org/html/2510.21453v1">MoSES（NeurIPS 2025）</a> 已有复用专门求解器构成统一 solver 的动机，采用共享骨干、LoRA 专家和动态组合。它与固定单一权重合并不同，但使“复用单任务能力”本身不足以充当新贡献。</p>
+<p>本轮未检出完全相同 URS 实验设定的已验证结果；这不是不存在先行工作的证明。当前研究问题是：<strong>不使用通用模型权重、不追加联合训练、不保留多个动态专家，能否从现成单任务专家得到一个接近 URS 的固定模型？</strong> 成功只先支持可行性，后续论文贡献还需结合真实失败模式和结果确定。</p>
+<p>新鲜上下文审阅给出 <code>PROCEED</code>，限于进入 motivation pilot；明确不能宣称首次 VRP merge、理论优于 URS或总训练更省。审阅具体模型身份没有运行端回执，因此不登记为通过完整工作流所需的身份验证收据。<a href="evidence/co_prior_art.md">查新证据</a> · <a href="evidence/novelty_review.md">审阅原文</a></p>
+<h2 id="最小实验矩阵">最小实验矩阵</h2>
+<table><thead><tr><th>阶段</th><th>内容</th><th>回答的问题</th></tr></thead><tbody><tr><td>0</td><td>谱系、模型和原数据调用链核验；论文结果表</td><td>能否公平测量；标准 task-vector merge 是否适用</td></tr><tr><td>1</td><td>CVRP+CVRPTW；U、两个专家、平均、5点插值</td><td>两种能力能否同时保留，还是退化为一个专家</td></tr><tr><td>2</td><td>CVRP/CVRPB/CVRPTW/OCVRP；4专家融合</td><td>更复杂约束下是否出现跨任务干扰</td></tr><tr><td>3</td><td>全部11源任务；固定候选对比 U 与专家</td><td>完整 motivation 是否得到支持</td></tr><tr><td>4</td><td>冻结模型后看99 unseen</td><td>后续泛化证据；不是首轮必须通过的门槛</td></tr></tbody></table>
+<p>2任务另用 TSP+ATSP 作结构差异诊断。平均作为每阶段必跑方法；TA/TIES/DARE 按共同 base 证据决定是否适用。若某方法只在使用通用 URS 作 anchor 后成功，必须另列，不能把成功归因于现成单任务专家。</p>
+<p>主轨只合并发布专家；共享 base 后重新训练专家属于独立后备轨。不能将后备轨成功混写为“零新增训练合并发布模型成功”。</p>
+<h2 id="与原论文怎样对比">与原论文怎样对比</h2>
+<p>使用 <code>URS/dataset</code> 原发布文件，直接调用原 <code>DataFinder</code>、<code>DataReader</code>、<code>Tester</code>。正式对照为N=100、原顺序前1000例、greedy+POMO、对称8/非对称128倍增强。原参考分数、包含硬编码值在内的原gap公式均保留，不新增或拆分校准/测试集。</p>
+<p><a href="../merge_lab/paper_results.csv">论文结果CSV</a> 的11条URS和STL数值已从v3第6页Table 2/3逐项核实。<a href="../merge_lab/paper_results.md">来源说明</a>。汇总显示原 <code>aug_gap</code>、论文gap及 <code>本次gap - 论文gap</code>（百分点）；负值更好，不与相对百分比混写。</p>
+<p>各模型保持同一任务顺序、seed、batch、POMO、增强及mask。关闭增强仍是POMO多起点；非对称随机node ID沿用原入口行为。小样本只作通路检查，不与论文1000例成绩作有效性对照；原论文值和本地通用URS重跑值分开显示。</p>
+<p>若探索不同merge系数，保留各配置结果并注明同数据集上的探索；不宣称独立held-out确认。原专家跨任务评测可帮助区分单专家泛化与融合收益，但本轮不增加搜索框架或新的评测体系。</p>
+<h2 id="external-critical-review">External Critical Review</h2>
+<p>前一轮方案审阅保留在 <a href="evidence/plan_review.md">历史审阅原文</a>，其中独立校准集、held-out和paired CI建议已由本轮用户明确指令替代。当前有效依据为 <a href="../refine-logs/EXPERIMENT_PLAN.md">实施方案</a>，代码另做一次聚焦正确性的审阅，记录在 <code>refine-logs/EXPERIMENT_CODE_REVIEW.md</code>。</p>
+<h2 id="交付与执行边界">交付与执行边界</h2>
+<p>实现和命令见 <a href="../merge_lab/README.md">merge_lab/README.md</a>，实施范围见 <a href="../refine-logs/EXPERIMENT_PLAN.md">EXPERIMENT_PLAN.md</a>。只新增合并、调用原评测和结果汇总三个脚本；不建数据生成模块、复杂调度框架或大型测试套件。</p>
+<p>当前GPU不可见，代码检查可使用CPU；正式实验状态以tracker为准。用户指定1张RTX4090 24GB、无GPU小时上限，长任务使用tmux。</p>
+<p>下方为上一轮完整idea-discovery证据gate的历史状态；本轮按用户指定idea实施，不重新运行被跳过的brainstorm，也不伪造reviewer身份收据。</p>
+<p>&lt;!-- ARIS_IDEA_DISCOVERY_EVIDENCE_GATE:START --&gt;</p>
+<h2 id="evidence-gate">Evidence Gate</h2>
+<p><strong>Status:</strong> BLOCKED</p>
+<p>The workflow is not complete. Required stage evidence is missing:</p>
+<ul><li>BLOCKED: idea-creator evidence missing (status=skipped)</li><li>BLOCKED: novelty-check review evidence missing (status=done)</li><li>BLOCKED: research-review review evidence missing (status=done)</li></ul>
+<p>&lt;!-- ARIS_IDEA_DISCOVERY_EVIDENCE_GATE:END --&gt;</p>
+
+<footer class="aris-footer">
+  Generated by <a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/skills/render-html/SKILL.md">ARIS <code>/render-html</code></a> ·
+  source path <code>idea-stage/IDEA_REPORT.md</code> ·
+  SHA256 <code>e741059ec335</code> ·
+  generated at 2026-11-15 16:54 UTC.
+  This is a generated view — edit the source Markdown, then re-render.
+</footer>
+</main>
+
+</div>
+</body>
+</html>

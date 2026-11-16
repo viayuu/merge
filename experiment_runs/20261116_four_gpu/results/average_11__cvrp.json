@@ -1,0 +1,64 @@
+{
+  "checkpoint": "/public/home/shiys/merge/checkpoints/average_11.pt",
+  "data_dir": "/public/home/shiys/merge/URS/dataset",
+  "seed": 3407,
+  "device": "cuda:0",
+  "model_params": {
+    "embedding_dim": 128,
+    "encoder_layer_num": 12,
+    "ff_hidden_dim": 512,
+    "logit_clipping": 50,
+    "demand_max1": true,
+    "eval_type": "greedy"
+  },
+  "tester_params": {
+    "use_cuda": true,
+    "cuda_device_num": 0,
+    "model_load": "/public/home/shiys/merge/checkpoints/average_11.pt",
+    "test_episodes": [
+      1000
+    ],
+    "augmentation_enable": true,
+    "aug_factor": [
+      8,
+      128
+    ],
+    "test_batch_size_small": [
+      1000,
+      125,
+      50,
+      8
+    ],
+    "test_batch_size_large": [
+      16,
+      8,
+      2,
+      1,
+      1
+    ],
+    "summary_problems_per_row": 6,
+    "detailed_log": false
+  },
+  "result_folder": "/public/home/shiys/merge/URS/result_test/cvrp_1tasks/20261116_013641_aug_cvrp_average_11_1tasks_range100_100",
+  "rows": [
+    {
+      "task": "cvrp",
+      "scale": 100,
+      "no_aug_gap": 20.561745667277204,
+      "aug_gap": 16.170770151380793,
+      "no_aug_score": 18.69146728515625,
+      "aug_score": 18.010705947875977,
+      "oracle_score": 15.503646850585938,
+      "episodes": 1000.0,
+      "aug_factor": 8.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 1000.0,
+      "time": 7.895789861679077,
+      "avg_time": 0.007895789861679077,
+      "data_path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+      "reference_available": true
+    }
+  ],
+  "missing": []
+}

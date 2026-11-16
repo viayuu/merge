@@ -1,0 +1,15 @@
+{
+  "created": "2026-11-16T12:06:19.085125+08:00",
+  "new_acvrp_runs": 10,
+  "all_original_data_and_cli_parameters": true,
+  "rng_advanced_cases_are_diagnostic": true,
+  "repeat_3090_exact": true,
+  "sequence_vs_rng_only_all_20_batches_exact": true,
+  "sequence_vs_rng_only_all_scores_exact": true,
+  "paper_two_decimal_match": true,
+  "hashes": {
+    "/public/home/shiys/merge/URS/dataset/acvrp/acvrp100_n1000_seed1234.pt": "c3a113f0053e64ce726451b40b86ff198da3377422c3437282b0eef3deea94a9",
+    "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86",
+    "/public/home/shiys/merge/URS/pretrained/acvrp_checkpoint_300.pt": "bf35fd55ffcf11594e20eb950d36041576633f889cb7c196170f8251e911a08f"
+  }
+}

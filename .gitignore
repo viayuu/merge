@@ -1,0 +1,48 @@
+# Model weights and datasets (kept locally)
+/checkpoints/
+/URS/pretrained/
+/URS/dataset/
+**/datasets/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# Original URS generated runs include duplicate source backups
+/URS/result_*/
+
+# Nested repository metadata; its current source is vendored
+**/.git/
+
+# Python and editor caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+
+# Local credentials and transient locks
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+/.aris/runs/*.lock
+
+# Bulk archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z

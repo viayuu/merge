@@ -1,0 +1,6 @@
+START unified_gpu03_rng_advanced
+START specialist_gpu03_rng_advanced
+FINISHED specialist_gpu03_rng_advanced 0
+specialist_gpu03_rng_advanced [('acvrp', 2.1449620842933657, 2.0053392627484037)]
+FINISHED unified_gpu03_rng_advanced 0
+unified_gpu03_rng_advanced [('acvrp', 2.1670320630073547, 3.054894256156944)]

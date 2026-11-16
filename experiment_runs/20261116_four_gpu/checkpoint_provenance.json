@@ -1,0 +1,179 @@
+[
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/acvrp_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "bf35fd55ffcf11594e20eb950d36041576633f889cb7c196170f8251e911a08f"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/atsp_checkpoint_300.pt",
+    "bytes": 55035581,
+    "sha256": "ce71956b2bdb771d31d80e25c1f4d846df93a90a172b442ed25711bed7f8fbcf"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "5aa996fe0a6463fb76a71f77633dfbf2aa211298a9956c0a68f74051182ba4ae"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/cvrpb_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "7044a562de69adf5784adfc26f103be77612ca1156586eb8800cd53a05f64dc6"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "72c4a348c26fe8074210f7f515bc2c422bbb4577709bfb10beabdb099a5f8f0d"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/ocvrp_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "c0de1871d170b19b7646a1195064e6f936365bdd4d83bf5fd0041999f3fe6697"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/ocvrptw_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "0049c6c67b0c4f01bf501a93a2cd966447f76bc8efef81428d3b846c7f602296"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/op_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "20546f60e0304d8d953d7baf9fa9c72103461b69e10fcdaf64bdb2ba34ab4ca5"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/pctsp_checkpoint_300.pt",
+    "bytes": 55049807,
+    "sha256": "0673d02361dc76ba39ccbc5e05ed5b5fc3594eaabbcc0a53cbcacc2ad6a0aacb"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/pdtsp_checkpoint_300.pt",
+    "bytes": 60011877,
+    "sha256": "ad537b6e86cb458f02afe8d7cbb4bb68740c2cd348f0a3e2c2e0bfffe821c6e2"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/tsp_checkpoint_300.pt",
+    "bytes": 55035581,
+    "sha256": "013111312eb8f7ec855cf9d8fd742edabc442ee879a07cc41e751c0fea12572a"
+  },
+  {
+    "path": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+    "bytes": 60487991,
+    "sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86"
+  },
+  {
+    "path": "/public/home/shiys/merge/checkpoints/average_11.pt",
+    "bytes": 19965820,
+    "sha256": "c37269a8416949e9c5833867689e6fc998508d3e2d5a27f2ec1b371205d17977",
+    "merge_info": {
+      "method": "average",
+      "checkpoints": [
+        "/public/home/shiys/merge/URS/pretrained/tsp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/atsp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/acvrp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrpb_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/ocvrp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/ocvrptw_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/op_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/pctsp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/pdtsp_checkpoint_300.pt"
+      ],
+      "weights": [
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091,
+        0.09090909090909091
+      ],
+      "base": null,
+      "merge_dtype": "float32"
+    }
+  },
+  {
+    "path": "/public/home/shiys/merge/checkpoints/average_2.pt",
+    "bytes": 19964858,
+    "sha256": "a57794b03d1f33eef810b57f7f8d08d34da6eb092e31d0b306fc968ca5fe59d8",
+    "merge_info": {
+      "method": "average",
+      "checkpoints": [
+        "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt"
+      ],
+      "base": null,
+      "weights": [
+        0.5,
+        0.5
+      ],
+      "scale": null,
+      "density": null,
+      "drop_rate": null,
+      "seed": null,
+      "ties_zero_sign": "zero",
+      "merge_dtype": "float32"
+    }
+  },
+  {
+    "path": "/public/home/shiys/merge/checkpoints/average_4.pt",
+    "bytes": 19964922,
+    "sha256": "cba1e79bc6011f3de76c2200c5b6bc2b9690de02e4e8800c21239dd867643b6d",
+    "merge_info": {
+      "method": "average",
+      "checkpoints": [
+        "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrpb_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/ocvrp_checkpoint_300.pt"
+      ],
+      "weights": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "base": null,
+      "merge_dtype": "float32"
+    }
+  },
+  {
+    "path": "/public/home/shiys/merge/checkpoints/interp_025.pt",
+    "bytes": 19965116,
+    "sha256": "f18ae684e294c83a227e01c6fedff9a0b520ab60a57b78af057a7585c1f61bb8",
+    "merge_info": {
+      "method": "average",
+      "checkpoints": [
+        "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt"
+      ],
+      "weights": [
+        0.75,
+        0.25
+      ],
+      "base": null,
+      "merge_dtype": "float32"
+    }
+  },
+  {
+    "path": "/public/home/shiys/merge/checkpoints/interp_075.pt",
+    "bytes": 19965116,
+    "sha256": "4d264fe476b96238c90c3a4e47a16455718cb11cce8f4fa7741951587cd6957d",
+    "merge_info": {
+      "method": "average",
+      "checkpoints": [
+        "/public/home/shiys/merge/URS/pretrained/cvrp_checkpoint_300.pt",
+        "/public/home/shiys/merge/URS/pretrained/cvrptw_checkpoint_300.pt"
+      ],
+      "weights": [
+        0.25,
+        0.75
+      ],
+      "base": null,
+      "merge_dtype": "float32"
+    }
+  }
+]

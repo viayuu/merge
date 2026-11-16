@@ -1,0 +1,35 @@
+{
+  "backend": "codex",
+  "host": "codex",
+  "source": "host-default",
+  "transport": "native",
+  "tier": "deep",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "ultra",
+  "reported_model": null,
+  "reported_effort": null,
+  "actual_model_source": "not_exposed_by_native_spawn_response",
+  "agent_id": "/root/plan_review",
+  "session_uuid": null,
+  "cwd": "/public/home/shiys/merge",
+  "fork_turns": "none",
+  "raw_response": "idea-stage/evidence/plan_review.md",
+  "substantive_verdict": "READY_FOR_PILOT_PLAN",
+  "review_receipt_status": "REVIEW_UNAVAILABLE_IDENTITY",
+  "quality_read": "fresh-context review; no cross-family acceptance",
+  "completion": "completed",
+  "input_paths": [
+    "RESEARCH_BRIEF.md",
+    "refine-logs/EXPERIMENT_PLAN.md",
+    "idea-stage/IDEA_REPORT.md",
+    "idea-stage/evidence/urs_audit.md"
+  ],
+  "scope_complete": true,
+  "changes_folded_in": [
+    "test_unblinding",
+    "best_single_expert_attribution",
+    "instance_level_stochastic_CI",
+    "primary_candidate_preselection",
+    "DARE_fixed_primary_mask"
+  ]
+}

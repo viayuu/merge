@@ -1,0 +1,368 @@
+{
+  "device_name": "NVIDIA GeForce RTX 4090",
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "allow_tf32": false,
+  "calls": [
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "3d04b5d09232bc7754ef02906527b01a299f36cf37fc51182daeb18eec1d1b85",
+      "rng_after": "7224fd24f21012825f1bb23bcb521b297370c41f24158e1e218689721175ad76",
+      "features_sha256": "c57a124aa436dbc4941c1135b5327b60abfde5620d893defade3bb7292aa0121",
+      "first_node_ids": [
+        0.8154381513595581,
+        0.2900332510471344,
+        0.3166777491569519,
+        0.6623581051826477,
+        0.8757266402244568
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "7224fd24f21012825f1bb23bcb521b297370c41f24158e1e218689721175ad76",
+      "rng_after": "3b6446539e91145adaba877ebce961d12f546303bf1c82cfb9a6bc20817136e3",
+      "features_sha256": "e6a6c0beb60a6f19d4ae3342be6b25967dfe44a811d642f46d94dd776ecddf02",
+      "first_node_ids": [
+        0.13531582057476044,
+        0.1843547374010086,
+        0.9166370630264282,
+        0.16019849479198456,
+        0.8542419672012329
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "3b6446539e91145adaba877ebce961d12f546303bf1c82cfb9a6bc20817136e3",
+      "rng_after": "7bdd13535605b87c2c89edf184ac4f5f6d22c2a4b537133ebe4cd97532a70d82",
+      "features_sha256": "8cba4f8531855c0dd11cddd935ef0dd31ff536cb80dd42527d023dbbc57d5ba7",
+      "first_node_ids": [
+        0.6363298892974854,
+        0.285610556602478,
+        0.5856631398200989,
+        0.3220001757144928,
+        0.1666991114616394
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "7bdd13535605b87c2c89edf184ac4f5f6d22c2a4b537133ebe4cd97532a70d82",
+      "rng_after": "90114b3d0dbb6b3adc3cfb92573a148e87d6e4433692300cd6ce591eaa05a71a",
+      "features_sha256": "380615802044783d252a81158122ec19c9cffeb363886d46e5d2501600e5fa2d",
+      "first_node_ids": [
+        0.01934024691581726,
+        0.7470577359199524,
+        0.5589022636413574,
+        0.7007487416267395,
+        0.4154948592185974
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "90114b3d0dbb6b3adc3cfb92573a148e87d6e4433692300cd6ce591eaa05a71a",
+      "rng_after": "23e38f856e360a73f494c7bc74a8eed67e0a5cb2dedf2203549f16e672db2cfc",
+      "features_sha256": "5cdc8a43abb81d2721ebc40580dfb480c2f100b063e0f78bc8c01dd064e42d81",
+      "first_node_ids": [
+        0.6233243942260742,
+        0.23016732931137085,
+        0.051466427743434906,
+        0.7336016893386841,
+        0.9094706773757935
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "23e38f856e360a73f494c7bc74a8eed67e0a5cb2dedf2203549f16e672db2cfc",
+      "rng_after": "7ab71e039d16a22973a0033eb1de6d6ca4d956798748bc83c9c3dfb12ad000ae",
+      "features_sha256": "134e7cbc54aad10e8c4b3cadce73cf486bb0d6e59d6ff2210fb4a029fb5736d8",
+      "first_node_ids": [
+        0.9727762937545776,
+        0.787999153137207,
+        0.19965244829654694,
+        0.4936460852622986,
+        0.8588780164718628
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "7ab71e039d16a22973a0033eb1de6d6ca4d956798748bc83c9c3dfb12ad000ae",
+      "rng_after": "68ede21e91211689cac94647bc9de7dbd81c87a1eb4c5295e3ff4bef268bf88c",
+      "features_sha256": "9177ab55ac33f69d01839d748af3746f58a853fa186529ddbda13cb79fea039a",
+      "first_node_ids": [
+        0.7536440491676331,
+        0.26004379987716675,
+        0.15818199515342712,
+        0.3814476430416107,
+        0.032565683126449585
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "68ede21e91211689cac94647bc9de7dbd81c87a1eb4c5295e3ff4bef268bf88c",
+      "rng_after": "694e726abea8c9c941592c9a8e880a32bb18dcad945d626635c2feaa7e3560f5",
+      "features_sha256": "5febe2ae4aea14c181f6b24144019ddea0496a94f1615deb0188b1b259a34ba2",
+      "first_node_ids": [
+        0.5344496965408325,
+        0.9670413732528687,
+        0.8508480787277222,
+        0.7557891011238098,
+        0.2211245596408844
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "694e726abea8c9c941592c9a8e880a32bb18dcad945d626635c2feaa7e3560f5",
+      "rng_after": "315ea61518a984acd3ffba3aee4e35c26cfaf6aeb7be1aad284847e180ec6a0a",
+      "features_sha256": "295ca45e6731129647e0e37acf48e49e5a29ae271b3e0c7ecef1231bb83b33ee",
+      "first_node_ids": [
+        0.10197772830724716,
+        0.24692940711975098,
+        0.40041863918304443,
+        0.9889672994613647,
+        0.361331045627594
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "315ea61518a984acd3ffba3aee4e35c26cfaf6aeb7be1aad284847e180ec6a0a",
+      "rng_after": "e2961eb9cc41339d0a12a3e5e3a46db86a55d0776eb1c5d81e7aed7c533cb7ba",
+      "features_sha256": "687f534d867b5c306673c1f3f5dfc90e5228fcf84f44545c67787481384e4c61",
+      "first_node_ids": [
+        0.19360923767089844,
+        0.789660632610321,
+        0.06251084059476852,
+        0.7191066145896912,
+        0.44029122591018677
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "e2961eb9cc41339d0a12a3e5e3a46db86a55d0776eb1c5d81e7aed7c533cb7ba",
+      "rng_after": "0af34a29a46e14debc5b98d11cc614097784cb52575c509e89e8883a6fd6f1d7",
+      "features_sha256": "651422dcedd08fc34c2119f194a08694721c79a9c9148a20c0e5ba5ec289f70d",
+      "first_node_ids": [
+        0.6322447061538696,
+        0.9996102452278137,
+        0.8373205661773682,
+        0.3922857940196991,
+        0.8608902096748352
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "0af34a29a46e14debc5b98d11cc614097784cb52575c509e89e8883a6fd6f1d7",
+      "rng_after": "91831836b381c91ed088148dcef67427b538de06dec67c6464f152eea2a3c386",
+      "features_sha256": "0497cba365ed45cf46935b8e08db54e5efc27ecdf3d0ac0e75ba1b12aa397a5e",
+      "first_node_ids": [
+        0.6184185147285461,
+        0.7447270154953003,
+        0.06836816668510437,
+        0.3194110691547394,
+        0.8375918865203857
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "91831836b381c91ed088148dcef67427b538de06dec67c6464f152eea2a3c386",
+      "rng_after": "49ece34c25d643864f6a8a65c3f384b49e0373c6d8478f976285ea59f5353b81",
+      "features_sha256": "9b4bd8776a48a23393fe7b82b5d8ffb73b27d88aefcc9d18296a5590037808a3",
+      "first_node_ids": [
+        0.942709743976593,
+        0.8880061507225037,
+        0.25632989406585693,
+        0.7597364783287048,
+        0.8307324647903442
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "49ece34c25d643864f6a8a65c3f384b49e0373c6d8478f976285ea59f5353b81",
+      "rng_after": "109624f6853c0ab18ef1f090faf48e0dfcdfb81051b29be4442fbb0dfa426625",
+      "features_sha256": "febe40044a55ae35170b1834cdf9c848ad783c138160c17bc4481c012cd9d414",
+      "first_node_ids": [
+        0.10391749441623688,
+        0.23698017001152039,
+        0.9165714979171753,
+        0.7188539505004883,
+        0.19513997435569763
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "109624f6853c0ab18ef1f090faf48e0dfcdfb81051b29be4442fbb0dfa426625",
+      "rng_after": "23467ce9b3b135e8a3feecc1755e5bbbf8690a9f70fd29d5fb5eda532ea9463d",
+      "features_sha256": "0947095f286f64063beafd34b99020f051303d6825598d857ac662b09e70abf9",
+      "first_node_ids": [
+        0.01878061145544052,
+        0.11570911109447479,
+        0.01482030376791954,
+        0.40262946486473083,
+        0.17575223743915558
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "23467ce9b3b135e8a3feecc1755e5bbbf8690a9f70fd29d5fb5eda532ea9463d",
+      "rng_after": "95f44138150c0d8feec4d82d223f267377d697b07073ad83cae81e4a984f758e",
+      "features_sha256": "88d1549cf93592a3d5053279b5b69d3a6b0e47cc27de1af4fd49987183872d3c",
+      "first_node_ids": [
+        0.49303433299064636,
+        0.5530235171318054,
+        0.7830994725227356,
+        0.4885847866535187,
+        0.4167763292789459
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "95f44138150c0d8feec4d82d223f267377d697b07073ad83cae81e4a984f758e",
+      "rng_after": "2f0ed59193d9f4917409cc5e69e74f7854fa7ee3d2e53df6f1d88ce7b74896f4",
+      "features_sha256": "f38a661a01e9eccc9fc3947197014195a37cc1cd9d3f74401b4bef7a0505d660",
+      "first_node_ids": [
+        0.9895732402801514,
+        0.6771662831306458,
+        0.958724319934845,
+        0.6403075456619263,
+        0.7580933570861816
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "2f0ed59193d9f4917409cc5e69e74f7854fa7ee3d2e53df6f1d88ce7b74896f4",
+      "rng_after": "4c39d02c9208d1630d044398d1d198b57c2180c06157bde0b53ca889d720cb78",
+      "features_sha256": "0e4f939fce3965eabd087853025025cc85b2599b5e077b7a7c5cc7d6b1f5db06",
+      "first_node_ids": [
+        0.35718223452568054,
+        0.6635727286338806,
+        0.2904101312160492,
+        0.5260885953903198,
+        0.6573411822319031
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "4c39d02c9208d1630d044398d1d198b57c2180c06157bde0b53ca889d720cb78",
+      "rng_after": "8673ddb0e0594e8fcfa29a126efd80594b843f03085ba1bfb42eabdbd80b53ae",
+      "features_sha256": "79a7869ed20c2b9d817bf9c8cdff5a6822b93ffdd57d6889173b19b0548d67b3",
+      "first_node_ids": [
+        0.9369176626205444,
+        0.789671778678894,
+        0.7864212393760681,
+        0.9654183983802795,
+        0.8087342977523804
+      ]
+    },
+    {
+      "task": "acvrp",
+      "shape": [
+        6400,
+        101,
+        3
+      ],
+      "rng_before": "8673ddb0e0594e8fcfa29a126efd80594b843f03085ba1bfb42eabdbd80b53ae",
+      "rng_after": "142d097405886b4d241d755a47e636935aadad28dd7f39859710d2c3d7e6de60",
+      "features_sha256": "390eecb47a4e6681e73b3bcdfb0171a02002b14ca5b11fb50463b037e51d9853",
+      "first_node_ids": [
+        0.4389982223510742,
+        0.9374065399169922,
+        0.9945433139801025,
+        0.9370225071907043,
+        0.39939481019973755
+      ]
+    }
+  ]
+}

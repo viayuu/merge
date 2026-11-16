@@ -1,0 +1,11 @@
+model,case,gpu,task_order,gap_pct,objective,reference,source_json
+unified,gpu03_standalone,NVIDIA GeForce RTX 3090,acvrp,3.041837207079519,2.1667575001716615,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/unified_gpu03_standalone.json
+unified,gpu05_standalone,NVIDIA GeForce RTX 4090,acvrp,3.0382889233796266,2.1666828870773314,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/unified_gpu05_standalone.json
+unified,gpu05_after_atsp,NVIDIA GeForce RTX 4090,"atsp,acvrp",3.060408013508771,2.167148005962372,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/unified_gpu05_after_atsp.json
+unified,gpu03_rng_advanced,NVIDIA GeForce RTX 3090,acvrp,3.054894256156944,2.1670320630073547,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/unified_gpu03_rng_advanced.json
+unified,gpu05_rng_advanced,NVIDIA GeForce RTX 4090,acvrp,3.060408013508771,2.167148005962372,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/unified_gpu05_rng_advanced.json
+specialist,gpu03_standalone,NVIDIA GeForce RTX 3090,acvrp,1.9995601919644683,2.1448405623435973,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/specialist_gpu03_standalone.json
+specialist,gpu05_standalone,NVIDIA GeForce RTX 4090,acvrp,2.0021906499237976,2.144895875453949,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/specialist_gpu05_standalone.json
+specialist,gpu05_after_atsp,NVIDIA GeForce RTX 4090,"atsp,acvrp",2.0065989346418545,2.1449885725975038,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/specialist_gpu05_after_atsp.json
+specialist,gpu03_rng_advanced,NVIDIA GeForce RTX 3090,acvrp,2.0053392627484037,2.1449620842933657,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/specialist_gpu03_rng_advanced.json
+specialist,gpu05_rng_advanced,NVIDIA GeForce RTX 4090,acvrp,2.0065989346418545,2.1449885725975038,2.1027939319610596,/public/home/shiys/merge/experiment_runs/20261116_acvrp_audit/results/specialist_gpu05_rng_advanced.json
