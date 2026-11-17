@@ -90,5 +90,6 @@
   "device": "NVIDIA GeForce RTX 4090",
   "validation_protocol": "Original Trainer: five tasks, greedy POMO, no augmentation",
   "final_checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/models/total_100k/checkpoint_530.pt",
-  "status": "running"
+  "status": "completed",
+  "elapsed_seconds": 13473.67106776312
 }

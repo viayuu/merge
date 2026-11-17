@@ -1,26 +1,27 @@
 {
-  "absolute_epoch": 521,
-  "additional_epoch": 21,
-  "completed_instances": 25600,
+  "absolute_epoch": 530,
+  "additional_epoch": 30,
+  "completed_instances": 100000,
   "target_instances": 100000,
-  "completed_batches": 200,
+  "completed_batches": 782,
   "target_batches": 782,
   "task_instances": {
-    "cvrp": 5632,
-    "cvrpb": 5888,
-    "cvrptw": 3968,
-    "ocvrp": 4352,
-    "ocvrptw": 5760
+    "cvrp": 21152,
+    "cvrpb": 19712,
+    "cvrptw": 19712,
+    "ocvrp": 19840,
+    "ocvrptw": 19584
   },
   "task_batches": {
-    "cvrp": 44,
-    "cvrpb": 46,
-    "cvrptw": 31,
-    "ocvrp": 34,
-    "ocvrptw": 45
+    "cvrp": 166,
+    "cvrpb": 154,
+    "cvrptw": 154,
+    "ocvrp": 155,
+    "ocvrptw": 153
   },
-  "loss": -0.1264375076815486,
+  "loss": -0.12769725574970245,
   "lr": 1e-05,
-  "elapsed_seconds": 113.28228885587305,
-  "phase": "training"
+  "elapsed_seconds": 435.10043381666765,
+  "phase": "completed",
+  "training_elapsed_seconds": 13473.67106776312
 }

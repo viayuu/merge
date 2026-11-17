@@ -1,5 +1,7 @@
 {
-  "completed_continuations": [],
+  "completed_continuations": [
+    "total_100k"
+  ],
   "models": [
     {
       "id": "base",
@@ -70,6 +72,20 @@
       "mean_gap": 3.490354332321153,
       "delta_vs_base_pp": -0.05285418581178312,
       "improved_tasks": 5
+    },
+    {
+      "id": "total_100k",
+      "label": "URS续训30轮：每轮总10万",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/models/total_100k/checkpoint_530.pt",
+      "source_json": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/evaluation/total_100k/checkpoint_530.json",
+      "cvrp_gap": 1.8071183591900768,
+      "cvrpb_gap": 1.4418393587175506,
+      "cvrptw_gap": 6.095322890058131,
+      "ocvrp_gap": 3.2787296071169236,
+      "ocvrptw_gap": 5.119359412139563,
+      "mean_gap": 3.548473925444449,
+      "delta_vs_base_pp": 0.005265407311512505,
+      "improved_tasks": 3
     }
   ]
 }

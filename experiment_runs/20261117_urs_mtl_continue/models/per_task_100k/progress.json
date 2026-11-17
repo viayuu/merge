@@ -1,26 +1,26 @@
 {
-  "absolute_epoch": 505,
-  "additional_epoch": 5,
-  "completed_instances": 12800,
+  "absolute_epoch": 507,
+  "additional_epoch": 7,
+  "completed_instances": 460800,
   "target_instances": 500000,
-  "completed_batches": 100,
+  "completed_batches": 3600,
   "target_batches": 3910,
   "task_instances": {
-    "cvrp": 2560,
-    "cvrpb": 3200,
-    "cvrptw": 2176,
-    "ocvrp": 2176,
-    "ocvrptw": 2688
+    "cvrp": 94464,
+    "cvrpb": 93824,
+    "cvrptw": 89856,
+    "ocvrp": 92160,
+    "ocvrptw": 90496
   },
   "task_batches": {
-    "cvrp": 20,
-    "cvrpb": 25,
-    "cvrptw": 17,
-    "ocvrp": 17,
-    "ocvrptw": 21
+    "cvrp": 738,
+    "cvrpb": 733,
+    "cvrptw": 702,
+    "ocvrp": 720,
+    "ocvrptw": 707
   },
-  "loss": -0.1316620083153248,
+  "loss": -0.12829730245181256,
   "lr": 1e-05,
-  "elapsed_seconds": 57.16110589308664,
+  "elapsed_seconds": 2018.8892631330527,
   "phase": "training"
 }

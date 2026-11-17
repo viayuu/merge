@@ -14,6 +14,7 @@
 - [URS 两种预算的多任务续训](experiment_runs/20261117_urs_mtl_continue/README.md) · [进度](experiment_runs/20261117_urs_mtl_continue/PROGRESS.md)
 - [CAT 合并实验](experiment_runs/20261117_cat_seen5/RESULTS.md)
 - [LOT 合并与 CAT 样本数量实验](experiment_runs/20261117_lot_samples_seen5/README.md)
+- [CSP + LOT 合并实验](experiment_runs/20261117_csp_lot_seen5/README.md)
 
 ## 目录
 

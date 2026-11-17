@@ -1,0 +1,2799 @@
+{
+  "id": "csp_n64_a1p4_r20_s3409",
+  "config_id": "csp_n64_a1p4_r20",
+  "family": "csp_lot",
+  "label": "CSP+LOT r=20 N=64 α=1.4",
+  "samples": 64,
+  "scale": 1.4,
+  "seed": 3409,
+  "k": 20,
+  "rank_mode": "rank",
+  "is_default": false,
+  "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_csp_lot_seen5/models/csp_n64_a1p4_r20_s3409.pt",
+  "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+  "expert_checkpoints": [
+    "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+    "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+    "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+    "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+    "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+  ],
+  "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+  "sample_indices": {
+    "cvrp": [
+      824,
+      648,
+      998,
+      96,
+      452,
+      317,
+      409,
+      398,
+      806,
+      746,
+      954,
+      842,
+      539,
+      116,
+      352,
+      381,
+      556,
+      992,
+      432,
+      907,
+      341,
+      401,
+      741,
+      792,
+      603,
+      688,
+      887,
+      716,
+      259,
+      392,
+      324,
+      106,
+      391,
+      313,
+      565,
+      319,
+      500,
+      974,
+      117,
+      120,
+      653,
+      472,
+      675,
+      613,
+      301,
+      337,
+      20,
+      428,
+      305,
+      370,
+      480,
+      767,
+      197,
+      283,
+      244,
+      526,
+      27,
+      771,
+      795,
+      760,
+      425,
+      450,
+      997,
+      689
+    ],
+    "cvrpb": [
+      444,
+      333,
+      103,
+      583,
+      223,
+      540,
+      736,
+      452,
+      887,
+      964,
+      744,
+      628,
+      368,
+      489,
+      139,
+      397,
+      181,
+      855,
+      293,
+      635,
+      136,
+      381,
+      893,
+      388,
+      871,
+      481,
+      146,
+      927,
+      775,
+      77,
+      248,
+      68,
+      157,
+      459,
+      70,
+      118,
+      475,
+      673,
+      539,
+      886,
+      234,
+      622,
+      970,
+      999,
+      605,
+      866,
+      790,
+      85,
+      876,
+      633,
+      503,
+      751,
+      305,
+      588,
+      479,
+      484,
+      347,
+      326,
+      737,
+      321,
+      98,
+      151,
+      59,
+      756
+    ],
+    "cvrptw": [
+      143,
+      602,
+      727,
+      763,
+      612,
+      11,
+      651,
+      356,
+      397,
+      507,
+      928,
+      440,
+      44,
+      375,
+      307,
+      409,
+      536,
+      206,
+      571,
+      369,
+      115,
+      951,
+      454,
+      195,
+      867,
+      216,
+      836,
+      989,
+      809,
+      351,
+      859,
+      293,
+      905,
+      482,
+      666,
+      364,
+      159,
+      819,
+      936,
+      525,
+      674,
+      162,
+      435,
+      760,
+      603,
+      460,
+      593,
+      443,
+      500,
+      420,
+      801,
+      739,
+      103,
+      919,
+      424,
+      363,
+      308,
+      261,
+      236,
+      626,
+      931,
+      29,
+      715,
+      377
+    ],
+    "ocvrp": [
+      493,
+      531,
+      498,
+      36,
+      814,
+      397,
+      809,
+      915,
+      714,
+      851,
+      985,
+      464,
+      651,
+      424,
+      921,
+      884,
+      316,
+      256,
+      191,
+      645,
+      304,
+      792,
+      242,
+      163,
+      729,
+      597,
+      609,
+      448,
+      611,
+      259,
+      994,
+      5,
+      830,
+      56,
+      757,
+      501,
+      268,
+      764,
+      648,
+      491,
+      93,
+      6,
+      807,
+      738,
+      500,
+      964,
+      850,
+      541,
+      14,
+      337,
+      824,
+      196,
+      662,
+      637,
+      98,
+      378,
+      264,
+      290,
+      593,
+      429,
+      126,
+      11,
+      647,
+      756
+    ],
+    "ocvrptw": [
+      780,
+      11,
+      718,
+      868,
+      650,
+      239,
+      740,
+      847,
+      584,
+      120,
+      16,
+      412,
+      296,
+      937,
+      200,
+      870,
+      972,
+      686,
+      369,
+      854,
+      692,
+      892,
+      297,
+      8,
+      920,
+      530,
+      21,
+      898,
+      939,
+      325,
+      152,
+      464,
+      707,
+      643,
+      299,
+      295,
+      797,
+      988,
+      978,
+      354,
+      833,
+      910,
+      881,
+      47,
+      782,
+      723,
+      158,
+      801,
+      824,
+      404,
+      848,
+      909,
+      259,
+      541,
+      532,
+      221,
+      744,
+      411,
+      633,
+      659,
+      215,
+      301,
+      593,
+      957
+    ]
+  },
+  "diagnostics": {
+    "k": 20,
+    "parts": [
+      "outout"
+    ],
+    "dtype": "float32",
+    "identity_control": false,
+    "layers": {
+      "encoder.layers.0.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.8804751634597778,
+        "retained_delta_norm_ratio": 0.8157827568778757
+      },
+      "encoder.layers.0.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.8914015293121338,
+        "retained_delta_norm_ratio": 0.7969200989807712
+      },
+      "encoder.layers.0.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7123832106590271,
+        "retained_delta_norm_ratio": 0.663488813290249
+      },
+      "encoder.layers.0.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.8711671829223633,
+        "retained_delta_norm_ratio": 0.6550917633302353
+      },
+      "encoder.layers.0.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.8842016458511353,
+        "retained_delta_norm_ratio": 0.7554300962324889
+      },
+      "encoder.layers.0.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7368121147155762,
+        "retained_delta_norm_ratio": 0.6645869152316117
+      },
+      "encoder.layers.0.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.47338491678237915,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5538750886917114,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.47792986035346985,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999998807907104,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999998211860657,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.0.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6547267436981201,
+        "retained_delta_norm_ratio": 0.6017441033221071
+      },
+      "encoder.layers.0.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6265718340873718,
+        "retained_delta_norm_ratio": 0.9299048772412002
+      },
+      "encoder.layers.0.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.662903368473053,
+        "retained_delta_norm_ratio": 0.6809342152728194
+      },
+      "encoder.layers.1.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6626336574554443,
+        "retained_delta_norm_ratio": 0.8392521948669631
+      },
+      "encoder.layers.1.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7400356531143188,
+        "retained_delta_norm_ratio": 0.8531036799470875
+      },
+      "encoder.layers.1.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.648352324962616,
+        "retained_delta_norm_ratio": 0.8835716849245921
+      },
+      "encoder.layers.1.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6840083003044128,
+        "retained_delta_norm_ratio": 0.8629377377672192
+      },
+      "encoder.layers.1.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7837337851524353,
+        "retained_delta_norm_ratio": 0.863149462790961
+      },
+      "encoder.layers.1.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.631928026676178,
+        "retained_delta_norm_ratio": 0.8291817548361317
+      },
+      "encoder.layers.1.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5080675482749939,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.47644105553627014,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4868183434009552,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 7.62559173884055e-07
+      },
+      "encoder.layers.1.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.1.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6158580183982849,
+        "retained_delta_norm_ratio": 0.6575790903020056
+      },
+      "encoder.layers.1.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6010910868644714,
+        "retained_delta_norm_ratio": 0.9363074614470909
+      },
+      "encoder.layers.1.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6562157869338989,
+        "retained_delta_norm_ratio": 0.7021308412837453
+      },
+      "encoder.layers.2.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6517559289932251,
+        "retained_delta_norm_ratio": 0.8267500957187497
+      },
+      "encoder.layers.2.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7799264192581177,
+        "retained_delta_norm_ratio": 0.8429916104676624
+      },
+      "encoder.layers.2.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5872510075569153,
+        "retained_delta_norm_ratio": 0.8253732472522849
+      },
+      "encoder.layers.2.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6546006202697754,
+        "retained_delta_norm_ratio": 0.8239745644884935
+      },
+      "encoder.layers.2.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.74410080909729,
+        "retained_delta_norm_ratio": 0.8558609375057761
+      },
+      "encoder.layers.2.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.631340742111206,
+        "retained_delta_norm_ratio": 0.826602092078252
+      },
+      "encoder.layers.2.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5159023404121399,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4962708353996277,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4859413504600525,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 5.782641414136643e-07
+      },
+      "encoder.layers.2.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999999403953552,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.2.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6082211136817932,
+        "retained_delta_norm_ratio": 0.690026314938962
+      },
+      "encoder.layers.2.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5785810947418213,
+        "retained_delta_norm_ratio": 0.9200945600713781
+      },
+      "encoder.layers.2.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6345711946487427,
+        "retained_delta_norm_ratio": 0.747428595546458
+      },
+      "encoder.layers.3.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6571032404899597,
+        "retained_delta_norm_ratio": 0.8224109758396251
+      },
+      "encoder.layers.3.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7454968094825745,
+        "retained_delta_norm_ratio": 0.8559445273258073
+      },
+      "encoder.layers.3.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6639371514320374,
+        "retained_delta_norm_ratio": 0.8659464528479911
+      },
+      "encoder.layers.3.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6787731051445007,
+        "retained_delta_norm_ratio": 0.8016681833990357
+      },
+      "encoder.layers.3.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.8079798221588135,
+        "retained_delta_norm_ratio": 0.8521797904135661
+      },
+      "encoder.layers.3.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6241456270217896,
+        "retained_delta_norm_ratio": 0.8111745654715901
+      },
+      "encoder.layers.3.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5265987515449524,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5196815133094788,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5213607549667358,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 3.5708263978792393e-07
+      },
+      "encoder.layers.3.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999998807907104,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.3.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6209185719490051,
+        "retained_delta_norm_ratio": 0.7080200053427503
+      },
+      "encoder.layers.3.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.550717830657959,
+        "retained_delta_norm_ratio": 0.9143892867278273
+      },
+      "encoder.layers.3.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5808903574943542,
+        "retained_delta_norm_ratio": 0.7494766430447171
+      },
+      "encoder.layers.4.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6457173824310303,
+        "retained_delta_norm_ratio": 0.8400608973372193
+      },
+      "encoder.layers.4.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6956519484519958,
+        "retained_delta_norm_ratio": 0.8885404389736855
+      },
+      "encoder.layers.4.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6591591835021973,
+        "retained_delta_norm_ratio": 0.8168227097425953
+      },
+      "encoder.layers.4.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6522376537322998,
+        "retained_delta_norm_ratio": 0.8499765763726058
+      },
+      "encoder.layers.4.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7174933552742004,
+        "retained_delta_norm_ratio": 0.8511061308121649
+      },
+      "encoder.layers.4.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6577864289283752,
+        "retained_delta_norm_ratio": 0.8336994945797879
+      },
+      "encoder.layers.4.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5388528108596802,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.527213990688324,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5385490655899048,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.000000238418579,
+        "retained_delta_norm_ratio": 6.201618646553374e-07
+      },
+      "encoder.layers.4.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.4.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6638514995574951,
+        "retained_delta_norm_ratio": 0.6660224550831438
+      },
+      "encoder.layers.4.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.558516800403595,
+        "retained_delta_norm_ratio": 0.9231951030579104
+      },
+      "encoder.layers.4.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6237022876739502,
+        "retained_delta_norm_ratio": 0.6751793738458066
+      },
+      "encoder.layers.5.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6621451377868652,
+        "retained_delta_norm_ratio": 0.8588968466976307
+      },
+      "encoder.layers.5.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7725079655647278,
+        "retained_delta_norm_ratio": 0.892104398069083
+      },
+      "encoder.layers.5.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6498175859451294,
+        "retained_delta_norm_ratio": 0.8284280578435239
+      },
+      "encoder.layers.5.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6507745385169983,
+        "retained_delta_norm_ratio": 0.8706905243368671
+      },
+      "encoder.layers.5.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.783849835395813,
+        "retained_delta_norm_ratio": 0.8672132898364513
+      },
+      "encoder.layers.5.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6430675983428955,
+        "retained_delta_norm_ratio": 0.8108388060911835
+      },
+      "encoder.layers.5.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5336403250694275,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.5.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5305660367012024,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.5.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5147738456726074,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.5.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 3.5469206467902405e-07
+      },
+      "encoder.layers.5.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.5.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 5.691925059881126e-07
+      },
+      "encoder.layers.5.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.5.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.5.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.5.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6299668550491333,
+        "retained_delta_norm_ratio": 0.6588686954463173
+      },
+      "encoder.layers.5.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5631455779075623,
+        "retained_delta_norm_ratio": 0.9228278045779249
+      },
+      "encoder.layers.5.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6338926553726196,
+        "retained_delta_norm_ratio": 0.7443352926413481
+      },
+      "encoder.layers.6.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6600797176361084,
+        "retained_delta_norm_ratio": 0.8435033489521664
+      },
+      "encoder.layers.6.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6882550120353699,
+        "retained_delta_norm_ratio": 0.8636064507271961
+      },
+      "encoder.layers.6.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6887412071228027,
+        "retained_delta_norm_ratio": 0.8331699673051953
+      },
+      "encoder.layers.6.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6333285570144653,
+        "retained_delta_norm_ratio": 0.8478070825835194
+      },
+      "encoder.layers.6.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6778849959373474,
+        "retained_delta_norm_ratio": 0.8733372475901114
+      },
+      "encoder.layers.6.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6849480271339417,
+        "retained_delta_norm_ratio": 0.8183539272224212
+      },
+      "encoder.layers.6.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5668774247169495,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5877217054367065,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5422497987747192,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999999403953552,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.6.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6587554812431335,
+        "retained_delta_norm_ratio": 0.6305381554762387
+      },
+      "encoder.layers.6.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5634221434593201,
+        "retained_delta_norm_ratio": 0.922537142753546
+      },
+      "encoder.layers.6.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6068562269210815,
+        "retained_delta_norm_ratio": 0.7636637834619
+      },
+      "encoder.layers.7.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6493449211120605,
+        "retained_delta_norm_ratio": 0.860191979283666
+      },
+      "encoder.layers.7.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7585501074790955,
+        "retained_delta_norm_ratio": 0.8681436387986118
+      },
+      "encoder.layers.7.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6982611417770386,
+        "retained_delta_norm_ratio": 0.8406400619117992
+      },
+      "encoder.layers.7.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6368241310119629,
+        "retained_delta_norm_ratio": 0.8601802712208653
+      },
+      "encoder.layers.7.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7248056530952454,
+        "retained_delta_norm_ratio": 0.8533168174394096
+      },
+      "encoder.layers.7.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7398958802223206,
+        "retained_delta_norm_ratio": 0.8499148887100169
+      },
+      "encoder.layers.7.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.589701771736145,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.7.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5730704069137573,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.7.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5582724809646606,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.7.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 5.678403941534659e-07
+      },
+      "encoder.layers.7.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.7.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999999403953552,
+        "retained_delta_norm_ratio": 5.454886330573304e-07
+      },
+      "encoder.layers.7.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.7.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.7.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.7.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6015068888664246,
+        "retained_delta_norm_ratio": 0.7714505696491649
+      },
+      "encoder.layers.7.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5207882523536682,
+        "retained_delta_norm_ratio": 0.9260010761734767
+      },
+      "encoder.layers.7.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5455900430679321,
+        "retained_delta_norm_ratio": 0.7937966070116447
+      },
+      "encoder.layers.8.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6417883038520813,
+        "retained_delta_norm_ratio": 0.8659955850278444
+      },
+      "encoder.layers.8.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6717492938041687,
+        "retained_delta_norm_ratio": 0.8578965668629424
+      },
+      "encoder.layers.8.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.717369019985199,
+        "retained_delta_norm_ratio": 0.8270355176796079
+      },
+      "encoder.layers.8.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6130915880203247,
+        "retained_delta_norm_ratio": 0.8815134512476711
+      },
+      "encoder.layers.8.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.733780026435852,
+        "retained_delta_norm_ratio": 0.8729228175448991
+      },
+      "encoder.layers.8.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6776718497276306,
+        "retained_delta_norm_ratio": 0.8632069797874822
+      },
+      "encoder.layers.8.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6084640026092529,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.8.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6009505987167358,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.8.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.568966269493103,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.8.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 8.432288469349992e-07
+      },
+      "encoder.layers.8.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.8.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 8.678928667506521e-07
+      },
+      "encoder.layers.8.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.8.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.8.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.8.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5520394444465637,
+        "retained_delta_norm_ratio": 0.8314419411067292
+      },
+      "encoder.layers.8.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4749866724014282,
+        "retained_delta_norm_ratio": 0.9434972024041122
+      },
+      "encoder.layers.8.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.47109147906303406,
+        "retained_delta_norm_ratio": 0.8247910268319432
+      },
+      "encoder.layers.9.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6087290048599243,
+        "retained_delta_norm_ratio": 0.865360170928299
+      },
+      "encoder.layers.9.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6763669848442078,
+        "retained_delta_norm_ratio": 0.8456878184409269
+      },
+      "encoder.layers.9.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6774839162826538,
+        "retained_delta_norm_ratio": 0.867006076108655
+      },
+      "encoder.layers.9.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6225364208221436,
+        "retained_delta_norm_ratio": 0.8671862094798237
+      },
+      "encoder.layers.9.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7538619637489319,
+        "retained_delta_norm_ratio": 0.8728937309836035
+      },
+      "encoder.layers.9.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6729798913002014,
+        "retained_delta_norm_ratio": 0.8515306993394219
+      },
+      "encoder.layers.9.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6469260454177856,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.9.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6459894776344299,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.9.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6097058653831482,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.9.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 6.269951809826461e-07
+      },
+      "encoder.layers.9.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.9.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 1.0074161326351813e-06
+      },
+      "encoder.layers.9.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.9.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.9.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.9.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5500072836875916,
+        "retained_delta_norm_ratio": 0.8811230319128717
+      },
+      "encoder.layers.9.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4600943922996521,
+        "retained_delta_norm_ratio": 0.946803044398279
+      },
+      "encoder.layers.9.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4056907892227173,
+        "retained_delta_norm_ratio": 0.8625532373892262
+      },
+      "encoder.layers.10.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5910267233848572,
+        "retained_delta_norm_ratio": 0.8642210721685251
+      },
+      "encoder.layers.10.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7264046669006348,
+        "retained_delta_norm_ratio": 0.8486582745772473
+      },
+      "encoder.layers.10.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6397292613983154,
+        "retained_delta_norm_ratio": 0.8717107604254535
+      },
+      "encoder.layers.10.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6006857752799988,
+        "retained_delta_norm_ratio": 0.8547964975808924
+      },
+      "encoder.layers.10.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6443923711776733,
+        "retained_delta_norm_ratio": 0.8594982585192017
+      },
+      "encoder.layers.10.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6283606886863708,
+        "retained_delta_norm_ratio": 0.8690878777838569
+      },
+      "encoder.layers.10.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5706642270088196,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.10.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6412105560302734,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.10.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6750009059906006,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.10.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 5.423155727008012e-07
+      },
+      "encoder.layers.10.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.10.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999998807907104,
+        "retained_delta_norm_ratio": 9.634905485604696e-07
+      },
+      "encoder.layers.10.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.10.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.10.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.10.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5035231709480286,
+        "retained_delta_norm_ratio": 0.8877487263110656
+      },
+      "encoder.layers.10.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4350464344024658,
+        "retained_delta_norm_ratio": 0.9411534158468826
+      },
+      "encoder.layers.10.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.35366305708885193,
+        "retained_delta_norm_ratio": 0.8825021136383326
+      },
+      "encoder.layers.11.Wq_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6163172721862793,
+        "retained_delta_norm_ratio": 0.8527030251071931
+      },
+      "encoder.layers.11.Wk_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6692319512367249,
+        "retained_delta_norm_ratio": 0.8469272865751196
+      },
+      "encoder.layers.11.Wv_row.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6382389664649963,
+        "retained_delta_norm_ratio": 0.8652942715836752
+      },
+      "encoder.layers.11.Wq_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5884487628936768,
+        "retained_delta_norm_ratio": 0.849737419234896
+      },
+      "encoder.layers.11.Wk_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.7095733284950256,
+        "retained_delta_norm_ratio": 0.8198209570621754
+      },
+      "encoder.layers.11.Wv_col.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5923670530319214,
+        "retained_delta_norm_ratio": 0.8631586496752738
+      },
+      "encoder.layers.11.Wq_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6616296172142029,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.11.Wk_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.6317993402481079,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.11.Wv_relation.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.5836261510848999,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.11.adaptation_bias_module_row.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 6.567938099545296e-07
+      },
+      "encoder.layers.11.adaptation_bias_module_row.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.11.adaptation_bias_module_col.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999998807907104,
+        "retained_delta_norm_ratio": 7.151609263109854e-07
+      },
+      "encoder.layers.11.adaptation_bias_module_col.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.11.adaptation_bias_module_relation.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.11.adaptation_bias_module_relation.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "encoder.layers.11.row_col_relation_combine.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.4597190320491791,
+        "retained_delta_norm_ratio": 0.8921509831458634
+      },
+      "encoder.layers.11.feed_forward.W1.weight": {
+        "shape": [
+          512,
+          128
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.42343518137931824,
+        "retained_delta_norm_ratio": 0.9359251741470757
+      },
+      "encoder.layers.11.feed_forward.W2.weight": {
+        "shape": [
+          128,
+          512
+        ],
+        "rank": 20,
+        "max_rank": 128,
+        "protected_energy_fraction": 0.3786289691925049,
+        "retained_delta_norm_ratio": 0.9154839635339252
+      },
+      "decoder.hyper_fc1.weight": {
+        "shape": [
+          256,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0000001192092896,
+        "retained_delta_norm_ratio": 8.111822918905018e-07
+      },
+      "decoder.hyper_fc2.weight": {
+        "shape": [
+          256,
+          256
+        ],
+        "rank": 20,
+        "max_rank": 256,
+        "protected_energy_fraction": 0.46259763836860657,
+        "retained_delta_norm_ratio": 0.701991614198385
+      },
+      "decoder.hyper_fc3.weight": {
+        "shape": [
+          65,
+          256
+        ],
+        "rank": 20,
+        "max_rank": 65,
+        "protected_energy_fraction": 0.9972702264785767,
+        "retained_delta_norm_ratio": 0.6006275880515427
+      },
+      "decoder.hyper_Wq_first.weight": {
+        "shape": [
+          16384,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 0.9999999403953552,
+        "retained_delta_norm_ratio": 1.1505129991569392e-06
+      },
+      "decoder.hyper_Wq_last.weight": {
+        "shape": [
+          16384,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 5.953051443578799e-07
+      },
+      "decoder.hyper_Wk.weight": {
+        "shape": [
+          16384,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 1.4312814194612444e-06
+      },
+      "decoder.hyper_Wv.weight": {
+        "shape": [
+          16384,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 1.3864209955333453e-06
+      },
+      "decoder.hyper_Wc.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 7.951733602870548e-07
+      },
+      "decoder.adaptation_bias_module_attn.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "decoder.adaptation_bias_module_attn.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "decoder.adaptation_bias_module_com.W1.weight": {
+        "shape": [
+          128,
+          13
+        ],
+        "rank": 13,
+        "max_rank": 13,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "decoder.adaptation_bias_module_com.W2.weight": {
+        "shape": [
+          1,
+          128
+        ],
+        "rank": 1,
+        "max_rank": 1,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 0.0
+      },
+      "position_embedding.weight": {
+        "shape": [
+          128,
+          3
+        ],
+        "rank": 3,
+        "max_rank": 3,
+        "protected_energy_fraction": 1.0,
+        "retained_delta_norm_ratio": 2.7782557008794194e-07
+      },
+      "attribute_embedding.weight": {
+        "shape": [
+          128,
+          6
+        ],
+        "rank": 6,
+        "max_rank": 6,
+        "protected_energy_fraction": 0.9999998807907104,
+        "retained_delta_norm_ratio": 2.953389354922562e-07
+      },
+      "node_type_embedding.weight": {
+        "shape": [
+          128,
+          5
+        ],
+        "rank": 5,
+        "max_rank": 5,
+        "protected_energy_fraction": 0.9999999403953552,
+        "retained_delta_norm_ratio": 2.557380732749852e-07
+      }
+    },
+    "unchanged_nonmatrix_tensors": 151,
+    "projected_matrices": 231,
+    "delta_norm_before": 186.56084517371445,
+    "delta_norm_after": 103.76918161244986,
+    "retained_delta_norm_ratio": 0.5562216525971787
+  },
+  "lot_diagnostics": {
+    "linear_layers": 171,
+    "norm_layers": 24,
+    "bias_tensors": 127,
+    "inactive_linear": [
+      "encoder.layers.0.Wq_relation.weight",
+      "encoder.layers.0.Wk_relation.weight",
+      "encoder.layers.0.Wv_relation.weight",
+      "encoder.layers.0.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.0.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.1.Wq_relation.weight",
+      "encoder.layers.1.Wk_relation.weight",
+      "encoder.layers.1.Wv_relation.weight",
+      "encoder.layers.1.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.1.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.2.Wq_relation.weight",
+      "encoder.layers.2.Wk_relation.weight",
+      "encoder.layers.2.Wv_relation.weight",
+      "encoder.layers.2.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.2.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.3.Wq_relation.weight",
+      "encoder.layers.3.Wk_relation.weight",
+      "encoder.layers.3.Wv_relation.weight",
+      "encoder.layers.3.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.3.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.4.Wq_relation.weight",
+      "encoder.layers.4.Wk_relation.weight",
+      "encoder.layers.4.Wv_relation.weight",
+      "encoder.layers.4.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.4.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.5.Wq_relation.weight",
+      "encoder.layers.5.Wk_relation.weight",
+      "encoder.layers.5.Wv_relation.weight",
+      "encoder.layers.5.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.5.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.6.Wq_relation.weight",
+      "encoder.layers.6.Wk_relation.weight",
+      "encoder.layers.6.Wv_relation.weight",
+      "encoder.layers.6.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.6.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.7.Wq_relation.weight",
+      "encoder.layers.7.Wk_relation.weight",
+      "encoder.layers.7.Wv_relation.weight",
+      "encoder.layers.7.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.7.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.8.Wq_relation.weight",
+      "encoder.layers.8.Wk_relation.weight",
+      "encoder.layers.8.Wv_relation.weight",
+      "encoder.layers.8.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.8.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.9.Wq_relation.weight",
+      "encoder.layers.9.Wk_relation.weight",
+      "encoder.layers.9.Wv_relation.weight",
+      "encoder.layers.9.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.9.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.10.Wq_relation.weight",
+      "encoder.layers.10.Wk_relation.weight",
+      "encoder.layers.10.Wv_relation.weight",
+      "encoder.layers.10.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.10.adaptation_bias_module_relation.W2.weight",
+      "encoder.layers.11.Wq_relation.weight",
+      "encoder.layers.11.Wk_relation.weight",
+      "encoder.layers.11.Wv_relation.weight",
+      "encoder.layers.11.adaptation_bias_module_relation.W1.weight",
+      "encoder.layers.11.adaptation_bias_module_relation.W2.weight"
+    ],
+    "hyper_gram_ranks": {
+      "decoder.hyper_fc1.weight": {
+        "dimension": 13,
+        "rank": 4
+      },
+      "decoder.hyper_fc2.weight": {
+        "dimension": 256,
+        "rank": 5
+      },
+      "decoder.hyper_fc3.weight": {
+        "dimension": 256,
+        "rank": 5
+      },
+      "decoder.hyper_Wq_first.weight": {
+        "dimension": 13,
+        "rank": 5
+      },
+      "decoder.hyper_Wq_last.weight": {
+        "dimension": 13,
+        "rank": 5
+      },
+      "decoder.hyper_Wk.weight": {
+        "dimension": 13,
+        "rank": 5
+      },
+      "decoder.hyper_Wv.weight": {
+        "dimension": 13,
+        "rank": 5
+      },
+      "decoder.hyper_Wc.weight": {
+        "dimension": 13,
+        "rank": 5
+      }
+    },
+    "dtype": "float32",
+    "solver": "torch.linalg.pinv defaults",
+    "merged_delta_norm": 186.56084517371445
+  },
+  "timing": {
+    "svd_seconds": 0.0,
+    "svd_reused": true,
+    "lot_seconds": 0.0,
+    "lot_reused": true,
+    "projection_seconds": 0.11220680363476276,
+    "projection_reused": false,
+    "save_seconds": 0.06938596814870834
+  },
+  "feature_path": "/public/home/shiys/merge/experiment_runs/20261117_lot_samples_seen5/features/n64_s3409_scale1.0.pt",
+  "lot_cache_path": "/public/home/shiys/merge/experiment_runs/20261117_csp_lot_seen5/cache/lot_n64_s3409.pt",
+  "svd_cache_path": "/public/home/shiys/merge/experiment_runs/20261117_csp_lot_seen5/cache/base_svd.pt",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "finite": true,
+  "strict_load": true,
+  "finished": "2026-11-17T19:48:20.995120+08:00"
+}

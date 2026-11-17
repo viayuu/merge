@@ -9,12 +9,14 @@
       "gpu_name": "NVIDIA GeForce RTX 4090",
       "epochs": 30,
       "instances": 100000,
-      "status": "running",
-      "phase": "training",
-      "returncode": null,
+      "status": "completed",
+      "phase": "completed",
+      "returncode": 0,
       "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/models/total_100k/checkpoint_530.pt",
-      "result": null,
-      "started": "2026-11-17T16:25:28+08:00"
+      "result": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/evaluation/total_100k/checkpoint_530.json",
+      "started": "2026-11-17T16:25:28+08:00",
+      "training_finished": "2026-11-17T20:10:07+08:00",
+      "finished": "2026-11-17T20:10:43+08:00"
     },
     {
       "name": "per_task_100k",
@@ -31,5 +33,5 @@
       "started": "2026-11-17T16:25:28+08:00"
     }
   ],
-  "updated": "2026-11-17T16:25:28+08:00"
+  "updated": "2026-11-17T20:10:43+08:00"
 }

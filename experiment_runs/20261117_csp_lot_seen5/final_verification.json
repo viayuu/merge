@@ -1,0 +1,47 @@
+{
+  "verified_at": "2026-11-17T20:29:13.350211+08:00",
+  "completed": 100,
+  "new_evaluations": 97,
+  "historical_LOT_reused": 3,
+  "task_rows": 500,
+  "configuration_groups": 50,
+  "new_models": 96,
+  "csp_models": 92,
+  "failed": 0,
+  "gpu_names": [
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA GeForce RTX 3090"
+  ],
+  "original_protocol_verified": true,
+  "smoke_excluded": true,
+  "base_and_LOT1000_exactly_match_prior_results": true,
+  "mean_std_and_paired_LOT_differences_recomputed": true,
+  "all_13_code_hashes_unchanged": true,
+  "csp_models_beating_base_mean_gap": 0,
+  "csp_models_beating_matched_LOT_mean_gap": 0,
+  "output_sha256": {
+    "summary.json": "9056cedd7156648b07d6e7d2f2ef432a18622284113ed30a9f47c7ec3cc21d2b",
+    "summary.csv": "effe5b615579cf0e0f416b496f3903ca348140081ce27c0e22252ff137328960",
+    "all_results.csv": "09b5c22eb9935dd28a651c513f49591194cf45b4d351da3121dcec0666b2bd7c",
+    "RESULTS.md": "d3e7db23b0c7e083993202a1ac19a3db906c652cf129109653427edb9575e363",
+    "rank_sensitivity.png": "67f4f20ad663fafd043c30ed8e63b269d87f6a24ff9cf1a0637656781d3dd6a9",
+    "rank_sensitivity.pdf": "2e05c46e1daf6ab911500672bd387f6a044376a630fe377e17062fb933cf7dce",
+    "energy_sensitivity.png": "a326ef2c057d8bf302c4da8ea7add7e7e97f033a34ef08099f0e93433be81340",
+    "energy_sensitivity.pdf": "9b5f31bf9b674dd02c7543a72ede4defb2485d7569a9e6cdcc6cdb14c93a7a66"
+  },
+  "timing": {
+    "new_evaluations_completed": 97,
+    "historical_evaluations_reused": 3,
+    "summed_evaluation_seconds": 4636.0,
+    "evaluation_gpu_hours": 1.2877777777777777,
+    "evaluation_wall_seconds": 2343.0,
+    "new_build_stages": {
+      "svd_seconds": 1.0899227354675531,
+      "lot_seconds": 5.076499233022332,
+      "projection_seconds": 11.396577073261142,
+      "save_seconds": 7.451147895306349
+    },
+    "accounted_build_seconds": 25.014146937057376,
+    "note": "SVD and LOT costs deduplicated by cache path, excluding reused stages; projection/save costs sum actual stages. Shared historical feature extraction is not charged again. This is accumulated work, not parallel wall time."
+  }
+}
