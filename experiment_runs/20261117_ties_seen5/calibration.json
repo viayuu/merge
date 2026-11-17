@@ -1,0 +1,39 @@
+{
+  "threshold_pp": 0.0001,
+  "checks": [
+    {
+      "comparison": "base_4090_vs_previous",
+      "gap_delta_pp": {
+        "cvrp": 0.0,
+        "cvrpb": 0.0,
+        "cvrptw": 0.0,
+        "ocvrp": 0.0,
+        "ocvrptw": 0.0
+      },
+      "max_abs_delta_pp": 0.0
+    },
+    {
+      "comparison": "base_3090_vs_4090",
+      "gap_delta_pp": {
+        "cvrp": 0.0,
+        "cvrpb": 0.0,
+        "cvrptw": 0.0,
+        "ocvrp": 0.0,
+        "ocvrptw": 0.0
+      },
+      "max_abs_delta_pp": 0.0
+    },
+    {
+      "comparison": "default_3090_vs_4090",
+      "gap_delta_pp": {
+        "cvrp": 0.0,
+        "cvrpb": 0.0,
+        "cvrptw": 0.0,
+        "ocvrp": 0.0,
+        "ocvrptw": 0.0
+      },
+      "max_abs_delta_pp": 0.0
+    }
+  ],
+  "passed": true
+}

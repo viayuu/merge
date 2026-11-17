@@ -1,0 +1,32 @@
+{
+  "time": "2026-11-17T15:27:24.023329+08:00",
+  "reason": "GPU05 process startup/export is much slower than GPU03; rebalance unfinished evaluations without changing any model or evaluation settings.",
+  "stopped_step_only": "1475.1141",
+  "retained_gpu05": [
+    "ties_k20_l2p5",
+    "ties_k30_l0p2",
+    "ties_k30_l0p8",
+    "ties_k30_l1p0",
+    "ties_k30_l2p0",
+    "ties_k30_l2p5"
+  ],
+  "moved_gpu03": [
+    "ties_k50_l0p6",
+    "ties_k50_l0p8",
+    "ties_k50_l1p5",
+    "ties_k50_l2p0",
+    "ties_k70_l0p4",
+    "ties_k70_l0p6",
+    "ties_k70_l1p2",
+    "ties_k70_l1p5",
+    "ties_k90_l0p2",
+    "ties_k90_l0p4",
+    "ties_k90_l1p0",
+    "ties_k90_l1p2",
+    "ties_k90_l2p5",
+    "average",
+    "ta_l0p6",
+    "ta_l0p8"
+  ],
+  "completed_gpu05_preserved": 14
+}

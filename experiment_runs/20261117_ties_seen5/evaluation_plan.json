@@ -1,0 +1,632 @@
+[
+  {
+    "id": "base__4090",
+    "phase": "calibration",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt"
+  },
+  {
+    "id": "ties_default__4090",
+    "phase": "calibration",
+    "node": "gpu05",
+    "gpu": 1,
+    "config_id": "ties_k20_l1p0",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p0.pt"
+  },
+  {
+    "id": "base__3090",
+    "phase": "calibration",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt"
+  },
+  {
+    "id": "ties_default__3090",
+    "phase": "calibration",
+    "node": "gpu03",
+    "gpu": 1,
+    "config_id": "ties_k20_l1p0",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p0.pt"
+  },
+  {
+    "id": "ties_k10_l0p2",
+    "config_id": "ties_k10_l0p2",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p2.pt"
+  },
+  {
+    "id": "ties_k10_l0p4",
+    "config_id": "ties_k10_l0p4",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p4.pt"
+  },
+  {
+    "id": "ties_k10_l0p6",
+    "config_id": "ties_k10_l0p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p6.pt"
+  },
+  {
+    "id": "ties_k10_l0p8",
+    "config_id": "ties_k10_l0p8",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p8.pt"
+  },
+  {
+    "id": "ties_k10_l1p0",
+    "config_id": "ties_k10_l1p0",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l1p0.pt"
+  },
+  {
+    "id": "ties_k10_l1p2",
+    "config_id": "ties_k10_l1p2",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l1p2.pt"
+  },
+  {
+    "id": "ties_k10_l1p5",
+    "config_id": "ties_k10_l1p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l1p5.pt"
+  },
+  {
+    "id": "ties_k10_l2p0",
+    "config_id": "ties_k10_l2p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l2p0.pt"
+  },
+  {
+    "id": "ties_k10_l2p5",
+    "config_id": "ties_k10_l2p5",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l2p5.pt"
+  },
+  {
+    "id": "ties_k20_l0p2",
+    "config_id": "ties_k20_l0p2",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p2.pt"
+  },
+  {
+    "id": "ties_k20_l0p4",
+    "config_id": "ties_k20_l0p4",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p4.pt"
+  },
+  {
+    "id": "ties_k20_l0p6",
+    "config_id": "ties_k20_l0p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p6.pt"
+  },
+  {
+    "id": "ties_k20_l0p8",
+    "config_id": "ties_k20_l0p8",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p8.pt"
+  },
+  {
+    "id": "ties_k20_l0p9",
+    "config_id": "ties_k20_l0p9",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p9.pt"
+  },
+  {
+    "id": "ties_k20_l1p1",
+    "config_id": "ties_k20_l1p1",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p1.pt"
+  },
+  {
+    "id": "ties_k20_l1p2",
+    "config_id": "ties_k20_l1p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p2.pt"
+  },
+  {
+    "id": "ties_k20_l1p3",
+    "config_id": "ties_k20_l1p3",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p3.pt"
+  },
+  {
+    "id": "ties_k20_l1p4",
+    "config_id": "ties_k20_l1p4",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p4.pt"
+  },
+  {
+    "id": "ties_k20_l1p5",
+    "config_id": "ties_k20_l1p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p5.pt"
+  },
+  {
+    "id": "ties_k20_l1p6",
+    "config_id": "ties_k20_l1p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p6.pt"
+  },
+  {
+    "id": "ties_k20_l1p7",
+    "config_id": "ties_k20_l1p7",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p7.pt"
+  },
+  {
+    "id": "ties_k20_l1p8",
+    "config_id": "ties_k20_l1p8",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p8.pt"
+  },
+  {
+    "id": "ties_k20_l1p9",
+    "config_id": "ties_k20_l1p9",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p9.pt"
+  },
+  {
+    "id": "ties_k20_l2p0",
+    "config_id": "ties_k20_l2p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p0.pt"
+  },
+  {
+    "id": "ties_k20_l2p1",
+    "config_id": "ties_k20_l2p1",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p1.pt"
+  },
+  {
+    "id": "ties_k20_l2p2",
+    "config_id": "ties_k20_l2p2",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p2.pt"
+  },
+  {
+    "id": "ties_k20_l2p3",
+    "config_id": "ties_k20_l2p3",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p3.pt"
+  },
+  {
+    "id": "ties_k20_l2p4",
+    "config_id": "ties_k20_l2p4",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p4.pt"
+  },
+  {
+    "id": "ties_k20_l2p5",
+    "config_id": "ties_k20_l2p5",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p5.pt"
+  },
+  {
+    "id": "ties_k30_l0p2",
+    "config_id": "ties_k30_l0p2",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p2.pt"
+  },
+  {
+    "id": "ties_k30_l0p4",
+    "config_id": "ties_k30_l0p4",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p4.pt"
+  },
+  {
+    "id": "ties_k30_l0p6",
+    "config_id": "ties_k30_l0p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p6.pt"
+  },
+  {
+    "id": "ties_k30_l0p8",
+    "config_id": "ties_k30_l0p8",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p8.pt"
+  },
+  {
+    "id": "ties_k30_l1p0",
+    "config_id": "ties_k30_l1p0",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l1p0.pt"
+  },
+  {
+    "id": "ties_k30_l1p2",
+    "config_id": "ties_k30_l1p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l1p2.pt"
+  },
+  {
+    "id": "ties_k30_l1p5",
+    "config_id": "ties_k30_l1p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l1p5.pt"
+  },
+  {
+    "id": "ties_k30_l2p0",
+    "config_id": "ties_k30_l2p0",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l2p0.pt"
+  },
+  {
+    "id": "ties_k30_l2p5",
+    "config_id": "ties_k30_l2p5",
+    "phase": "scan",
+    "node": "gpu05",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l2p5.pt"
+  },
+  {
+    "id": "ties_k50_l0p2",
+    "config_id": "ties_k50_l0p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p2.pt"
+  },
+  {
+    "id": "ties_k50_l0p4",
+    "config_id": "ties_k50_l0p4",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p4.pt"
+  },
+  {
+    "id": "ties_k50_l0p6",
+    "config_id": "ties_k50_l0p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p6.pt"
+  },
+  {
+    "id": "ties_k50_l0p8",
+    "config_id": "ties_k50_l0p8",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p8.pt"
+  },
+  {
+    "id": "ties_k50_l1p0",
+    "config_id": "ties_k50_l1p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l1p0.pt"
+  },
+  {
+    "id": "ties_k50_l1p2",
+    "config_id": "ties_k50_l1p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l1p2.pt"
+  },
+  {
+    "id": "ties_k50_l1p5",
+    "config_id": "ties_k50_l1p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l1p5.pt"
+  },
+  {
+    "id": "ties_k50_l2p0",
+    "config_id": "ties_k50_l2p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l2p0.pt"
+  },
+  {
+    "id": "ties_k50_l2p5",
+    "config_id": "ties_k50_l2p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l2p5.pt"
+  },
+  {
+    "id": "ties_k70_l0p2",
+    "config_id": "ties_k70_l0p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p2.pt"
+  },
+  {
+    "id": "ties_k70_l0p4",
+    "config_id": "ties_k70_l0p4",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p4.pt"
+  },
+  {
+    "id": "ties_k70_l0p6",
+    "config_id": "ties_k70_l0p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p6.pt"
+  },
+  {
+    "id": "ties_k70_l0p8",
+    "config_id": "ties_k70_l0p8",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p8.pt"
+  },
+  {
+    "id": "ties_k70_l1p0",
+    "config_id": "ties_k70_l1p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l1p0.pt"
+  },
+  {
+    "id": "ties_k70_l1p2",
+    "config_id": "ties_k70_l1p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l1p2.pt"
+  },
+  {
+    "id": "ties_k70_l1p5",
+    "config_id": "ties_k70_l1p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l1p5.pt"
+  },
+  {
+    "id": "ties_k70_l2p0",
+    "config_id": "ties_k70_l2p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l2p0.pt"
+  },
+  {
+    "id": "ties_k70_l2p5",
+    "config_id": "ties_k70_l2p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l2p5.pt"
+  },
+  {
+    "id": "ties_k90_l0p2",
+    "config_id": "ties_k90_l0p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p2.pt"
+  },
+  {
+    "id": "ties_k90_l0p4",
+    "config_id": "ties_k90_l0p4",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p4.pt"
+  },
+  {
+    "id": "ties_k90_l0p6",
+    "config_id": "ties_k90_l0p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p6.pt"
+  },
+  {
+    "id": "ties_k90_l0p8",
+    "config_id": "ties_k90_l0p8",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p8.pt"
+  },
+  {
+    "id": "ties_k90_l1p0",
+    "config_id": "ties_k90_l1p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l1p0.pt"
+  },
+  {
+    "id": "ties_k90_l1p2",
+    "config_id": "ties_k90_l1p2",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l1p2.pt"
+  },
+  {
+    "id": "ties_k90_l1p5",
+    "config_id": "ties_k90_l1p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l1p5.pt"
+  },
+  {
+    "id": "ties_k90_l2p0",
+    "config_id": "ties_k90_l2p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l2p0.pt"
+  },
+  {
+    "id": "ties_k90_l2p5",
+    "config_id": "ties_k90_l2p5",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l2p5.pt"
+  },
+  {
+    "id": "average",
+    "config_id": "average",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/average.pt"
+  },
+  {
+    "id": "ta_l0p1",
+    "config_id": "ta_l0p1",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p1.pt"
+  },
+  {
+    "id": "ta_l0p4",
+    "config_id": "ta_l0p4",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p4.pt"
+  },
+  {
+    "id": "ta_l0p6",
+    "config_id": "ta_l0p6",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p6.pt"
+  },
+  {
+    "id": "ta_l0p8",
+    "config_id": "ta_l0p8",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 1,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p8.pt"
+  },
+  {
+    "id": "ta_l1p0",
+    "config_id": "ta_l1p0",
+    "phase": "scan",
+    "node": "gpu03",
+    "gpu": 0,
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l1p0.pt"
+  },
+  {
+    "id": "confirm_ties_k30_l0p4",
+    "phase": "confirm",
+    "node": "gpu05",
+    "gpu": 0,
+    "config_id": "ties_k30_l0p4",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p4.pt"
+  },
+  {
+    "id": "confirm_ties_k20_l1p0",
+    "phase": "confirm",
+    "node": "gpu05",
+    "gpu": 1,
+    "config_id": "ties_k20_l1p0",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p0.pt"
+  },
+  {
+    "id": "confirm_average",
+    "phase": "confirm",
+    "node": "gpu05",
+    "gpu": 0,
+    "config_id": "average",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/average.pt"
+  },
+  {
+    "id": "confirm_ties_k90_l0p4",
+    "phase": "confirm",
+    "node": "gpu05",
+    "gpu": 1,
+    "config_id": "ties_k90_l0p4",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p4.pt"
+  }
+]

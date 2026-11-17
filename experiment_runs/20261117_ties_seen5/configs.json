@@ -1,0 +1,434 @@
+[
+  {
+    "id": "ties_k10_l0p2",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 0.2
+  },
+  {
+    "id": "ties_k10_l0p4",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 0.4
+  },
+  {
+    "id": "ties_k10_l0p6",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 0.6
+  },
+  {
+    "id": "ties_k10_l0p8",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 0.8
+  },
+  {
+    "id": "ties_k10_l1p0",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 1.0
+  },
+  {
+    "id": "ties_k10_l1p2",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 1.2
+  },
+  {
+    "id": "ties_k10_l1p5",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 1.5
+  },
+  {
+    "id": "ties_k10_l2p0",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 2.0
+  },
+  {
+    "id": "ties_k10_l2p5",
+    "method": "ties",
+    "keep_percent": 10,
+    "scale": 2.5
+  },
+  {
+    "id": "ties_k20_l0p2",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 0.2
+  },
+  {
+    "id": "ties_k20_l0p4",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 0.4
+  },
+  {
+    "id": "ties_k20_l0p6",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 0.6
+  },
+  {
+    "id": "ties_k20_l0p8",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 0.8
+  },
+  {
+    "id": "ties_k20_l0p9",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 0.9
+  },
+  {
+    "id": "ties_k20_l1p0",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.0
+  },
+  {
+    "id": "ties_k20_l1p1",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.1
+  },
+  {
+    "id": "ties_k20_l1p2",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.2
+  },
+  {
+    "id": "ties_k20_l1p3",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.3
+  },
+  {
+    "id": "ties_k20_l1p4",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.4
+  },
+  {
+    "id": "ties_k20_l1p5",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.5
+  },
+  {
+    "id": "ties_k20_l1p6",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.6
+  },
+  {
+    "id": "ties_k20_l1p7",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.7
+  },
+  {
+    "id": "ties_k20_l1p8",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.8
+  },
+  {
+    "id": "ties_k20_l1p9",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 1.9
+  },
+  {
+    "id": "ties_k20_l2p0",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 2.0
+  },
+  {
+    "id": "ties_k20_l2p1",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 2.1
+  },
+  {
+    "id": "ties_k20_l2p2",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 2.2
+  },
+  {
+    "id": "ties_k20_l2p3",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 2.3
+  },
+  {
+    "id": "ties_k20_l2p4",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 2.4
+  },
+  {
+    "id": "ties_k20_l2p5",
+    "method": "ties",
+    "keep_percent": 20,
+    "scale": 2.5
+  },
+  {
+    "id": "ties_k30_l0p2",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 0.2
+  },
+  {
+    "id": "ties_k30_l0p4",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 0.4
+  },
+  {
+    "id": "ties_k30_l0p6",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 0.6
+  },
+  {
+    "id": "ties_k30_l0p8",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 0.8
+  },
+  {
+    "id": "ties_k30_l1p0",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 1.0
+  },
+  {
+    "id": "ties_k30_l1p2",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 1.2
+  },
+  {
+    "id": "ties_k30_l1p5",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 1.5
+  },
+  {
+    "id": "ties_k30_l2p0",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 2.0
+  },
+  {
+    "id": "ties_k30_l2p5",
+    "method": "ties",
+    "keep_percent": 30,
+    "scale": 2.5
+  },
+  {
+    "id": "ties_k50_l0p2",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 0.2
+  },
+  {
+    "id": "ties_k50_l0p4",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 0.4
+  },
+  {
+    "id": "ties_k50_l0p6",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 0.6
+  },
+  {
+    "id": "ties_k50_l0p8",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 0.8
+  },
+  {
+    "id": "ties_k50_l1p0",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 1.0
+  },
+  {
+    "id": "ties_k50_l1p2",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 1.2
+  },
+  {
+    "id": "ties_k50_l1p5",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 1.5
+  },
+  {
+    "id": "ties_k50_l2p0",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 2.0
+  },
+  {
+    "id": "ties_k50_l2p5",
+    "method": "ties",
+    "keep_percent": 50,
+    "scale": 2.5
+  },
+  {
+    "id": "ties_k70_l0p2",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 0.2
+  },
+  {
+    "id": "ties_k70_l0p4",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 0.4
+  },
+  {
+    "id": "ties_k70_l0p6",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 0.6
+  },
+  {
+    "id": "ties_k70_l0p8",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 0.8
+  },
+  {
+    "id": "ties_k70_l1p0",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 1.0
+  },
+  {
+    "id": "ties_k70_l1p2",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 1.2
+  },
+  {
+    "id": "ties_k70_l1p5",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 1.5
+  },
+  {
+    "id": "ties_k70_l2p0",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 2.0
+  },
+  {
+    "id": "ties_k70_l2p5",
+    "method": "ties",
+    "keep_percent": 70,
+    "scale": 2.5
+  },
+  {
+    "id": "ties_k90_l0p2",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 0.2
+  },
+  {
+    "id": "ties_k90_l0p4",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 0.4
+  },
+  {
+    "id": "ties_k90_l0p6",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 0.6
+  },
+  {
+    "id": "ties_k90_l0p8",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 0.8
+  },
+  {
+    "id": "ties_k90_l1p0",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 1.0
+  },
+  {
+    "id": "ties_k90_l1p2",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 1.2
+  },
+  {
+    "id": "ties_k90_l1p5",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 1.5
+  },
+  {
+    "id": "ties_k90_l2p0",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 2.0
+  },
+  {
+    "id": "ties_k90_l2p5",
+    "method": "ties",
+    "keep_percent": 90,
+    "scale": 2.5
+  },
+  {
+    "id": "average",
+    "method": "average",
+    "keep_percent": null,
+    "scale": null
+  },
+  {
+    "id": "ta_l0p1",
+    "method": "task-arithmetic",
+    "keep_percent": null,
+    "scale": 0.1
+  },
+  {
+    "id": "ta_l0p4",
+    "method": "task-arithmetic",
+    "keep_percent": null,
+    "scale": 0.4
+  },
+  {
+    "id": "ta_l0p6",
+    "method": "task-arithmetic",
+    "keep_percent": null,
+    "scale": 0.6
+  },
+  {
+    "id": "ta_l0p8",
+    "method": "task-arithmetic",
+    "keep_percent": null,
+    "scale": 0.8
+  },
+  {
+    "id": "ta_l1p0",
+    "method": "task-arithmetic",
+    "keep_percent": null,
+    "scale": 1.0
+  }
+]

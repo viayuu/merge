@@ -2,7 +2,7 @@
 
 使用 `URS/dataset` 发布数据、原 `URS/test.py` / `Tester.py` 的解码和 gap。没有新增或拆分数据集，也没有重新实现模型、环境或评测循环。
 
-三个脚本：`merge.py` 生成权重，`evaluate.py` 依次调用原测试入口，`summarize.py` 对照论文表格。URS增加结果字段和可选 `--output_json`，并修复源码备份误复制PyTorch虚拟文件的启动错误；原公式、数据和随机数调用顺序不变。
+`merge.py` 生成平均、Task Arithmetic 等权重，`ties.py` 适配官方 TIES 实现，`evaluate.py` 调用原测试入口，`summarize.py` 对照论文表格。URS增加结果字段和可选 `--output_json`，并修复源码备份误复制PyTorch虚拟文件的启动错误；原公式、数据和随机数调用顺序不变。
 
 ## 1. 激活环境并合并两个专家
 
@@ -73,18 +73,22 @@ python merge_lab/summarize.py results/two_tasks/*.json --out-dir results/two_tas
 
 ## 4. Task Arithmetic / TIES / DARE
 
-实现已提供，只有确认真实共同训练底座后才使用 `--base`，没有自动用通用URS代替底座。
+TIES 使用 `ties.py`，核心函数直接提取自官方最小 notebook，固定版本及许可证见 [来源说明](../third_party/ties_merging/README.md)。五个 epoch-30 微调专家均从 `unified_checkpoint_500.pt` 初始化，来源哈希在实验 manifest 中核验。
 
 ```bash
-python merge_lab/merge.py --method ties \
-  --checkpoints URS/pretrained/cvrp_checkpoint_300.pt URS/pretrained/cvrptw_checkpoint_300.pt \
-  --base /absolute/path/to/verified_common_base.pt \
-  --density 0.2 --scale 1 --output checkpoints/ties_2.pt
+python merge_lab/ties.py \
+  --checkpoints experiment_runs/20261116_urs_finetune_seen5/models/*/checkpoint_30.pt \
+  --base URS/pretrained/unified_checkpoint_500.pt \
+  --keep-percent 20 --scale 1 --output checkpoints/ties_seen5_default.pt
 ```
 
-TA：`--method task-arithmetic --scale 0.5`；DARE+TA：`--method dare-ta --scale 0.5 --drop-rate 0.1 --seed 0`。这两个例子的0.5是两专家的1/K。TIES使用每个完整task vector的top-density裁剪、幅度选符号及同符号非零均值；精确平票取0。DARE丢弃delta并按保留率缩放。
+TIES 对每个完整 task vector 按绝对值阈值裁剪，保留阈值处所有并列参数；按增量和选择符号，零符号按官方全向量多数规则填补，再求同符号非零均值。`--keep-percent` 为百分数且严格介于0和100。历史 `merge.py --method ties` 的裁剪并列和零符号处理与官方不同，保留供历史复现，本轮使用 `ties.py`。
 
-所有方法只保存模型参数及简洁来源信息，不合并optimizer。合并计算使用CPU FP32，输出可由原URS严格加载。没有新训练、自动调参服务或实验队列框架。
+`merge.py` 的 TA：`--method task-arithmetic --scale 0.5`；DARE+TA：`--method dare-ta --scale 0.5 --drop-rate 0.1 --seed 0`。这两个例子的0.5是两专家的1/K。DARE丢弃delta并按保留率缩放。
+
+本轮固定66组 TIES 参数和6个对照，每个完整评测同一五任务，详见[实验方案](../experiment_runs/20261117_ties_seen5/PLAN.md)。批量入口为该目录的 `build_models.py`、`launch_node.sh`、`analyze.py`；运行前按当前机器调整 launch 脚本中的 Slurm allocation。
+
+所有合并方法只保存模型参数及简洁来源信息，不合并optimizer。合并计算使用CPU FP32，输出可由原URS严格加载。
 
 ## 最小通路检查
 

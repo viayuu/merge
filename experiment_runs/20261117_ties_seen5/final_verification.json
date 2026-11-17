@@ -1,0 +1,85 @@
+{
+  "finished": "2026-11-17T15:52:47.978017+08:00",
+  "unique_merge_configs": 72,
+  "completed_new_model_evaluations": 79,
+  "new_task_evaluations": 395,
+  "cached_expert_and_base_evaluations": 6,
+  "long_table_rows": 425,
+  "all_planned_jobs_completed": true,
+  "original_protocol_matched_all_rows": true,
+  "representative_model_hashes_verified": true,
+  "primary_and_supplementary_selection_unchanged": true,
+  "confirmation_checks": [
+    {
+      "config_id": "ties_k30_l0p4",
+      "before_gpu": "NVIDIA GeForce RTX 3090",
+      "confirmation_gpu": "NVIDIA GeForce RTX 4090",
+      "gap_delta_pp": {
+        "cvrp": 0.0,
+        "cvrpb": 0.0,
+        "cvrptw": 0.0,
+        "ocvrp": 0.0,
+        "ocvrptw": 0.0005272344444451349
+      },
+      "max_abs_delta_pp": 0.0005272344444451349,
+      "checkpoint_sha256": "24fa64a936196dc7bd638c955fb60f040becc3462dd3e39f041b0ca7d3624361"
+    },
+    {
+      "config_id": "ties_k20_l1p0",
+      "before_gpu": "NVIDIA GeForce RTX 4090",
+      "confirmation_gpu": "NVIDIA GeForce RTX 4090",
+      "gap_delta_pp": {
+        "cvrp": 0.0,
+        "cvrpb": 0.0,
+        "cvrptw": 0.0,
+        "ocvrp": 0.0,
+        "ocvrptw": 0.0
+      },
+      "max_abs_delta_pp": 0.0,
+      "checkpoint_sha256": "1bf60209e3f1e5dab11132468c12c2882637a1001cec6af56b573c0e27b0f652"
+    },
+    {
+      "config_id": "average",
+      "before_gpu": "NVIDIA GeForce RTX 3090",
+      "confirmation_gpu": "NVIDIA GeForce RTX 4090",
+      "gap_delta_pp": {
+        "cvrp": 0.0,
+        "cvrpb": 0.0,
+        "cvrptw": 0.0,
+        "ocvrp": 0.0,
+        "ocvrptw": 0.0
+      },
+      "max_abs_delta_pp": 0.0,
+      "checkpoint_sha256": "48c6a7a7233b090955b54c16f9dce56ca260e3e6459a8a435422d31cef0619e4"
+    },
+    {
+      "config_id": "ties_k90_l0p4",
+      "before_gpu": "NVIDIA GeForce RTX 3090",
+      "confirmation_gpu": "NVIDIA GeForce RTX 4090",
+      "gap_delta_pp": {
+        "cvrp": 0.0,
+        "cvrpb": 0.0,
+        "cvrptw": 0.0,
+        "ocvrp": 0.0,
+        "ocvrptw": 0.0
+      },
+      "max_abs_delta_pp": 0.0,
+      "checkpoint_sha256": "12a562e5993e8ae716f928eeadaa15b1ce68cb46625cafb94f66309f5dbb9c19"
+    }
+  ],
+  "max_confirmation_gap_difference_pp": 0.0005272344444451349,
+  "note": "Base/default calibration had exactly identical cross-GPU gaps. The best TIES confirmation differs on OCVRPTW by 0.000527234444445 percentage points; formal representative results use RTX4090. All other representative task gaps match. No claim of bitwise GPU invariance.",
+  "evaluations_by_gpu": {
+    "NVIDIA GeForce RTX 3090": 53,
+    "NVIDIA GeForce RTX 4090": 26
+  },
+  "final_sources": {
+    "experiment_runs/20261117_ties_seen5/run_evaluations.py": "13f00ed936fc49a2606bc44ff8f2b679d1c024050cd2003309ab6399f9ff4d08",
+    "experiment_runs/20261117_ties_seen5/build_models.py": "089bf6dd05a934d39fb3950c251b351d55036d5bbd8d48c5fad9f429d9370d1d",
+    "experiment_runs/20261117_ties_seen5/analyze.py": "5f05ca816d51ca576f81235060bd823b58c521134713ae54faa763c92a05a62b",
+    "experiment_runs/20261117_ties_seen5/check_calibration.py": "30763c24d7e395321f1abc0bbb3042a02cfe655f3f19594b440bb7d0136d870c",
+    "experiment_runs/20261117_ties_seen5/diagnose_vectors.py": "f605323f72b1bed9adca9d3b79da139d63808637b00ae7762f93cc4bb384a9f4",
+    "merge_lab/ties.py": "01ce2103394d8a1874205a530624d706c8290939f8aaf616ab27e312e5882d61",
+    "third_party/ties_merging/minimal.py": "3a96105771a892383e6702c011d1b605fc830380b9a230dda3c5265965a47872"
+  }
+}

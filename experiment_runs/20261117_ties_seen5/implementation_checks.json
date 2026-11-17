@@ -1,0 +1,58 @@
+{
+  "upstream_repository": "https://github.com/prateeky2806/ties-merging",
+  "upstream_commit": "44e7891fc84f3de7e4caa52664cd864ca3715e91",
+  "reference": "third_party/ties_merging/src/ties_minimal.ipynb",
+  "execution_environment": "easynco; CPU FP32; OMP/MKL/OPENBLAS threads=2",
+  "function_ast_identical": [
+    "state_dict_to_vector",
+    "vector_to_state_dict",
+    "check_parameterNamesMatch",
+    "check_state_dicts_equal",
+    "topk_values_mask",
+    "resolve_zero_signs",
+    "resolve_sign",
+    "disjoint_merge",
+    "ties_merging"
+  ],
+  "boundary_cases": {
+    "count": 6,
+    "fixture_count": 2,
+    "keep_percents": [
+      20,
+      40,
+      70
+    ],
+    "coverage": [
+      "magnitude threshold ties",
+      "zero coordinate signs",
+      "zero global majority"
+    ],
+    "comparison": "independently execute the nine extracted original notebook function ASTs",
+    "ties_output_elementwise_equal": true,
+    "trim_outputs_and_masks_elementwise_equal": true,
+    "resolved_signs_elementwise_equal": true
+  },
+  "checkpoint_roundtrip": {
+    "count": 6,
+    "checkpoints": [
+      "URS/pretrained/unified_checkpoint_500.pt",
+      "experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+      "experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+      "experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+      "experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+      "experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+    ],
+    "all_state_tensors_elementwise_equal": true
+  },
+  "state_tensor_count": 382,
+  "parameter_count": 4960487,
+  "task_vectors_shape": [
+    5,
+    4960487
+  ],
+  "real_k20_lambda1_official_output_elementwise_equal": true,
+  "lambda_zero_exact_base": true,
+  "merged_tensors_finite": true,
+  "urs_model_strict_load": "All keys matched successfully",
+  "cli_help_exit_code": 0
+}

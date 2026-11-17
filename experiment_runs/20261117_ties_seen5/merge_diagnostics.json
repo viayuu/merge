@@ -1,0 +1,137 @@
+{
+  "tasks": [
+    "cvrp",
+    "cvrpb",
+    "cvrptw",
+    "ocvrp",
+    "ocvrptw"
+  ],
+  "base_l2_norm": 256.2131931809429,
+  "task_delta_l2_norm": [
+    7.631920678803957,
+    7.346335041324563,
+    6.998418327283016,
+    8.021654898070782,
+    7.027885164198234
+  ],
+  "average_delta_l2_norm": 3.5544581314575363,
+  "task_delta_cosine": [
+    [
+      1.0000000000003775,
+      0.17340290420525067,
+      -0.012151767347818152,
+      0.0251937954530243,
+      -0.00155941358367488
+    ],
+    [
+      0.17340290420525067,
+      1.000000000000436,
+      -0.0014083530261569898,
+      0.059881526855606756,
+      -0.005669686166861734
+    ],
+    [
+      -0.012151767347818152,
+      -0.0014083530261569898,
+      1.000000000000401,
+      0.012731641194884291,
+      0.12010813133316117
+    ],
+    [
+      0.0251937954530243,
+      0.059881526855606756,
+      0.012731641194884291,
+      1.0000000000003397,
+      0.002556155035453136
+    ],
+    [
+      -0.00155941358367488,
+      -0.005669686166861734,
+      0.12010813133316117,
+      0.002556155035453136,
+      1.0000000000004208
+    ]
+  ],
+  "active_coordinate_fraction": 0.8198922807377582,
+  "raw_conflicting_fraction_of_active_coordinates": 0.9051126837730408,
+  "by_keep_percent": [
+    {
+      "keep_percent": 10,
+      "actual_threshold_mask_fraction_by_expert": [
+        0.1000000610947609,
+        0.1000000610947609,
+        0.1000000610947609,
+        0.1000000610947609,
+        0.1000000610947609
+      ],
+      "active_coordinate_fraction": 0.3647982546874934,
+      "conflicting_fraction_of_active_coordinates": 0.14518530666828156,
+      "ties_update_l2_norm_scale1": 10.6412802414348
+    },
+    {
+      "keep_percent": 20,
+      "actual_threshold_mask_fraction_by_expert": [
+        0.2000003159046173,
+        0.2000001221895218,
+        0.2000003159046173,
+        0.2000001221895218,
+        0.20000052452087402
+      ],
+      "active_coordinate_fraction": 0.5816904670851875,
+      "conflicting_fraction_of_active_coordinates": 0.273439884185791,
+      "ties_update_l2_norm_scale1": 11.140524156250208
+    },
+    {
+      "keep_percent": 30,
+      "actual_threshold_mask_fraction_by_expert": [
+        0.3000005781650543,
+        0.3000001907348633,
+        0.3000003695487976,
+        0.3000005781650543,
+        0.3000001907348633
+      ],
+      "active_coordinate_fraction": 0.7031638224230806,
+      "conflicting_fraction_of_active_coordinates": 0.408517986536026,
+      "ties_update_l2_norm_scale1": 10.764843279059614
+    },
+    {
+      "keep_percent": 50,
+      "actual_threshold_mask_fraction_by_expert": [
+        0.5000001192092896,
+        0.5000002980232239,
+        0.5000001192092896,
+        0.5000002980232239,
+        0.5000004768371582
+      ],
+      "active_coordinate_fraction": 0.7959232631796032,
+      "conflicting_fraction_of_active_coordinates": 0.6636292338371277,
+      "ties_update_l2_norm_scale1": 9.402458057263742
+    },
+    {
+      "keep_percent": 70,
+      "actual_threshold_mask_fraction_by_expert": [
+        0.7000018358230591,
+        0.7000006437301636,
+        0.7000000476837158,
+        0.7000000476837158,
+        0.7000002264976501
+      ],
+      "active_coordinate_fraction": 0.8158908591031485,
+      "conflicting_fraction_of_active_coordinates": 0.8465772271156311,
+      "ties_update_l2_norm_scale1": 8.056545869708563
+    },
+    {
+      "keep_percent": 90,
+      "actual_threshold_mask_fraction_by_expert": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "active_coordinate_fraction": 0.8198922807377582,
+      "conflicting_fraction_of_active_coordinates": 0.9051126837730408,
+      "ties_update_l2_norm_scale1": 7.462366955877764
+    }
+  ]
+}

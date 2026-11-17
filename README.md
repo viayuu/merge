@@ -2,11 +2,15 @@
 
 使用已发布的 URS 单任务模型，通过离线参数合并形成固定参数的多任务模型，并与原论文 URS 和本地复跑结果比较。
 
+当前实验使用从同一 URS 多任务 base 微调的五个 epoch-30 专家，按官方 TIES-Merging 实现合并。
+
 - [实验方案](refine-logs/EXPERIMENT_PLAN.md)
 - [正式实验结果与分析](refine-logs/EXPERIMENT_RESULTS.md)
 - [45项四卡实验结果](experiment_runs/20261116_four_gpu/summary.md)
 - [ACVRP差异原因排查](experiment_runs/20261116_acvrp_audit/RESULTS.md)
 - [合并与评测命令](merge_lab/README.md)
+- [五专家共同 base 微调结果](experiment_runs/20261116_urs_finetune_seen5/RESULTS.md)
+- [五专家 TIES 实验方案](experiment_runs/20261117_ties_seen5/PLAN.md) · [结果](experiment_runs/20261117_ties_seen5/RESULTS.md)
 
 ## 目录
 
@@ -22,7 +26,7 @@
 
 本机使用 `conda activate easynco`、PyTorch 2.5.1+cu124。正式评测使用原 URS 数据、参考值和 gap，N=100、每任务1000例，greedy，原8/128倍增强；运行细节见各实验目录。
 
-模型和数据集不纳入 Git。复现前按 [URS说明](URS/README.md) 下载原文件，分别放入 `URS/pretrained/` 与 `URS/dataset/`。合并权重输出到 `checkpoints/`，同样由 `.gitignore` 排除。基于task delta的方法需要真实共同base，本次尚未运行这些方法。
+模型和数据集不纳入 Git。复现前按 [URS说明](URS/README.md) 下载原文件，分别放入 `URS/pretrained/` 与 `URS/dataset/`。合并权重输出到 `checkpoints/` 或对应实验的 `models/`，由 `.gitignore` 排除。早期发布专家的共同 base 未得到证实；当前五个微调专家的初始权重哈希均与 URS 多任务 base 一致，可用于 task delta 合并。
 
 仓库保留小型结果、日志、图表和文献PDF；排除Python缓存、原URS重复运行备份及临时锁文件。部分历史实验记录使用本机绝对路径，下载后可从以上相对链接查看报告，并按新环境调整运行路径。
 

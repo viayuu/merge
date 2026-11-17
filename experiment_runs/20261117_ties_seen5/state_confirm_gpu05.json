@@ -1,0 +1,68 @@
+{
+  "phase": "confirm",
+  "node": "gpu05",
+  "started": "2026-11-17T15:43:22+08:00",
+  "jobs": [
+    {
+      "id": "confirm_ties_k30_l0p4",
+      "phase": "confirm",
+      "node": "gpu05",
+      "gpu": 0,
+      "config_id": "ties_k30_l0p4",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p4.pt",
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "status": "completed",
+      "returncode": 0,
+      "result": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/results/confirm_ties_k30_l0p4.json",
+      "started": "2026-11-17T15:43:22+08:00",
+      "log": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/logs/confirm_ties_k30_l0p4.log",
+      "finished": "2026-11-17T15:47:17+08:00"
+    },
+    {
+      "id": "confirm_ties_k20_l1p0",
+      "phase": "confirm",
+      "node": "gpu05",
+      "gpu": 1,
+      "config_id": "ties_k20_l1p0",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p0.pt",
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "status": "completed",
+      "returncode": 0,
+      "result": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/results/confirm_ties_k20_l1p0.json",
+      "started": "2026-11-17T15:43:22+08:00",
+      "log": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/logs/confirm_ties_k20_l1p0.log",
+      "finished": "2026-11-17T15:47:17+08:00"
+    },
+    {
+      "id": "confirm_average",
+      "phase": "confirm",
+      "node": "gpu05",
+      "gpu": 0,
+      "config_id": "average",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/average.pt",
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "status": "completed",
+      "returncode": 0,
+      "result": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/results/confirm_average.json",
+      "started": "2026-11-17T15:47:17+08:00",
+      "log": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/logs/confirm_average.log",
+      "finished": "2026-11-17T15:50:43+08:00"
+    },
+    {
+      "id": "confirm_ties_k90_l0p4",
+      "phase": "confirm",
+      "node": "gpu05",
+      "gpu": 1,
+      "config_id": "ties_k90_l0p4",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p4.pt",
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "status": "completed",
+      "returncode": 0,
+      "result": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/results/confirm_ties_k90_l0p4.json",
+      "started": "2026-11-17T15:47:17+08:00",
+      "log": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/logs/confirm_ties_k90_l0p4.log",
+      "finished": "2026-11-17T15:50:43+08:00"
+    }
+  ],
+  "updated": "2026-11-17T15:50:43+08:00"
+}

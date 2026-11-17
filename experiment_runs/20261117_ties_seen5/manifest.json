@@ -1,0 +1,909 @@
+{
+  "created": "2026-11-17T15:09:54.093901+08:00",
+  "base": {
+    "path": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+    "sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86"
+  },
+  "experts": [
+    {
+      "task": "cvrp",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+      "checkpoint_sha256": "62c24d910808ff9ad1a17ec1869fcba1c52656aed5c6dab879156a3a1d1864ff",
+      "finite_weights": true
+    },
+    {
+      "task": "cvrpb",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+      "checkpoint_sha256": "8b2d387e7d53357441055443826e4a18a9b4cc771e5aa9e20b4f18c325642b6c",
+      "finite_weights": true
+    },
+    {
+      "task": "cvrptw",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+      "checkpoint_sha256": "d633f15676e10df78a52461079d285db3397631c45d219ccbfdc2922e1f1e334",
+      "finite_weights": true
+    },
+    {
+      "task": "ocvrp",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+      "checkpoint_sha256": "004b812a65e130dbd2f9fa9f2ec843dd53329cfaeaba0f7c6c649eb14f361769",
+      "finite_weights": true
+    },
+    {
+      "task": "ocvrptw",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt",
+      "checkpoint_sha256": "21fbef02699ce9791e4477d77a9bd042d4a2e80282384c36a2d7d13d124fb38d",
+      "finite_weights": true
+    }
+  ],
+  "base_state_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+  "task_order": [
+    "cvrp",
+    "cvrpb",
+    "cvrptw",
+    "ocvrp",
+    "ocvrptw"
+  ],
+  "datasets": {
+    "cvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+        "sha256": "4337ecc98fb2b4487b4e3db6bd3cc675850c69b2294c7be9a0ea01b57b618697",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+        "sha256": "f1860cc1deced037c8d570578cd59f9dca778557c2c33724b3ed2d80ea07097c",
+        "bytes": 244156
+      },
+      "original_specialist_exists": true
+    },
+    "cvrpb": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/cvrpb100_uniform.pkl",
+        "sha256": "e0ea0a2d25593999d92e74dac947e8db04b836147563190bbef7078b570c790b",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/ortools_400s_cvrpb100_uniform.pkl",
+        "sha256": "c0536f42b4ba1d343c9274c377ec89ab801f6372783b1a4ebad2c89604f4f2c5",
+        "bytes": 236280
+      },
+      "original_specialist_exists": true
+    },
+    "cvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/cvrptw100_1000uni.pkl",
+        "sha256": "7aff237ca8194382f4ee6e944c98a72007fab5afb457a0fb6e36caf57825fe5b",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/hgs_pyvrp_cvrptw100_1000uni.pkl",
+        "sha256": "c5b4ffc220f46a8d9f8de178457b8be1d0d7713fd5a492397d6131e2b5592a2c",
+        "bytes": 256324
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/ocvrp100_uniform.pkl",
+        "sha256": "57709a82275d1c9f0a8c73d4a002e53c7081a15dd1038afe0752281ab71bfbb0",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/lkh_ocvrp100_uniform.pkl",
+        "sha256": "e388df6953de358541fffef42635a1f8840850217d0deaf030a8e0addd70b59d",
+        "bytes": 245708
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ocvrptw100_uniform.pkl",
+        "sha256": "89572de7a05fed81fb976f5bf8814231c6c5ff2cd203362d251940defa208038",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ortools_400s_ocvrptw100_uniform.pkl",
+        "sha256": "f0b2794d9d2ef4bebf2e1e952324451b3dc344081e03456c2fef4c32c5327310",
+        "bytes": 259534
+      },
+      "original_specialist_exists": true
+    }
+  },
+  "upstream_repository": "https://github.com/prateeky2806/ties-merging",
+  "upstream_commit": "44e7891fc84f3de7e4caa52664cd864ca3715e91",
+  "dtype": "float32",
+  "parameter_count": 4960487,
+  "tensor_count": 382,
+  "config_sha256": "13d60ede63df59cb9da98a91af07e5ff00dc2470c96fe87f1c9632689557cab2",
+  "sources": {
+    "merge_lab/ties.py": "01ce2103394d8a1874205a530624d706c8290939f8aaf616ab27e312e5882d61",
+    "experiment_runs/20261117_ties_seen5/build_models.py": "089bf6dd05a934d39fb3950c251b351d55036d5bbd8d48c5fad9f429d9370d1d",
+    "experiment_runs/20261117_ties_seen5/run_evaluations.py": "13f00ed936fc49a2606bc44ff8f2b679d1c024050cd2003309ab6399f9ff4d08",
+    "URS/test.py": "a237ff6096c90b8ba534495aaa10ff4a55e948a698dbf0eda5971789ffa5ee62",
+    "URS/Tester.py": "0850186c1a337a2212c41c3eab55ea02b943c70072deebcd31a53b26a8ab2d8f",
+    "URS/model/Model.py": "f759d5df8f4f9f8000552f430fdb0f1e48f2ce78a60301bc1f02aadcdddb0da9",
+    "URS/model/Model_LIB.py": "52664f2ffb48f95f99985f4f067c2ebdf5da6e146bd6249e24accf21bc2d8e76",
+    "third_party/ties_merging/minimal.py": "3a96105771a892383e6702c011d1b605fc830380b9a230dda3c5265965a47872",
+    "third_party/ties_merging/src/ties_merging.py": "f8262272f4ed8787a0b6ca11e23d2f3fb58ccc589b07ef2a5574f44743bfa9f3",
+    "third_party/ties_merging/src/utils/merge_utils.py": "4baeff2f023620b6dde32dea8f45985f9300296377b5c08f49c437c163f40a85",
+    "third_party/ties_merging/src/ties_minimal.ipynb": "3d40d462c08f82d5a46a58aedef91e20cb307cdaeb715d731debb06242f91d64"
+  },
+  "models": [
+    {
+      "id": "ties_k10_l0p2",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 0.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p2.pt",
+      "sha256": "432a59db1a96d66590ecec2d174bcff7aeb0c261bd86ba5fa1fbaad57c52075e",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l0p4",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 0.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p4.pt",
+      "sha256": "c7cfd3bd512da1c2c2ac93fc67ae071ce217180fb187dc01db61e0659e04cb2b",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l0p6",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 0.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p6.pt",
+      "sha256": "411712cd082ad5df9dd13c96ee34590eeaabea7ccbca0a7ef50edb538d732997",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l0p8",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 0.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l0p8.pt",
+      "sha256": "e1e7af364a203620abf44be7f1925eedeeeca0805de915c405f6d720c50653fa",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l1p0",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 1.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l1p0.pt",
+      "sha256": "fc72e970f5c24b83bdd86f557dba815fd3b0d3ca052617031b8acc97a2c34afc",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l1p2",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 1.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l1p2.pt",
+      "sha256": "587c91a1c71875bf86ecb8c256fb51def606231df27671cb89edfbb792538980",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l1p5",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 1.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l1p5.pt",
+      "sha256": "22189be22a31187de543ff3a99705d192f783d712544501e44ac30d4f881b238",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l2p0",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 2.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l2p0.pt",
+      "sha256": "5695a13cc61d442146dc5124b863fabb4df8784cbc96f8d428d090dfa2ef2bbd",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k10_l2p5",
+      "method": "ties",
+      "keep_percent": 10,
+      "scale": 2.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k10_l2p5.pt",
+      "sha256": "847b785c15b451d6bfc402350d5ab9a7dd48c143b63e4126c9f2e8eaf3876320",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l0p2",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 0.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p2.pt",
+      "sha256": "47c80aa2ff5d5f385e8c995d66937e63561c632da767bc5e998f98f4b7c9e422",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l0p4",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 0.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p4.pt",
+      "sha256": "83e2a697db2de942bc4120f132459eaec43db91f84e31d0849a0d7ce33d738c1",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l0p6",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 0.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p6.pt",
+      "sha256": "808ba2cabf62d105f7d3ac10fbc2a416a76065b59df3f8bb27f28e1768eaec84",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l0p8",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 0.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p8.pt",
+      "sha256": "d5f35afa49bae970585d921b9785ca6aeff52289cc4f96ba4cec83303de25e40",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l0p9",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 0.9,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l0p9.pt",
+      "sha256": "7798fa0ea4400384057f0f5b8130844e79ab0ae6e7ccd8f83305585376d8d1ef",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p0",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p0.pt",
+      "sha256": "1bf60209e3f1e5dab11132468c12c2882637a1001cec6af56b573c0e27b0f652",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p1",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.1,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p1.pt",
+      "sha256": "96101aadf9e5dbe9cb366606b822c81ab555eaf6f44196aa0409c230e806e5a3",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p2",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p2.pt",
+      "sha256": "8df7879a270e498c3a507d1e6e5122dc625cf924fe589ec1342e4f6d7ac1825d",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p3",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.3,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p3.pt",
+      "sha256": "027e721f36c1833077f5c6998c022ea1fa99cc80d53e24a72e3929b9d207695a",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p4",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p4.pt",
+      "sha256": "8b3e35b0948beb0cb453ef1d1af8fdd911f5636fe234d1d3a1f29d952094a2eb",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p5",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p5.pt",
+      "sha256": "34a7c5f5dcb64c04a6c10c238263a580b8d2fdd7a83c35defc92a68495748fed",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p6",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p6.pt",
+      "sha256": "80c44154a2c92ba3fdd53d2ab25d94925cb8c85cd0bee85fd9abb19b70458cf8",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p7",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.7,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p7.pt",
+      "sha256": "faeed9054a70a17f3bc638d0533ed141d222224aba4eac584581d8b568d0ebe4",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p8",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p8.pt",
+      "sha256": "531d93f6591a352ba4ba603bc56964a4e8398dd19c2f42a4caf84ea326295529",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l1p9",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 1.9,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l1p9.pt",
+      "sha256": "1dfc28ee6f347af4e83615ffda128feaa2eeab4f5bce329a93b5f52c3d692bf0",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l2p0",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 2.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p0.pt",
+      "sha256": "6ab51ee3b19194b054ed9245fb93312ce3f6b8226a56f501620ede6c43925854",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l2p1",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 2.1,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p1.pt",
+      "sha256": "5bd13742f592d4e88ca326a72c9f8c64b501369eae19df304d56ee322342715e",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l2p2",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 2.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p2.pt",
+      "sha256": "46269bee31e20f466e825c94a3a6ce0406be85788454afe4181653fd28834c17",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l2p3",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 2.3,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p3.pt",
+      "sha256": "61c1038816f2dca8fc9b210cd1331fdebf4839b11463e924a44263c0d15b4c3d",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l2p4",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 2.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p4.pt",
+      "sha256": "1fe9faa107fc961e917eeacd79b5764610f7787e278ee35c0cfcc20b66342c54",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k20_l2p5",
+      "method": "ties",
+      "keep_percent": 20,
+      "scale": 2.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k20_l2p5.pt",
+      "sha256": "6cec5d18263c5bb4770ce2f5b13f0c62a9ec8e61e997331c58f1b7d1611f27b2",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l0p2",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 0.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p2.pt",
+      "sha256": "45a4b6d09a2dcc5b925fc4a2fd8f4e701dd294e3935beedf9e81b0b1e6ad6738",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l0p4",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 0.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p4.pt",
+      "sha256": "24fa64a936196dc7bd638c955fb60f040becc3462dd3e39f041b0ca7d3624361",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l0p6",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 0.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p6.pt",
+      "sha256": "dfcc7ad2e01586af8c905cc001e283384005ee3d8aad3846d2d4cdfad5bb1fc5",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l0p8",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 0.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l0p8.pt",
+      "sha256": "5e47eddb60532f11f6655385c50c3cce127fa16c27605b74660c2e58c0c0beba",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l1p0",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 1.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l1p0.pt",
+      "sha256": "88a659aef800dfd643f5e5703ab525954a76ce168e080fad07e86a1414caf114",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l1p2",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 1.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l1p2.pt",
+      "sha256": "b2b9260e0217afb3e3d5485e649e4cfb58f59f0cd2f6b997e40da7a9ea14f8b3",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l1p5",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 1.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l1p5.pt",
+      "sha256": "df17d0ad2ec986b137a6a82f783719ca5001a109086c70f4145caced0a4e9c2e",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l2p0",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 2.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l2p0.pt",
+      "sha256": "8beab1e8f18d6018dffce63144a789fe10cf83ebb0048326e2f42d4eac104f8b",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k30_l2p5",
+      "method": "ties",
+      "keep_percent": 30,
+      "scale": 2.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k30_l2p5.pt",
+      "sha256": "1ed5d6369cfd7a6abf23eb39cc5a3c6a16656595d2f8449d073da4bf0965e22d",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l0p2",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 0.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p2.pt",
+      "sha256": "f90472008e3cb82df1f3635651ae0bfc32c9d923b54b662bd1d03f7ac486223c",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l0p4",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 0.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p4.pt",
+      "sha256": "b536a0945c4dad22c1a1992290789ef52c01db460194f8fd4c16628ec3fbce36",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l0p6",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 0.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p6.pt",
+      "sha256": "08e80f84cabe6e3a7d13f9987557fa76a4934cd0c66baf073765fc6d8ed4613f",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l0p8",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 0.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l0p8.pt",
+      "sha256": "eed1a48262e584118424eac933c5c43d407d3313288151fe144b576361acd79b",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l1p0",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 1.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l1p0.pt",
+      "sha256": "8a34ace9f2e668da533d98ae5215a5b192436596f4f2386980056a36dce08816",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l1p2",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 1.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l1p2.pt",
+      "sha256": "ed929f34ba50890c14a9d0da73ffde3dbc225799584eb8bebf20d5a1f83ea991",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l1p5",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 1.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l1p5.pt",
+      "sha256": "d3cc0567ed134010480fb94cafa0c688112c745004b4cbcb0b911f026e84a9f8",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l2p0",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 2.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l2p0.pt",
+      "sha256": "6899f63c822aab9a3fe107ad28f33393b58e0f4204a21f074ffc382f70e02679",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k50_l2p5",
+      "method": "ties",
+      "keep_percent": 50,
+      "scale": 2.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k50_l2p5.pt",
+      "sha256": "cc04e9b2dbdf502b2f8663df94f2899598341287fb0a7d4bca0bf7e39bfa5a57",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l0p2",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 0.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p2.pt",
+      "sha256": "c878071cd6ae3f5c7b52b26566182fb5a7ebdeed2d3013600f4160aec5772322",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l0p4",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 0.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p4.pt",
+      "sha256": "fa7f32c898544f8102ce22dfff9514aa2dd94ef782b44661a2a89d0720fb0379",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l0p6",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 0.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p6.pt",
+      "sha256": "ec06e2eab9eebe605d36e2479e8d64f1a562a3244bb56a07f4190e8e58900176",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l0p8",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 0.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l0p8.pt",
+      "sha256": "e738a127cd670a9d3e6ea13b99574f7a43e04f6fbd2fd9a8afcd5aedbfe80b50",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l1p0",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 1.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l1p0.pt",
+      "sha256": "3f5196f245974f808e27ee6c98bcc9f1ccff3146712efe55b08f086ff5239bb9",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l1p2",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 1.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l1p2.pt",
+      "sha256": "fab5868b3785d4c4b21a1f3e872be27c52173f056be89369ebc863e44e92a85e",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l1p5",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 1.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l1p5.pt",
+      "sha256": "4ee727f6ed9c103a73290c337e5cbe118171248a77340dc8cb219d1c6db3b74e",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l2p0",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 2.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l2p0.pt",
+      "sha256": "aa44a30b77909b810616591fc1386103b220fc64f57662fd97b841be58e29007",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k70_l2p5",
+      "method": "ties",
+      "keep_percent": 70,
+      "scale": 2.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k70_l2p5.pt",
+      "sha256": "044f86f10c63abe68de740fc396b4458fc660211af458bf31e90c80d8744b3ef",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l0p2",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 0.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p2.pt",
+      "sha256": "d1e9c82b2704315de966c068317505c0f89a6cd8298954170ff6f66f68c512ac",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l0p4",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 0.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p4.pt",
+      "sha256": "12a562e5993e8ae716f928eeadaa15b1ce68cb46625cafb94f66309f5dbb9c19",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l0p6",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 0.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p6.pt",
+      "sha256": "2b8d6c86f6d4fb6f0a779fed5fab5ea5caeabcca79562a4eef30ed5dbdc69636",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l0p8",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 0.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l0p8.pt",
+      "sha256": "70450a6adfb688cfc0b4db0bb79643e30df4f050355148a1af2f698b59065381",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l1p0",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 1.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l1p0.pt",
+      "sha256": "f9541a5d172931de90f0c6f2df028e1311be322c517ea81120fc71e0991df96f",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l1p2",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 1.2,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l1p2.pt",
+      "sha256": "5ed2f6ca4dd9ec2502f3719507c7805525af98f46eaed819dc7d5bdeeccfca74",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l1p5",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 1.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l1p5.pt",
+      "sha256": "4bfb904507c5d61983ee19ec8f8947e0a8549141e2f83e7d52bd292640b3a497",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l2p0",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 2.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l2p0.pt",
+      "sha256": "acbef3f89aa1c40d69a07f6a6c78a9e80b2343cc645b533a27808c19c29a7679",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ties_k90_l2p5",
+      "method": "ties",
+      "keep_percent": 90,
+      "scale": 2.5,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ties_k90_l2p5.pt",
+      "sha256": "e8b1b94823ceec1a70cc61fa973b259d4f16a13ce7c1e9b6101bc5ff6bb0e0e9",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "average",
+      "method": "average",
+      "keep_percent": null,
+      "scale": null,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/average.pt",
+      "sha256": "48c6a7a7233b090955b54c16f9dce56ca260e3e6459a8a435422d31cef0619e4",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ta_l0p1",
+      "method": "task-arithmetic",
+      "keep_percent": null,
+      "scale": 0.1,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p1.pt",
+      "sha256": "0845057e0b76ff24f3dac519ac1fb0abc452bdb4cd27bfceadd04787ed20ba75",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ta_l0p4",
+      "method": "task-arithmetic",
+      "keep_percent": null,
+      "scale": 0.4,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p4.pt",
+      "sha256": "c2b6c5480b0e50360fcaf70fa4c0e7d0294a43da3345f007ce0a87b3576eb9c5",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ta_l0p6",
+      "method": "task-arithmetic",
+      "keep_percent": null,
+      "scale": 0.6,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p6.pt",
+      "sha256": "258b33c1c0336d287e17f7e5a3bce8c6b138224ecb6f27bf6c0bc287c18e193d",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ta_l0p8",
+      "method": "task-arithmetic",
+      "keep_percent": null,
+      "scale": 0.8,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l0p8.pt",
+      "sha256": "760dca4656ae69974922be6a4558b2d05b3c83a01e856e69b1c857510502901e",
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "id": "ta_l1p0",
+      "method": "task-arithmetic",
+      "keep_percent": null,
+      "scale": 1.0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/models/ta_l1p0.pt",
+      "sha256": "0c6537d63999b2f61f2026d71db5fe4104912f9f2b729351505d1e4ec292d70f",
+      "finite": true,
+      "strict_load": true
+    }
+  ],
+  "previous_evaluation": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/evaluation",
+  "protocol": {
+    "seed": 3407,
+    "scale": 100,
+    "episodes": 1000,
+    "augmentation": 8,
+    "batch_size": 125,
+    "eval_type": "greedy",
+    "task_order": [
+      "cvrp",
+      "cvrpb",
+      "cvrptw",
+      "ocvrp",
+      "ocvrptw"
+    ],
+    "pomo_sizes": [
+      100,
+      80,
+      100,
+      100,
+      100
+    ]
+  },
+  "torch": "2.5.1+cu124",
+  "average_precision_note": {
+    "time": "2026-11-17T15:20:55.085585+08:00",
+    "detail": "Before evaluating average, compute the mean directly from the five expert weight vectors to avoid subtract/add roundoff. Other weights unchanged.",
+    "max_abs_weight_change": 7.450580596923828e-09
+  }
+}
