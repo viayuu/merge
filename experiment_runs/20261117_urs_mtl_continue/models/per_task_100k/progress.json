@@ -1,0 +1,26 @@
+{
+  "absolute_epoch": 505,
+  "additional_epoch": 5,
+  "completed_instances": 12800,
+  "target_instances": 500000,
+  "completed_batches": 100,
+  "target_batches": 3910,
+  "task_instances": {
+    "cvrp": 2560,
+    "cvrpb": 3200,
+    "cvrptw": 2176,
+    "ocvrp": 2176,
+    "ocvrptw": 2688
+  },
+  "task_batches": {
+    "cvrp": 20,
+    "cvrpb": 25,
+    "cvrptw": 17,
+    "ocvrp": 17,
+    "ocvrptw": 21
+  },
+  "loss": -0.1316620083153248,
+  "lr": 1e-05,
+  "elapsed_seconds": 57.16110589308664,
+  "phase": "training"
+}

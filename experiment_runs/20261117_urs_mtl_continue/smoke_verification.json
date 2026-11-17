@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "total_100k",
+      "instances": 160,
+      "updates": 2,
+      "task_instances": {
+        "cvrp": 128,
+        "cvrpb": 0,
+        "cvrptw": 0,
+        "ocvrp": 32,
+        "ocvrptw": 0
+      },
+      "initial_optimizer_steps": {
+        "1000000": 297,
+        "727655": 1,
+        "90782": 84
+      },
+      "max_optimizer_step_after": 1000002,
+      "finite_weights": true,
+      "base_weights_verified": true,
+      "lr": 1e-05,
+      "checkpoint_epoch": 501
+    },
+    {
+      "name": "per_task_100k",
+      "instances": 800,
+      "updates": 10,
+      "task_instances": {
+        "cvrp": 160,
+        "cvrpb": 160,
+        "cvrptw": 160,
+        "ocvrp": 160,
+        "ocvrptw": 160
+      },
+      "initial_optimizer_steps": {
+        "1000000": 297,
+        "727655": 1,
+        "90782": 84
+      },
+      "max_optimizer_step_after": 1000010,
+      "finite_weights": true,
+      "base_weights_verified": true,
+      "lr": 1e-05,
+      "checkpoint_epoch": 501
+    }
+  ]
+}

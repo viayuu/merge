@@ -1,0 +1,136 @@
+{
+  "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p4_s3407.pt",
+  "data_dir": "/public/home/shiys/merge/URS/dataset",
+  "seed": 3407,
+  "device": "cuda:0",
+  "model_params": {
+    "embedding_dim": 128,
+    "encoder_layer_num": 12,
+    "ff_hidden_dim": 512,
+    "logit_clipping": 50,
+    "demand_max1": true,
+    "eval_type": "greedy"
+  },
+  "tester_params": {
+    "use_cuda": true,
+    "cuda_device_num": 0,
+    "model_load": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p4_s3407.pt",
+    "test_episodes": [
+      2
+    ],
+    "augmentation_enable": true,
+    "aug_factor": [
+      8,
+      128
+    ],
+    "test_batch_size_small": [
+      125,
+      125,
+      50,
+      8
+    ],
+    "test_batch_size_large": [
+      16,
+      8,
+      2,
+      1,
+      1
+    ],
+    "summary_problems_per_row": 6,
+    "detailed_log": false
+  },
+  "result_folder": "/public/home/shiys/merge/URS/result_test/cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_5tasks/20261117_170650_aug_cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_paper_full_c4_a0p4_s3407_5tasks_range100_100",
+  "rows": [
+    {
+      "task": "cvrp",
+      "scale": 100,
+      "no_aug_gap": 2.654896467543757,
+      "aug_gap": 2.0165777961772897,
+      "no_aug_score": 16.96493911743164,
+      "aug_score": 16.85944938659668,
+      "oracle_score": 16.526185989379883,
+      "episodes": 2.0,
+      "aug_factor": 8.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 125.0,
+      "time": 0.4395298957824707,
+      "avg_time": 0.21976494789123535,
+      "data_path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+      "reference_available": true
+    },
+    {
+      "task": "cvrpb",
+      "scale": 100,
+      "no_aug_gap": 3.748505506457638,
+      "aug_gap": 1.3114880980265557,
+      "no_aug_score": 11.658622741699219,
+      "aug_score": 11.384765625,
+      "oracle_score": 11.237388610839844,
+      "episodes": 2.0,
+      "aug_factor": 8.0,
+      "pomo_size": 80.0,
+      "configured_batch_size": 125.0,
+      "time": 0.21328449249267578,
+      "avg_time": 0.10664224624633789,
+      "data_path": "/public/home/shiys/merge/URS/dataset/cvrpb/cvrpb100_uniform.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/cvrpb/ortools_400s_cvrpb100_uniform.pkl",
+      "reference_available": true
+    },
+    {
+      "task": "cvrptw",
+      "scale": 100,
+      "no_aug_gap": 6.206799524853231,
+      "aug_gap": 5.685050024474424,
+      "no_aug_score": 25.989599227905273,
+      "aug_score": 25.861923217773438,
+      "oracle_score": 24.470748901367188,
+      "episodes": 2.0,
+      "aug_factor": 8.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 125.0,
+      "time": 0.2400224208831787,
+      "avg_time": 0.12001121044158936,
+      "data_path": "/public/home/shiys/merge/URS/dataset/cvrptw/cvrptw100_1000uni.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/cvrptw/hgs_pyvrp_cvrptw100_1000uni.pkl",
+      "reference_available": true
+    },
+    {
+      "task": "ocvrp",
+      "scale": 100,
+      "no_aug_gap": 4.422569813952618,
+      "aug_gap": 3.1015316853465165,
+      "no_aug_score": 10.91597843170166,
+      "aug_score": 10.777881622314453,
+      "oracle_score": 10.453658103942871,
+      "episodes": 2.0,
+      "aug_factor": 8.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 125.0,
+      "time": 0.20398402214050293,
+      "avg_time": 0.10199201107025146,
+      "data_path": "/public/home/shiys/merge/URS/dataset/ocvrp/ocvrp100_uniform.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/ocvrp/lkh_ocvrp100_uniform.pkl",
+      "reference_available": true
+    },
+    {
+      "task": "ocvrptw",
+      "scale": 100,
+      "no_aug_gap": 6.987281851175056,
+      "aug_gap": 6.753681041719776,
+      "no_aug_score": 14.47647476196289,
+      "aug_score": 14.444866180419922,
+      "oracle_score": 13.531023979187012,
+      "episodes": 2.0,
+      "aug_factor": 8.0,
+      "pomo_size": 100.0,
+      "configured_batch_size": 125.0,
+      "time": 0.2384500503540039,
+      "avg_time": 0.11922502517700195,
+      "data_path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ocvrptw100_uniform.pkl",
+      "solution_path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ortools_400s_ocvrptw100_uniform.pkl",
+      "reference_available": true
+    }
+  ],
+  "missing": []
+}

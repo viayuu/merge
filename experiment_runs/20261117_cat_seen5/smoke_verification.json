@@ -1,0 +1,14 @@
+{
+  "episodes_per_task": 2,
+  "models": [
+    "upstream_c4_a0p4_s3407",
+    "paper_full_c4_a0p4_s3407"
+  ],
+  "tasks_per_model": 5,
+  "gpus": [
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA GeForce RTX 3090"
+  ],
+  "passed": true,
+  "metrics_not_for_comparison": true
+}

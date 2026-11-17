@@ -1,0 +1,167 @@
+{
+  "created": "2026-11-17T16:24:30.273358+08:00",
+  "run_id": "20261117_urs_mtl_continue",
+  "base": {
+    "path": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+    "sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86"
+  },
+  "tasks": [
+    "cvrp",
+    "cvrpb",
+    "cvrptw",
+    "ocvrp",
+    "ocvrptw"
+  ],
+  "datasets": {
+    "cvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+        "sha256": "4337ecc98fb2b4487b4e3db6bd3cc675850c69b2294c7be9a0ea01b57b618697",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+        "sha256": "f1860cc1deced037c8d570578cd59f9dca778557c2c33724b3ed2d80ea07097c",
+        "bytes": 244156
+      },
+      "original_specialist_exists": true
+    },
+    "cvrpb": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/cvrpb100_uniform.pkl",
+        "sha256": "e0ea0a2d25593999d92e74dac947e8db04b836147563190bbef7078b570c790b",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/ortools_400s_cvrpb100_uniform.pkl",
+        "sha256": "c0536f42b4ba1d343c9274c377ec89ab801f6372783b1a4ebad2c89604f4f2c5",
+        "bytes": 236280
+      },
+      "original_specialist_exists": true
+    },
+    "cvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/cvrptw100_1000uni.pkl",
+        "sha256": "7aff237ca8194382f4ee6e944c98a72007fab5afb457a0fb6e36caf57825fe5b",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/hgs_pyvrp_cvrptw100_1000uni.pkl",
+        "sha256": "c5b4ffc220f46a8d9f8de178457b8be1d0d7713fd5a492397d6131e2b5592a2c",
+        "bytes": 256324
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/ocvrp100_uniform.pkl",
+        "sha256": "57709a82275d1c9f0a8c73d4a002e53c7081a15dd1038afe0752281ab71bfbb0",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/lkh_ocvrp100_uniform.pkl",
+        "sha256": "e388df6953de358541fffef42635a1f8840850217d0deaf030a8e0addd70b59d",
+        "bytes": 245708
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ocvrptw100_uniform.pkl",
+        "sha256": "89572de7a05fed81fb976f5bf8814231c6c5ff2cd203362d251940defa208038",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ortools_400s_ocvrptw100_uniform.pkl",
+        "sha256": "f0b2794d9d2ef4bebf2e1e952324451b3dc344081e03456c2fef4c32c5327310",
+        "bytes": 259534
+      },
+      "original_specialist_exists": true
+    }
+  },
+  "model_base_state_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+  "protocol": {
+    "absolute_epochs": [
+      501,
+      530
+    ],
+    "additional_epochs": 30,
+    "batch_size": 128,
+    "problem_size": 100,
+    "seed": 3407,
+    "optimizer": "AdamW",
+    "optimizer_state_restored": true,
+    "learning_rate": 1e-05,
+    "weight_decay": 1e-06,
+    "original_lr_decay_epochs": [
+      451
+    ],
+    "new_lr_decay_epochs": [],
+    "training_instances": "online generation through original URS env",
+    "validation_instances_per_task": 1000,
+    "validation_batch_size": 1000,
+    "validation_augmentation": false,
+    "test_instances_per_task": 1000,
+    "test_batch_size": 125,
+    "test_augmentation": 8,
+    "test_tasks": [
+      "cvrp",
+      "cvrpb",
+      "cvrptw",
+      "ocvrp",
+      "ocvrptw"
+    ],
+    "checkpoint_selection": "fixed_absolute_epoch_530"
+  },
+  "runs": [
+    {
+      "name": "total_100k",
+      "budget": "total",
+      "gpu": 0,
+      "instances_per_epoch": 100000,
+      "additional_instances": 3000000,
+      "steps_per_epoch": 782,
+      "additional_updates": 23460
+    },
+    {
+      "name": "per_task_100k",
+      "budget": "per-task",
+      "gpu": 1,
+      "instances_per_epoch": 500000,
+      "instances_per_task_per_epoch": 100000,
+      "additional_instances": 15000000,
+      "steps_per_epoch": 3910,
+      "additional_updates": 117300
+    }
+  ],
+  "compute": {
+    "node": "gpu05",
+    "allocation": 1475,
+    "gpus": [
+      "RTX4090",
+      "RTX4090"
+    ],
+    "conda": "easynco",
+    "tmux": "urs_mtl_continue",
+    "preflight_memory_mib": [
+      2,
+      2
+    ]
+  },
+  "source_commit": "1e7586d",
+  "source_files": {
+    "merge_lab/continue_multitask.py": "c121e748f190f861331ca0bfe994818a68b40342a14ced5695d68ee70cb56c5e",
+    "URS/Trainer.py": "7dd998a4b891e2d78e3463fbdd0a1e2c0b6d0c34be414ffebdc9116def1a8f2e",
+    "URS/args.py": "3fa293f7e318b4b9d56b2256f04fd4964a14283372e55e2fbbb2f5688d0d9f6f",
+    "URS/test.py": "a237ff6096c90b8ba534495aaa10ff4a55e948a698dbf0eda5971789ffa5ee62",
+    "URS/Tester.py": "0850186c1a337a2212c41c3eab55ea02b943c70072deebcd31a53b26a8ab2d8f",
+    "URS/model/Model.py": "f759d5df8f4f9f8000552f430fdb0f1e48f2ce78a60301bc1f02aadcdddb0da9",
+    "URS/model/Model_LIB.py": "52664f2ffb48f95f99985f4f067c2ebdf5da6e146bd6249e24accf21bc2d8e76",
+    "experiment_runs/20261117_urs_mtl_continue/analyze.py": "42753f4f4e13bab58bca808103845ed76598ba8c76a36430267ca636ce6c21d8",
+    "experiment_runs/20261117_urs_mtl_continue/run_queue.py": "dc9aa8902191b3b3b0d6c237ec3c976b17c4a75e8c4de4b1a80f578166c63788",
+    "experiment_runs/20261117_urs_mtl_continue/progress.py": "21bdf4928e28c413ba2ee344119ea14f9af00138757db4587ea9890d8dee2783",
+    "experiment_runs/20261117_urs_mtl_continue/launch.sh": "290eaf5f290f8a7a0f0b068c96accbac17fcd0c1607a3ab8254a671990ac91ef"
+  },
+  "references": "/public/home/shiys/merge/experiment_runs/20261117_ties_seen5/summary.json",
+  "comparison_note": "Original URS resume restores AdamW and lr1e-5. Earlier experts reset optimizer and used3e-5->3e-6. The large budget matches instance/update counts, not every optimization condition."
+}

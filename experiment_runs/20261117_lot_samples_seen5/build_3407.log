@@ -1,0 +1,50 @@
+Built lot_n2_a1p2_s3407: merge=1.63s, features=None
+Merge features cvrp: 16 instances, 171 linear weights, 24 normalization scales
+Merge features cvrpb: 16 instances, 171 linear weights, 24 normalization scales
+Merge features cvrptw: 16 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrp: 16 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrptw: 16 instances, 171 linear weights, 24 normalization scales
+Built lot_n16_a1p2_s3407: merge=1.07s, features=1.4230886902660131
+Merge features cvrp: 256 instances, 171 linear weights, 24 normalization scales
+Merge features cvrpb: 256 instances, 171 linear weights, 24 normalization scales
+Merge features cvrptw: 256 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrp: 256 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrptw: 256 instances, 171 linear weights, 24 normalization scales
+Built lot_n256_a1p2_s3407: merge=1.05s, features=1.7199102248996496
+Built lot_n64_a0p6_s3407: merge=1.03s, features=1.8926233258098364
+Built lot_n64_a0p8_s3407: merge=0.00s, features=1.8926233258098364
+Built lot_n64_a1p0_s3407: merge=0.00s, features=1.8926233258098364
+Built lot_n64_a1p5_s3407: merge=0.00s, features=1.8926233258098364
+Built lot_n64_a2p0_s3407: merge=0.00s, features=1.8926233258098364
+Built cat_paper_n16_a0p2_s3407: merge=5.12s, features=1.4230886902660131
+Built cat_paper_n16_a0p4_s3407: merge=0.00s, features=1.4230886902660131
+Merge features cvrp: 16 instances, 171 linear weights, 24 normalization scales
+Merge features cvrpb: 16 instances, 171 linear weights, 24 normalization scales
+Merge features cvrptw: 16 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrp: 16 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrptw: 16 instances, 171 linear weights, 24 normalization scales
+Built cat_upstream_n16_a0p4_s3407: merge=4.73s, features=1.3103381115943193
+Built cat_paper_n64_a0p2_s3407: merge=5.07s, features=1.8926233258098364
+Built cat_paper_n64_a0p4_s3407: merge=0.00s, features=1.8926233258098364
+Merge features cvrp: 64 instances, 171 linear weights, 24 normalization scales
+Merge features cvrpb: 64 instances, 171 linear weights, 24 normalization scales
+Merge features cvrptw: 64 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrp: 64 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrptw: 64 instances, 171 linear weights, 24 normalization scales
+Built cat_upstream_n64_a0p4_s3407: merge=4.71s, features=1.3849068023264408
+Built cat_paper_n256_a0p2_s3407: merge=5.06s, features=1.7199102248996496
+Built cat_paper_n256_a0p4_s3407: merge=0.00s, features=1.7199102248996496
+Merge features cvrp: 256 instances, 171 linear weights, 24 normalization scales
+Merge features cvrpb: 256 instances, 171 linear weights, 24 normalization scales
+Merge features cvrptw: 256 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrp: 256 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrptw: 256 instances, 171 linear weights, 24 normalization scales
+Built cat_upstream_n256_a0p4_s3407: merge=4.72s, features=1.7863184157758951
+Built cat_paper_n1000_a0p2_s3407: merge=5.09s, features=4.092193877324462
+Built cat_paper_n1000_a0p4_s3407: merge=0.00s, features=4.092193877324462
+Merge features cvrp: 1000 instances, 171 linear weights, 24 normalization scales
+Merge features cvrpb: 1000 instances, 171 linear weights, 24 normalization scales
+Merge features cvrptw: 1000 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrp: 1000 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrptw: 1000 instances, 171 linear weights, 24 normalization scales
+Built cat_upstream_n1000_a0p4_s3407: merge=4.66s, features=3.7034056801348925

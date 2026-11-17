@@ -1,0 +1,192 @@
+{
+  "created": "2026-11-17T17:54:14.269146+08:00",
+  "base": {
+    "path": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+    "sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86"
+  },
+  "experts": [
+    {
+      "task": "cvrp",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+      "checkpoint_sha256": "62c24d910808ff9ad1a17ec1869fcba1c52656aed5c6dab879156a3a1d1864ff",
+      "finite_weights": true
+    },
+    {
+      "task": "cvrpb",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+      "checkpoint_sha256": "8b2d387e7d53357441055443826e4a18a9b4cc771e5aa9e20b4f18c325642b6c",
+      "finite_weights": true
+    },
+    {
+      "task": "cvrptw",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+      "checkpoint_sha256": "d633f15676e10df78a52461079d285db3397631c45d219ccbfdc2922e1f1e334",
+      "finite_weights": true
+    },
+    {
+      "task": "ocvrp",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+      "checkpoint_sha256": "004b812a65e130dbd2f9fa9f2ec843dd53329cfaeaba0f7c6c649eb14f361769",
+      "finite_weights": true
+    },
+    {
+      "task": "ocvrptw",
+      "epoch": 30,
+      "optimizer_steps": [
+        23460
+      ],
+      "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt",
+      "checkpoint_sha256": "21fbef02699ce9791e4477d77a9bd042d4a2e80282384c36a2d7d13d124fb38d",
+      "finite_weights": true
+    }
+  ],
+  "datasets": {
+    "cvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+        "sha256": "4337ecc98fb2b4487b4e3db6bd3cc675850c69b2294c7be9a0ea01b57b618697",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+        "sha256": "f1860cc1deced037c8d570578cd59f9dca778557c2c33724b3ed2d80ea07097c",
+        "bytes": 244156
+      },
+      "original_specialist_exists": true
+    },
+    "cvrpb": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/cvrpb100_uniform.pkl",
+        "sha256": "e0ea0a2d25593999d92e74dac947e8db04b836147563190bbef7078b570c790b",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/ortools_400s_cvrpb100_uniform.pkl",
+        "sha256": "c0536f42b4ba1d343c9274c377ec89ab801f6372783b1a4ebad2c89604f4f2c5",
+        "bytes": 236280
+      },
+      "original_specialist_exists": true
+    },
+    "cvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/cvrptw100_1000uni.pkl",
+        "sha256": "7aff237ca8194382f4ee6e944c98a72007fab5afb457a0fb6e36caf57825fe5b",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/hgs_pyvrp_cvrptw100_1000uni.pkl",
+        "sha256": "c5b4ffc220f46a8d9f8de178457b8be1d0d7713fd5a492397d6131e2b5592a2c",
+        "bytes": 256324
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/ocvrp100_uniform.pkl",
+        "sha256": "57709a82275d1c9f0a8c73d4a002e53c7081a15dd1038afe0752281ab71bfbb0",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/lkh_ocvrp100_uniform.pkl",
+        "sha256": "e388df6953de358541fffef42635a1f8840850217d0deaf030a8e0addd70b59d",
+        "bytes": 245708
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ocvrptw100_uniform.pkl",
+        "sha256": "89572de7a05fed81fb976f5bf8814231c6c5ff2cd203362d251940defa208038",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ortools_400s_ocvrptw100_uniform.pkl",
+        "sha256": "f0b2794d9d2ef4bebf2e1e952324451b3dc344081e03456c2fef4c32c5327310",
+        "bytes": 259534
+      },
+      "original_specialist_exists": true
+    }
+  },
+  "task_order": [
+    "cvrp",
+    "cvrpb",
+    "cvrptw",
+    "ocvrp",
+    "ocvrptw"
+  ],
+  "protocol": {
+    "seed": 3407,
+    "scale": 100,
+    "episodes": 1000,
+    "augmentation": 8,
+    "batch_size": 125,
+    "eval_type": "greedy",
+    "task_order": [
+      "cvrp",
+      "cvrpb",
+      "cvrptw",
+      "ocvrp",
+      "ocvrptw"
+    ],
+    "pomo_sizes": [
+      100,
+      80,
+      100,
+      100,
+      100
+    ]
+  },
+  "seeds": [
+    3407,
+    3408,
+    3409
+  ],
+  "examples_per_task": 2,
+  "linear_lambda": 5,
+  "norm_lambda": 10,
+  "upstream_repository": "https://github.com/SunWenJu123/model-merging",
+  "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+  "feature_data": "2 uniformly selected existing test inputs per task; no labels; no new split",
+  "selection": "mean across 3 exemplar seeds; same-data exploratory selection",
+  "method": "LOT merging and CAT exemplar-count study",
+  "sizes": [
+    2,
+    16,
+    64,
+    256,
+    1000
+  ],
+  "feature_batch_size": 128,
+  "full_set_policy": "1000 inputs in original order; one run, std not estimable",
+  "samples": "nested subsets of original 1000 inputs; no labels or new split",
+  "source_protocol_difference": "LOT paper samples training inputs; user requests existing original data here",
+  "lot_defaults": {
+    "scale": 1.2,
+    "samples_per_task": 64,
+    "pinv": "torch.linalg.pinv default, float32"
+  },
+  "total_evaluations": 68,
+  "reused_evaluations": 9,
+  "source_snapshot": "third_party/lot_merging"
+}

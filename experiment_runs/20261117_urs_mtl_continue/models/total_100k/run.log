@@ -1,0 +1,503 @@
+[2026-11-17 16:25:30] Trainer.py(66) : 5 problems for training: ['cvrp', 'cvrpb', 'cvrptw', 'ocvrp', 'ocvrptw']
+[2026-11-17 16:25:30] Trainer.py(67) : 5 problems for validation: ['cvrp', 'cvrpb', 'cvrptw', 'ocvrp', 'ocvrptw']
+[2026-11-17 16:25:32] Trainer.py(147) : Successfully load 1000 CVRP100          ==> oracle score: 15.5036
+[2026-11-17 16:25:32] Trainer.py(147) : Successfully load 1000 CVRPB100         ==> oracle score: 11.8782
+[2026-11-17 16:25:32] Trainer.py(147) : Successfully load 1000 CVRPTW100        ==> oracle score: 24.3494
+[2026-11-17 16:25:32] Trainer.py(147) : Successfully load 1000 OCVRP100         ==> oracle score:  9.8277
+[2026-11-17 16:25:33] Trainer.py(147) : Successfully load 1000 OCVRPTW100       ==> oracle score: 14.3802
+[2026-11-17 16:25:33] continue_multitask.py(196) : Continuation configuration: {"budget": "total", "instances": 100000, "instances_per_epoch_total": 100000, "additional_epochs": 30, "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt", "base_epoch": 500, "base_file_sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86", "base_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887", "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887", "start_epoch": 501, "final_epoch": 530, "optimizer_state_restored": true, "optimizer_state_reset": false, "initial_lr": 1e-05, "initial_optimizer_steps": {"1000000": 297, "727655": 1, "90782": 84}, "optimizer_state_count": 382, "optimizer_type": "AdamW", "weight_decay": 1e-06, "betas": [0.9, 0.999], "eps": 1e-08, "lr_decay_epoch": [451], "env_params": {"problem_size": 100, "capacity": 50, "data_dir": "/public/home/shiys/merge/URS/dataset"}, "model_params": {"embedding_dim": 128, "encoder_layer_num": 12, "ff_hidden_dim": 512, "logit_clipping": 50, "demand_max1": true, "eval_type": "greedy"}, "trainer_params": {"use_cuda": true, "cuda_device_num": 0, "epochs": 530, "budget": "total", "instances": 100000, "batches_per_epoch": 782, "batch_size": 128, "train_problem_list": ["cvrp", "cvrpb", "cvrptw", "ocvrp", "ocvrptw"], "validation_problem_list": ["cvrp", "cvrpb", "cvrptw", "ocvrp", "ocvrptw"], "validation_scale": 100, "validation_episodes": 1000, "validation_batch_size": 1000, "model_load": {"enable": false}, "logging": {"model_save_interval": 1, "log_image_params_1": {"json_foldername": "log_image_style", "filename": "style_score.json"}, "log_image_params_2": {"json_foldername": "log_image_style", "filename": "style_loss.json"}}}, "seed": 3407, "rng_state_restored": false, "rng_note": "The released checkpoint has no RNG state; seed starts a new sequence.", "torch": "2.5.1+cu124", "cuda": "12.4", "device": "NVIDIA GeForce RTX 4090", "validation_protocol": "Original Trainer: five tasks, greedy POMO, no augmentation", "final_checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/models/total_100k/checkpoint_530.pt", "status": "running"}
+[2026-11-17 16:25:33] Trainer.py(158) : ========================================================================
+[2026-11-17 16:25:33] Trainer.py(167) : Epoch  501: Current learning rate: 1e-05
+[2026-11-17 16:25:34] continue_multitask.py(73) : Epoch 501: instances 128/100000, batch 1/782, task cvrp, score 15.715811, loss -0.124354, elapsed 1.4s
+[2026-11-17 16:25:35] continue_multitask.py(73) : Epoch 501: instances 256/100000, batch 2/782, task ocvrp, score 10.254006, loss -0.113366, elapsed 2.0s
+[2026-11-17 16:25:35] continue_multitask.py(73) : Epoch 501: instances 384/100000, batch 3/782, task cvrpb, score 12.316004, loss -0.127543, elapsed 2.6s
+[2026-11-17 16:25:36] continue_multitask.py(73) : Epoch 501: instances 512/100000, batch 4/782, task cvrptw, score 25.434456, loss -0.138043, elapsed 3.2s
+[2026-11-17 16:25:36] continue_multitask.py(73) : Epoch 501: instances 640/100000, batch 5/782, task cvrpb, score 12.197434, loss -0.140484, elapsed 3.7s
+[2026-11-17 16:26:28] continue_multitask.py(73) : Epoch 501: instances 12800/100000, batch 100/782, task cvrp, score 15.819957, loss -0.130294, elapsed 54.7s
+[2026-11-17 16:27:22] continue_multitask.py(73) : Epoch 501: instances 25600/100000, batch 200/782, task cvrptw, score 27.195833, loss -0.129311, elapsed 109.6s
+[2026-11-17 16:28:18] continue_multitask.py(73) : Epoch 501: instances 38400/100000, batch 300/782, task cvrp, score 15.991807, loss -0.128379, elapsed 165.4s
+[2026-11-17 16:29:12] continue_multitask.py(73) : Epoch 501: instances 51200/100000, batch 400/782, task cvrp, score 15.873713, loss -0.129135, elapsed 219.1s
+[2026-11-17 16:30:06] continue_multitask.py(73) : Epoch 501: instances 64000/100000, batch 500/782, task ocvrp, score 10.264265, loss -0.130049, elapsed 273.2s
+[2026-11-17 16:31:00] continue_multitask.py(73) : Epoch 501: instances 76800/100000, batch 600/782, task ocvrp, score 10.318063, loss -0.128755, elapsed 327.4s
+[2026-11-17 16:31:54] continue_multitask.py(73) : Epoch 501: instances 89600/100000, batch 700/782, task cvrptw, score 26.875233, loss -0.129358, elapsed 381.6s
+[2026-11-17 16:32:38] continue_multitask.py(73) : Epoch 501: instances 100000/100000, batch 782/782, task cvrpb, score 12.103010, loss -0.128826, elapsed 425.1s
+[2026-11-17 16:32:39] Trainer.py(389) : Epoch  501: 1000 CVRP100          ==> Score: 15.9082, Gap:  2.6096%
+[2026-11-17 16:32:40] Trainer.py(389) : Epoch  501: 1000 CVRPB100         ==> Score: 12.1956, Gap:  2.6720%
+[2026-11-17 16:32:41] Trainer.py(389) : Epoch  501: 1000 CVRPTW100        ==> Score: 25.9939, Gap:  6.7538%
+[2026-11-17 16:32:42] Trainer.py(389) : Epoch  501: 1000 OCVRP100         ==> Score: 10.2774, Gap:  4.5759%
+[2026-11-17 16:32:43] Trainer.py(389) : Epoch  501: 1000 OCVRPTW100       ==> Score: 15.2436, Gap:  6.0042%
+[2026-11-17 16:32:43] Trainer.py(187) : Epoch  501: Average gap: 4.5231%
+[2026-11-17 16:32:43] Trainer.py(190) : Epoch  501: New best average gap: 4.5231%, saving best checkpoint
+[2026-11-17 16:32:43] Trainer.py(203) : Epoch  501/ 530: Time Est.: Elapsed[7.17m], Remain[3.47h (0.14d)]
+[2026-11-17 16:32:43] Trainer.py(210) : Saving log_image
+[2026-11-17 16:32:43] Trainer.py(216) : Saving trained_model
+[2026-11-17 16:32:43] Trainer.py(158) : ========================================================================
+[2026-11-17 16:32:43] Trainer.py(167) : Epoch  502: Current learning rate: 1e-05
+[2026-11-17 16:32:44] continue_multitask.py(73) : Epoch 502: instances 128/100000, batch 1/782, task cvrpb, score 12.109447, loss -0.152135, elapsed 0.6s
+[2026-11-17 16:32:45] continue_multitask.py(73) : Epoch 502: instances 256/100000, batch 2/782, task cvrpb, score 12.268785, loss -0.162133, elapsed 1.1s
+[2026-11-17 16:32:45] continue_multitask.py(73) : Epoch 502: instances 384/100000, batch 3/782, task cvrptw, score 26.786400, loss -0.164432, elapsed 1.7s
+[2026-11-17 16:32:46] continue_multitask.py(73) : Epoch 502: instances 512/100000, batch 4/782, task cvrp, score 15.724220, loss -0.157056, elapsed 2.2s
+[2026-11-17 16:32:46] continue_multitask.py(73) : Epoch 502: instances 640/100000, batch 5/782, task cvrptw, score 26.090963, loss -0.159699, elapsed 2.8s
+[2026-11-17 16:33:39] continue_multitask.py(73) : Epoch 502: instances 12800/100000, batch 100/782, task ocvrptw, score 14.927532, loss -0.130541, elapsed 55.4s
+[2026-11-17 16:34:34] continue_multitask.py(73) : Epoch 502: instances 25600/100000, batch 200/782, task cvrp, score 15.632241, loss -0.133120, elapsed 110.2s
+[2026-11-17 16:35:27] continue_multitask.py(73) : Epoch 502: instances 38400/100000, batch 300/782, task cvrp, score 15.891077, loss -0.131070, elapsed 163.5s
+[2026-11-17 16:36:22] continue_multitask.py(73) : Epoch 502: instances 51200/100000, batch 400/782, task cvrpb, score 12.256598, loss -0.129396, elapsed 218.5s
+[2026-11-17 16:37:16] continue_multitask.py(73) : Epoch 502: instances 64000/100000, batch 500/782, task cvrp, score 15.644495, loss -0.129624, elapsed 272.4s
+[2026-11-17 16:38:10] continue_multitask.py(73) : Epoch 502: instances 76800/100000, batch 600/782, task ocvrptw, score 14.952975, loss -0.128357, elapsed 326.1s
+[2026-11-17 16:39:04] continue_multitask.py(73) : Epoch 502: instances 89600/100000, batch 700/782, task ocvrp, score 10.318068, loss -0.127811, elapsed 380.3s
+[2026-11-17 16:39:48] continue_multitask.py(73) : Epoch 502: instances 100000/100000, batch 782/782, task cvrp, score 16.175507, loss -0.127813, elapsed 424.9s
+[2026-11-17 16:39:49] Trainer.py(389) : Epoch  502: 1000 CVRP100          ==> Score: 15.9084, Gap:  2.6106%
+[2026-11-17 16:39:50] Trainer.py(389) : Epoch  502: 1000 CVRPB100         ==> Score: 12.1957, Gap:  2.6731%
+[2026-11-17 16:39:51] Trainer.py(389) : Epoch  502: 1000 CVRPTW100        ==> Score: 25.9921, Gap:  6.7463%
+[2026-11-17 16:39:52] Trainer.py(389) : Epoch  502: 1000 OCVRP100         ==> Score: 10.2766, Gap:  4.5677%
+[2026-11-17 16:39:53] Trainer.py(389) : Epoch  502: 1000 OCVRPTW100       ==> Score: 15.2397, Gap:  5.9776%
+[2026-11-17 16:39:53] Trainer.py(187) : Epoch  502: Average gap: 4.5150%
+[2026-11-17 16:39:53] Trainer.py(190) : Epoch  502: New best average gap: 4.5150%, saving best checkpoint
+[2026-11-17 16:39:53] Trainer.py(203) : Epoch  502/ 530: Time Est.: Elapsed[14.34m], Remain[3.35h (0.14d)]
+[2026-11-17 16:39:53] Trainer.py(210) : Saving log_image
+[2026-11-17 16:39:53] Trainer.py(216) : Saving trained_model
+[2026-11-17 16:39:54] Trainer.py(158) : ========================================================================
+[2026-11-17 16:39:54] Trainer.py(167) : Epoch  503: Current learning rate: 1e-05
+[2026-11-17 16:39:54] continue_multitask.py(73) : Epoch 503: instances 128/100000, batch 1/782, task cvrptw, score 26.824436, loss -0.200311, elapsed 0.6s
+[2026-11-17 16:39:55] continue_multitask.py(73) : Epoch 503: instances 256/100000, batch 2/782, task ocvrptw, score 15.289818, loss -0.147687, elapsed 1.3s
+[2026-11-17 16:39:56] continue_multitask.py(73) : Epoch 503: instances 384/100000, batch 3/782, task ocvrptw, score 15.117887, loss -0.134295, elapsed 1.9s
+[2026-11-17 16:39:56] continue_multitask.py(73) : Epoch 503: instances 512/100000, batch 4/782, task cvrpb, score 12.077599, loss -0.139840, elapsed 2.4s
+[2026-11-17 16:39:57] continue_multitask.py(73) : Epoch 503: instances 640/100000, batch 5/782, task ocvrp, score 10.211170, loss -0.130423, elapsed 3.0s
+[2026-11-17 16:40:49] continue_multitask.py(73) : Epoch 503: instances 12800/100000, batch 100/782, task cvrpb, score 12.051115, loss -0.132209, elapsed 55.5s
+[2026-11-17 16:41:43] continue_multitask.py(73) : Epoch 503: instances 25600/100000, batch 200/782, task cvrptw, score 26.516161, loss -0.129467, elapsed 108.9s
+[2026-11-17 16:42:36] continue_multitask.py(73) : Epoch 503: instances 38400/100000, batch 300/782, task cvrp, score 15.567739, loss -0.128770, elapsed 162.0s
+[2026-11-17 16:43:30] continue_multitask.py(73) : Epoch 503: instances 51200/100000, batch 400/782, task cvrpb, score 12.141153, loss -0.130024, elapsed 215.9s
+[2026-11-17 16:44:23] continue_multitask.py(73) : Epoch 503: instances 64000/100000, batch 500/782, task cvrptw, score 26.198532, loss -0.128931, elapsed 269.1s
+[2026-11-17 16:45:16] continue_multitask.py(73) : Epoch 503: instances 76800/100000, batch 600/782, task ocvrptw, score 15.003570, loss -0.128329, elapsed 322.8s
+[2026-11-17 16:46:10] continue_multitask.py(73) : Epoch 503: instances 89600/100000, batch 700/782, task ocvrptw, score 15.116015, loss -0.128506, elapsed 376.4s
+[2026-11-17 16:46:54] continue_multitask.py(73) : Epoch 503: instances 100000/100000, batch 782/782, task ocvrptw, score 15.026660, loss -0.128383, elapsed 420.6s
+[2026-11-17 16:46:55] Trainer.py(389) : Epoch  503: 1000 CVRP100          ==> Score: 15.9055, Gap:  2.5922%
+[2026-11-17 16:46:56] Trainer.py(389) : Epoch  503: 1000 CVRPB100         ==> Score: 12.1925, Gap:  2.6465%
+[2026-11-17 16:46:57] Trainer.py(389) : Epoch  503: 1000 CVRPTW100        ==> Score: 25.9948, Gap:  6.7574%
+[2026-11-17 16:46:58] Trainer.py(389) : Epoch  503: 1000 OCVRP100         ==> Score: 10.2735, Gap:  4.5361%
+[2026-11-17 16:46:59] Trainer.py(389) : Epoch  503: 1000 OCVRPTW100       ==> Score: 15.2347, Gap:  5.9425%
+[2026-11-17 16:46:59] Trainer.py(187) : Epoch  503: Average gap: 4.4949%
+[2026-11-17 16:46:59] Trainer.py(190) : Epoch  503: New best average gap: 4.4949%, saving best checkpoint
+[2026-11-17 16:47:00] Trainer.py(203) : Epoch  503/ 530: Time Est.: Elapsed[21.45m], Remain[3.22h (0.13d)]
+[2026-11-17 16:47:00] Trainer.py(210) : Saving log_image
+[2026-11-17 16:47:00] Trainer.py(216) : Saving trained_model
+[2026-11-17 16:47:00] Trainer.py(158) : ========================================================================
+[2026-11-17 16:47:00] Trainer.py(167) : Epoch  504: Current learning rate: 1e-05
+[2026-11-17 16:47:01] continue_multitask.py(73) : Epoch 504: instances 128/100000, batch 1/782, task ocvrptw, score 15.358883, loss -0.111444, elapsed 0.7s
+[2026-11-17 16:47:01] continue_multitask.py(73) : Epoch 504: instances 256/100000, batch 2/782, task ocvrptw, score 15.333689, loss -0.112460, elapsed 1.3s
+[2026-11-17 16:47:02] continue_multitask.py(73) : Epoch 504: instances 384/100000, batch 3/782, task ocvrptw, score 15.105501, loss -0.106695, elapsed 1.9s
+[2026-11-17 16:47:02] continue_multitask.py(73) : Epoch 504: instances 512/100000, batch 4/782, task cvrp, score 15.889979, loss -0.108130, elapsed 2.3s
+[2026-11-17 16:47:03] continue_multitask.py(73) : Epoch 504: instances 640/100000, batch 5/782, task cvrpb, score 12.169566, loss -0.115696, elapsed 2.9s
+[2026-11-17 16:47:55] continue_multitask.py(73) : Epoch 504: instances 12800/100000, batch 100/782, task cvrp, score 15.775988, loss -0.134988, elapsed 54.7s
+[2026-11-17 16:48:48] continue_multitask.py(73) : Epoch 504: instances 25600/100000, batch 200/782, task cvrpb, score 12.261946, loss -0.131666, elapsed 108.6s
+[2026-11-17 16:49:42] continue_multitask.py(73) : Epoch 504: instances 38400/100000, batch 300/782, task cvrp, score 15.541101, loss -0.131458, elapsed 162.3s
+[2026-11-17 16:50:36] continue_multitask.py(73) : Epoch 504: instances 51200/100000, batch 400/782, task cvrptw, score 25.844353, loss -0.132290, elapsed 216.4s
+[2026-11-17 16:51:30] continue_multitask.py(73) : Epoch 504: instances 64000/100000, batch 500/782, task ocvrptw, score 15.249391, loss -0.132200, elapsed 270.2s
+[2026-11-17 16:52:24] continue_multitask.py(73) : Epoch 504: instances 76800/100000, batch 600/782, task ocvrp, score 10.277676, loss -0.131054, elapsed 324.1s
+[2026-11-17 16:53:18] continue_multitask.py(73) : Epoch 504: instances 89600/100000, batch 700/782, task ocvrptw, score 14.911554, loss -0.130024, elapsed 377.8s
+[2026-11-17 16:54:02] continue_multitask.py(73) : Epoch 504: instances 100000/100000, batch 782/782, task cvrp, score 15.374016, loss -0.129668, elapsed 422.2s
+[2026-11-17 16:54:03] Trainer.py(389) : Epoch  504: 1000 CVRP100          ==> Score: 15.9105, Gap:  2.6241%
+[2026-11-17 16:54:04] Trainer.py(389) : Epoch  504: 1000 CVRPB100         ==> Score: 12.1970, Gap:  2.6838%
+[2026-11-17 16:54:05] Trainer.py(389) : Epoch  504: 1000 CVRPTW100        ==> Score: 25.9900, Gap:  6.7378%
+[2026-11-17 16:54:06] Trainer.py(389) : Epoch  504: 1000 OCVRP100         ==> Score: 10.2750, Gap:  4.5510%
+[2026-11-17 16:54:07] Trainer.py(389) : Epoch  504: 1000 OCVRPTW100       ==> Score: 15.2346, Gap:  5.9419%
+[2026-11-17 16:54:07] Trainer.py(187) : Epoch  504: Average gap: 4.5077%
+[2026-11-17 16:54:07] Trainer.py(203) : Epoch  504/ 530: Time Est.: Elapsed[28.57m], Remain[3.10h (0.13d)]
+[2026-11-17 16:54:07] Trainer.py(210) : Saving log_image
+[2026-11-17 16:54:07] Trainer.py(216) : Saving trained_model
+[2026-11-17 16:54:07] Trainer.py(158) : ========================================================================
+[2026-11-17 16:54:07] Trainer.py(167) : Epoch  505: Current learning rate: 1e-05
+[2026-11-17 16:54:08] continue_multitask.py(73) : Epoch 505: instances 128/100000, batch 1/782, task cvrp, score 15.923162, loss -0.111656, elapsed 0.5s
+[2026-11-17 16:54:09] continue_multitask.py(73) : Epoch 505: instances 256/100000, batch 2/782, task cvrp, score 15.664999, loss -0.111183, elapsed 1.0s
+[2026-11-17 16:54:09] continue_multitask.py(73) : Epoch 505: instances 384/100000, batch 3/782, task ocvrptw, score 15.081247, loss -0.115676, elapsed 1.6s
+[2026-11-17 16:54:10] continue_multitask.py(73) : Epoch 505: instances 512/100000, batch 4/782, task cvrp, score 15.868079, loss -0.113497, elapsed 2.1s
+[2026-11-17 16:54:10] continue_multitask.py(73) : Epoch 505: instances 640/100000, batch 5/782, task cvrptw, score 25.228645, loss -0.120073, elapsed 2.7s
+[2026-11-17 16:55:01] continue_multitask.py(73) : Epoch 505: instances 12800/100000, batch 100/782, task cvrpb, score 12.097778, loss -0.128013, elapsed 53.8s
+[2026-11-17 16:55:57] continue_multitask.py(73) : Epoch 505: instances 25600/100000, batch 200/782, task cvrpb, score 12.162825, loss -0.126262, elapsed 109.5s
+[2026-11-17 16:56:56] continue_multitask.py(73) : Epoch 505: instances 38400/100000, batch 300/782, task cvrptw, score 26.165520, loss -0.126594, elapsed 168.4s
+[2026-11-17 16:57:53] continue_multitask.py(73) : Epoch 505: instances 51200/100000, batch 400/782, task ocvrp, score 10.259123, loss -0.127274, elapsed 225.8s
+[2026-11-17 16:58:53] continue_multitask.py(73) : Epoch 505: instances 64000/100000, batch 500/782, task cvrp, score 16.068460, loss -0.128177, elapsed 285.8s
+[2026-11-17 16:59:53] continue_multitask.py(73) : Epoch 505: instances 76800/100000, batch 600/782, task cvrpb, score 12.303950, loss -0.127862, elapsed 345.3s
+[2026-11-17 17:00:52] continue_multitask.py(73) : Epoch 505: instances 89600/100000, batch 700/782, task cvrp, score 15.960716, loss -0.128247, elapsed 404.2s
+[2026-11-17 17:01:40] continue_multitask.py(73) : Epoch 505: instances 100000/100000, batch 782/782, task ocvrp, score 10.224155, loss -0.128483, elapsed 452.4s
+[2026-11-17 17:01:41] Trainer.py(389) : Epoch  505: 1000 CVRP100          ==> Score: 15.9095, Gap:  2.6180%
+[2026-11-17 17:01:41] Trainer.py(389) : Epoch  505: 1000 CVRPB100         ==> Score: 12.1938, Gap:  2.6574%
+[2026-11-17 17:01:42] Trainer.py(389) : Epoch  505: 1000 CVRPTW100        ==> Score: 25.9952, Gap:  6.7589%
+[2026-11-17 17:01:43] Trainer.py(389) : Epoch  505: 1000 OCVRP100         ==> Score: 10.2786, Gap:  4.5877%
+[2026-11-17 17:01:44] Trainer.py(389) : Epoch  505: 1000 OCVRPTW100       ==> Score: 15.2364, Gap:  5.9540%
+[2026-11-17 17:01:45] Trainer.py(187) : Epoch  505: Average gap: 4.5152%
+[2026-11-17 17:01:45] Trainer.py(203) : Epoch  505/ 530: Time Est.: Elapsed[36.20m], Remain[3.02h (0.13d)]
+[2026-11-17 17:01:45] Trainer.py(210) : Saving log_image
+[2026-11-17 17:01:45] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:01:45] Trainer.py(158) : ========================================================================
+[2026-11-17 17:01:45] Trainer.py(167) : Epoch  506: Current learning rate: 1e-05
+[2026-11-17 17:01:45] continue_multitask.py(73) : Epoch 506: instances 128/100000, batch 1/782, task cvrptw, score 26.022137, loss -0.165162, elapsed 0.6s
+[2026-11-17 17:01:46] continue_multitask.py(73) : Epoch 506: instances 256/100000, batch 2/782, task cvrp, score 16.052235, loss -0.148160, elapsed 1.2s
+[2026-11-17 17:01:47] continue_multitask.py(73) : Epoch 506: instances 384/100000, batch 3/782, task ocvrptw, score 15.170307, loss -0.133445, elapsed 1.8s
+[2026-11-17 17:01:47] continue_multitask.py(73) : Epoch 506: instances 512/100000, batch 4/782, task cvrptw, score 26.195290, loss -0.149113, elapsed 2.5s
+[2026-11-17 17:01:48] continue_multitask.py(73) : Epoch 506: instances 640/100000, batch 5/782, task ocvrp, score 10.272452, loss -0.137549, elapsed 3.1s
+[2026-11-17 17:02:43] continue_multitask.py(73) : Epoch 506: instances 12800/100000, batch 100/782, task ocvrp, score 10.355888, loss -0.132857, elapsed 58.3s
+[2026-11-17 17:03:39] continue_multitask.py(73) : Epoch 506: instances 25600/100000, batch 200/782, task cvrp, score 16.056742, loss -0.127954, elapsed 114.5s
+[2026-11-17 17:04:36] continue_multitask.py(73) : Epoch 506: instances 38400/100000, batch 300/782, task cvrpb, score 12.269307, loss -0.128830, elapsed 171.1s
+[2026-11-17 17:05:32] continue_multitask.py(73) : Epoch 506: instances 51200/100000, batch 400/782, task ocvrp, score 10.443949, loss -0.129137, elapsed 226.7s
+[2026-11-17 17:06:31] continue_multitask.py(73) : Epoch 506: instances 64000/100000, batch 500/782, task cvrptw, score 26.033798, loss -0.128771, elapsed 285.7s
+[2026-11-17 17:07:28] continue_multitask.py(73) : Epoch 506: instances 76800/100000, batch 600/782, task cvrpb, score 12.242743, loss -0.128461, elapsed 343.6s
+[2026-11-17 17:08:27] continue_multitask.py(73) : Epoch 506: instances 89600/100000, batch 700/782, task ocvrptw, score 14.925047, loss -0.128286, elapsed 402.3s
+[2026-11-17 17:09:13] continue_multitask.py(73) : Epoch 506: instances 100000/100000, batch 782/782, task ocvrptw, score 14.711893, loss -0.128737, elapsed 448.6s
+[2026-11-17 17:09:14] Trainer.py(389) : Epoch  506: 1000 CVRP100          ==> Score: 15.9097, Gap:  2.6188%
+[2026-11-17 17:09:15] Trainer.py(389) : Epoch  506: 1000 CVRPB100         ==> Score: 12.1932, Gap:  2.6521%
+[2026-11-17 17:09:16] Trainer.py(389) : Epoch  506: 1000 CVRPTW100        ==> Score: 25.9837, Gap:  6.7117%
+[2026-11-17 17:09:17] Trainer.py(389) : Epoch  506: 1000 OCVRP100         ==> Score: 10.2735, Gap:  4.5361%
+[2026-11-17 17:09:18] Trainer.py(389) : Epoch  506: 1000 OCVRPTW100       ==> Score: 15.2242, Gap:  5.8698%
+[2026-11-17 17:09:18] Trainer.py(187) : Epoch  506: Average gap: 4.4777%
+[2026-11-17 17:09:18] Trainer.py(190) : Epoch  506: New best average gap: 4.4777%, saving best checkpoint
+[2026-11-17 17:09:18] Trainer.py(203) : Epoch  506/ 530: Time Est.: Elapsed[43.76m], Remain[2.92h (0.12d)]
+[2026-11-17 17:09:18] Trainer.py(210) : Saving log_image
+[2026-11-17 17:09:18] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:09:19] Trainer.py(158) : ========================================================================
+[2026-11-17 17:09:19] Trainer.py(167) : Epoch  507: Current learning rate: 1e-05
+[2026-11-17 17:09:19] continue_multitask.py(73) : Epoch 507: instances 128/100000, batch 1/782, task cvrptw, score 25.496933, loss -0.152148, elapsed 0.6s
+[2026-11-17 17:09:20] continue_multitask.py(73) : Epoch 507: instances 256/100000, batch 2/782, task cvrpb, score 12.256726, loss -0.149265, elapsed 1.1s
+[2026-11-17 17:09:20] continue_multitask.py(73) : Epoch 507: instances 384/100000, batch 3/782, task ocvrptw, score 15.329714, loss -0.142996, elapsed 1.7s
+[2026-11-17 17:09:21] continue_multitask.py(73) : Epoch 507: instances 512/100000, batch 4/782, task cvrpb, score 12.230402, loss -0.142954, elapsed 2.4s
+[2026-11-17 17:09:22] continue_multitask.py(73) : Epoch 507: instances 640/100000, batch 5/782, task cvrp, score 15.896643, loss -0.139924, elapsed 2.9s
+[2026-11-17 17:10:19] continue_multitask.py(73) : Epoch 507: instances 12800/100000, batch 100/782, task cvrptw, score 26.002106, loss -0.132835, elapsed 59.9s
+[2026-11-17 17:11:16] continue_multitask.py(73) : Epoch 507: instances 25600/100000, batch 200/782, task cvrpb, score 12.124421, loss -0.129987, elapsed 117.2s
+[2026-11-17 17:12:13] continue_multitask.py(73) : Epoch 507: instances 38400/100000, batch 300/782, task ocvrptw, score 15.083454, loss -0.129917, elapsed 174.3s
+[2026-11-17 17:13:11] continue_multitask.py(73) : Epoch 507: instances 51200/100000, batch 400/782, task cvrpb, score 12.084156, loss -0.129623, elapsed 232.7s
+[2026-11-17 17:14:09] continue_multitask.py(73) : Epoch 507: instances 64000/100000, batch 500/782, task cvrp, score 15.848049, loss -0.129428, elapsed 290.7s
+[2026-11-17 17:15:08] continue_multitask.py(73) : Epoch 507: instances 76800/100000, batch 600/782, task ocvrptw, score 15.102978, loss -0.129689, elapsed 349.3s
+[2026-11-17 17:16:06] continue_multitask.py(73) : Epoch 507: instances 89600/100000, batch 700/782, task cvrp, score 16.015690, loss -0.129464, elapsed 407.3s
+[2026-11-17 17:16:53] continue_multitask.py(73) : Epoch 507: instances 100000/100000, batch 782/782, task cvrp, score 15.764744, loss -0.129216, elapsed 454.5s
+[2026-11-17 17:16:54] Trainer.py(389) : Epoch  507: 1000 CVRP100          ==> Score: 15.9053, Gap:  2.5910%
+[2026-11-17 17:16:55] Trainer.py(389) : Epoch  507: 1000 CVRPB100         ==> Score: 12.1950, Gap:  2.6673%
+[2026-11-17 17:16:56] Trainer.py(389) : Epoch  507: 1000 CVRPTW100        ==> Score: 25.9915, Gap:  6.7438%
+[2026-11-17 17:16:57] Trainer.py(389) : Epoch  507: 1000 OCVRP100         ==> Score: 10.2733, Gap:  4.5338%
+[2026-11-17 17:16:58] Trainer.py(389) : Epoch  507: 1000 OCVRPTW100       ==> Score: 15.2238, Gap:  5.8668%
+[2026-11-17 17:16:58] Trainer.py(187) : Epoch  507: Average gap: 4.4805%
+[2026-11-17 17:16:58] Trainer.py(203) : Epoch  507/ 530: Time Est.: Elapsed[51.42m], Remain[2.82h (0.12d)]
+[2026-11-17 17:16:58] Trainer.py(210) : Saving log_image
+[2026-11-17 17:16:58] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:16:59] Trainer.py(158) : ========================================================================
+[2026-11-17 17:16:59] Trainer.py(167) : Epoch  508: Current learning rate: 1e-05
+[2026-11-17 17:16:59] continue_multitask.py(73) : Epoch 508: instances 128/100000, batch 1/782, task cvrptw, score 26.148449, loss -0.194418, elapsed 0.6s
+[2026-11-17 17:17:00] continue_multitask.py(73) : Epoch 508: instances 256/100000, batch 2/782, task cvrptw, score 25.621460, loss -0.187982, elapsed 1.3s
+[2026-11-17 17:17:00] continue_multitask.py(73) : Epoch 508: instances 384/100000, batch 3/782, task ocvrp, score 10.247108, loss -0.161604, elapsed 1.8s
+[2026-11-17 17:17:01] continue_multitask.py(73) : Epoch 508: instances 512/100000, batch 4/782, task cvrpb, score 12.279615, loss -0.159449, elapsed 2.4s
+[2026-11-17 17:17:01] continue_multitask.py(73) : Epoch 508: instances 640/100000, batch 5/782, task cvrpb, score 12.239188, loss -0.156430, elapsed 2.9s
+[2026-11-17 17:17:57] continue_multitask.py(73) : Epoch 508: instances 12800/100000, batch 100/782, task ocvrp, score 10.240242, loss -0.129325, elapsed 58.5s
+[2026-11-17 17:18:54] continue_multitask.py(73) : Epoch 508: instances 25600/100000, batch 200/782, task cvrpb, score 12.023132, loss -0.130432, elapsed 115.4s
+[2026-11-17 17:19:50] continue_multitask.py(73) : Epoch 508: instances 38400/100000, batch 300/782, task cvrptw, score 26.709581, loss -0.130663, elapsed 171.2s
+[2026-11-17 17:20:47] continue_multitask.py(73) : Epoch 508: instances 51200/100000, batch 400/782, task ocvrptw, score 15.048771, loss -0.128978, elapsed 228.5s
+[2026-11-17 17:21:48] continue_multitask.py(73) : Epoch 508: instances 64000/100000, batch 500/782, task ocvrptw, score 15.142410, loss -0.128458, elapsed 289.0s
+[2026-11-17 17:22:44] continue_multitask.py(73) : Epoch 508: instances 76800/100000, batch 600/782, task ocvrptw, score 14.857031, loss -0.127723, elapsed 345.1s
+[2026-11-17 17:23:41] continue_multitask.py(73) : Epoch 508: instances 89600/100000, batch 700/782, task cvrp, score 15.922744, loss -0.127956, elapsed 402.6s
+[2026-11-17 17:24:27] continue_multitask.py(73) : Epoch 508: instances 100000/100000, batch 782/782, task ocvrp, score 10.295150, loss -0.128692, elapsed 448.7s
+[2026-11-17 17:24:28] Trainer.py(389) : Epoch  508: 1000 CVRP100          ==> Score: 15.9081, Gap:  2.6085%
+[2026-11-17 17:24:29] Trainer.py(389) : Epoch  508: 1000 CVRPB100         ==> Score: 12.1944, Gap:  2.6625%
+[2026-11-17 17:24:30] Trainer.py(389) : Epoch  508: 1000 CVRPTW100        ==> Score: 26.0042, Gap:  6.7961%
+[2026-11-17 17:24:31] Trainer.py(389) : Epoch  508: 1000 OCVRP100         ==> Score: 10.2737, Gap:  4.5373%
+[2026-11-17 17:24:32] Trainer.py(389) : Epoch  508: 1000 OCVRPTW100       ==> Score: 15.2249, Gap:  5.8742%
+[2026-11-17 17:24:33] Trainer.py(187) : Epoch  508: Average gap: 4.4957%
+[2026-11-17 17:24:33] Trainer.py(203) : Epoch  508/ 530: Time Est.: Elapsed[59.00m], Remain[2.70h (0.11d)]
+[2026-11-17 17:24:33] Trainer.py(210) : Saving log_image
+[2026-11-17 17:24:33] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:24:33] Trainer.py(158) : ========================================================================
+[2026-11-17 17:24:33] Trainer.py(167) : Epoch  509: Current learning rate: 1e-05
+[2026-11-17 17:24:34] continue_multitask.py(73) : Epoch 509: instances 128/100000, batch 1/782, task ocvrp, score 10.183805, loss -0.094535, elapsed 0.5s
+[2026-11-17 17:24:34] continue_multitask.py(73) : Epoch 509: instances 256/100000, batch 2/782, task ocvrp, score 10.319672, loss -0.093135, elapsed 1.1s
+[2026-11-17 17:24:35] continue_multitask.py(73) : Epoch 509: instances 384/100000, batch 3/782, task cvrpb, score 12.161846, loss -0.113009, elapsed 1.7s
+[2026-11-17 17:24:35] continue_multitask.py(73) : Epoch 509: instances 512/100000, batch 4/782, task cvrptw, score 27.215031, loss -0.125239, elapsed 2.4s
+[2026-11-17 17:24:36] continue_multitask.py(73) : Epoch 509: instances 640/100000, batch 5/782, task ocvrptw, score 15.023052, loss -0.125235, elapsed 3.1s
+[2026-11-17 17:25:29] continue_multitask.py(73) : Epoch 509: instances 12800/100000, batch 100/782, task ocvrp, score 10.395500, loss -0.124786, elapsed 56.4s
+[2026-11-17 17:26:27] continue_multitask.py(73) : Epoch 509: instances 25600/100000, batch 200/782, task ocvrp, score 10.352051, loss -0.127848, elapsed 113.6s
+[2026-11-17 17:27:23] continue_multitask.py(73) : Epoch 509: instances 38400/100000, batch 300/782, task ocvrp, score 10.214209, loss -0.127454, elapsed 170.2s
+[2026-11-17 17:28:19] continue_multitask.py(73) : Epoch 509: instances 51200/100000, batch 400/782, task ocvrptw, score 15.096903, loss -0.127762, elapsed 225.7s
+[2026-11-17 17:29:14] continue_multitask.py(73) : Epoch 509: instances 64000/100000, batch 500/782, task ocvrptw, score 15.227545, loss -0.128124, elapsed 281.3s
+[2026-11-17 17:30:11] continue_multitask.py(73) : Epoch 509: instances 76800/100000, batch 600/782, task cvrpb, score 12.272313, loss -0.127719, elapsed 337.8s
+[2026-11-17 17:31:09] continue_multitask.py(73) : Epoch 509: instances 89600/100000, batch 700/782, task cvrptw, score 26.650881, loss -0.127662, elapsed 396.2s
+[2026-11-17 17:31:57] continue_multitask.py(73) : Epoch 509: instances 100000/100000, batch 782/782, task cvrpb, score 12.165510, loss -0.127757, elapsed 444.2s
+[2026-11-17 17:31:58] Trainer.py(389) : Epoch  509: 1000 CVRP100          ==> Score: 15.9078, Gap:  2.6071%
+[2026-11-17 17:31:59] Trainer.py(389) : Epoch  509: 1000 CVRPB100         ==> Score: 12.1918, Gap:  2.6401%
+[2026-11-17 17:32:00] Trainer.py(389) : Epoch  509: 1000 CVRPTW100        ==> Score: 25.9898, Gap:  6.7367%
+[2026-11-17 17:32:01] Trainer.py(389) : Epoch  509: 1000 OCVRP100         ==> Score: 10.2729, Gap:  4.5298%
+[2026-11-17 17:32:03] Trainer.py(389) : Epoch  509: 1000 OCVRPTW100       ==> Score: 15.2277, Gap:  5.8936%
+[2026-11-17 17:32:03] Trainer.py(187) : Epoch  509: Average gap: 4.4815%
+[2026-11-17 17:32:03] Trainer.py(203) : Epoch  509/ 530: Time Est.: Elapsed[1.11h (0.05d)], Remain[2.59h (0.11d)]
+[2026-11-17 17:32:03] Trainer.py(210) : Saving log_image
+[2026-11-17 17:32:03] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:32:03] Trainer.py(158) : ========================================================================
+[2026-11-17 17:32:03] Trainer.py(167) : Epoch  510: Current learning rate: 1e-05
+[2026-11-17 17:32:04] continue_multitask.py(73) : Epoch 510: instances 128/100000, batch 1/782, task cvrp, score 15.883087, loss -0.118648, elapsed 0.6s
+[2026-11-17 17:32:05] continue_multitask.py(73) : Epoch 510: instances 256/100000, batch 2/782, task ocvrp, score 10.182171, loss -0.103868, elapsed 1.3s
+[2026-11-17 17:32:05] continue_multitask.py(73) : Epoch 510: instances 384/100000, batch 3/782, task ocvrptw, score 15.012592, loss -0.104996, elapsed 1.9s
+[2026-11-17 17:32:06] continue_multitask.py(73) : Epoch 510: instances 512/100000, batch 4/782, task cvrpb, score 12.113888, loss -0.117025, elapsed 2.5s
+[2026-11-17 17:32:07] continue_multitask.py(73) : Epoch 510: instances 640/100000, batch 5/782, task ocvrp, score 10.165983, loss -0.114045, elapsed 3.2s
+[2026-11-17 17:33:04] continue_multitask.py(73) : Epoch 510: instances 12800/100000, batch 100/782, task cvrp, score 15.865364, loss -0.131654, elapsed 60.2s
+[2026-11-17 17:34:01] continue_multitask.py(73) : Epoch 510: instances 25600/100000, batch 200/782, task ocvrptw, score 14.859077, loss -0.130120, elapsed 118.1s
+[2026-11-17 17:34:59] continue_multitask.py(73) : Epoch 510: instances 38400/100000, batch 300/782, task cvrpb, score 12.102218, loss -0.128964, elapsed 175.7s
+[2026-11-17 17:35:56] continue_multitask.py(73) : Epoch 510: instances 51200/100000, batch 400/782, task cvrp, score 15.876120, loss -0.129921, elapsed 232.3s
+[2026-11-17 17:36:54] continue_multitask.py(73) : Epoch 510: instances 64000/100000, batch 500/782, task cvrpb, score 12.184916, loss -0.128445, elapsed 290.9s
+[2026-11-17 17:37:52] continue_multitask.py(73) : Epoch 510: instances 76800/100000, batch 600/782, task cvrptw, score 26.225899, loss -0.128244, elapsed 348.8s
+[2026-11-17 17:38:49] continue_multitask.py(73) : Epoch 510: instances 89600/100000, batch 700/782, task ocvrp, score 10.238154, loss -0.128265, elapsed 405.3s
+[2026-11-17 17:39:36] continue_multitask.py(73) : Epoch 510: instances 100000/100000, batch 782/782, task cvrp, score 15.933134, loss -0.127998, elapsed 452.7s
+[2026-11-17 17:39:37] Trainer.py(389) : Epoch  510: 1000 CVRP100          ==> Score: 15.9058, Gap:  2.5940%
+[2026-11-17 17:39:38] Trainer.py(389) : Epoch  510: 1000 CVRPB100         ==> Score: 12.1931, Gap:  2.6512%
+[2026-11-17 17:39:39] Trainer.py(389) : Epoch  510: 1000 CVRPTW100        ==> Score: 26.0082, Gap:  6.8123%
+[2026-11-17 17:39:40] Trainer.py(389) : Epoch  510: 1000 OCVRP100         ==> Score: 10.2701, Gap:  4.5012%
+[2026-11-17 17:39:41] Trainer.py(389) : Epoch  510: 1000 OCVRPTW100       ==> Score: 15.2221, Gap:  5.8547%
+[2026-11-17 17:39:41] Trainer.py(187) : Epoch  510: Average gap: 4.4827%
+[2026-11-17 17:39:41] Trainer.py(203) : Epoch  510/ 530: Time Est.: Elapsed[1.24h (0.05d)], Remain[2.47h (0.10d)]
+[2026-11-17 17:39:41] Trainer.py(210) : Saving log_image
+[2026-11-17 17:39:41] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:39:41] Trainer.py(158) : ========================================================================
+[2026-11-17 17:39:41] Trainer.py(167) : Epoch  511: Current learning rate: 1e-05
+[2026-11-17 17:39:42] continue_multitask.py(73) : Epoch 511: instances 128/100000, batch 1/782, task cvrp, score 15.749382, loss -0.113404, elapsed 0.5s
+[2026-11-17 17:39:42] continue_multitask.py(73) : Epoch 511: instances 256/100000, batch 2/782, task ocvrp, score 10.250401, loss -0.108881, elapsed 1.1s
+[2026-11-17 17:39:43] continue_multitask.py(73) : Epoch 511: instances 384/100000, batch 3/782, task ocvrp, score 10.242140, loss -0.102437, elapsed 1.7s
+[2026-11-17 17:39:44] continue_multitask.py(73) : Epoch 511: instances 512/100000, batch 4/782, task ocvrp, score 10.293748, loss -0.099494, elapsed 2.3s
+[2026-11-17 17:39:44] continue_multitask.py(73) : Epoch 511: instances 640/100000, batch 5/782, task cvrptw, score 26.434628, loss -0.113735, elapsed 3.0s
+[2026-11-17 17:40:40] continue_multitask.py(73) : Epoch 511: instances 12800/100000, batch 100/782, task cvrpb, score 12.153982, loss -0.130128, elapsed 58.7s
+[2026-11-17 17:41:38] continue_multitask.py(73) : Epoch 511: instances 25600/100000, batch 200/782, task ocvrp, score 10.409575, loss -0.130689, elapsed 116.7s
+[2026-11-17 17:42:37] continue_multitask.py(73) : Epoch 511: instances 38400/100000, batch 300/782, task cvrpb, score 11.984989, loss -0.130392, elapsed 176.1s
+[2026-11-17 17:43:36] continue_multitask.py(73) : Epoch 511: instances 51200/100000, batch 400/782, task cvrptw, score 26.522449, loss -0.128549, elapsed 234.3s
+[2026-11-17 17:44:34] continue_multitask.py(73) : Epoch 511: instances 64000/100000, batch 500/782, task cvrp, score 16.096924, loss -0.129038, elapsed 293.0s
+[2026-11-17 17:45:31] continue_multitask.py(73) : Epoch 511: instances 76800/100000, batch 600/782, task cvrp, score 15.716945, loss -0.129194, elapsed 350.0s
+[2026-11-17 17:46:27] continue_multitask.py(73) : Epoch 511: instances 89600/100000, batch 700/782, task ocvrp, score 10.289002, loss -0.127968, elapsed 405.6s
+[2026-11-17 17:47:13] continue_multitask.py(73) : Epoch 511: instances 100000/100000, batch 782/782, task cvrp, score 16.184183, loss -0.127809, elapsed 452.0s
+[2026-11-17 17:47:14] Trainer.py(389) : Epoch  511: 1000 CVRP100          ==> Score: 15.9031, Gap:  2.5764%
+[2026-11-17 17:47:15] Trainer.py(389) : Epoch  511: 1000 CVRPB100         ==> Score: 12.1896, Gap:  2.6216%
+[2026-11-17 17:47:16] Trainer.py(389) : Epoch  511: 1000 CVRPTW100        ==> Score: 25.9934, Gap:  6.7516%
+[2026-11-17 17:47:17] Trainer.py(389) : Epoch  511: 1000 OCVRP100         ==> Score: 10.2726, Gap:  4.5265%
+[2026-11-17 17:47:18] Trainer.py(389) : Epoch  511: 1000 OCVRPTW100       ==> Score: 15.2290, Gap:  5.9028%
+[2026-11-17 17:47:18] Trainer.py(187) : Epoch  511: Average gap: 4.4758%
+[2026-11-17 17:47:18] Trainer.py(190) : Epoch  511: New best average gap: 4.4758%, saving best checkpoint
+[2026-11-17 17:47:18] Trainer.py(203) : Epoch  511/ 530: Time Est.: Elapsed[1.36h (0.06d)], Remain[2.35h (0.10d)]
+[2026-11-17 17:47:18] Trainer.py(210) : Saving log_image
+[2026-11-17 17:47:18] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:47:19] Trainer.py(158) : ========================================================================
+[2026-11-17 17:47:19] Trainer.py(167) : Epoch  512: Current learning rate: 1e-05
+[2026-11-17 17:47:19] continue_multitask.py(73) : Epoch 512: instances 128/100000, batch 1/782, task cvrp, score 15.769797, loss -0.123224, elapsed 0.5s
+[2026-11-17 17:47:20] continue_multitask.py(73) : Epoch 512: instances 256/100000, batch 2/782, task cvrpb, score 12.085259, loss -0.135020, elapsed 1.1s
+[2026-11-17 17:47:20] continue_multitask.py(73) : Epoch 512: instances 384/100000, batch 3/782, task cvrp, score 15.732151, loss -0.127752, elapsed 1.6s
+[2026-11-17 17:47:21] continue_multitask.py(73) : Epoch 512: instances 512/100000, batch 4/782, task cvrptw, score 26.137436, loss -0.149332, elapsed 2.2s
+[2026-11-17 17:47:21] continue_multitask.py(73) : Epoch 512: instances 640/100000, batch 5/782, task cvrp, score 15.520805, loss -0.143865, elapsed 2.8s
+[2026-11-17 17:48:15] continue_multitask.py(73) : Epoch 512: instances 12800/100000, batch 100/782, task cvrptw, score 25.996662, loss -0.129741, elapsed 56.7s
+[2026-11-17 17:49:12] continue_multitask.py(73) : Epoch 512: instances 25600/100000, batch 200/782, task ocvrp, score 10.093466, loss -0.129408, elapsed 113.4s
+[2026-11-17 17:50:09] continue_multitask.py(73) : Epoch 512: instances 38400/100000, batch 300/782, task cvrpb, score 12.222383, loss -0.128564, elapsed 170.1s
+[2026-11-17 17:51:05] continue_multitask.py(73) : Epoch 512: instances 51200/100000, batch 400/782, task cvrptw, score 26.169655, loss -0.129090, elapsed 226.9s
+[2026-11-17 17:52:02] continue_multitask.py(73) : Epoch 512: instances 64000/100000, batch 500/782, task cvrpb, score 12.183619, loss -0.129186, elapsed 283.6s
+[2026-11-17 17:53:00] continue_multitask.py(73) : Epoch 512: instances 76800/100000, batch 600/782, task cvrp, score 15.556288, loss -0.129474, elapsed 341.3s
+[2026-11-17 17:53:56] continue_multitask.py(73) : Epoch 512: instances 89600/100000, batch 700/782, task cvrpb, score 12.043428, loss -0.130105, elapsed 397.9s
+[2026-11-17 17:54:43] continue_multitask.py(73) : Epoch 512: instances 100000/100000, batch 782/782, task cvrptw, score 26.563255, loss -0.129773, elapsed 444.0s
+[2026-11-17 17:54:43] Trainer.py(389) : Epoch  512: 1000 CVRP100          ==> Score: 15.9072, Gap:  2.6031%
+[2026-11-17 17:54:44] Trainer.py(389) : Epoch  512: 1000 CVRPB100         ==> Score: 12.1896, Gap:  2.6223%
+[2026-11-17 17:54:45] Trainer.py(389) : Epoch  512: 1000 CVRPTW100        ==> Score: 26.0002, Gap:  6.7794%
+[2026-11-17 17:54:46] Trainer.py(389) : Epoch  512: 1000 OCVRP100         ==> Score: 10.2747, Gap:  4.5484%
+[2026-11-17 17:54:47] Trainer.py(389) : Epoch  512: 1000 OCVRPTW100       ==> Score: 15.2252, Gap:  5.8767%
+[2026-11-17 17:54:47] Trainer.py(187) : Epoch  512: Average gap: 4.4860%
+[2026-11-17 17:54:47] Trainer.py(203) : Epoch  512/ 530: Time Est.: Elapsed[1.49h (0.06d)], Remain[2.23h (0.09d)]
+[2026-11-17 17:54:47] Trainer.py(210) : Saving log_image
+[2026-11-17 17:54:47] Trainer.py(216) : Saving trained_model
+[2026-11-17 17:54:48] Trainer.py(158) : ========================================================================
+[2026-11-17 17:54:48] Trainer.py(167) : Epoch  513: Current learning rate: 1e-05
+[2026-11-17 17:54:48] continue_multitask.py(73) : Epoch 513: instances 128/100000, batch 1/782, task ocvrp, score 10.232458, loss -0.074722, elapsed 0.5s
+[2026-11-17 17:54:49] continue_multitask.py(73) : Epoch 513: instances 256/100000, batch 2/782, task cvrptw, score 25.138252, loss -0.126770, elapsed 1.2s
+[2026-11-17 17:54:49] continue_multitask.py(73) : Epoch 513: instances 384/100000, batch 3/782, task ocvrptw, score 15.166441, loss -0.120199, elapsed 1.8s
+[2026-11-17 17:54:50] continue_multitask.py(73) : Epoch 513: instances 512/100000, batch 4/782, task ocvrp, score 10.233072, loss -0.115838, elapsed 2.3s
+[2026-11-17 17:54:51] continue_multitask.py(73) : Epoch 513: instances 640/100000, batch 5/782, task cvrptw, score 26.467010, loss -0.124255, elapsed 2.9s
+[2026-11-17 17:55:44] continue_multitask.py(73) : Epoch 513: instances 12800/100000, batch 100/782, task cvrp, score 15.820604, loss -0.125800, elapsed 56.4s
+[2026-11-17 17:56:42] continue_multitask.py(73) : Epoch 513: instances 25600/100000, batch 200/782, task cvrptw, score 25.862564, loss -0.127159, elapsed 114.0s
+[2026-11-17 17:57:39] continue_multitask.py(73) : Epoch 513: instances 38400/100000, batch 300/782, task ocvrp, score 10.229247, loss -0.126852, elapsed 171.2s
+[2026-11-17 17:58:35] continue_multitask.py(73) : Epoch 513: instances 51200/100000, batch 400/782, task cvrpb, score 12.177068, loss -0.127873, elapsed 227.2s
+[2026-11-17 17:59:33] continue_multitask.py(73) : Epoch 513: instances 64000/100000, batch 500/782, task cvrptw, score 26.180424, loss -0.128312, elapsed 285.1s
+[2026-11-17 18:00:29] continue_multitask.py(73) : Epoch 513: instances 76800/100000, batch 600/782, task cvrpb, score 12.269279, loss -0.128146, elapsed 341.4s
+[2026-11-17 18:01:27] continue_multitask.py(73) : Epoch 513: instances 89600/100000, batch 700/782, task ocvrptw, score 15.241263, loss -0.128325, elapsed 399.5s
+[2026-11-17 18:02:13] continue_multitask.py(73) : Epoch 513: instances 100000/100000, batch 782/782, task ocvrp, score 10.141395, loss -0.128177, elapsed 445.1s
+[2026-11-17 18:02:13] Trainer.py(389) : Epoch  513: 1000 CVRP100          ==> Score: 15.9041, Gap:  2.5830%
+[2026-11-17 18:02:14] Trainer.py(389) : Epoch  513: 1000 CVRPB100         ==> Score: 12.1928, Gap:  2.6486%
+[2026-11-17 18:02:15] Trainer.py(389) : Epoch  513: 1000 CVRPTW100        ==> Score: 26.0031, Gap:  6.7916%
+[2026-11-17 18:02:16] Trainer.py(389) : Epoch  513: 1000 OCVRP100         ==> Score: 10.2722, Gap:  4.5228%
+[2026-11-17 18:02:17] Trainer.py(389) : Epoch  513: 1000 OCVRPTW100       ==> Score: 15.2274, Gap:  5.8916%
+[2026-11-17 18:02:17] Trainer.py(187) : Epoch  513: Average gap: 4.4875%
+[2026-11-17 18:02:17] Trainer.py(203) : Epoch  513/ 530: Time Est.: Elapsed[1.61h (0.07d)], Remain[2.11h (0.09d)]
+[2026-11-17 18:02:17] Trainer.py(210) : Saving log_image
+[2026-11-17 18:02:17] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:02:18] Trainer.py(158) : ========================================================================
+[2026-11-17 18:02:18] Trainer.py(167) : Epoch  514: Current learning rate: 1e-05
+[2026-11-17 18:02:18] continue_multitask.py(73) : Epoch 514: instances 128/100000, batch 1/782, task cvrpb, score 12.238752, loss -0.150262, elapsed 0.5s
+[2026-11-17 18:02:19] continue_multitask.py(73) : Epoch 514: instances 256/100000, batch 2/782, task cvrpb, score 12.134749, loss -0.158352, elapsed 1.1s
+[2026-11-17 18:02:19] continue_multitask.py(73) : Epoch 514: instances 384/100000, batch 3/782, task cvrp, score 15.978624, loss -0.148568, elapsed 1.6s
+[2026-11-17 18:02:20] continue_multitask.py(73) : Epoch 514: instances 512/100000, batch 4/782, task ocvrp, score 10.260423, loss -0.138711, elapsed 2.2s
+[2026-11-17 18:02:21] continue_multitask.py(73) : Epoch 514: instances 640/100000, batch 5/782, task cvrptw, score 26.001095, loss -0.141621, elapsed 2.8s
+[2026-11-17 18:03:17] continue_multitask.py(73) : Epoch 514: instances 12800/100000, batch 100/782, task cvrp, score 16.052397, loss -0.131322, elapsed 58.8s
+[2026-11-17 18:04:13] continue_multitask.py(73) : Epoch 514: instances 25600/100000, batch 200/782, task cvrptw, score 25.774342, loss -0.129358, elapsed 115.1s
+[2026-11-17 18:05:12] continue_multitask.py(73) : Epoch 514: instances 38400/100000, batch 300/782, task cvrp, score 15.932831, loss -0.129700, elapsed 174.1s
+[2026-11-17 18:06:12] continue_multitask.py(73) : Epoch 514: instances 51200/100000, batch 400/782, task ocvrptw, score 14.995960, loss -0.129013, elapsed 234.2s
+[2026-11-17 18:07:09] continue_multitask.py(73) : Epoch 514: instances 64000/100000, batch 500/782, task cvrp, score 15.950456, loss -0.128695, elapsed 291.7s
+[2026-11-17 18:08:08] continue_multitask.py(73) : Epoch 514: instances 76800/100000, batch 600/782, task ocvrp, score 10.200085, loss -0.128420, elapsed 349.8s
+[2026-11-17 18:09:04] continue_multitask.py(73) : Epoch 514: instances 89600/100000, batch 700/782, task ocvrp, score 10.477315, loss -0.127979, elapsed 406.4s
+[2026-11-17 18:09:53] continue_multitask.py(73) : Epoch 514: instances 100000/100000, batch 782/782, task cvrpb, score 12.184261, loss -0.128126, elapsed 454.9s
+[2026-11-17 18:09:53] Trainer.py(389) : Epoch  514: 1000 CVRP100          ==> Score: 15.9046, Gap:  2.5862%
+[2026-11-17 18:09:54] Trainer.py(389) : Epoch  514: 1000 CVRPB100         ==> Score: 12.1903, Gap:  2.6275%
+[2026-11-17 18:09:55] Trainer.py(389) : Epoch  514: 1000 CVRPTW100        ==> Score: 26.0088, Gap:  6.8150%
+[2026-11-17 18:09:56] Trainer.py(389) : Epoch  514: 1000 OCVRP100         ==> Score: 10.2732, Gap:  4.5328%
+[2026-11-17 18:09:57] Trainer.py(389) : Epoch  514: 1000 OCVRPTW100       ==> Score: 15.2328, Gap:  5.9294%
+[2026-11-17 18:09:57] Trainer.py(187) : Epoch  514: Average gap: 4.4982%
+[2026-11-17 18:09:57] Trainer.py(203) : Epoch  514/ 530: Time Est.: Elapsed[1.74h (0.07d)], Remain[1.99h (0.08d)]
+[2026-11-17 18:09:57] Trainer.py(210) : Saving log_image
+[2026-11-17 18:09:57] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:09:58] Trainer.py(158) : ========================================================================
+[2026-11-17 18:09:58] Trainer.py(167) : Epoch  515: Current learning rate: 1e-05
+[2026-11-17 18:09:58] continue_multitask.py(73) : Epoch 515: instances 128/100000, batch 1/782, task cvrp, score 16.240559, loss -0.123442, elapsed 0.5s
+[2026-11-17 18:09:59] continue_multitask.py(73) : Epoch 515: instances 256/100000, batch 2/782, task ocvrptw, score 15.055610, loss -0.107788, elapsed 1.2s
+[2026-11-17 18:09:59] continue_multitask.py(73) : Epoch 515: instances 384/100000, batch 3/782, task ocvrp, score 10.241375, loss -0.102710, elapsed 1.9s
+[2026-11-17 18:10:00] continue_multitask.py(73) : Epoch 515: instances 512/100000, batch 4/782, task cvrptw, score 26.244972, loss -0.112116, elapsed 2.6s
+[2026-11-17 18:10:01] continue_multitask.py(73) : Epoch 515: instances 640/100000, batch 5/782, task ocvrp, score 10.272829, loss -0.107607, elapsed 3.1s
+[2026-11-17 18:10:57] continue_multitask.py(73) : Epoch 515: instances 12800/100000, batch 100/782, task ocvrptw, score 15.112891, loss -0.126605, elapsed 59.3s
+[2026-11-17 18:11:55] continue_multitask.py(73) : Epoch 515: instances 25600/100000, batch 200/782, task ocvrp, score 10.319098, loss -0.129296, elapsed 117.4s
+[2026-11-17 18:12:53] continue_multitask.py(73) : Epoch 515: instances 38400/100000, batch 300/782, task cvrpb, score 12.128096, loss -0.130743, elapsed 175.8s
+[2026-11-17 18:13:55] continue_multitask.py(73) : Epoch 515: instances 51200/100000, batch 400/782, task cvrptw, score 25.738819, loss -0.130244, elapsed 236.9s
+[2026-11-17 18:14:56] continue_multitask.py(73) : Epoch 515: instances 64000/100000, batch 500/782, task cvrp, score 15.920464, loss -0.130039, elapsed 298.3s
+[2026-11-17 18:15:53] continue_multitask.py(73) : Epoch 515: instances 76800/100000, batch 600/782, task ocvrp, score 10.304019, loss -0.129164, elapsed 355.3s
+[2026-11-17 18:16:50] continue_multitask.py(73) : Epoch 515: instances 89600/100000, batch 700/782, task ocvrptw, score 14.855553, loss -0.129079, elapsed 412.1s
+[2026-11-17 18:17:39] continue_multitask.py(73) : Epoch 515: instances 100000/100000, batch 782/782, task cvrptw, score 26.577702, loss -0.128628, elapsed 460.9s
+[2026-11-17 18:17:39] Trainer.py(389) : Epoch  515: 1000 CVRP100          ==> Score: 15.9052, Gap:  2.5899%
+[2026-11-17 18:17:40] Trainer.py(389) : Epoch  515: 1000 CVRPB100         ==> Score: 12.1961, Gap:  2.6768%
+[2026-11-17 18:17:41] Trainer.py(389) : Epoch  515: 1000 CVRPTW100        ==> Score: 26.0004, Gap:  6.7802%
+[2026-11-17 18:17:42] Trainer.py(389) : Epoch  515: 1000 OCVRP100         ==> Score: 10.2767, Gap:  4.5686%
+[2026-11-17 18:17:43] Trainer.py(389) : Epoch  515: 1000 OCVRPTW100       ==> Score: 15.2210, Gap:  5.8471%
+[2026-11-17 18:17:43] Trainer.py(187) : Epoch  515: Average gap: 4.4925%
+[2026-11-17 18:17:43] Trainer.py(203) : Epoch  515/ 530: Time Est.: Elapsed[1.87h (0.08d)], Remain[1.87h (0.08d)]
+[2026-11-17 18:17:43] Trainer.py(210) : Saving log_image
+[2026-11-17 18:17:43] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:17:44] Trainer.py(158) : ========================================================================
+[2026-11-17 18:17:44] Trainer.py(167) : Epoch  516: Current learning rate: 1e-05
+[2026-11-17 18:17:44] continue_multitask.py(73) : Epoch 516: instances 128/100000, batch 1/782, task ocvrptw, score 15.121519, loss -0.097054, elapsed 0.7s
+[2026-11-17 18:17:45] continue_multitask.py(73) : Epoch 516: instances 256/100000, batch 2/782, task cvrpb, score 12.096611, loss -0.122916, elapsed 1.3s
+[2026-11-17 18:17:45] continue_multitask.py(73) : Epoch 516: instances 384/100000, batch 3/782, task cvrpb, score 12.154736, loss -0.139965, elapsed 1.9s
+[2026-11-17 18:17:46] continue_multitask.py(73) : Epoch 516: instances 512/100000, batch 4/782, task cvrptw, score 26.454277, loss -0.145923, elapsed 2.5s
+[2026-11-17 18:17:47] continue_multitask.py(73) : Epoch 516: instances 640/100000, batch 5/782, task ocvrptw, score 15.131431, loss -0.137948, elapsed 3.1s
+[2026-11-17 18:18:42] continue_multitask.py(73) : Epoch 516: instances 12800/100000, batch 100/782, task ocvrp, score 10.203782, loss -0.126606, elapsed 58.4s
+[2026-11-17 18:19:42] continue_multitask.py(73) : Epoch 516: instances 25600/100000, batch 200/782, task ocvrptw, score 14.943285, loss -0.127278, elapsed 118.4s
+[2026-11-17 18:20:42] continue_multitask.py(73) : Epoch 516: instances 38400/100000, batch 300/782, task ocvrptw, score 15.217466, loss -0.125941, elapsed 178.6s
+[2026-11-17 18:21:40] continue_multitask.py(73) : Epoch 516: instances 51200/100000, batch 400/782, task ocvrptw, score 14.999901, loss -0.126990, elapsed 236.7s
+[2026-11-17 18:22:40] continue_multitask.py(73) : Epoch 516: instances 64000/100000, batch 500/782, task cvrptw, score 25.589647, loss -0.126568, elapsed 296.3s
+[2026-11-17 18:23:37] continue_multitask.py(73) : Epoch 516: instances 76800/100000, batch 600/782, task cvrpb, score 12.224195, loss -0.126884, elapsed 353.9s
+[2026-11-17 18:24:34] continue_multitask.py(73) : Epoch 516: instances 89600/100000, batch 700/782, task cvrp, score 15.733673, loss -0.127204, elapsed 410.5s
+[2026-11-17 18:25:20] continue_multitask.py(73) : Epoch 516: instances 100000/100000, batch 782/782, task cvrptw, score 26.358849, loss -0.126975, elapsed 456.3s
+[2026-11-17 18:25:21] Trainer.py(389) : Epoch  516: 1000 CVRP100          ==> Score: 15.9041, Gap:  2.5828%
+[2026-11-17 18:25:21] Trainer.py(389) : Epoch  516: 1000 CVRPB100         ==> Score: 12.1902, Gap:  2.6268%
+[2026-11-17 18:25:22] Trainer.py(389) : Epoch  516: 1000 CVRPTW100        ==> Score: 26.0138, Gap:  6.8356%
+[2026-11-17 18:25:23] Trainer.py(389) : Epoch  516: 1000 OCVRP100         ==> Score: 10.2723, Gap:  4.5237%
+[2026-11-17 18:25:24] Trainer.py(389) : Epoch  516: 1000 OCVRPTW100       ==> Score: 15.2264, Gap:  5.8851%
+[2026-11-17 18:25:25] Trainer.py(187) : Epoch  516: Average gap: 4.4908%
+[2026-11-17 18:25:25] Trainer.py(203) : Epoch  516/ 530: Time Est.: Elapsed[2.00h (0.08d)], Remain[1.75h (0.07d)]
+[2026-11-17 18:25:25] Trainer.py(210) : Saving log_image
+[2026-11-17 18:25:25] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:25:25] Trainer.py(158) : ========================================================================
+[2026-11-17 18:25:25] Trainer.py(167) : Epoch  517: Current learning rate: 1e-05
+[2026-11-17 18:25:25] continue_multitask.py(73) : Epoch 517: instances 128/100000, batch 1/782, task cvrptw, score 25.591923, loss -0.179305, elapsed 0.6s
+[2026-11-17 18:25:26] continue_multitask.py(73) : Epoch 517: instances 256/100000, batch 2/782, task ocvrp, score 10.201859, loss -0.141797, elapsed 1.1s
+[2026-11-17 18:25:26] continue_multitask.py(73) : Epoch 517: instances 384/100000, batch 3/782, task ocvrp, score 10.302483, loss -0.123912, elapsed 1.7s
+[2026-11-17 18:25:27] continue_multitask.py(73) : Epoch 517: instances 512/100000, batch 4/782, task ocvrp, score 10.239232, loss -0.122345, elapsed 2.2s
+[2026-11-17 18:25:28] continue_multitask.py(73) : Epoch 517: instances 640/100000, batch 5/782, task cvrp, score 15.981091, loss -0.124134, elapsed 2.7s
+[2026-11-17 18:26:21] continue_multitask.py(73) : Epoch 517: instances 12800/100000, batch 100/782, task ocvrp, score 10.266165, loss -0.128908, elapsed 56.1s
+[2026-11-17 18:27:20] continue_multitask.py(73) : Epoch 517: instances 25600/100000, batch 200/782, task ocvrptw, score 15.103642, loss -0.127483, elapsed 114.9s
+[2026-11-17 18:28:16] continue_multitask.py(73) : Epoch 517: instances 38400/100000, batch 300/782, task cvrp, score 15.730550, loss -0.128797, elapsed 171.3s
+[2026-11-17 18:29:13] continue_multitask.py(73) : Epoch 517: instances 51200/100000, batch 400/782, task ocvrptw, score 15.111481, loss -0.128474, elapsed 227.9s
+[2026-11-17 18:30:09] continue_multitask.py(73) : Epoch 517: instances 64000/100000, batch 500/782, task cvrpb, score 11.991504, loss -0.129574, elapsed 284.6s
+[2026-11-17 18:31:05] continue_multitask.py(73) : Epoch 517: instances 76800/100000, batch 600/782, task cvrptw, score 26.202515, loss -0.128945, elapsed 340.4s
+[2026-11-17 18:32:02] continue_multitask.py(73) : Epoch 517: instances 89600/100000, batch 700/782, task cvrp, score 16.097174, loss -0.129102, elapsed 397.7s
+[2026-11-17 18:32:50] continue_multitask.py(73) : Epoch 517: instances 100000/100000, batch 782/782, task cvrp, score 16.237997, loss -0.129134, elapsed 445.3s
+[2026-11-17 18:32:51] Trainer.py(389) : Epoch  517: 1000 CVRP100          ==> Score: 15.9017, Gap:  2.5674%
+[2026-11-17 18:32:52] Trainer.py(389) : Epoch  517: 1000 CVRPB100         ==> Score: 12.1866, Gap:  2.5968%
+[2026-11-17 18:32:53] Trainer.py(389) : Epoch  517: 1000 CVRPTW100        ==> Score: 25.9810, Gap:  6.7008%
+[2026-11-17 18:32:54] Trainer.py(389) : Epoch  517: 1000 OCVRP100         ==> Score: 10.2739, Gap:  4.5396%
+[2026-11-17 18:32:55] Trainer.py(389) : Epoch  517: 1000 OCVRPTW100       ==> Score: 15.2328, Gap:  5.9292%
+[2026-11-17 18:32:55] Trainer.py(187) : Epoch  517: Average gap: 4.4668%
+[2026-11-17 18:32:55] Trainer.py(190) : Epoch  517: New best average gap: 4.4668%, saving best checkpoint
+[2026-11-17 18:32:55] Trainer.py(203) : Epoch  517/ 530: Time Est.: Elapsed[2.12h (0.09d)], Remain[1.62h (0.07d)]
+[2026-11-17 18:32:55] Trainer.py(210) : Saving log_image
+[2026-11-17 18:32:55] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:32:55] Trainer.py(158) : ========================================================================
+[2026-11-17 18:32:55] Trainer.py(167) : Epoch  518: Current learning rate: 1e-05
+[2026-11-17 18:32:56] continue_multitask.py(73) : Epoch 518: instances 128/100000, batch 1/782, task ocvrp, score 10.205788, loss -0.097159, elapsed 0.5s
+[2026-11-17 18:32:57] continue_multitask.py(73) : Epoch 518: instances 256/100000, batch 2/782, task cvrpb, score 12.166806, loss -0.122566, elapsed 1.1s
+[2026-11-17 18:32:57] continue_multitask.py(73) : Epoch 518: instances 384/100000, batch 3/782, task cvrpb, score 12.217314, loss -0.131875, elapsed 1.6s
+[2026-11-17 18:32:58] continue_multitask.py(73) : Epoch 518: instances 512/100000, batch 4/782, task ocvrp, score 10.251156, loss -0.121257, elapsed 2.1s
+[2026-11-17 18:32:58] continue_multitask.py(73) : Epoch 518: instances 640/100000, batch 5/782, task ocvrptw, score 15.075083, loss -0.114636, elapsed 2.7s
+[2026-11-17 18:33:51] continue_multitask.py(73) : Epoch 518: instances 12800/100000, batch 100/782, task ocvrp, score 10.221636, loss -0.126741, elapsed 55.9s
+[2026-11-17 18:34:48] continue_multitask.py(73) : Epoch 518: instances 25600/100000, batch 200/782, task ocvrp, score 10.166488, loss -0.126787, elapsed 112.8s
+[2026-11-17 18:35:48] continue_multitask.py(73) : Epoch 518: instances 38400/100000, batch 300/782, task cvrptw, score 25.443434, loss -0.125989, elapsed 172.4s
+[2026-11-17 18:36:45] continue_multitask.py(73) : Epoch 518: instances 51200/100000, batch 400/782, task cvrpb, score 12.086544, loss -0.127228, elapsed 229.2s
+[2026-11-17 18:37:41] continue_multitask.py(73) : Epoch 518: instances 64000/100000, batch 500/782, task cvrp, score 15.978678, loss -0.127027, elapsed 285.5s
+[2026-11-17 18:38:38] continue_multitask.py(73) : Epoch 518: instances 76800/100000, batch 600/782, task ocvrp, score 10.159459, loss -0.126900, elapsed 343.0s
+[2026-11-17 18:39:35] continue_multitask.py(73) : Epoch 518: instances 89600/100000, batch 700/782, task cvrpb, score 12.265778, loss -0.127336, elapsed 399.2s
+[2026-11-17 18:40:22] continue_multitask.py(73) : Epoch 518: instances 100000/100000, batch 782/782, task cvrpb, score 11.722590, loss -0.127424, elapsed 446.4s
+[2026-11-17 18:40:23] Trainer.py(389) : Epoch  518: 1000 CVRP100          ==> Score: 15.9069, Gap:  2.6013%
+[2026-11-17 18:40:23] Trainer.py(389) : Epoch  518: 1000 CVRPB100         ==> Score: 12.1879, Gap:  2.6072%
+[2026-11-17 18:40:25] Trainer.py(389) : Epoch  518: 1000 CVRPTW100        ==> Score: 25.9917, Gap:  6.7448%
+[2026-11-17 18:40:25] Trainer.py(389) : Epoch  518: 1000 OCVRP100         ==> Score: 10.2711, Gap:  4.5109%
+[2026-11-17 18:40:26] Trainer.py(389) : Epoch  518: 1000 OCVRPTW100       ==> Score: 15.2256, Gap:  5.8793%
+[2026-11-17 18:40:27] Trainer.py(187) : Epoch  518: Average gap: 4.4687%
+[2026-11-17 18:40:27] Trainer.py(203) : Epoch  518/ 530: Time Est.: Elapsed[2.25h (0.09d)], Remain[1.50h (0.06d)]
+[2026-11-17 18:40:27] Trainer.py(210) : Saving log_image
+[2026-11-17 18:40:27] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:40:27] Trainer.py(158) : ========================================================================
+[2026-11-17 18:40:27] Trainer.py(167) : Epoch  519: Current learning rate: 1e-05
+[2026-11-17 18:40:27] continue_multitask.py(73) : Epoch 519: instances 128/100000, batch 1/782, task cvrp, score 16.071114, loss -0.120644, elapsed 0.6s
+[2026-11-17 18:40:28] continue_multitask.py(73) : Epoch 519: instances 256/100000, batch 2/782, task cvrp, score 16.098591, loss -0.115314, elapsed 1.1s
+[2026-11-17 18:40:29] continue_multitask.py(73) : Epoch 519: instances 384/100000, batch 3/782, task ocvrptw, score 15.149689, loss -0.108213, elapsed 1.7s
+[2026-11-17 18:40:29] continue_multitask.py(73) : Epoch 519: instances 512/100000, batch 4/782, task cvrp, score 15.975819, loss -0.111360, elapsed 2.3s
+[2026-11-17 18:40:30] continue_multitask.py(73) : Epoch 519: instances 640/100000, batch 5/782, task cvrptw, score 26.002365, loss -0.114218, elapsed 2.9s
+[2026-11-17 18:41:24] continue_multitask.py(73) : Epoch 519: instances 12800/100000, batch 100/782, task cvrpb, score 12.238457, loss -0.129411, elapsed 57.6s
+[2026-11-17 18:42:23] continue_multitask.py(73) : Epoch 519: instances 25600/100000, batch 200/782, task cvrp, score 15.695504, loss -0.129225, elapsed 116.0s
+[2026-11-17 18:43:20] continue_multitask.py(73) : Epoch 519: instances 38400/100000, batch 300/782, task ocvrptw, score 15.015925, loss -0.129029, elapsed 173.4s
+[2026-11-17 18:44:18] continue_multitask.py(73) : Epoch 519: instances 51200/100000, batch 400/782, task cvrpb, score 12.079352, loss -0.130472, elapsed 231.1s
+[2026-11-17 18:45:13] continue_multitask.py(73) : Epoch 519: instances 64000/100000, batch 500/782, task cvrptw, score 26.297344, loss -0.128721, elapsed 286.5s
+[2026-11-17 18:46:11] continue_multitask.py(73) : Epoch 519: instances 76800/100000, batch 600/782, task cvrp, score 15.975301, loss -0.128854, elapsed 344.2s
+[2026-11-17 18:47:08] continue_multitask.py(73) : Epoch 519: instances 89600/100000, batch 700/782, task ocvrp, score 10.154528, loss -0.128841, elapsed 401.2s
+[2026-11-17 18:47:56] continue_multitask.py(73) : Epoch 519: instances 100000/100000, batch 782/782, task cvrpb, score 12.244625, loss -0.129108, elapsed 449.5s
+[2026-11-17 18:47:57] Trainer.py(389) : Epoch  519: 1000 CVRP100          ==> Score: 15.9079, Gap:  2.6076%
+[2026-11-17 18:47:58] Trainer.py(389) : Epoch  519: 1000 CVRPB100         ==> Score: 12.1915, Gap:  2.6380%
+[2026-11-17 18:47:59] Trainer.py(389) : Epoch  519: 1000 CVRPTW100        ==> Score: 25.9946, Gap:  6.7565%
+[2026-11-17 18:48:00] Trainer.py(389) : Epoch  519: 1000 OCVRP100         ==> Score: 10.2708, Gap:  4.5085%
+[2026-11-17 18:48:01] Trainer.py(389) : Epoch  519: 1000 OCVRPTW100       ==> Score: 15.2269, Gap:  5.8885%
+[2026-11-17 18:48:01] Trainer.py(187) : Epoch  519: Average gap: 4.4798%
+[2026-11-17 18:48:01] Trainer.py(203) : Epoch  519/ 530: Time Est.: Elapsed[2.37h (0.10d)], Remain[1.37h (0.06d)]
+[2026-11-17 18:48:01] Trainer.py(210) : Saving log_image
+[2026-11-17 18:48:01] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:48:02] Trainer.py(158) : ========================================================================
+[2026-11-17 18:48:02] Trainer.py(167) : Epoch  520: Current learning rate: 1e-05
+[2026-11-17 18:48:02] continue_multitask.py(73) : Epoch 520: instances 128/100000, batch 1/782, task ocvrp, score 10.334167, loss -0.103427, elapsed 0.5s
+[2026-11-17 18:48:03] continue_multitask.py(73) : Epoch 520: instances 256/100000, batch 2/782, task cvrptw, score 26.684753, loss -0.136858, elapsed 1.2s
+[2026-11-17 18:48:03] continue_multitask.py(73) : Epoch 520: instances 384/100000, batch 3/782, task cvrpb, score 12.193352, loss -0.136152, elapsed 1.7s
+[2026-11-17 18:48:04] continue_multitask.py(73) : Epoch 520: instances 512/100000, batch 4/782, task cvrp, score 15.990928, loss -0.131909, elapsed 2.2s
+[2026-11-17 18:48:05] continue_multitask.py(73) : Epoch 520: instances 640/100000, batch 5/782, task ocvrptw, score 15.023506, loss -0.125103, elapsed 2.9s
+[2026-11-17 18:48:59] continue_multitask.py(73) : Epoch 520: instances 12800/100000, batch 100/782, task cvrptw, score 25.817837, loss -0.131968, elapsed 57.6s
+[2026-11-17 18:49:58] continue_multitask.py(73) : Epoch 520: instances 25600/100000, batch 200/782, task cvrptw, score 26.249947, loss -0.131174, elapsed 116.4s
+[2026-11-17 18:50:57] continue_multitask.py(73) : Epoch 520: instances 38400/100000, batch 300/782, task cvrptw, score 26.240551, loss -0.129044, elapsed 175.7s
+[2026-11-17 18:51:55] continue_multitask.py(73) : Epoch 520: instances 51200/100000, batch 400/782, task cvrptw, score 26.622566, loss -0.129007, elapsed 233.5s
+[2026-11-17 18:52:52] continue_multitask.py(73) : Epoch 520: instances 64000/100000, batch 500/782, task ocvrptw, score 15.143491, loss -0.129733, elapsed 290.5s
+[2026-11-17 18:53:49] continue_multitask.py(73) : Epoch 520: instances 76800/100000, batch 600/782, task cvrpb, score 12.329487, loss -0.129318, elapsed 347.7s
+[2026-11-17 18:54:46] continue_multitask.py(73) : Epoch 520: instances 89600/100000, batch 700/782, task ocvrptw, score 15.125900, loss -0.128922, elapsed 404.4s
+[2026-11-17 18:55:33] continue_multitask.py(73) : Epoch 520: instances 100000/100000, batch 782/782, task cvrptw, score 27.223782, loss -0.128651, elapsed 451.6s
+[2026-11-17 18:55:34] Trainer.py(389) : Epoch  520: 1000 CVRP100          ==> Score: 15.9067, Gap:  2.5997%
+[2026-11-17 18:55:35] Trainer.py(389) : Epoch  520: 1000 CVRPB100         ==> Score: 12.1888, Gap:  2.6154%
+[2026-11-17 18:55:36] Trainer.py(389) : Epoch  520: 1000 CVRPTW100        ==> Score: 25.9903, Gap:  6.7387%
+[2026-11-17 18:55:37] Trainer.py(389) : Epoch  520: 1000 OCVRP100         ==> Score: 10.2712, Gap:  4.5128%
+[2026-11-17 18:55:38] Trainer.py(389) : Epoch  520: 1000 OCVRPTW100       ==> Score: 15.2373, Gap:  5.9604%
+[2026-11-17 18:55:38] Trainer.py(187) : Epoch  520: Average gap: 4.4854%
+[2026-11-17 18:55:38] Trainer.py(203) : Epoch  520/ 530: Time Est.: Elapsed[2.50h (0.10d)], Remain[1.25h (0.05d)]
+[2026-11-17 18:55:38] Trainer.py(210) : Saving log_image
+[2026-11-17 18:55:38] Trainer.py(216) : Saving trained_model
+[2026-11-17 18:55:38] Trainer.py(158) : ========================================================================
+[2026-11-17 18:55:38] Trainer.py(167) : Epoch  521: Current learning rate: 1e-05
+[2026-11-17 18:55:39] continue_multitask.py(73) : Epoch 521: instances 128/100000, batch 1/782, task cvrp, score 15.767736, loss -0.127801, elapsed 0.6s
+[2026-11-17 18:55:40] continue_multitask.py(73) : Epoch 521: instances 256/100000, batch 2/782, task ocvrptw, score 15.001855, loss -0.124398, elapsed 1.3s
+[2026-11-17 18:55:40] continue_multitask.py(73) : Epoch 521: instances 384/100000, batch 3/782, task cvrptw, score 25.501083, loss -0.157980, elapsed 2.0s
+[2026-11-17 18:55:41] continue_multitask.py(73) : Epoch 521: instances 512/100000, batch 4/782, task cvrptw, score 25.850430, loss -0.158024, elapsed 2.6s
+[2026-11-17 18:55:41] continue_multitask.py(73) : Epoch 521: instances 640/100000, batch 5/782, task ocvrp, score 10.194709, loss -0.147181, elapsed 3.1s
+[2026-11-17 18:56:36] continue_multitask.py(73) : Epoch 521: instances 12800/100000, batch 100/782, task cvrp, score 16.092909, loss -0.127324, elapsed 57.4s
+[2026-11-17 18:57:32] continue_multitask.py(73) : Epoch 521: instances 25600/100000, batch 200/782, task ocvrptw, score 15.084622, loss -0.126438, elapsed 113.3s

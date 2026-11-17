@@ -1,0 +1,6 @@
+Merge features cvrp: 64 instances, 171 linear weights, 24 normalization scales
+Merge features cvrpb: 64 instances, 171 linear weights, 24 normalization scales
+Merge features cvrptw: 64 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrp: 64 instances, 171 linear weights, 24 normalization scales
+Merge features ocvrptw: 64 instances, 171 linear weights, 24 normalization scales
+Built lot_n64_a1p2_s3407: merge=1.42s, features=1.8926233258098364

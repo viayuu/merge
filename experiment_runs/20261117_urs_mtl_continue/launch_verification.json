@@ -1,0 +1,87 @@
+{
+  "verified_at": "2026-11-17T16:28:21.542073+08:00",
+  "tmux": "urs_mtl_continue",
+  "slurm_step": "1475.1146",
+  "runs": [
+    {
+      "name": "total_100k",
+      "gpu": 0,
+      "device": "NVIDIA GeForce RTX 4090",
+      "base_sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86",
+      "initial_lr": 1e-05,
+      "initial_optimizer_steps": {
+        "1000000": 297,
+        "727655": 1,
+        "90782": 84
+      },
+      "progress_at_verification": {
+        "absolute_epoch": 501,
+        "additional_epoch": 1,
+        "completed_instances": 38400,
+        "target_instances": 100000,
+        "completed_batches": 300,
+        "target_batches": 782,
+        "task_instances": {
+          "cvrp": 8192,
+          "cvrpb": 6784,
+          "cvrptw": 7936,
+          "ocvrp": 7936,
+          "ocvrptw": 7552
+        },
+        "task_batches": {
+          "cvrp": 64,
+          "cvrpb": 53,
+          "cvrptw": 62,
+          "ocvrp": 62,
+          "ocvrptw": 59
+        },
+        "loss": -0.1283790421237548,
+        "lr": 1e-05,
+        "elapsed_seconds": 165.38503631204367,
+        "phase": "training"
+      }
+    },
+    {
+      "name": "per_task_100k",
+      "gpu": 1,
+      "device": "NVIDIA GeForce RTX 4090",
+      "base_sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86",
+      "initial_lr": 1e-05,
+      "initial_optimizer_steps": {
+        "1000000": 297,
+        "727655": 1,
+        "90782": 84
+      },
+      "progress_at_verification": {
+        "absolute_epoch": 501,
+        "additional_epoch": 1,
+        "completed_instances": 25600,
+        "target_instances": 500000,
+        "completed_batches": 200,
+        "target_batches": 3910,
+        "task_instances": {
+          "cvrp": 5632,
+          "cvrpb": 4352,
+          "cvrptw": 5504,
+          "ocvrp": 5504,
+          "ocvrptw": 4608
+        },
+        "task_batches": {
+          "cvrp": 44,
+          "cvrpb": 34,
+          "cvrptw": 43,
+          "ocvrp": 43,
+          "ocvrptw": 36
+        },
+        "loss": -0.13060183994472027,
+        "lr": 1e-05,
+        "elapsed_seconds": 116.42527381842956,
+        "phase": "training"
+      }
+    }
+  ],
+  "estimated_training_hours_at_launch": {
+    "total_100k": 3.59,
+    "per_task_100k": 18.97
+  }
+}

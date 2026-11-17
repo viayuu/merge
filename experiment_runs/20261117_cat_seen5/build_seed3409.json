@@ -1,0 +1,1063 @@
+{
+  "updated": "2026-11-17T17:08:49.535833+08:00",
+  "seed": 3409,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "sample_indices": {
+    "cvrp": [
+      824,
+      648
+    ],
+    "cvrpb": [
+      444,
+      333
+    ],
+    "cvrptw": [
+      143,
+      602
+    ],
+    "ocvrp": [
+      493,
+      531
+    ],
+    "ocvrptw": [
+      780,
+      11
+    ]
+  },
+  "models": [
+    {
+      "config_id": "upstream_c4_a0p4",
+      "family": "upstream",
+      "label": "\u53d1\u5e03\u4ee3\u7801\u9002\u914d c4 \u03b10.4",
+      "is_default": true,
+      "mode": "upstream",
+      "linear_count": 4,
+      "norm_count": 0,
+      "bias_count": 0,
+      "feature_scale": 0.4,
+      "scale": 0.4,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "upstream_c4_a0p4_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/upstream_c4_a0p4_s3409.pt",
+      "seconds": 4.767925059422851,
+      "diagnostics": {
+        "linear_layers": 119,
+        "norm_layers": 0,
+        "bias_tensors": 0,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [
+          "encoder.layers.1.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.1.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.2.adaptation_bias_module_row.W1.weight",
+          "encoder.layers.2.adaptation_bias_module_row.W2.weight",
+          "encoder.layers.3.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.3.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.4.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.4.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.5.adaptation_bias_module_row.W1.weight",
+          "encoder.layers.5.adaptation_bias_module_row.W2.weight",
+          "encoder.layers.5.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.5.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.7.adaptation_bias_module_row.W1.weight",
+          "encoder.layers.7.adaptation_bias_module_row.W2.weight",
+          "encoder.layers.7.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.7.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.8.adaptation_bias_module_row.W1.weight",
+          "encoder.layers.8.adaptation_bias_module_row.W2.weight",
+          "encoder.layers.8.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.8.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.9.adaptation_bias_module_row.W1.weight",
+          "encoder.layers.9.adaptation_bias_module_row.W2.weight",
+          "encoder.layers.9.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.9.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.10.adaptation_bias_module_row.W1.weight",
+          "encoder.layers.10.adaptation_bias_module_row.W2.weight",
+          "encoder.layers.10.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.10.adaptation_bias_module_col.W2.weight",
+          "encoder.layers.11.adaptation_bias_module_row.W1.weight",
+          "encoder.layers.11.adaptation_bias_module_row.W2.weight",
+          "encoder.layers.11.adaptation_bias_module_col.W1.weight",
+          "encoder.layers.11.adaptation_bias_module_col.W2.weight"
+        ],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.631920825568939,
+          7.346335275342044,
+          6.998418572170858,
+          8.021654846464898,
+          7.027885120886232
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p4",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.4",
+      "is_default": true,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.4,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p4_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p4_s3409.pt",
+      "seconds": 5.089793445542455,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_linear_c4_a0p4",
+      "family": "paper_linear",
+      "label": "\u8bba\u6587\u516c\u5f0f\u4ec5\u7ebf\u6027 c4 \u03b10.4",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 0,
+      "bias_count": 0,
+      "feature_scale": 1.0,
+      "scale": 0.4,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_linear_c4_a0p4_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_linear_c4_a0p4_s3409.pt",
+      "seconds": 4.955353828147054,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 0,
+        "bias_tensors": 0,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.343296890274884,
+          7.033957491759093,
+          6.663734004931952,
+          7.7319069525106086,
+          6.716563048667419
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p1",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.1",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.1,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p1_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p1_s3409.pt",
+      "seconds": 0.07806935533881187,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p2",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.2",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.2,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p2_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p2_s3409.pt",
+      "seconds": 0.07810959778726101,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p3",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.3",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.3,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p3_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p3_s3409.pt",
+      "seconds": 0.0781651008874178,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p5",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.5",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.5,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p5_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p5_s3409.pt",
+      "seconds": 0.07854418456554413,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p6",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.6",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.6,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p6_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p6_s3409.pt",
+      "seconds": 0.07893831841647625,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p7",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.7",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.7,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p7_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p7_s3409.pt",
+      "seconds": 0.07857208512723446,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p8",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.8",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.8,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p8_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p8_s3409.pt",
+      "seconds": 0.07852627150714397,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c4_a0p9",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c4 \u03b10.9",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 4,
+      "norm_count": 4,
+      "bias_count": 4,
+      "feature_scale": 1.0,
+      "scale": 0.9,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c4_a0p9_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c4_a0p9_s3409.pt",
+      "seconds": 0.07952091097831726,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.342091887982585,
+          7.0326128657945315,
+          6.662988317615822,
+          7.730653378848594,
+          6.715687199942228
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c2_a0p4",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c2 \u03b10.4",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 2,
+      "norm_count": 2,
+      "bias_count": 2,
+      "feature_scale": 1.0,
+      "scale": 0.4,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c2_a0p4_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c2_a0p4_s3409.pt",
+      "seconds": 5.05733947083354,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.459354711370099,
+          7.135972198684866,
+          6.748220901945507,
+          7.844381571910256,
+          6.816293019772469
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    },
+    {
+      "config_id": "paper_full_c3_a0p4",
+      "family": "paper_full",
+      "label": "\u8bba\u6587\u516c\u5f0f\u5b8c\u6574 CAT c3 \u03b10.4",
+      "is_default": false,
+      "mode": "paper",
+      "linear_count": 3,
+      "norm_count": 3,
+      "bias_count": 3,
+      "feature_scale": 1.0,
+      "scale": 0.4,
+      "seed": 3409,
+      "sample_indices": {
+        "cvrp": [
+          824,
+          648
+        ],
+        "cvrpb": [
+          444,
+          333
+        ],
+        "cvrptw": [
+          143,
+          602
+        ],
+        "ocvrp": [
+          493,
+          531
+        ],
+        "ocvrptw": [
+          780,
+          11
+        ]
+      },
+      "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+      "expert_checkpoints": [
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+        "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt"
+      ],
+      "upstream_commit": "ab87731e405b9eeca1f822685ede0276d756907c",
+      "id": "paper_full_c3_a0p4_s3409",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_cat_seen5/models/paper_full_c3_a0p4_s3409.pt",
+      "seconds": 5.054563771933317,
+      "diagnostics": {
+        "linear_layers": 151,
+        "norm_layers": 24,
+        "bias_tensors": 83,
+        "inactive_linear": [],
+        "upstream_name_exclusions": [],
+        "zero_projection_count": 0,
+        "large_qr_layers": [
+          "decoder.hyper_Wq_first.weight",
+          "decoder.hyper_Wq_last.weight",
+          "decoder.hyper_Wk.weight",
+          "decoder.hyper_Wv.weight"
+        ],
+        "original_norms": [
+          7.6319206788054,
+          7.346335041326167,
+          6.998418327284421,
+          8.021654898072143,
+          7.02788516419971
+        ],
+        "trimmed_norms": [
+          7.3871127543664095,
+          7.080587916905952,
+          6.698736476442503,
+          7.7776635954158575,
+          6.758228914960717
+        ]
+      },
+      "finite": true,
+      "strict_load": true
+    }
+  ]
+}

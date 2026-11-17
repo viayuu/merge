@@ -1,0 +1,54 @@
+{
+  "verified_at": "2026-11-17T18:27:14.713875+08:00",
+  "completed": 68,
+  "fresh_evaluations": 59,
+  "historical_CAT_reused": 9,
+  "task_rows": 340,
+  "configuration_groups": 26,
+  "new_models": 58,
+  "failed": 0,
+  "gpu_names": [
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA GeForce RTX 3090"
+  ],
+  "base_exactly_matches_previous_CAT_evaluation": true,
+  "original_protocol_verified": true,
+  "means_and_population_std_recomputed": true,
+  "smoke_excluded": true,
+  "lot_default_per_seed_improved_tasks": {
+    "3407": 5,
+    "3408": 5,
+    "3409": 5
+  },
+  "lot_full_set_improved_tasks": 5,
+  "code_sha256_final": {
+    "merge_lab/lot.py": "a91cff35de6345e9c39318dde1ed4b9cad5f451e436ae7973083515ebfd1fcda",
+    "merge_lab/cat_features.py": "adbeb40f6ec26e12d7f231a01bd5bfb4d173cac446b350422b8d95cd06116636",
+    "merge_lab/cat.py": "112fec7e5310d442a592984d07fedeac9bc142854c514c99c76d222242c3c845",
+    "third_party/lot_merging/main_lot.py": "5617a6a16664674bceadff092644cb4049cba2c7c6d72f9b61e9f8441b83e805",
+    "third_party/lot_merging/methods/lot_merging_utils.py": "f479cb5df034b30529db66c6a66461ea6aa4e7936a01ebca482a6f8e9f9c0bb8",
+    "experiment_runs/20261117_lot_samples_seen5/analyze.py": "c1fc622310b7d17db911f997a64cc34d82dfec13a31845021ce6a9ae347c4730",
+    "experiment_runs/20261117_lot_samples_seen5/build_models.py": "241debdd94df511302599be9fed88c9c22eeebce34ee913894385912df58f7b9",
+    "experiment_runs/20261117_lot_samples_seen5/plot_results.py": "9eb5e91cf6af5cfd1c6057c828858c56e9dbc33aa2516e16c6897f7074b37a6d",
+    "experiment_runs/20261117_lot_samples_seen5/prepare.py": "49fa3d0ca481884330f073841ef75fa1980a466bd18173d3a2e7b6cbbbc74f5d",
+    "experiment_runs/20261117_lot_samples_seen5/run_queue.py": "57f821091b1a6d27d6f3a12f3c8e1d4167adc7198d52695b8b56582e0bd3d2ae",
+    "experiment_runs/20261117_lot_samples_seen5/PLAN.md": "a935fa659b13afe6f11f8cee6d16659b27d44356923329e8ea6a154b56523670",
+    "experiment_runs/20261117_lot_samples_seen5/evaluation_plan.json": "bfd133a7052dba77c1d4ed8cc0d4941fdf424b2f473b5a6d766f54aa1464a5ae"
+  },
+  "code_changes_after_launch": {
+    "paths": [
+      "experiment_runs/20261117_lot_samples_seen5/plot_results.py"
+    ],
+    "reason": "Plot layout only: move legend away from data and add scale-range zoom. All merging, evaluation and analysis code unchanged."
+  },
+  "output_sha256": {
+    "summary.json": "a677f9d96bc7cc694de6861ac4ea875a3747bcd7c2d6a11c6a2130c53f15a12a",
+    "summary.csv": "42ea3ccd7ec8ad35b228bdf5eda38c68959594680ef4112687d59f619b886ec5",
+    "all_results.csv": "000879d1a724294d7c6f715d6425563f2838428989cbe0e6db2705a517f20145",
+    "RESULTS.md": "2a2fed9cef27b050d57ac38834d63e24a4ff88b168edea7280bff4bf8c1612fa",
+    "sample_count_sensitivity.png": "057039f4dccaec6e58f73fb9f21097d0064ff0816ff90a15d5cd49083c0df43a",
+    "sample_count_sensitivity.pdf": "270e97cc47d09255a2f7ec0d652139a76e0e172b43a1cccaf9d325c013c00f73",
+    "lot_scale_sensitivity.png": "aa06b6686efcd965c4e57737aa13510fbe709e45fda0c5ac9e1fe73770a9492d",
+    "lot_scale_sensitivity.pdf": "2dc935351b109dbe3a1ae5a9dad006fcefed45acde3a9cdb1e21a8f3e53bc4c6"
+  }
+}

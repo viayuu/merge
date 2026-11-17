@@ -1,0 +1,39 @@
+{
+  "started": "2026-11-17T16:23:00+08:00",
+  "smoke": true,
+  "jobs": [
+    {
+      "name": "total_100k",
+      "budget": "total",
+      "gpu": 0,
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "epochs": 1,
+      "instances": 160,
+      "status": "completed",
+      "phase": "completed",
+      "returncode": 0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/smoke/models/total_100k/checkpoint_501.pt",
+      "result": null,
+      "started": "2026-11-17T16:23:00+08:00",
+      "training_finished": "2026-11-17T16:23:15+08:00",
+      "finished": "2026-11-17T16:23:15+08:00"
+    },
+    {
+      "name": "per_task_100k",
+      "budget": "per-task",
+      "gpu": 1,
+      "gpu_name": "NVIDIA GeForce RTX 4090",
+      "epochs": 1,
+      "instances": 160,
+      "status": "completed",
+      "phase": "completed",
+      "returncode": 0,
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261117_urs_mtl_continue/smoke/models/per_task_100k/checkpoint_501.pt",
+      "result": null,
+      "started": "2026-11-17T16:23:00+08:00",
+      "training_finished": "2026-11-17T16:23:19+08:00",
+      "finished": "2026-11-17T16:23:19+08:00"
+    }
+  ],
+  "updated": "2026-11-17T16:23:19+08:00"
+}

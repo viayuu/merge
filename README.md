@@ -2,7 +2,7 @@
 
 使用已发布的 URS 单任务模型，通过离线参数合并形成固定参数的多任务模型，并与原论文 URS 和本地复跑结果比较。
 
-当前实验使用从同一 URS 多任务 base 微调的五个 epoch-30 专家，按官方 TIES-Merging 实现合并。
+当前实验使用从同一 URS 多任务 base 微调的五个 epoch-30 专家，参考官方实现进行 TIES、CAT、LOT 合并。
 
 - [实验方案](refine-logs/EXPERIMENT_PLAN.md)
 - [正式实验结果与分析](refine-logs/EXPERIMENT_RESULTS.md)
@@ -11,13 +11,16 @@
 - [合并与评测命令](merge_lab/README.md)
 - [五专家共同 base 微调结果](experiment_runs/20261116_urs_finetune_seen5/RESULTS.md)
 - [五专家 TIES 实验方案](experiment_runs/20261117_ties_seen5/PLAN.md) · [结果](experiment_runs/20261117_ties_seen5/RESULTS.md)
+- [URS 两种预算的多任务续训](experiment_runs/20261117_urs_mtl_continue/README.md) · [进度](experiment_runs/20261117_urs_mtl_continue/PROGRESS.md)
+- [CAT 合并实验](experiment_runs/20261117_cat_seen5/RESULTS.md)
+- [LOT 合并与 CAT 样本数量实验](experiment_runs/20261117_lot_samples_seen5/README.md)
 
 ## 目录
 
 | 路径 | 内容 |
 |---|---|
 | `URS/` | 上游 URS 源码及本项目的结果导出修改 |
-| `merge_lab/` | 平均、插值、Task Arithmetic、TIES、DARE+TA和论文对照汇总 |
+| `merge_lab/` | 平均、插值、Task Arithmetic、TIES、DARE+TA、CAT、LOT和论文对照汇总 |
 | `experiment_runs/` | 本次运行脚本、参数、日志、JSON/CSV、图表与核查记录 |
 | `refine-logs/` | 实验方案、结果、审查与版本快照 |
 | `papers/`、`idea-stage/` | 文献和前期调研材料 |

@@ -1,0 +1,18 @@
+{
+  "host": "gpu03",
+  "gpu_names": [
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA GeForce RTX 3090"
+  ],
+  "jobs": 41,
+  "started": "2026-11-17T17:08:51+08:00",
+  "tmux": "urs_cat",
+  "allocation": 1465,
+  "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+  "builds": {
+    "build_seed3408.json": 13,
+    "build_seed3407.json": 13,
+    "build_seed3409.json": 13
+  },
+  "prior_smoke": "smoke_verification.json"
+}

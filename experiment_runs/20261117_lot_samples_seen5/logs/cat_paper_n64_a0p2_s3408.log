@@ -1,0 +1,161 @@
+[2026-11-17 18:16:52] utils.py(410) : ================================================================================
+[2026-11-17 18:16:52] utils.py(411) : URS: A Unified Neural Routing Solver for Cross-Problem Zero-Shot Generalization
+[2026-11-17 18:16:52] utils.py(412) : Paper URL: https://arxiv.org/pdf/2509.23413
+[2026-11-17 18:16:52] utils.py(413) : Code  URL: https://github.com/CIAM-Group/URS
+[2026-11-17 18:16:52] utils.py(414) : >>> Start testing at 2026-11-17 18:16:52
+[2026-11-17 18:16:52] utils.py(415) : ================================================================================
+[2026-11-17 18:16:52] utils.py(417) : [Hardware & Environment]
+[2026-11-17 18:16:52] utils.py(418) :   Python             : 3.9.23
+[2026-11-17 18:16:52] utils.py(419) :   PyTorch            : 2.5.1+cu124
+[2026-11-17 18:16:52] utils.py(420) :   CUDA available     : True
+[2026-11-17 18:16:52] utils.py(421) :   CUDA runtime       : 12.4
+[2026-11-17 18:16:52] utils.py(422) :   cuDNN              : 90100
+[2026-11-17 18:16:52] utils.py(423) :   Active device      : cuda:0 (NVIDIA GeForce RTX 3090)
+[2026-11-17 18:16:52] utils.py(424) :   GPU count          : 1
+[2026-11-17 18:16:52] utils.py(425) :   Seed               : 3407
+[2026-11-17 18:16:52] utils.py(426) :   Data directory     : /public/home/shiys/merge/URS/dataset
+[2026-11-17 18:16:52] utils.py(427) :   Working directory  : /public/home/shiys/merge/URS
+[2026-11-17 18:16:52] utils.py(428) : [Logging & Tracking]
+[2026-11-17 18:16:52] utils.py(429) :   Result directory   : ./result_test/cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_5tasks/20261117_181652_aug_cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_cat_paper_n64_a0p2_s3408_5tasks_range100_100
+[2026-11-17 18:16:52] utils.py(430) :   Log file           : ./result_test/cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_5tasks/20261117_181652_aug_cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_cat_paper_n64_a0p2_s3408_5tasks_range100_100/run.log
+[2026-11-17 18:16:52] utils.py(431) : ================================================================================
+[2026-11-17 18:16:52] mask_registry.py(28) : First initializing MaskRegistry...
+[2026-11-17 18:16:52] mask_registry.py(29) : Registered basic mask: visited
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: visited
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: op
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: pc
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: tw
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: l
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: pd
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: bp
+[2026-11-17 18:16:52] mask_registry.py(33) : Registered mask for constraint: vrp
+[2026-11-17 18:16:52] test.py(35) : USE_CUDA: True, CUDA_DEVICE_NUM: 0
+[2026-11-17 18:16:52] test.py(36) : env_params{'test_problem_list': ['cvrp', 'cvrpb', 'cvrptw', 'ocvrp', 'ocvrptw'], 'test_scale_list': [100], 'data_dir': '/public/home/shiys/merge/URS/dataset', 'scale_range_lib': [3000, 7001]}
+[2026-11-17 18:16:52] test.py(36) : model_params{'embedding_dim': 128, 'encoder_layer_num': 12, 'ff_hidden_dim': 512, 'logit_clipping': 50, 'demand_max1': True, 'eval_type': 'greedy'}
+[2026-11-17 18:16:52] test.py(36) : tester_params{'use_cuda': True, 'cuda_device_num': 0, 'model_load': '/public/home/shiys/merge/experiment_runs/20261117_lot_samples_seen5/models/cat_paper_n64_a0p2_s3408.pt', 'test_episodes': [1000], 'augmentation_enable': True, 'aug_factor': [8, 128], 'test_batch_size_small': [125, 125, 50, 8], 'test_batch_size_large': [16, 8, 2, 1, 1], 'summary_problems_per_row': 6, 'detailed_log': False}
+[2026-11-17 18:16:52] test.py(36) : logger_params{'log_file': {'desc': 'aug_cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_cat_paper_n64_a0p2_s3408_5tasks_range100_100', 'filename': 'run.log', 'filepath': './result_test/cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_5tasks/20261117_181652_aug_cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_cat_paper_n64_a0p2_s3408_5tasks_range100_100'}}
+[2026-11-17 18:16:52] Tester.py(51) : 5 problems for testing: ['cvrp', 'cvrpb', 'cvrptw', 'ocvrp', 'ocvrptw']
+/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/site-packages/torch/__init__.py:1144: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:432.)
+  _C._set_default_tensor_type(t)
+/public/home/shiys/merge/URS/Tester.py:76: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_fullname, map_location=device)
+[2026-11-17 18:16:52] Tester.py(78) : Model loaded successfully!!!
+[2026-11-17 18:16:52] Tester.py(79) : Model loaded from: /public/home/shiys/merge/experiment_runs/20261117_lot_samples_seen5/models/cat_paper_n64_a0p2_s3408.pt
+[2026-11-17 18:16:52] Tester.py(82) : Number of parameters: 4.96M
+[2026-11-17 18:16:52] Tester.py(100) : 1 scales for testing: [100]. The corresponding episodes: [1000]
+[2026-11-17 18:16:52] Tester.py(102) : Augmentation enabled: True, Augmentation factor: 8 for symmetric problems, 128 for asymmetric problems
+[2026-11-17 18:16:52] Tester.py(122) : Found data path for 1000 CVRP100          ==> data: cvrp100_uniform.pkl, solution: hgs_cvrp100_uniform.pkl
+[2026-11-17 18:16:52] Tester.py(122) : Found data path for 1000 CVRPB100         ==> data: cvrpb100_uniform.pkl, solution: ortools_400s_cvrpb100_uniform.pkl
+[2026-11-17 18:16:52] Tester.py(122) : Found data path for 1000 CVRPTW100        ==> data: cvrptw100_1000uni.pkl, solution: hgs_pyvrp_cvrptw100_1000uni.pkl
+[2026-11-17 18:16:52] Tester.py(122) : Found data path for 1000 OCVRP100         ==> data: ocvrp100_uniform.pkl, solution: lkh_ocvrp100_uniform.pkl
+[2026-11-17 18:16:52] Tester.py(122) : Found data path for 1000 OCVRPTW100       ==> data: ocvrptw100_uniform.pkl, solution: ortools_400s_ocvrptw100_uniform.pkl
+[2026-11-17 18:16:52] Tester.py(137) : Total test tasks: 5
+[2026-11-17 18:16:52] Tester.py(148) : ========================================================================
+[2026-11-17 18:16:52] Tester.py(149) : ========================================================================
+[2026-11-17 18:16:52] Tester.py(163) : Successfully load 1000 CVRP100 instances ==> oracle score: 15.5036
+[2026-11-17 18:16:52] Tester.py(176) : Testing 1000 CVRP100 instances with aug_factor: 8 and batch_size: 125
+[2026-11-17 18:16:52] Tester.py(204) : Before solution construction, reset time estimator and averageMeter...
+[2026-11-17 18:16:54] Tester.py(275) : episode  125/1000, Elapsed[0.02m], Remain[0.14m], score:15.865, aug_score:15.724
+[2026-11-17 18:16:54] Tester.py(275) : episode  250/1000, Elapsed[0.04m], Remain[0.11m], score:15.753, aug_score:15.642
+[2026-11-17 18:16:55] Tester.py(275) : episode  375/1000, Elapsed[0.05m], Remain[0.09m], score:15.681, aug_score:15.568
+[2026-11-17 18:16:56] Tester.py(275) : episode  500/1000, Elapsed[0.07m], Remain[0.07m], score:15.798, aug_score:15.685
+[2026-11-17 18:16:57] Tester.py(275) : episode  625/1000, Elapsed[0.09m], Remain[0.05m], score:15.844, aug_score:15.709
+[2026-11-17 18:16:58] Tester.py(275) : episode  750/1000, Elapsed[0.10m], Remain[0.03m], score:15.946, aug_score:15.832
+[2026-11-17 18:16:59] Tester.py(275) : episode  875/1000, Elapsed[0.12m], Remain[0.02m], score:16.143, aug_score:16.015
+[2026-11-17 18:17:00] Tester.py(275) : episode 1000/1000, Elapsed[0.14m], Remain[0.00m], score:16.225, aug_score:16.090
+[2026-11-17 18:17:00] Tester.py(288) : ************* Test Done: CVRP100 ************* 
+[2026-11-17 18:17:00] Tester.py(289) : problem size: 100, pomo size: 100, aug factor: 8, oracle score: 15.5036 
+[2026-11-17 18:17:00] Tester.py(291) : NO-AUG SCORE:15.9071, GAP:2.602%
+[2026-11-17 18:17:00] Tester.py(293) : AUGMENTATION SCORE:15.7831, GAP:1.802%
+[2026-11-17 18:17:00] Tester.py(296) : Total time: 8.12 sec, 0.14 min
+[2026-11-17 18:17:00] Tester.py(297) : Avg time per episode: 0.01 sec
+[2026-11-17 18:17:00] Tester.py(190) : Completed 1/5 Tasks. Time used so far: 8.3s
+[2026-11-17 18:17:00] Tester.py(148) : ========================================================================
+[2026-11-17 18:17:00] Tester.py(149) : ========================================================================
+[2026-11-17 18:17:01] Tester.py(163) : Successfully load 1000 CVRPB100 instances ==> oracle score: 11.8782
+[2026-11-17 18:17:01] Tester.py(176) : Testing 1000 CVRPB100 instances with aug_factor: 8 and batch_size: 125
+[2026-11-17 18:17:01] Tester.py(204) : Before solution construction, reset time estimator and averageMeter...
+[2026-11-17 18:17:01] Tester.py(275) : episode  125/1000, Elapsed[0.01m], Remain[0.10m], score:12.194, aug_score:12.053
+[2026-11-17 18:17:02] Tester.py(275) : episode  250/1000, Elapsed[0.03m], Remain[0.09m], score:12.625, aug_score:12.482
+[2026-11-17 18:17:03] Tester.py(275) : episode  375/1000, Elapsed[0.04m], Remain[0.07m], score:12.278, aug_score:12.134
+[2026-11-17 18:17:04] Tester.py(275) : episode  500/1000, Elapsed[0.06m], Remain[0.06m], score:12.001, aug_score:11.865
+[2026-11-17 18:17:05] Tester.py(275) : episode  625/1000, Elapsed[0.07m], Remain[0.04m], score:12.094, aug_score:11.962
+[2026-11-17 18:17:06] Tester.py(275) : episode  750/1000, Elapsed[0.09m], Remain[0.03m], score:12.028, aug_score:11.875
+[2026-11-17 18:17:07] Tester.py(275) : episode  875/1000, Elapsed[0.10m], Remain[0.01m], score:12.128, aug_score:11.991
+[2026-11-17 18:17:08] Tester.py(275) : episode 1000/1000, Elapsed[0.12m], Remain[0.00m], score:12.193, aug_score:12.031
+[2026-11-17 18:17:08] Tester.py(288) : ************* Test Done: CVRPB100 ************* 
+[2026-11-17 18:17:08] Tester.py(289) : problem size: 100, pomo size: 80, aug factor: 8, oracle score: 11.8782 
+[2026-11-17 18:17:08] Tester.py(291) : NO-AUG SCORE:12.1930, GAP:2.651%
+[2026-11-17 18:17:08] Tester.py(293) : AUGMENTATION SCORE:12.0493, GAP:1.441%
+[2026-11-17 18:17:08] Tester.py(296) : Total time: 7.10 sec, 0.12 min
+[2026-11-17 18:17:08] Tester.py(297) : Avg time per episode: 0.01 sec
+[2026-11-17 18:17:08] Tester.py(190) : Completed 2/5 Tasks. Time used so far: 15.6s
+[2026-11-17 18:17:08] Tester.py(148) : ========================================================================
+[2026-11-17 18:17:08] Tester.py(149) : ========================================================================
+[2026-11-17 18:17:08] Tester.py(163) : Successfully load 1000 CVRPTW100 instances ==> oracle score: 24.3494
+[2026-11-17 18:17:08] Tester.py(176) : Testing 1000 CVRPTW100 instances with aug_factor: 8 and batch_size: 125
+[2026-11-17 18:17:08] Tester.py(204) : Before solution construction, reset time estimator and averageMeter...
+[2026-11-17 18:17:09] Tester.py(275) : episode  125/1000, Elapsed[0.02m], Remain[0.15m], score:25.836, aug_score:25.659
+[2026-11-17 18:17:10] Tester.py(275) : episode  250/1000, Elapsed[0.04m], Remain[0.13m], score:26.707, aug_score:26.537
+[2026-11-17 18:17:12] Tester.py(275) : episode  375/1000, Elapsed[0.06m], Remain[0.10m], score:25.651, aug_score:25.462
+[2026-11-17 18:17:13] Tester.py(275) : episode  500/1000, Elapsed[0.08m], Remain[0.08m], score:26.191, aug_score:26.026
+[2026-11-17 18:17:14] Tester.py(275) : episode  625/1000, Elapsed[0.10m], Remain[0.06m], score:26.041, aug_score:25.869
+[2026-11-17 18:17:15] Tester.py(275) : episode  750/1000, Elapsed[0.13m], Remain[0.04m], score:26.114, aug_score:25.922
+[2026-11-17 18:17:17] Tester.py(275) : episode  875/1000, Elapsed[0.15m], Remain[0.02m], score:25.840, aug_score:25.672
+[2026-11-17 18:17:18] Tester.py(275) : episode 1000/1000, Elapsed[0.17m], Remain[0.00m], score:25.684, aug_score:25.489
+[2026-11-17 18:17:18] Tester.py(288) : ************* Test Done: CVRPTW100 ************* 
+[2026-11-17 18:17:18] Tester.py(289) : problem size: 100, pomo size: 100, aug factor: 8, oracle score: 24.3494 
+[2026-11-17 18:17:18] Tester.py(291) : NO-AUG SCORE:26.0081, GAP:6.812%
+[2026-11-17 18:17:18] Tester.py(293) : AUGMENTATION SCORE:25.8297, GAP:6.079%
+[2026-11-17 18:17:18] Tester.py(296) : Total time: 10.05 sec, 0.17 min
+[2026-11-17 18:17:18] Tester.py(297) : Avg time per episode: 0.01 sec
+[2026-11-17 18:17:18] Tester.py(190) : Completed 3/5 Tasks. Time used so far: 25.8s
+[2026-11-17 18:17:18] Tester.py(148) : ========================================================================
+[2026-11-17 18:17:18] Tester.py(149) : ========================================================================
+[2026-11-17 18:17:18] Tester.py(163) : Successfully load 1000 OCVRP100 instances ==> oracle score:  9.8277
+[2026-11-17 18:17:18] Tester.py(176) : Testing 1000 OCVRP100 instances with aug_factor: 8 and batch_size: 125
+[2026-11-17 18:17:18] Tester.py(204) : Before solution construction, reset time estimator and averageMeter...
+[2026-11-17 18:17:19] Tester.py(275) : episode  125/1000, Elapsed[0.02m], Remain[0.12m], score:10.370, aug_score:10.233
+[2026-11-17 18:17:20] Tester.py(275) : episode  250/1000, Elapsed[0.03m], Remain[0.10m], score:10.271, aug_score:10.140
+[2026-11-17 18:17:21] Tester.py(275) : episode  375/1000, Elapsed[0.05m], Remain[0.08m], score:10.181, aug_score:10.049
+[2026-11-17 18:17:22] Tester.py(275) : episode  500/1000, Elapsed[0.07m], Remain[0.07m], score:10.327, aug_score:10.199
+[2026-11-17 18:17:23] Tester.py(275) : episode  625/1000, Elapsed[0.08m], Remain[0.05m], score:10.272, aug_score:10.135
+[2026-11-17 18:17:24] Tester.py(275) : episode  750/1000, Elapsed[0.10m], Remain[0.03m], score:10.349, aug_score:10.231
+[2026-11-17 18:17:25] Tester.py(275) : episode  875/1000, Elapsed[0.12m], Remain[0.02m], score:10.216, aug_score:10.099
+[2026-11-17 18:17:26] Tester.py(275) : episode 1000/1000, Elapsed[0.13m], Remain[0.00m], score:10.147, aug_score:10.006
+[2026-11-17 18:17:26] Tester.py(288) : ************* Test Done: OCVRP100 ************* 
+[2026-11-17 18:17:26] Tester.py(289) : problem size: 100, pomo size: 100, aug factor: 8, oracle score: 9.8277 
+[2026-11-17 18:17:26] Tester.py(291) : NO-AUG SCORE:10.2664, GAP:4.464%
+[2026-11-17 18:17:26] Tester.py(293) : AUGMENTATION SCORE:10.1364, GAP:3.141%
+[2026-11-17 18:17:26] Tester.py(296) : Total time: 8.08 sec, 0.13 min
+[2026-11-17 18:17:26] Tester.py(297) : Avg time per episode: 0.01 sec
+[2026-11-17 18:17:26] Tester.py(190) : Completed 4/5 Tasks. Time used so far: 34.0s
+[2026-11-17 18:17:26] Tester.py(148) : ========================================================================
+[2026-11-17 18:17:26] Tester.py(149) : ========================================================================
+[2026-11-17 18:17:26] Tester.py(163) : Successfully load 1000 OCVRPTW100 instances ==> oracle score: 14.3802
+[2026-11-17 18:17:26] Tester.py(176) : Testing 1000 OCVRPTW100 instances with aug_factor: 8 and batch_size: 125
+[2026-11-17 18:17:26] Tester.py(204) : Before solution construction, reset time estimator and averageMeter...
+[2026-11-17 18:17:28] Tester.py(275) : episode  125/1000, Elapsed[0.02m], Remain[0.14m], score:15.120, aug_score:14.977
+[2026-11-17 18:17:29] Tester.py(275) : episode  250/1000, Elapsed[0.04m], Remain[0.12m], score:15.392, aug_score:15.260
+[2026-11-17 18:17:30] Tester.py(275) : episode  375/1000, Elapsed[0.06m], Remain[0.10m], score:14.993, aug_score:14.841
+[2026-11-17 18:17:31] Tester.py(275) : episode  500/1000, Elapsed[0.08m], Remain[0.08m], score:15.275, aug_score:15.144
+[2026-11-17 18:17:32] Tester.py(275) : episode  625/1000, Elapsed[0.10m], Remain[0.06m], score:15.169, aug_score:15.025
+[2026-11-17 18:17:34] Tester.py(275) : episode  750/1000, Elapsed[0.12m], Remain[0.04m], score:15.236, aug_score:15.083
+[2026-11-17 18:17:35] Tester.py(275) : episode  875/1000, Elapsed[0.14m], Remain[0.02m], score:15.241, aug_score:15.104
+[2026-11-17 18:17:36] Tester.py(275) : episode 1000/1000, Elapsed[0.16m], Remain[0.00m], score:15.462, aug_score:15.338
+[2026-11-17 18:17:36] Tester.py(288) : ************* Test Done: OCVRPTW100 ************* 
+[2026-11-17 18:17:36] Tester.py(289) : problem size: 100, pomo size: 100, aug factor: 8, oracle score: 14.3802 
+[2026-11-17 18:17:36] Tester.py(291) : NO-AUG SCORE:15.2360, GAP:5.951%
+[2026-11-17 18:17:36] Tester.py(293) : AUGMENTATION SCORE:15.0964, GAP:4.981%
+[2026-11-17 18:17:36] Tester.py(296) : Total time: 9.62 sec, 0.16 min
+[2026-11-17 18:17:36] Tester.py(297) : Avg time per episode: 0.01 sec
+[2026-11-17 18:17:36] Tester.py(190) : Completed 5/5 Tasks. Time used so far: 43.8s
+[2026-11-17 18:17:36] Tester.py(509) : =============================== Summary of experimental results ===================================
+[2026-11-17 18:17:36] Tester.py(510) : Mode: Augmentation
+[2026-11-17 18:17:36] Tester.py(513) : ### Scale 100
+[2026-11-17 18:17:36] Tester.py(513) : |     CVRP     |    CVRPB     |    CVRPTW    |    OCVRP     |   OCVRPTW    |
+[2026-11-17 18:17:36] Tester.py(513) : |    Gap  Time |    Gap  Time |    Gap  Time |    Gap  Time |    Gap  Time |
+[2026-11-17 18:17:36] Tester.py(513) : | 1.802%  8.1s | 1.441%  7.1s | 6.079% 10.1s | 3.141%  8.1s | 4.981%  9.6s |
+[2026-11-17 18:17:36] Tester.py(513) : — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+[2026-11-17 18:17:36] Tester.py(516) : Summary excel is saved to: ./result_test/cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_5tasks/20261117_181652_aug_cvrp_cvrpb_cvrptw_ocvrp_ocvrptw_cat_paper_n64_a0p2_s3408_5tasks_range100_100/test_summary_20261117_181736_671011.xlsx
+[2026-11-17 18:17:36] test.py(185) : JSON results: /public/home/shiys/merge/experiment_runs/20261117_lot_samples_seen5/results/cat_paper_n64_a0p2_s3408.json

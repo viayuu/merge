@@ -1,0 +1,25 @@
+{
+  "completed_evaluations": 41,
+  "task_result_rows": 205,
+  "cat_checkpoints": 39,
+  "configuration_groups": 15,
+  "all_models_finite_and_strict_load": true,
+  "all_results_successful": true,
+  "original_base_matches_historical_exactly": true,
+  "best_config": "paper_full_c4_a0p2",
+  "best_mean_gap": 3.485565563072311,
+  "best_std_gap": 0.0027697144958262984,
+  "base_mean_gap": 3.5432085181329365,
+  "delta_vs_base_pp": -0.057642955060625445,
+  "best_all_five_tasks_improve_in_each_of_three_repeats": true,
+  "formal_wall_minutes": 18.4,
+  "gpu_model": [
+    "NVIDIA GeForce RTX 3090",
+    "NVIDIA GeForce RTX 3090"
+  ],
+  "eval_gpu_hours": 0.5936111111111111,
+  "finished": "2026-11-17T17:27:15+08:00",
+  "plots_generated_and_visually_checked": true,
+  "existing_4090_training_step_preserved": "1475.1146",
+  "cat_gpu_step_finished": true
+}

@@ -1,0 +1,23 @@
+CAT features cvrp: 2 instances, 171 linear weights, 24 normalization scales
+CAT features cvrpb: 2 instances, 171 linear weights, 24 normalization scales
+CAT features cvrptw: 2 instances, 171 linear weights, 24 normalization scales
+CAT features ocvrp: 2 instances, 171 linear weights, 24 normalization scales
+CAT features ocvrptw: 2 instances, 171 linear weights, 24 normalization scales
+CAT features cvrp: 2 instances, 171 linear weights, 24 normalization scales
+CAT features cvrpb: 2 instances, 171 linear weights, 24 normalization scales
+CAT features cvrptw: 2 instances, 171 linear weights, 24 normalization scales
+CAT features ocvrp: 2 instances, 171 linear weights, 24 normalization scales
+CAT features ocvrptw: 2 instances, 171 linear weights, 24 normalization scales
+Built upstream_c4_a0p4_s3408: 4.8s
+Built paper_full_c4_a0p4_s3408: 5.1s
+Built paper_linear_c4_a0p4_s3408: 5.0s
+Built paper_full_c4_a0p1_s3408: 0.1s
+Built paper_full_c4_a0p2_s3408: 0.1s
+Built paper_full_c4_a0p3_s3408: 0.1s
+Built paper_full_c4_a0p5_s3408: 0.1s
+Built paper_full_c4_a0p6_s3408: 0.1s
+Built paper_full_c4_a0p7_s3408: 0.1s
+Built paper_full_c4_a0p8_s3408: 0.1s
+Built paper_full_c4_a0p9_s3408: 0.1s
+Built paper_full_c2_a0p4_s3408: 5.1s
+Built paper_full_c3_a0p4_s3408: 5.1s
