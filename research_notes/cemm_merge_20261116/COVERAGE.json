@@ -1,0 +1,484 @@
+{
+  "date": "2026-11-16",
+  "timezone": "Asia/Shanghai",
+  "task": "understand two dialogues and organize CEMM and related merging literature",
+  "frozen_core_ids": [
+    "2203.05482",
+    "2212.04089",
+    "2306.01708",
+    "2311.03099",
+    "2410.02396",
+    "2312.06795",
+    "2405.07813",
+    "2111.09832",
+    "2212.09849",
+    "2503.08099",
+    "2412.00081",
+    "2209.04836",
+    "1910.05653",
+    "2305.03053",
+    "2211.08403",
+    "2310.02575",
+    "2403.13187",
+    "2410.11163",
+    "acl:2026.acl-long.2044",
+    "local:CEMM-anonymous-submission"
+  ],
+  "covered_core_ids": [
+    "2203.05482",
+    "2212.04089",
+    "2306.01708",
+    "2311.03099",
+    "2410.02396",
+    "2312.06795",
+    "2405.07813",
+    "2111.09832",
+    "2212.09849",
+    "2503.08099",
+    "2412.00081",
+    "2209.04836",
+    "1910.05653",
+    "2305.03053",
+    "2211.08403",
+    "2310.02575",
+    "2403.13187",
+    "2410.11163",
+    "acl:2026.acl-long.2044",
+    "local:CEMM-anonymous-submission"
+  ],
+  "uncovered_core_ids": [],
+  "core_count": 20,
+  "supporting_count": 8,
+  "total_unique_papers": 28,
+  "dialogues": [
+    {
+      "path": "/public/home/shiys/.codex/attachments/6e3e659d-29c7-4597-80d4-0c2834ccbe0f/CEMM-6af97ba8.md",
+      "sha256": "383bc6c33febb2b4ada291c668e821fb92c8a1f957a25d9e592fb3ebdb7bf286",
+      "bytes": 570368,
+      "lines": 15207,
+      "user_turns": 13,
+      "assistant_turns": 13,
+      "coverage": "all_user_turns_and_all_assistant_narrative; repeated embedded historical tool payloads inventoried, not reexecuted"
+    },
+    {
+      "path": "/public/home/shiys/.codex/attachments/6e3e659d-29c7-4597-80d4-0c2834ccbe0f/merge-6afa8d41.md",
+      "sha256": "55d913c9112defaac6409184e22d37566655db86c5a2820cc8e3e6750035f0c6",
+      "bytes": 501165,
+      "lines": 5655,
+      "user_turns": 10,
+      "assistant_turns": 10,
+      "coverage": "all_user_turns_and_all_assistant_narrative; repeated embedded historical tool payloads inventoried, not reexecuted"
+    }
+  ],
+  "thread_reader": {
+    "turnLimit": 10,
+    "returned_user_turns_per_thread": 5,
+    "hasMore": false,
+    "supplemented_with": "complete uploaded Markdown transcripts"
+  },
+  "paper_entries": [
+    {
+      "method": "Soups",
+      "paper_id": "2203.05482",
+      "title": "Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time",
+      "authors_short": "Wortsman et al.",
+      "venue": "ICML",
+      "year": 2022,
+      "primary_source": "https://proceedings.mlr.press/v162/wortsman22a.html",
+      "reading_depth": "existing_local_pdf_and_primary_abstract",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2203.05482.pdf"
+    },
+    {
+      "method": "Task Arithmetic",
+      "paper_id": "2212.04089",
+      "title": "Editing Models with Task Arithmetic",
+      "authors_short": "Ilharco et al.",
+      "venue": "ICLR",
+      "year": 2023,
+      "primary_source": "https://arxiv.org/abs/2212.04089",
+      "reading_depth": "existing_local_paper_and_project_method_audit",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2212.04089.pdf"
+    },
+    {
+      "method": "TIES",
+      "paper_id": "2306.01708",
+      "title": "TIES-Merging: Resolving Interference When Merging Models",
+      "authors_short": "Yadav et al.",
+      "venue": "NeurIPS",
+      "year": 2023,
+      "primary_source": "https://arxiv.org/abs/2306.01708",
+      "reading_depth": "existing_local_paper_and_project_method_audit",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2306.01708.pdf"
+    },
+    {
+      "method": "DARE",
+      "paper_id": "2311.03099",
+      "title": "Language Models are Super Mario: Absorbing Abilities from Homologous Models as a Free Lunch",
+      "authors_short": "Yu et al.",
+      "venue": "ICML",
+      "year": 2024,
+      "primary_source": "https://proceedings.mlr.press/v235/yu24p.html",
+      "reading_depth": "existing_local_paper_and_primary_publication",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2311.03099.pdf"
+    },
+    {
+      "method": "PCB",
+      "paper_id": "2410.02396",
+      "title": "Parameter Competition Balancing for Model Merging",
+      "authors_short": "Du et al.",
+      "venue": "NeurIPS",
+      "year": 2024,
+      "primary_source": "https://arxiv.org/abs/2410.02396",
+      "reading_depth": "new_local_pdf_method_equations_1_5",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2410.02396.pdf"
+    },
+    {
+      "method": "Breadcrumbs",
+      "paper_id": "2312.06795",
+      "title": "Model Breadcrumbs: Scaling Multi-Task Model Merging with Sparse Masks",
+      "authors_short": "Davari and Belilovsky",
+      "venue": "ECCV",
+      "year": 2024,
+      "primary_source": "https://arxiv.org/abs/2312.06795",
+      "reading_depth": "primary_abstract_and_metadata",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "TALL-Masks / Consensus",
+      "paper_id": "2405.07813",
+      "title": "Localizing Task Information for Improved Model Merging and Compression",
+      "authors_short": "Wang et al.",
+      "venue": "ICML",
+      "year": 2024,
+      "primary_source": "https://proceedings.mlr.press/v235/wang24k.html",
+      "reading_depth": "primary_abstract_and_method_scope",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "Fisher",
+      "paper_id": "2111.09832",
+      "title": "Merging Models with Fisher-Weighted Averaging",
+      "authors_short": "Matena and Raffel",
+      "venue": "NeurIPS",
+      "year": 2022,
+      "primary_source": "https://arxiv.org/abs/2111.09832",
+      "reading_depth": "primary_abstract_and_existing_project_method_note",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "RegMean",
+      "paper_id": "2212.09849",
+      "title": "Dataless Knowledge Fusion by Merging Weights of Language Models",
+      "authors_short": "Jin et al.",
+      "venue": "ICLR",
+      "year": 2023,
+      "primary_source": "https://arxiv.org/abs/2212.09849",
+      "reading_depth": "primary_web_and_existing_project_method_note",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "WUDI",
+      "paper_id": "2503.08099",
+      "title": "Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors",
+      "authors_short": "Cheng et al.",
+      "venue": "ICML",
+      "year": 2025,
+      "primary_source": "https://proceedings.mlr.press/v267/cheng25h.html",
+      "reading_depth": "new_local_pdf_method_equations_13_21_algorithm_1",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2503.08099.pdf"
+    },
+    {
+      "method": "TSV",
+      "paper_id": "2412.00081",
+      "title": "Task Singular Vectors: Reducing Task Interference in Model Merging",
+      "authors_short": "Gargiulo et al.",
+      "venue": "CVPR",
+      "year": 2025,
+      "primary_source": "https://arxiv.org/abs/2412.00081",
+      "reading_depth": "new_local_pdf_algorithm_1_and_primary_metadata",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2412.00081.pdf"
+    },
+    {
+      "method": "Git Re-Basin",
+      "paper_id": "2209.04836",
+      "title": "Git Re-Basin: Merging Models modulo Permutation Symmetries",
+      "authors_short": "Ainsworth et al.",
+      "venue": "ICLR",
+      "year": 2023,
+      "primary_source": "https://arxiv.org/abs/2209.04836",
+      "reading_depth": "new_local_pdf_primary_abstract_existing_project_method_note",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2209.04836.pdf"
+    },
+    {
+      "method": "OT Fusion",
+      "paper_id": "1910.05653",
+      "title": "Model Fusion via Optimal Transport",
+      "authors_short": "Singh and Jaggi",
+      "venue": "NeurIPS",
+      "year": 2020,
+      "primary_source": "https://arxiv.org/abs/1910.05653",
+      "reading_depth": "primary_abstract_and_method_scope",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "ZipIt",
+      "paper_id": "2305.03053",
+      "title": "ZipIt! Merging Models from Different Tasks without Training",
+      "authors_short": "Stoica et al.",
+      "venue": "ICLR",
+      "year": 2024,
+      "primary_source": "https://arxiv.org/abs/2305.03053",
+      "reading_depth": "primary_abstract_and_partial_merge_scope",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "REPAIR",
+      "paper_id": "2211.08403",
+      "title": "REPAIR: REnormalizing Permuted Activations for Interpolation Repair",
+      "authors_short": "Jordan et al.",
+      "venue": "ICLR",
+      "year": 2023,
+      "primary_source": "https://arxiv.org/abs/2211.08403",
+      "reading_depth": "primary_openreview_pdf_abstract",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "AdaMerging",
+      "paper_id": "2310.02575",
+      "title": "AdaMerging: Adaptive Model Merging for Multi-Task Learning",
+      "authors_short": "Yang et al.",
+      "venue": "ICLR",
+      "year": 2024,
+      "primary_source": "https://arxiv.org/abs/2310.02575",
+      "reading_depth": "new_local_pdf_and_primary_entropy_objective",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/papers/2310.02575.pdf"
+    },
+    {
+      "method": "Evolutionary Recipes",
+      "paper_id": "2403.13187",
+      "title": "Evolutionary Optimization of Model Merging Recipes",
+      "authors_short": "Akiba et al.",
+      "venue": "Nature Machine Intelligence",
+      "year": 2025,
+      "primary_source": "https://arxiv.org/abs/2403.13187",
+      "reading_depth": "primary_html_parameter_dataflow_and_search_objective",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "Model Swarms",
+      "paper_id": "2410.11163",
+      "title": "Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence",
+      "authors_short": "Feng et al.",
+      "venue": "ICML",
+      "year": 2025,
+      "primary_source": "https://proceedings.mlr.press/v267/feng25o.html",
+      "reading_depth": "primary_publication_abstract_and_metadata",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "GENOME",
+      "paper_id": "acl:2026.acl-long.2044",
+      "title": "Nature-Inspired Population-Based Evolution of Large Language Models",
+      "authors_short": "Zhang et al.",
+      "venue": "ACL",
+      "year": 2026,
+      "primary_source": "https://aclanthology.org/2026.acl-long.2044/",
+      "reading_depth": "primary_publication_and_pdf_section_3_3_GENOME_plus",
+      "category": "core",
+      "local_pdf": null
+    },
+    {
+      "method": "CEMM",
+      "paper_id": "local:CEMM-anonymous-submission",
+      "title": "Large Language Model-Empowered Co-Evolutionary Model Merging for Neural Vehicle Routing Solvers",
+      "authors_short": "Anonymous",
+      "venue": "unverified",
+      "year": null,
+      "primary_source": "/public/home/shiys/merge/CEMM/40088_Large_Language_Model_Emp.pdf",
+      "reading_depth": "full_main_supplement_static_code",
+      "category": "core",
+      "local_pdf": "/public/home/shiys/merge/CEMM/40088_Large_Language_Model_Emp.pdf"
+    },
+    {
+      "method": "SWA",
+      "paper_id": "1803.05407",
+      "title": "Averaging Weights Leads to Wider Optima and Better Generalization",
+      "authors_short": "Izmailov et al.",
+      "venue": "UAI",
+      "year": 2018,
+      "primary_source": "https://proceedings.mlr.press/r16/izmailov18a.html",
+      "reading_depth": "primary_publication_abstract",
+      "category": "background",
+      "local_pdf": null
+    },
+    {
+      "method": "WiSE-FT",
+      "paper_id": "2109.01903",
+      "title": "Robust Fine-Tuning of Zero-Shot Models",
+      "authors_short": "Wortsman et al.",
+      "venue": "CVPR",
+      "year": 2022,
+      "primary_source": "https://arxiv.org/abs/2109.01903",
+      "reading_depth": "primary_abstract_and_metadata",
+      "category": "background",
+      "local_pdf": null
+    },
+    {
+      "method": "Chat Vector",
+      "paper_id": "acl:2024.acl-long.590",
+      "title": "Chat Vector: A Simple Approach to Equip LLMs with Instruction Following and Model Alignment in New Languages",
+      "authors_short": "Huang et al.",
+      "venue": "ACL",
+      "year": 2024,
+      "primary_source": "https://aclanthology.org/2024.acl-long.590/",
+      "reading_depth": "primary_publication_abstract",
+      "category": "application",
+      "local_pdf": null
+    },
+    {
+      "method": "Safeguard",
+      "paper_id": "acl:2025.findings-emnlp.901",
+      "title": "Safeguard Fine-Tuned LLMs Through Pre- and Post-Tuning Model Merging",
+      "authors_short": "Farn et al.",
+      "venue": "Findings of EMNLP",
+      "year": 2025,
+      "primary_source": "https://aclanthology.org/2025.findings-emnlp.901/",
+      "reading_depth": "primary_publication_abstract",
+      "category": "application",
+      "local_pdf": null
+    },
+    {
+      "method": "Textual Preferences",
+      "paper_id": "acl:2025.acl-short.72",
+      "title": "Transferring Textual Preferences to Vision-Language Understanding through Model Merging",
+      "authors_short": "Li et al.",
+      "venue": "ACL",
+      "year": 2025,
+      "primary_source": "https://aclanthology.org/2025.acl-short.72/",
+      "reading_depth": "primary_publication_abstract",
+      "category": "application",
+      "local_pdf": null
+    },
+    {
+      "method": "URS",
+      "paper_id": "2509.23413",
+      "title": "URS: A Unified Neural Routing Solver for Cross-Problem Zero-Shot Generalization",
+      "authors_short": "Zhou et al.",
+      "venue": "ICML",
+      "year": 2026,
+      "primary_source": "https://arxiv.org/abs/2509.23413",
+      "reading_depth": "current_local_project_evidence_and_primary_metadata",
+      "category": "project_context",
+      "local_pdf": "/public/home/shiys/merge/papers/2509.23413.pdf"
+    },
+    {
+      "method": "MPSF-FL",
+      "paper_id": "2604.10652",
+      "title": "Enhancing Cross-Problem Vehicle Routing via Federated Learning",
+      "authors_short": "Meng et al.",
+      "venue": "arXiv preprint",
+      "year": 2026,
+      "primary_source": "https://arxiv.org/abs/2604.10652",
+      "reading_depth": "primary_web_and_existing_project_method_note",
+      "category": "project_context",
+      "local_pdf": null
+    },
+    {
+      "method": "MoSES",
+      "paper_id": "2510.21453",
+      "title": "Multi-Task Vehicle Routing Solver via Mixture of Specialized Experts under State-Decomposable MDP",
+      "authors_short": "Pan et al.",
+      "venue": "NeurIPS",
+      "year": 2025,
+      "primary_source": "https://arxiv.org/abs/2510.21453",
+      "reading_depth": "primary_abstract_and_existing_project_method_note",
+      "category": "project_context",
+      "local_pdf": null
+    }
+  ],
+  "source_resolution": {
+    "zotero": "unavailable and not requested",
+    "obsidian": "unavailable and not requested",
+    "local_papers": "existing papers directory and supplied CEMM PDFs",
+    "arxiv_helper": "not resolved at configured project or default skill paths; used primary web fallback",
+    "web": "primary papers, proceedings, author repositories; no secondary source used for technical conclusions"
+  },
+  "worker_receipt": {
+    "shard_id": "cemm_primary",
+    "assigned_unit_ids": [
+      "local:CEMM-anonymous-submission"
+    ],
+    "covered_unit_ids": [
+      "local:CEMM-anonymous-submission"
+    ],
+    "status": "completed_primary_manuscript_supplement_static_code"
+  },
+  "unresolved": [
+    "CEMM publication identity and historical experiment commands unverified",
+    "CEMM supplied code has reproducibility gaps; not executed",
+    "Not every cited method implementation audited; reading depth specified per entry",
+    "URS full historical epoch0 not obtained; reconstruction groups remain statistical inference"
+  ],
+  "downloads": [
+    {
+      "arxiv_id": "2410.02396",
+      "url": "https://arxiv.org/pdf/2410.02396",
+      "path": "papers/2410.02396.pdf",
+      "bytes": 893769,
+      "sha256": "09e393545d82db7f661b444f19055e720e0a717ee63f1cbbbf2f97ca8c46f964"
+    },
+    {
+      "arxiv_id": "2503.08099",
+      "url": "https://arxiv.org/pdf/2503.08099",
+      "path": "papers/2503.08099.pdf",
+      "bytes": 4259364,
+      "sha256": "cdf67ed53ab2a43d469f7c6bd2d46c2181b884be810dd28c88afac23b9bedf35"
+    },
+    {
+      "arxiv_id": "2310.02575",
+      "url": "https://arxiv.org/pdf/2310.02575",
+      "path": "papers/2310.02575.pdf",
+      "bytes": 1840711,
+      "sha256": "8c129c55499d114dd28e46dffb6a62aef57c14e66e3beebfeb2ba8b2e0423233"
+    },
+    {
+      "arxiv_id": "2412.00081",
+      "url": "https://arxiv.org/pdf/2412.00081",
+      "path": "papers/2412.00081.pdf",
+      "bytes": 1526998,
+      "sha256": "bbefc63928c48820e079f29bd175571a3c322125ee86ad7b4e8ee90d9d4cf871"
+    },
+    {
+      "arxiv_id": "2209.04836",
+      "url": "https://arxiv.org/pdf/2209.04836",
+      "path": "papers/2209.04836.pdf",
+      "bytes": 1907651,
+      "sha256": "2d8350e70134c66d2ef0dddb58c32675d920408bf075a1aa913c2ddcd1099583"
+    }
+  ],
+  "scope_limits": [
+    "No new experiment results",
+    "No new dataset or split",
+    "No external Notion writes",
+    "No git commit or push",
+    "No brainstorming or replacement of chosen research direction"
+  ]
+}

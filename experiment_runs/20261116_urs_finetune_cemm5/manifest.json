@@ -1,0 +1,110 @@
+{
+  "run_id": "20261116_urs_finetune_cemm5",
+  "tasks": {
+    "cvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+        "sha256": "4337ecc98fb2b4487b4e3db6bd3cc675850c69b2294c7be9a0ea01b57b618697",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+        "sha256": "f1860cc1deced037c8d570578cd59f9dca778557c2c33724b3ed2d80ea07097c",
+        "bytes": 244156
+      }
+    },
+    "ocvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/ocvrp100_uniform.pkl",
+        "sha256": "57709a82275d1c9f0a8c73d4a002e53c7081a15dd1038afe0752281ab71bfbb0",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/lkh_ocvrp100_uniform.pkl",
+        "sha256": "e388df6953de358541fffef42635a1f8840850217d0deaf030a8e0addd70b59d",
+        "bytes": 245708
+      }
+    },
+    "cvrpbp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpbp/cvrpbp100_n1000_seed1234.pt",
+        "sha256": "c59bc508798621df845671c82d95996c89d57733778b94b92d04831579585479",
+        "bytes": 2430568
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpbp/cvrpbp100_ortools20s.pt",
+        "sha256": "44cdec17c5b16fdf758736385b783c3dbb1abe72b8385685396cabc900c8f2d6",
+        "bytes": 885536
+      }
+    },
+    "cvrpl": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpl/cvrpl100_uniform.pkl",
+        "sha256": "ed6404fd65d961e6a2b82d1ee21e3d4f44a480543a34017e73b6192656b7d355",
+        "bytes": 3154448
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpl/lkh_cvrpl100_uniform.pkl",
+        "sha256": "3ad6caa4a5866d5f6fe2cba6f4c48b450ab326b26cd0439be50e84525ceb255c",
+        "bytes": 247128
+      }
+    },
+    "cvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/cvrptw100_1000uni.pkl",
+        "sha256": "7aff237ca8194382f4ee6e944c98a72007fab5afb457a0fb6e36caf57825fe5b",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/hgs_pyvrp_cvrptw100_1000uni.pkl",
+        "sha256": "c5b4ffc220f46a8d9f8de178457b8be1d0d7713fd5a492397d6131e2b5592a2c",
+        "bytes": 256324
+      }
+    }
+  },
+  "source_files": {
+    "merge_lab/finetune.py": "f8763269c6d9b0ba557ccc6e729e98d69e1bdef042177c97a6b88cb2836531ca",
+    "merge_lab/evaluate.py": "88af6aeba20a5acfba7bd688088900540deac69b4ddb32d3d58a4d894ec43b82",
+    "URS/Trainer.py": "7dd998a4b891e2d78e3463fbdd0a1e2c0b6d0c34be414ffebdc9116def1a8f2e",
+    "URS/model/Model.py": "f759d5df8f4f9f8000552f430fdb0f1e48f2ce78a60301bc1f02aadcdddb0da9",
+    "URS/model/Model_LIB.py": "52664f2ffb48f95f99985f4f067c2ebdf5da6e146bd6249e24accf21bc2d8e76",
+    "URS/problem/ProblemDef.py": "687ae0f58e7c329208a66b300af89f0cb2a5f81ffbfb99261308f58c16478ad2",
+    "URS/Tester.py": "0850186c1a337a2212c41c3eab55ea02b943c70072deebcd31a53b26a8ab2d8f",
+    "URS/test.py": "a237ff6096c90b8ba534495aaa10ff4a55e948a698dbf0eda5971789ffa5ee62",
+    "experiment_runs/20261116_urs_finetune_cemm5/run_queue.py": "4cb72bad56399cf3075af10479f67fd8e22c8b2a984a5199b740580949625423",
+    "experiment_runs/20261116_urs_finetune_cemm5/analyze.py": "13d115c56d2a03b376c95ae43e42a86e6b8e73e9b4d9b6d74552e1e6cc812f03",
+    "experiment_runs/20261116_urs_finetune_cemm5/progress.py": "96a09cc7238bd2cb26b99dde0f4596c306ccef8ef85df3889f6e4a8ce5a98960"
+  },
+  "base": {
+    "path": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+    "sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86"
+  },
+  "compute": {
+    "allocation": 1475,
+    "node": "gpu05",
+    "gpu_count": 2,
+    "gpu": "RTX4090",
+    "conda": "easynco",
+    "tmux": "urs_ft_cemm5"
+  },
+  "protocol": {
+    "epochs": 30,
+    "instances_per_epoch": 100000,
+    "batch_size": 128,
+    "steps_per_epoch": 782,
+    "optimizer": "AdamW",
+    "lr": 3e-05,
+    "weight_decay": 1e-06,
+    "lr_decay_epoch": 26,
+    "lr_decay_factor": 0.1,
+    "seed": 3407,
+    "scale": 100,
+    "evaluation_episodes_per_task": 1000,
+    "evaluation_augmentation": 8,
+    "evaluation_batch_size": 125,
+    "checkpoint_selection": "fixed_epoch_30",
+    "additional_mtl_control": false
+  },
+  "gpu_smoke": "smoke_verification.json",
+  "code_review": "Independent reviewer checked fine-tune, scheduler and comparisons; all five GPU smokes passed. Summary reads only completed evaluation outputs."
+}

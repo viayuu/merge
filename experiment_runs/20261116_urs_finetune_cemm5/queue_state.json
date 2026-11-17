@@ -1,0 +1,59 @@
+{
+  "started": "2026-11-16T22:28:34+08:00",
+  "smoke": false,
+  "jobs": [
+    {
+      "name": "base",
+      "kind": "evaluate",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-16T22:28:34+08:00",
+      "phase": "evaluation",
+      "result": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_cemm5/evaluation/base/unified_checkpoint_500.json",
+      "finished": "2026-11-16T22:29:11+08:00"
+    },
+    {
+      "name": "cvrptw",
+      "kind": "finetune",
+      "status": "cancelled_by_user",
+      "gpu": 1,
+      "started": "2026-11-16T22:28:34+08:00",
+      "finished": "2026-11-16T22:45:06+08:00",
+      "error": "User replaced the task set with cvrp,cvrpb,cvrptw,ocvrp,ocvrptw."
+    },
+    {
+      "name": "cvrpl",
+      "kind": "finetune",
+      "status": "cancelled_by_user",
+      "gpu": 0,
+      "started": "2026-11-16T22:29:11+08:00",
+      "finished": "2026-11-16T22:45:06+08:00",
+      "error": "User replaced the task set with cvrp,cvrpb,cvrptw,ocvrp,ocvrptw."
+    },
+    {
+      "name": "cvrpbp",
+      "kind": "finetune",
+      "status": "cancelled_by_user",
+      "finished": "2026-11-16T22:45:06+08:00",
+      "error": "User replaced the task set with cvrp,cvrpb,cvrptw,ocvrp,ocvrptw."
+    },
+    {
+      "name": "cvrp",
+      "kind": "finetune",
+      "status": "cancelled_by_user",
+      "finished": "2026-11-16T22:45:06+08:00",
+      "error": "User replaced the task set with cvrp,cvrpb,cvrptw,ocvrp,ocvrptw."
+    },
+    {
+      "name": "ocvrp",
+      "kind": "finetune",
+      "status": "cancelled_by_user",
+      "finished": "2026-11-16T22:45:06+08:00",
+      "error": "User replaced the task set with cvrp,cvrpb,cvrptw,ocvrp,ocvrptw."
+    }
+  ],
+  "updated": "2026-11-16T22:29:11+08:00",
+  "status": "cancelled_by_user",
+  "stopped": "2026-11-16T22:45:06+08:00",
+  "replacement_run": "20261116_urs_finetune_seen5"
+}

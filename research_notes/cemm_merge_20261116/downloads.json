@@ -1,0 +1,37 @@
+[
+  {
+    "arxiv_id": "2410.02396",
+    "url": "https://arxiv.org/pdf/2410.02396",
+    "path": "papers/2410.02396.pdf",
+    "bytes": 893769,
+    "sha256": "09e393545d82db7f661b444f19055e720e0a717ee63f1cbbbf2f97ca8c46f964"
+  },
+  {
+    "arxiv_id": "2503.08099",
+    "url": "https://arxiv.org/pdf/2503.08099",
+    "path": "papers/2503.08099.pdf",
+    "bytes": 4259364,
+    "sha256": "cdf67ed53ab2a43d469f7c6bd2d46c2181b884be810dd28c88afac23b9bedf35"
+  },
+  {
+    "arxiv_id": "2310.02575",
+    "url": "https://arxiv.org/pdf/2310.02575",
+    "path": "papers/2310.02575.pdf",
+    "bytes": 1840711,
+    "sha256": "8c129c55499d114dd28e46dffb6a62aef57c14e66e3beebfeb2ba8b2e0423233"
+  },
+  {
+    "arxiv_id": "2412.00081",
+    "url": "https://arxiv.org/pdf/2412.00081",
+    "path": "papers/2412.00081.pdf",
+    "bytes": 1526998,
+    "sha256": "bbefc63928c48820e079f29bd175571a3c322125ee86ad7b4e8ee90d9d4cf871"
+  },
+  {
+    "arxiv_id": "2209.04836",
+    "url": "https://arxiv.org/pdf/2209.04836",
+    "path": "papers/2209.04836.pdf",
+    "bytes": 1907651,
+    "sha256": "2d8350e70134c66d2ef0dddb58c32675d920408bf075a1aa913c2ddcd1099583"
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "started": "2026-11-16T22:47:04+08:00",
+  "smoke": false,
+  "jobs": [
+    {
+      "name": "base",
+      "kind": "evaluate",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-16T22:47:04+08:00",
+      "phase": "evaluation",
+      "result": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/evaluation/base/unified_checkpoint_500.json",
+      "finished": "2026-11-16T22:47:40+08:00"
+    },
+    {
+      "name": "cvrptw",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 1,
+      "started": "2026-11-16T22:47:04+08:00",
+      "training_finished": "2026-11-17T02:43:17+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+      "phase": "evaluation",
+      "result": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/evaluation/cvrptw/checkpoint_30.json",
+      "finished": "2026-11-17T02:43:53+08:00"
+    },
+    {
+      "name": "ocvrptw",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-16T22:47:40+08:00",
+      "training_finished": "2026-11-17T02:54:02+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt",
+      "phase": "evaluation",
+      "result": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/evaluation/ocvrptw/checkpoint_30.json",
+      "finished": "2026-11-17T02:54:39+08:00"
+    },
+    {
+      "name": "cvrpb",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 1,
+      "started": "2026-11-17T02:43:53+08:00",
+      "training_finished": "2026-11-17T06:05:31+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+      "phase": "evaluation",
+      "result": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/evaluation/cvrpb/checkpoint_30.json",
+      "finished": "2026-11-17T06:06:07+08:00"
+    },
+    {
+      "name": "cvrp",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-17T02:54:39+08:00",
+      "training_finished": "2026-11-17T02:54:41+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+      "phase": "evaluation",
+      "result": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/evaluation/cvrp/checkpoint_30.json",
+      "finished": "2026-11-17T02:55:16+08:00"
+    },
+    {
+      "name": "ocvrp",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-17T02:55:16+08:00",
+      "training_finished": "2026-11-17T02:55:19+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+      "phase": "evaluation",
+      "result": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/evaluation/ocvrp/checkpoint_30.json",
+      "finished": "2026-11-17T02:55:54+08:00"
+    }
+  ],
+  "updated": "2026-11-17T06:06:07+08:00"
+}

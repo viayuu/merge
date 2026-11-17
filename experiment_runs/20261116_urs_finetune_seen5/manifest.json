@@ -1,0 +1,167 @@
+{
+  "run_id": "20261116_urs_finetune_seen5",
+  "created": "2026-11-16T22:46:10+08:00",
+  "replaces": "20261116_urs_finetune_cemm5",
+  "task_order": [
+    "cvrp",
+    "cvrpb",
+    "cvrptw",
+    "ocvrp",
+    "ocvrptw"
+  ],
+  "tasks": {
+    "cvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/cvrp100_uniform.pkl",
+        "sha256": "4337ecc98fb2b4487b4e3db6bd3cc675850c69b2294c7be9a0ea01b57b618697",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrp/hgs_cvrp100_uniform.pkl",
+        "sha256": "f1860cc1deced037c8d570578cd59f9dca778557c2c33724b3ed2d80ea07097c",
+        "bytes": 244156
+      },
+      "original_specialist_exists": true
+    },
+    "cvrpb": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/cvrpb100_uniform.pkl",
+        "sha256": "e0ea0a2d25593999d92e74dac947e8db04b836147563190bbef7078b570c790b",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrpb/ortools_400s_cvrpb100_uniform.pkl",
+        "sha256": "c0536f42b4ba1d343c9274c377ec89ab801f6372783b1a4ebad2c89604f4f2c5",
+        "bytes": 236280
+      },
+      "original_specialist_exists": true
+    },
+    "cvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/cvrptw100_1000uni.pkl",
+        "sha256": "7aff237ca8194382f4ee6e944c98a72007fab5afb457a0fb6e36caf57825fe5b",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/cvrptw/hgs_pyvrp_cvrptw100_1000uni.pkl",
+        "sha256": "c5b4ffc220f46a8d9f8de178457b8be1d0d7713fd5a492397d6131e2b5592a2c",
+        "bytes": 256324
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrp": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/ocvrp100_uniform.pkl",
+        "sha256": "57709a82275d1c9f0a8c73d4a002e53c7081a15dd1038afe0752281ab71bfbb0",
+        "bytes": 3145439
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrp/lkh_ocvrp100_uniform.pkl",
+        "sha256": "e388df6953de358541fffef42635a1f8840850217d0deaf030a8e0addd70b59d",
+        "bytes": 245708
+      },
+      "original_specialist_exists": true
+    },
+    "ocvrptw": {
+      "data_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ocvrptw100_uniform.pkl",
+        "sha256": "89572de7a05fed81fb976f5bf8814231c6c5ff2cd203362d251940defa208038",
+        "bytes": 5857817
+      },
+      "solution_path": {
+        "path": "/public/home/shiys/merge/URS/dataset/ocvrptw/ortools_400s_ocvrptw100_uniform.pkl",
+        "sha256": "f0b2794d9d2ef4bebf2e1e952324451b3dc344081e03456c2fef4c32c5327310",
+        "bytes": 259534
+      },
+      "original_specialist_exists": true
+    }
+  },
+  "source_files": {
+    "merge_lab/finetune.py": "f8763269c6d9b0ba557ccc6e729e98d69e1bdef042177c97a6b88cb2836531ca",
+    "merge_lab/evaluate.py": "88af6aeba20a5acfba7bd688088900540deac69b4ddb32d3d58a4d894ec43b82",
+    "URS/Trainer.py": "7dd998a4b891e2d78e3463fbdd0a1e2c0b6d0c34be414ffebdc9116def1a8f2e",
+    "URS/model/Model.py": "f759d5df8f4f9f8000552f430fdb0f1e48f2ce78a60301bc1f02aadcdddb0da9",
+    "URS/model/Model_LIB.py": "52664f2ffb48f95f99985f4f067c2ebdf5da6e146bd6249e24accf21bc2d8e76",
+    "URS/problem/ProblemDef.py": "687ae0f58e7c329208a66b300af89f0cb2a5f81ffbfb99261308f58c16478ad2",
+    "URS/Tester.py": "0850186c1a337a2212c41c3eab55ea02b943c70072deebcd31a53b26a8ab2d8f",
+    "URS/test.py": "a237ff6096c90b8ba534495aaa10ff4a55e948a698dbf0eda5971789ffa5ee62",
+    "experiment_runs/20261116_urs_finetune_seen5/run_queue.py": "644f9f657cda929a1b2504f8e80a77a258b905c258c01249b81b3d098f0351bb",
+    "experiment_runs/20261116_urs_finetune_seen5/analyze.py": "e486a124249d4d440575413a6e4a090362c33813bf5c4baefdb56abe9de6052c",
+    "experiment_runs/20261116_urs_finetune_seen5/progress.py": "96a09cc7238bd2cb26b99dde0f4596c306ccef8ef85df3889f6e4a8ce5a98960"
+  },
+  "compute": {
+    "allocation": 1475,
+    "node": "gpu05",
+    "gpu_count": 4,
+    "gpu": "RTX4090",
+    "conda": "easynco",
+    "tmux": "urs_ft_seen5",
+    "slots": [
+      {
+        "node": "gpu05",
+        "allocation": 1475,
+        "gpu": 1,
+        "model": "RTX4090",
+        "task": "cvrptw"
+      },
+      {
+        "node": "gpu05",
+        "allocation": 1475,
+        "gpu": 0,
+        "model": "RTX4090",
+        "task": "ocvrptw"
+      },
+      {
+        "node": "gpu03",
+        "allocation": 1465,
+        "gpu": 0,
+        "model": "RTX3090",
+        "task": "cvrp"
+      },
+      {
+        "node": "gpu03",
+        "allocation": 1465,
+        "gpu": 1,
+        "model": "RTX3090",
+        "task": "ocvrp"
+      }
+    ],
+    "pending_assignment": {
+      "cvrpb": "first available 4090"
+    },
+    "evaluation_device": "RTX4090 only",
+    "extra_tmux": "urs_ft_seen5_3090"
+  },
+  "protocol": {
+    "epochs": 30,
+    "instances_per_epoch": 100000,
+    "batch_size": 128,
+    "steps_per_epoch": 782,
+    "optimizer": "AdamW",
+    "lr": 3e-05,
+    "weight_decay": 1e-06,
+    "lr_decay_epoch": 26,
+    "lr_decay_factor": 0.1,
+    "seed": 3407,
+    "scale": 100,
+    "evaluation_episodes_per_task": 1000,
+    "evaluation_augmentation": 8,
+    "evaluation_batch_size": 125,
+    "checkpoint_selection": "fixed_epoch_30",
+    "additional_mtl_control": false
+  },
+  "base": {
+    "path": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt",
+    "sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86"
+  },
+  "runtime_source_update": {
+    "time": "2026-11-16T23:26:42+08:00",
+    "reason": "Add cross-node exclusive output ownership and reuse completed experts; original rollout/optimizer unchanged. Running 4090 tasks retain their already-loaded original code.",
+    "source_files": {
+      "merge_lab/finetune.py": "acc15cc3ba62f74b1ec2f58f803fd32877917ba4ffa2238735a22c267331444b",
+      "experiment_runs/20261116_urs_finetune_seen5/run_3090.py": "b4b15503379defa4aba64dc9071e7edf8440df95a3cf0103d78ffe0a42a28af0",
+      "experiment_runs/20261116_urs_finetune_seen5/launch_3090.sh": "8c5c34d43f9a36140a7b987d7603299a6de71b911660b3d53738f99ea1a63a5e",
+      "experiment_runs/20261116_urs_finetune_seen5/progress.py": "b63dd4384eac88b0e11caf090d8ccf8d7dde0d4f4a096780f707d8f310553313"
+    }
+  }
+}

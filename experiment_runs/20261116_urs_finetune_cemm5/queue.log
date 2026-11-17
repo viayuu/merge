@@ -1,0 +1,12 @@
+GPUs: ['NVIDIA GeForce RTX 4090', 'NVIDIA GeForce RTX 4090']
+2026-11-16T22:28:34+08:00 START base GPU 0
+2026-11-16T22:28:34+08:00 START cvrptw GPU 1
+2026-11-16T22:29:11+08:00 DONE base
+Evaluated models: base
+2026-11-16T22:29:11+08:00 START cvrpl GPU 0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 1475.1137 ON gpu05 CANCELLED AT 2026-11-16T22:44:18 ***
+srun: forcing job termination
+srun: got SIGCONT
+srun: error: gpu05: task 0: Killed
+srun: launch/slurm: _step_signal: Terminating StepId=1475.1137

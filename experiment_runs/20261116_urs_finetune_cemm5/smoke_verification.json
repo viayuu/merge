@@ -1,0 +1,52 @@
+[
+  {
+    "task": "cvrp",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true,
+    "elapsed_seconds": 2.3798372438177466
+  },
+  {
+    "task": "ocvrp",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true,
+    "elapsed_seconds": 2.1977653237991035
+  },
+  {
+    "task": "cvrpbp",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true,
+    "elapsed_seconds": 2.7003786149434745
+  },
+  {
+    "task": "cvrpl",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true,
+    "elapsed_seconds": 2.892755293287337
+  },
+  {
+    "task": "cvrptw",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true,
+    "elapsed_seconds": 3.030897382646799
+  }
+]

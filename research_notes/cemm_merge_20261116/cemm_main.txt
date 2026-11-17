@@ -1,0 +1,643 @@
+ Large Language Model-Empowered Co-Evolutionary Model Merging for Neural
+                         Vehicle Routing Solvers
+
+                                                        Anonymous submission
+
+
+
+
+                             Abstract                                    exposes a fundamental dilemma for NCO: how to balance
+  Neural Combinatorial Optimization (NCO) for multi-task Ve-             specialization with generalization. Existing approaches largely
+  hicle Routing Problems (VRPs) often struggles to balance               fall into two paradigms. Training specialized models tailored
+  specialization and generalization, as multi-task learning may          to specific VRP variants (i.e., single-task experts) yields
+  sacrifice specialized capabilities due to negative transfer. While     high performance but incurs prohibitive costs in training and
+  model merging offers a retraining-free alternative to synthesize       deployment, offering zero cross-task flexibility. Conversely,
+  a unified generalist from diverse experts, existing methods            Multi-Task Learning (MTL) strives for a unified generalist
+  rely on fixed merging rules that are ill-suited to perturbation-       but often suffers from negative transfer, where conflicting
+  sensitive NCO models and single-role populations that may              optimization landscapes compromise overall performance.
+  lose task-specific capabilities. To address this, we propose           This tension raises a pivotal question: Can we synthesize a
+  Large Language Model (LLM)-Empowered Co-Evolutionary
+  Model Merging (CEMM), a framework that co-evolves merg-
+                                                                         robust generalist by effectively integrating the capabilities of
+  ing algorithms and source models. For algorithm evolution,             pre-trained experts, thereby bypassing the inherent limitations
+  CEMM uses LLMs to generate merging programs tailored to                of training from scratch?
+  evolving NCO models and selects them according to their task-             To materialize this potential, we turn to model merging,
+  wise marginal contributions. For model evolution, CEMM uses            a compelling paradigm for capability integration that has
+  task-wise NCO objectives to maintain a dual-role population,           recently surfaced in the broader deep learning landscape.
+  preserving specialized capabilities while continuously improv-         Fundamentally, model merging seeks to synthesize a unified
+  ing the generalist. Experiments on five representative VRP
+                                                                         model by directly combining the parameters of multiple
+  variants across two NCO backbones demonstrate that CEMM
+  outperforms multi-task learning, model-merging baselines,              fine-tuned models, offering a practical mechanism to fuse
+  and even several task-specific experts. When combined with             expert skills without the burden of joint retraining. Recent
+  ensemble inference, its performance can be further enhanced.           studies have demonstrated that model merging can effectively
+  Code and appendices are in the supplement.                             integrate diverse capabilities across domains like instruction
+                                                                         following (Huang et al. 2024), model safety (Farn et al.
+                                                                         2024), and multimodal learning (Li et al. 2025a). Inspired by
+                         Introduction                                    these precedents, this paper introduces model merging as a
+Vehicle Routing Problems (VRPs) are a central class of combi-            powerful new paradigm for NCO, demonstrating its efficacy
+natorial optimization problems with broad real-world impact,             in synthesizing generalist neural models.
+spanning logistics (Zong et al. 2022), transportation (Fu et al.            However, directly transferring existing model merging
+2025a), and manufacturing (Fu et al. 2025b). Traditional exact           methods to NCO is non-trivial. Fundamentally, the efficacy of
+solvers and heuristic algorithms constitute the foundation of            model merging hinges on two critical components: the merg-
+solving VRPs in operations research. Nevertheless, the NP-               ing algorithms (how to merge) and the source models (what
+hard nature of VRPs makes it challenging to simultaneously               to merge). As summarized in Table 1, existing approaches,
+attain computational efficiency and high solution quality.               whether static or dynamic, face systemic limitations in both
+In response, neural combinatorial optimization (NCO) has                 aspects: (1) Handcrafted Merging Algorithms. Both static
+emerged as a promising alternative, enabling trained neural              and dynamic methods rely on fixed merging algorithms (e.g.,
+solvers to rapidly generate high-quality solutions via learned           arithmetic rules or evolutionary operators). These rigid algo-
+constructive heuristics.                                                 rithms lack the adaptability to handle the complex parameter
+   Despite their success on idealized problems such as the               compatibility issues among NCO models, especially within
+Capacitated VRP (CVRP), real-world routing applications                  the continuously evolving population of dynamic methods.
+rarely conform to a single problem setting (Goh et al. 2025).            (2) Single-Role Source Models. Multi-task VRPs solving
+Instead, practical systems must handle a diverse collection              involves variants with distinct constraints, making their task-
+of VRP variants, such as Open VRP (OVRP) or VRP with                     specific capabilities heterogeneous. Static methods cannot
+Time Windows (VRPTW), each imposing distinct constraints                 improve their fixed expert sets, whereas dynamic methods
+and inducing qualitatively different policies. This diversity            evolve a single generalist population through average-fitness
+This is an anonymized submission for review purposes only. Dis-
+tribution, citation, or public sharing of this manuscript is strictly
+prohibited. Copyright and publication details will appear in the final
+version if accepted.
+                                   Table 1: Comparison between CEMM and existing model merging methods.
+
+           Merging Methods                                  Source Models              Role Configuration       Merging Algorithms        Algorithm Design
+           Task Arithmetic (Ilharco et al. 2023)      Fixed Task-Aligned Experts          Single-Role         Task Vector Arithmetic        Handcrafted
+ Static
+
+
+
+
+           Dare Ties (Yu et al. 2024)                 Fixed Task-Aligned Experts          Single-Role             Drop & Rescale            Handcrafted
+           PCB (Du et al. 2024)                       Fixed Task-Aligned Experts          Single-Role         Competition Balancing         Handcrafted
+           Wudi (Cheng et al. 2025)                   Fixed Task-Aligned Experts          Single-Role       Gradient-Based Optimization     Handcrafted
+ Dynamic
+
+
+
+
+           Model Swarm (Feng et al. 2025)           Evolving Generalist Population        Single-Role         Velocity-Based Update         Handcrafted
+           Genome (Zhang et al. 2026)               Evolving Generalist Population        Single-Role         Crossover & Mutation          Handcrafted
+                                                      Evolving Population with                                       Evolving                 LLM-
+           CEMM (Ours)                                                                     Dual-Role
+                                                   Generalist & Task-Aligned Experts                          Algorithm Population           Generated
+
+
+selection. This selection pressure drives the population to-                              tional ensemble inference further improves performance.
+ward homogeneity, eroding the distinct capabilities required
+by handling distinct VRP variants.                                                                             Related Work
+   To address these challenges, we propose Large Lan-
+guage Model-Empowered Co-Evolutionary Model Merg-
+                                                                                       Neural Combinatorial Optimization for VRPs
+ing (CEMM), a framework that co-evolves merging algo-                                  Single-Task VRP Solvers. Most existing NCO research
+rithms and source models. (1) In the algorithm space, CEMM                             focuses on specialized solvers trained for a single VRP variant.
+represents merging algorithms as executable programs gen-                              Among them, POMO (Kwon et al. 2020) has become a
+erated by LLMs. LLM-generated candidates are evaluated                                 widely adopted backbone due to its strong performance and
+directly using task-wise NCO objectives, enabling the auto-                            inference efficiency, and has inspired a large body of follow-
+matic discovery of merging algorithms tailored to evolving                             up work (Fang et al. 2026; Luo et al. 2025; Meng et al. 2025;
+NCO models. Complementarity-driven selection further re-                               Liao et al. 2025; Chen et al. 2025a,b). Crucially, relying on
+tains algorithms that address task-wise weaknesses of the                              single-task experts incurs prohibitive training and deployment
+current population. (2) In the model space, CEMM uses                                  costs, as a distinct model is required for every VRP variant.
+task-wise NCO objective signals to maintain a dual-role pop-                           Multi-Task VRP Solvers. To improve generalization across
+ulation comprising a task-aligned expert pool and a global                             VRP variants, recent studies explore unified training
+generalist. This objective-guided role assignment preserves                            paradigms (Li et al. 2025b; Pan et al. 2025). Approaches
+task-specific capabilities while continuously integrating them                         such as POMO-MTL (Liu et al. 2024a) and MVMoE (Zhou
+into the generalist. These synergistic mechanisms create a                             et al. 2024) target out-of-distribution generalization, while
+self-reinforcing flywheel: superior merging algorithms inte-                           RF-TE (Berto et al. 2025), a widely adopted baseline, em-
+grate source models more effectively, yielding elite models                            ploys mixed-batch training to enhance robustness across seen
+that, in turn, serve as higher-quality raw materials for future                        variants. However, multi-task learning often suffers from
+algorithmic discovery.                                                                 negative transfer, where conflicting optimization signals lead
+   Our contributions are summarized as follows:                                        to compromised performance relative to specialized experts.
+ • We introduce model merging as a viable paradigm for gen-                            Model Merging Methods
+   eralizing neural vehicle routing solvers. We identify two
+   obstacles to directly transferring existing model-merging                           Static Methods. Representative approaches, including Task
+   methods to NCO: merging rules cannot adapt to evolving                              Arithmetic (Ilharco et al. 2023), PCB (Du et al. 2024), Dare
+   NCO source models (how to merge), while fixed experts                               Ties (Yu et al. 2024) and Wudi (Cheng et al. 2025), typically
+   cannot improve and single-role evolving populations may                             merge parameters of multiple fine-tuned models according to
+   lose task-specific diversity (what to merge).                                       predefined arithmetic rules, producing a merged model in a
+                                                                                       single step. These methods rely on the implicit assumption
+ • To address these challenges, we propose CEMM, a co-                                 of linear compatibility in the parameter space, which is not
+   evolutionary framework that jointly evolves merging al-                             always guaranteed in NCO models.
+   gorithms and source models. For how to merge, CEMM                                  Dynamic Methods. Conversely, dynamic methods introduce
+   uses LLMs to generate executable merging programs and                               iterative optimization over model parameters, dynamically
+   introduces a complementarity-driven selection mechanism                             selecting models for recombination according to predefined
+   to prioritize algorithms that complement the current pop-                           operators. Recently, Model Swarm (Feng et al. 2025) employs
+   ulation across tasks. For what to merge, task-wise NCO                              particle swarm optimization to explore the weight space,
+   objectives guide a dual-role population that decouples ex-                          while the SOTA Genome (Zhang et al. 2026) utilizes an
+   pert preservation from generalist optimization. This closed                         ensemble strategy within a genetic algorithm framework
+   loop enables merging strategies to adapt to the evolving                            to better leverage population experience. However, these
+   NCO models while mitigating population homogenization.                              approaches rely on handcrafted evolutionary operators and
+ • Extensive experiments on five representative VRP variants                           typically evolve a generic model population guided by average
+   across two NCO backbones demonstrate that CEMM out-                                 fitness. In contrast, we propose a co-evolutionary framework
+   performs MTL and SOTA model merging methods, while                                  that synergistically evolves merging algorithms and a dual-
+   also surpassing task-specific experts in several settings. Op-                      role model population, enabling the continual integration of
+expertise into a strong generalist.                                 parameter-level merging function that preserves the model
+                                                                    architecture. Crucially, unlike parameter optimization via
+LLMs for VRPs                                                       gradient descent, h is typically designed as a direct algebraic
+Recent applications of LLMs in VRPs primarily function as           computation (e.g., averaging).
+direct solvers (Jiang et al. 2025) or generators of heuristic
+algorithms (Liu et al. 2026; Guo et al. 2025; Novikov et al.                              Methodology
+2025; Zheng et al. 2025; Xie et al. 2025). However, these           Framework Overview
+approaches often overlook the rich optimization knowledge
+                                                                    LLM-Empowered Co-Evolutionary Model Merging (CEMM)
+embedded in well-established NCO models, thereby limiting
+                                                                    is a framework designed to co-evolve merging algorithms
+their performance. In contrast, this paper adopts a novel per-
+                                                                    and source models, simultaneously addressing the two crit-
+spective by employing LLMs to automatically generate model
+                                                                    ical determinants of merging efficacy: how to merge and
+merging algorithms that operate directly on model parame-
+                                                                    what to merge. For algorithm evolution, CEMM lever-
+ters. This design effectively bridges two distinct strengths: the
+                                                                    ages LLMs to generate merging algorithms, while intro-
+general-purpose code generation capabilities of LLMs and
+                                                                    ducing complementarity-driven selection mechanism based
+the specialized domain solving capabilities of NCO models.
+                                                                    on their marginal task-wise contributions. For model evolu-
+                                                                    tion, CEMM maintains a dual-role population that decouples
+                      Preliminaries                                 the preservation of expert traits from generalist optimiza-
+Vehicle Routing Problems. The Capacitated Vehicle Rout-             tion, effectively mitigating model homogenization. These two
+ing Problem (CVRP) serves as the cornerstone of VRP                 components establish a synergistic closed-loop co-evolution,
+research. Formally, an instance is defined on a graph               facilitating the continuous integration of specialized capabili-
+G = (V, E), where V = {v0 , v1 , . . . , vN } denotes the set of    ties into a strong generalist. The overall workflow of CEMM
+nodes and E denotes the set of edges. The node v0 serves            is illustrated in Figure 1.
+as the depot, while the remaining nodes V \ {v0 } represent
+customers. Each customer vi is associated with a 2D coordi-         Merging Algorithm Evolution via LLMs
+nate and a specific demand, serviced by a fleet of vehicles         Designing optimal merging algorithms to effectively capture
+subject to a uniform capacity constraint. The objective is to       the complex interactions among expert models is a non-trivial
+construct a set of routes π that visits all customers exactly       challenge. To address this, we treat algorithm design as an
+once, satisfying capacity limits, while minimizing the total        optimization problem over executable code and leverage
+cost (Euclidean distance). Real-world scenarios often extend        the synergy between evolutionary search and LLMs. While
+CVRP with additional constraints, leading to diverse VRP            evolutionary search provides a gradient-free framework for
+variants. This paper focuses on four widely studied extensions:     exploration and exploitation, LLMs offer unique advantages in
+(1) Open routes (O): Vehicles are not required to return to the     code generation and logical reasoning, making them ideal for
+depot after their final service. (2) Backhaul (B): Customers        navigating the vast space of algorithmic logic. By employing
+are partitioned into linehaul nodes (requiring delivery from        LLMs as evolutionary operators, CEMM iteratively gener-
+the depot) and backhaul nodes (requiring pickup to the de-          ates and refines merging algorithms, enabling the automated
+pot). Linehaul customers must be served before backhaul             discovery of adaptive, high-performance algorithms.
+customers. (3) Duration limit (L): Each route is constrained        Algorithm Representation and Initialization. Each individ-
+by a maximum allowable travel distance or time. (4) Time            ual in the algorithm population represents a complete model
+windows (TW): Each customer must be serviced within a               merging algorithm h, defined as a pair (d, c). Here, d is a
+predefined time interval and all vehicles must return to the        natural-language description that captures the core idea of the
+depot by a global deadline.                                         merging strategy, enabling conceptual reasoning and variation
+   In a multi-task VRP setting, we consider a collection of         via LLMs, while c is an executable program that implements
+M distinct problem variants T = {T1 , T2 , . . . , TM }. While      the corresponding parameter-level transformation. An initial
+expert models trained on individual tasks often achieve strong      population of N individuals was generated by prompting an
+performance for their respective variants, they lack gener-         LLM with task instructions.
+alization across tasks. Our goal is to synthesize these task-       LLM-Based Crossover and Mutation. To search the space
+specialized models into a generalist model capable of effec-        of merging algorithms, CEMM generates t new individuals
+tively handling multiple VRP variants within T .                    in each iteration via LLM-based crossover and mutation op-
+Model Merging. Let θ ∈ Rd denote the model parameters.              erators as proposed in Liu et al. (2024b). Each individual is
+We consider a set of models E = {θ0 , θ1 , . . . , θM }, where      generated from parent algorithms selected from the current
+expert model θm , ∀m ∈ {1, . . . , M }, is obtained by fine-        population through one of four actions: two crossover actions
+tuning a pre-trained model θ0 on task Tm ∈ T . All models           (E1 and E2) or two mutation actions (M1 and M2). The parent
+share the same architecture but are specialized for different       algorithms are sampled using a ranking-based roulette mech-
+tasks, resulting in distinct task-specific capabilities. Model      anism, with the selection probability p(r) for an individual of
+                                                                                                   1
+                                                                                                        PN −1       1
+merging aims to synthesize a new model θmerged ∈ Rd by              rank r defined as: p(r) = r+1+N    / k=0 k+1+N      , where N
+combining the parameters of expert models, typically using          denotes the population size and lower ranks correspond to the
+the pre-trained model as a shared reference point in param-         better performance. These evolutionary principles provide
+eter space θmerged = h(θ0 , θ1 , . . . , θM ), where h denotes a    flexible interfaces that empower LLMs to adaptively generate
+                                 1    LLM-Based Crossover and Mutation
+   Merging                                                                                LLM                                                                      Dual-Role
+                      Parent                      Action                                                                                                Weight       Model
+
+
+
+
+                                                                                                              …
+  Algorithm                                                                                      Output
+                     Selection                                               Input                                         Input       Model Weight     Input
+  Population                               Crossover          E1、E2
+                                                                                                                                   (�� , �� , …, �� )              Population
+                                           Mutation          M1、M2
+                                                                                                           Algorithm                                               Generalist
+
+
+                                                              Output Merged Model                                    …
+                                                                                                 �������� �������� ��������
+                                                                                                                                                                               ��
+   Algorithm
+   �� = (�� , �� )               2    Dual-Role Model Evolution
+                                                                                 Multi-Task Evaluation                           If a better
+                                     Task                                                                                       global fitness        Generalist
+                                                        ��������             ��������                       �
+                                                                                                           �������                                                  Expert 1
+                                                                                                                                 is achieved           update
+                                      T1                   Score 1              Score 1                       Score 1
+                                                  T1                    T1                            T1
+                                                                                                                                     IF
+                                      T2          T2       Score 2
+                                                                        T2      Score 2
+                                                                                          ……          T2      Score 2                                                          ��
+
+                                     …
+   Algorithm                                                                                                                                            Expert
+                                      T3
+                                                 …                      …                            …
+                                                           Score 3              Score 3                       Score 3
+   �� = (�� , �� )
+                                                  T3                    T3                            T3                       If improved task         update      Expert 2
+                                                          Score M              Score M                       Score M
+                                                                                                                                performance is
+                                     TM          TM                     TM                           TM
+                                                                                                                                   achieved
+      ……
+
+
+
+
+                                                                                                                                                                               ��
+                                                                              Calculate
+
+
+
+
+                                                                                                                                                                      ……
+                                 3    Algorithm Evaluation and Selection                        Complementarity-Driven Algorithm Selection
+                     Algorithm                                                                                                                                     Expert m
+                      update                                                                                 �
+                                                                                                                         min ����      �
+   Algorithm                                                                                        1                           � − ���ℎ
+                                                                   ……                                                    �∈�
+  �� = (�� , �� )                                                                          Δ(ℎ �) =              max                             ,0                            ��
+                                      Δ(ℎ1 �)          Δ(ℎ2 �)           Δ(ℎ� �)                    �                     min ����
+                                                                                                                                 � +�
+                                                                                                           �=1             �∈�
+
+
+Figure 1: Overview of the proposed CEMM, which establishes a closed-loop co-evolution between the algorithm population
+and the model population. 1 A large language model (LLM) serves as an evolutionary operator to evolve merging algorithms,
+which are applied to the current model population to generate merged models. 2 The merged models are evaluated across all
+tasks. A merged model replaces the generalist if it achieves better average performance, or updates the corresponding expert if it
+improves task-specific results. 3 Merging algorithms are assessed based on the performance of their generated models, and a
+new generation of algorithms is selected according to a complementarity-driven selection principle.
+
+increasingly effective merging strategies beyond handcrafted                                     initialized with the algorithm achieving the best fitness. At
+designs. Prompt details are provided in Appendix C.                                              each subsequent step, the candidate maximizing ∆(h | S) is
+Evaluation. Once new algorithms are generated, they must be                                      iteratively added to S. When no candidate yields a positive
+evaluated to determine their quality before selection. Specif-                                   improvement, selection reverts to fitness, and remaining algo-
+ically, each algorithm h is first executed on the current                                        rithms are added in ascending order of fitness. This process
+source model population E to synthesize a merged model                                           repeats until the desired survivor set size is reached. This
+θmerged = h(E). The resulting merged model is then evalu-                                        selection mechanism, coupled with algorithm generation via
+ated on each task Tm , where performance is quantified by                                        LLM-based crossover and mutation, establishes a continuous
+the optimality gap relative to traditional solvers. The fitness                                  loop that yields diverse, high-quality merging algorithms and
+of algorithm i is defined as the average gap across tasks:                                       their corresponding merged models.
+             1
+                PM
+fitnessi = M                m
+                   m=1 gapi . The quality of a merging algo-
+                                                                                                 Co-Evolution with Source Models. Compared with evolving
+rithm is assessed based on the performance of the resulting                                      merging algorithms in isolation, co-evolving them with a
+merged model across tasks.                                                                       source model population enables algorithm optimization to
+Complementarity-Driven Algorithm Selection. To prevent                                           be grounded in the evolving characteristics of the models
+convergence toward redundant strategies, we introduce a                                          being merged. As source models improve and become more
+complementarity-driven algorithm selection mechanism at                                          specialized, they provide increasingly informative and higher-
+the algorithm population level. Unlike standard fitness-based                                    quality building blocks for merging. This prevents merging
+selection, this approach explicitly favors algorithms that                                       algorithms from overfitting to early-stage model parameters
+address the weaknesses of the current population. Specifically,                                  and leads to strategies that generalize better across different
+we define the marginal contribution of a candidate algorithm                                     expert configurations than those evolved on a fixed model set.
+h relative to the selected set S as:
+                     M
+                                                                                                 Source Model Evolution with Dual-Role Population
+                                mins∈S gapm          m
+                                                          
+                1 X                         s − gaph                                             CEMM maintains a dual-role population comprising a task-
+  ∆(h | S) =            max                            , 0   ,
+                M m=1             mins∈S gapm  s +ϵ                                              aligned expert pool and a global generalist. The expert pool
+                                                            (1)                                  strictly preserves the elite model for each individual task,
+where ϵ = 10−6 is a small constant for numerical stability.                                      while the global generalist tracks the best overall fitness
+The selection process is sequential. The selected set S is                                       (i.e., the smallest average gap) across all tasks. This structure
+explicitly safeguards specialized knowledge discovered during      Model Setting. Two representative multi-task VRP backbone
+evolution, thereby fostering population differentiation.           models, RF-TE (Berto et al. 2025) and POMO-MTL (Liu
+Initialization. CEMM starts from a pretrained NCO model,           et al. 2024a), are employed. Task-specific expert models are
+which serves as the initial global generalist. Task-aligned        derived by fine-tuning a pre-trained generalist (from public
+expert models are obtained by fine-tuning the pretrained           checkpoints) on each task (see Appendix A for details).
+model on individual VRP variants. Together, the generalist         Problem Setting. The five representative VRP variants are
+and experts form the dual-role model population.                   considered: CVRP, OVRP, VRPB, VRPL, and VRPTW. We
+Dual-Role Model Evolution. Given a candidate merging               follow the data generation procedure and settings of RF-TE.
+algorithm, a new model is synthesized from the current             Two problem scales are considered: For instances with n = 50
+population and evaluated across all tasks. Subsequently, the       and n = 100 nodes, the validation set includes 1,000 and
+model population is updated based on the following criteria:       128 instances, respectively. The test sets consist of 1,000
+                                                                   randomly generated instances as well as real-world instances
+ • Expert Update: If the merged model outperforms the              from CVRPLib (Uchoa et al. 2017).
+   current expert on task Tm , ∀m ∈ {1, . . . , M }, it replaces   Baselines. (1) Traditional Methods. We adopt the state-of-
+   θm in the task-aligned expert pool.                             the-art PyVRP (Wouda, Lan, and Kool 2024), solving each
+ • Generalist Update: If the merged model achieves superior        instance using a single CPU. Time limits are set to 10 seconds
+   average performance across all tasks, it replaces the global    and 20 seconds for instances with n = 50 and n = 100,
+   generalist.                                                     respectively. (2) Multi-Task Learning Methods. We adopt
+This mechanism ensures the generalist acts as an evolving sub-     RF-TE and POMO-MTL, which serve as the backbones for
+strate, continuously assimilating specialized traits from the      all experiments. In this setting, each of them is fine-tuned on
+expert pool while strictly preserving distinct expert capabili-    a mixed dataset covering all five tasks. POMO-MTL follows
+ties, thereby achieving a robust synergy between task-specific     the same pre-training and fine-tuning protocols as RF-TE.
+performance and global generalization.                             (3) Static Model Merging Methods. Classic methods, includ-
+Co-Evolution with Merging Algorithms. Compared with                ing Task Arithmetic (Ilharco et al. 2023), DARE-TIES (Yu
+evolving the model population alone, co-evolution with merg-       et al. 2024), PCB (Du et al. 2024), and Wudi (Cheng et al.
+ing algorithms provides a continuously improving repertoire        2025), are considered. These methods perform model merg-
+of merging strategies tailored to the current models. This         ing independently of the validation set. (4) Dynamic Model
+dynamic adaptation allows the population to overcome perfor-       Merging Methods. We consider Model Swarm (Feng et al.
+mance plateaus caused by rigid algorithms, ensuring that the       2025), Genome (Zhang et al. 2026), and its enhanced version
+integration of expert capabilities into the generalist remains     with ensemble inference, Genome+. Note that both dynamic
+effective as the population evolves.                               merging methods and CEMM require validation samples for
+                                                                   evolutionary iterations. All merging methods are implemented
+Inference                                                          using identical backbone models to ensure fair comparison.
+                                                                   Evolution Setting. CEMM employs GPT-4o as the LLM
+During inference, CEMM supports two modes. The first,              model to generate merging algorithms. For all dynamic meth-
+generalist inference, employs the global generalist to solve       ods and CEMM, the population size is set to N = 5, and
+all tasks, prioritizing deployment efficiency. The second,         t = 20 new algorithms are generated per iteration for a maxi-
+ensemble inference, aligns with the SOTA merging method            mum of 30 iterations, resulting in up to 600 model merging
+Genome (Zhang et al. 2026), where candidate solutions are          steps. At the start of optimization, we input the above static
+generated by a model set and the best is selected. Specifically,   methods as seeds to guide heuristic design.
+we employ the complementarity criterion, i.e., Equation 1, to      Inference & Metrics. For all neural models, we adopt greedy
+identify the top-k models, consistent with the evolutionary        rollout with ×8 instance augmentation (Berto et al. 2025).
+process. This mode leverages the population’s accumulated          Aligning with Genome+, CEMM+ employs ensemble infer-
+diversity, achieving significant performance gains with only       ence with k = 3. We report the average results on the test
+a marginal increase in computational cost.                         sets, including the objective value (total cost), the optimality
+                                                                   gap with respect to the best solutions obtained by PyVRP,
+                       Experiments                                 and the total testing time.
+We evaluate CEMM against multi-task learning paradigm
+and model-merging methods across five VRP variants. All            Main Results (To Q1)
+experiments are conducted on an NVIDIA RTX 3090 GPU                Table 2 reports the results of all methods using the RF-TE
+and an AMD Ryzen 5 3600 CPU. We aim to answer the                  backbone. CEMM achieves superior performance over all
+following research questions: Q1. Compared with the multi-         model merging methods and multi-task learning paradigm
+task learning paradigm and existing model merging methods,         at both problem scales. Furthermore, it even surpasses the
+can CEMM achieve better performance across different NCO           corresponding experts on OVRP and VRPB at n = 50, and
+backbone models? Q2. Does CEMM demonstrate strong                  on CVRP at n = 100. In contrast, Genome, the SOTA model
+generalization on real-world instances of different scales? Q3.    merging method, yields a higher average gap than RF-TE at
+Compared with existing iterative dynamic merging methods,          n=100 and fails to surpass any corresponding expert, sup-
+does CEMM achieve higher efficiency? Q4. Are the key               porting our motivation that existing merging methods do
+evolutionary components of CEMM effective?                         not transfer trivially to NCO. When employing ensemble
+Table 2: Performance on 1,000 test instances across five VRP variants. The best-performing neural solvers are highlighted in
+bold. All methods adopt the RF-TE backbone.
+
+                                                n = 50                               n = 100                                                  n = 50                     n = 100
+             Method                                                                                                Method
+                                     Obj.        Gap        Time           Obj.        Gap     Time                                   Obj.     Gap      Time    Obj.       Gap       Time
+             PyVRP                 10.318          *        10.4m      15.676           *      20.8m               PyVRP             16.078     *      10.4m   25.367       *        20.8m
+             Expert model          10.439       1.174%        1s       15.888        1.376%     7s                 Expert model      16.307   2.002%     1s    26.139     3.028%      7s
+             RF-TE                 10.449       1.268%        1s       15.899        1.449%     7s                 RF-TE             16.318   2.071%     1s    26.165     3.128%      7s
+             Task Arithmetic       10.448       1.259%        1s       15.905        1.486%     7s                 Task Arithmetic   16.339   2.200%     1s    26.200     3.260%      7s
+             Dare Ties             10.444       1.221%        1s       15.899        1.449%     7s                 Dare Ties         16.337   2.190%     1s    26.201     3.270%      7s
+
+
+
+
+                                                                                                       VRPTW
+             PCB                   10.441       1.195%        1s       15.908        1.506%     7s                 PCB               16.335   2.177%     1s    26.212     3.311%      7s
+ CVRP
+
+
+
+
+             Wudi                  10.863       5.328%        1s       16.448        4.959%     8s                 Wudi              16.388   2.516%     1s    26.320     3.734%      7s
+             Model Swarm           10.448       1.267%        1s       15.906        1.493%     7s                 Model Swarm       16.344   2.229%     1s    26.211     3.303%      7s
+             Genome                10.447       1.255%        1s       15.899        1.448%     7s                 Genome            16.346   2.244%     1s    26.213     3.312%      7s
+             CEMM                  10.440       1.184%        1s       15.885        1.357%     7s                 CEMM              16.337   2.187%     1s    26.189     3.217%      7s
+             Genome+               10.436       1.142%        3s       15.865        1.229%     22s                Genome+           16.326   2.119%     4s    26.134    3.004%       20s
+             CEMM+                 10.409       0.886%        3s       15.859        1.188%     22s                CEMM+             16.261   1.716%     4s    26.060    2.715%       20s
+             PyVRP                  6.510          *        10.4m      9.738            *      20.8m               PyVRP             10.518     *      10.4m   15.806       *        20.8m
+             Expert model           6.676       2.594%        1s       10.111        3.813%     6s                 Expert model      10.664   1.381%     1s    16.064     1.641%      6s
+             RF-TE                  6.681       2.669%        1s       10.132        4.031%     6s                 RF-TE             10.679   1.517%     1s    16.070     1.679%      6s
+             Task Arithmetic        6.686       2.745%        1s       10.132        4.036%     6s                 Task Arithmetic   10.669   1.424%     1s    16.071     1.680%      6s
+             Dare Ties              6.698       2.938%        1s       10.125        3.963%     6s                 Dare Ties         10.664   1.382%     1s    16.065     1.644%      6s
+             PCB                    6.692       2.839%        1s       10.133        4.042%     6s                 PCB               10.669   1.429%     1s    16.085     1.771%      6s
+ OVRP
+
+
+
+
+                                                                                                       VRPL
+             Wudi                   6.975       7.240%        1s       10.480        7.613%     6s                 Wudi              11.027   4.880%     1s    16.582     4.913%      6s
+             Model Swarm            6.681       2.675%        1s       10.141        4.121%     6s                 Model Swarm       10.672   1.456%     1s    16.066     1.648%      6s
+             Genome                 6.677       2.609%        1s       10.128        3.994%     6s                 Genome            10.666   1.397%     1s    16.065     1.645%      6s
+             CEMM                   6.672       2.534%        1s       10.120        3.904%     6s                 CEMM              10.668   1.414%     1s    16.062     1.628%      6s
+             Genome+                6.664       2.411%        5s       10.091        3.610%     19s                Genome+           10.654   1.282%     3s    16.030    1.424%       19s
+             CEMM+                  6.653       2.243%        5s       10.085        3.551%     19s                CEMM+             10.633   1.086%     3s    16.026    1.395%       19s
+             PyVRP                  9.677          *        10.4m      14.393           *      20.8m               PyVRP             10.620     *      10.4m   16.196       *        20.8m
+             Expert model           9.972       2.938%        1s       14.944        3.853%     6s                 Expert model      10.812   2.018%     1s    16.629     2.742%      6s
+             RF-TE                  9.980       3.013%        1s       14.961        3.970%     6s                 RF-TE             10.821   2.108%     1s    16.646     2.852%      6s
+             Task Arithmetic       9.983        3.041%        1s       14.974        4.063%     6s                 Task Arithmetic   10.825   2.134%     1s    16.656     2.905%      6s
+             Dare Ties             9.988        3.103%        1s       14.971        4.039%     6s                 Dare Ties         10.826   2.167%     1s    16.652     2.873%      6s
+                                                                                                       Average
+
+
+
+
+             PCB                   9.974        2.957%        1s       14.971        4.036%     6s                 PCB               10.822   2.119%     1s    16.662     2.933%      6s
+ VRPB
+
+
+
+
+             Wudi                  10.659       10.031%       1s       15.530        7.904%     6s                 Wudi              11.182   5.999%     1s    17.072     5.825%      7s
+             Model Swarm           9.975        2.962%        1s       14.953        3.918%     6s                 Model Swarm       10.824   2.118%     1s    16.655     2.897%      6s
+             Genome                9.976        2.974%        1s       14.961        3.969%     6s                 Genome            10.822   2.096%     1s    16.653     2.874%      6s
+             CEMM                  9.965        2.853%        1s       14.959        3.962%     6s                 CEMM              10.816   2.034%     1s    16.643     2.813%      6s
+             Genome+                9.958       2.789%        3s       14.916        3.657%     19s                Genome+           10.808   1.949%     4s    16.607    2.585%       20s
+             CEMM+                  9.937       2.572%        3s       14.894        3.503%     19s                CEMM+             10.779   1.701%     4s    16.585    2.471%       20s
+
+
+
+             2.72
+                      2.717                                                                                                  Table 3: Results on CVRPLib datasets.
+             2.70
+                                                                                                                      Method              A        E         P            X        Average
+             2.30                                2.291
+                                                                                                                      RF-TE            3.03%    3.89%     4.98%         5.12%      4.25%
+   Gap (%)
+
+
+
+
+                                2.245                                                                             Task Arithmetic      2.94%    3.84%     5.62%        5.40%       4.45%
+             2.25                       2.242
+
+                                                                   2.206
+                                                                                                                     Dare Ties         3.09%    3.93%     4.79%        5.40%       4.30%
+             2.20                                                                                                      PCB             3.05%    4.05%     4.83%        4.95%       4.22%
+                                                          2.172              2.173                                     Wudi            3.54%    5.22%     6.59%        11.57%      6.73%
+             2.15
+                                                                                                                   Model Swarm         2.93%    3.80%     5.39%         5.29%      4.35%
+                                                                                      2.117                          Genome            2.97%    3.97%     5.88%        5.27%       4.52%
+                                                                                                                      CEMM             2.86%    3.62%     4.59%        5.25%       4.08%
+             2.10
+                      Wudi       Task    Dare     PCB      MTL-    Model Genome CEMM
+                              Arithmetic ties             POMO     swarm                                             Genome+           2.63%    3.41%     4.87%        4.82%       3.93%
+                                                                                                                     CEMM+             2.57%    2.77%     4.11%        4.68%       3.53%
+Figure 2: Average optimality gap across all tasks. All methods
+adopt the POMO-MTL backbone.
+
+                                                                                                                 to better integrate capabilities of NCO expert models.
+inference like Genome+, CEMM+ further improves the per-                                                             Furthermore, Figure 2 presents the average results of all
+formance and consistently outperforms Genome+. Statistical                                                       methods across all tasks on the POMO-MTL backbone.
+stability analyses are provided in Appendix B. Unlike Model                                                      CEMM consistently achieves the best performance, demon-
+Swarm and Genome, which rely on fixed handcrafted opera-                                                         strating its robustness across different NCO backbones. Addi-
+tors, CEMM co-evolves merging strategies and source models                                                       tional results with different LLMs are reported in Appendix B.
+Result on Real-World Instances (To Q2)                                                    Table 4: Ablation study.
+To evaluate real-world generalization, we test CEMM on four
+test suites from CVRPLib benchmark dataset, comprising                   Method    w/o Dual-Role   w/o Co-Evo    w/o CDS     CEMM
+94 instances from sets A, E, P, and X, with graph sizes                   CVRP        1.2233%        1.2830%      1.231%    1.1838%
+ranging from 32 to 247 and diverse node distributions and                 OVRP        2.5916%        2.5548%      2.623%    2.5344%
+demands. All merging methods are derived from models                      VRPB        2.9754%        2.9208%      3.013%    2.8533%
+                                                                          VRPL        1.4177%        1.4654%      1.381%    1.4142%
+trained on n = 100 using the RF-TE backbone. The results                 VRPTW        2.1954%        2.2750%      2.198%    2.1867%
+are summarized in Table 3. CEMM achieves the best average                Average      2.0807%        2.0998%      2.089%    2.0345%
+performance, which is further amplified under the CEMM+
+setting. This demonstrates that the merged models obtained
+via CEMM generalize better to real-world instances.
+                                                                       to 2.0998%, demonstrating the benefit of adaptive algo-
+                                                                       rithm evolution. The w/o Dual-Role variant increases the
+CEMM’s Efficiency (To Q3)                                              gap to 2.0807%, supporting the importance of preserving
+Because LLM-based algorithm generation introduces addi-                task-specific expertise during evolution. Fitness-only selec-
+tional overhead, we compare all dynamic merging methods                tion (w/o CDS) also increases the average gap to 2.0892%
+under the same end-to-end evolutionary time budget, in-                and performs worse than CEMM on four of the five tasks,
+cluding LLM prompting, response latency, model merging,                despite a slight improvement on VRPL. This result suggests
+evaluation, and selection. As shown in Figure 3, all methods           that selection based solely on average fitness may favor gains
+converge to stable performance within the given budget. Al-            concentrated on particular tasks, whereas complementarity-
+though CEMM slightly increases the iteration time, it still            driven selection retains algorithms with distinct task-wise
+exhibits superior convergence under an equal time budget.              strengths and yields better overall performance. Together,
+We attribute this advantage to two complementary mecha-                these results demonstrate the complementary roles of adap-
+nisms: (1) The dual-role population preserves task-specific            tive algorithm evolution, task-complementary selection, and
+expertise during evolution, providing diverse and high-quality         dual-role model evolution.
+source models for merging. (2) LLMs generate merging
+algorithms adapted to the evolving source models, while                Additional Analysis
+complementarity-driven selection retains algorithms that add           Detailed settings and results are provided in Appendix E.
+marginal task-wise coverage. Together, these mechanisms help           1. Probing Analysis. CEMM preserves VRP-specific route-
+CEMM exploit the current source models more effectively                structure knowledge at the level of task experts and clearly
+under the same time budget.                                            outperforms Genome. 2. Cross-Architecture Transfer. A
+                                                                       merging program discovered on the RF-TE backbone transfers
+                                                      CEMM             directly to POMO-MTL backbone and outperforms compared
+              2.15                                    Genome           static merging methods, suggesting that the discovered merg-
+                                                      Model swarm
+    Gap (%)
+
+
+
+
+                                                                       ing strategy has the potential to generalize across NCO back-
+              2.10
+                                                                       bones. 3. Cross-Scale OOD Generalization. CEMM also
+                                                                       maintains consistent advantages on larger n = 200 instances.
+              2.05
+                                                                       4. Matched Inference Budget. Each expert is evaluated with
+                     0   30   60    90   120   150   180   210   240   a tripled inference budget to match that of CEMM+. CEMM+
+                                   Time (minutes)                      outperforms experts on all tasks, indicating that its gains are
+                                                                       not merely due to evaluating more rollouts.
+Figure 3: Evolutionary curves for CEMM and the contrastive
+dynamic merging method on n=50 using the RF-TE backbone.                                        Conclusions
+                                                                       This paper presents LLM-Empowered Co-Evolutionary
+                                                                       Model Merging (CEMM) to synthesize a robust generalist.
+Ablation Study (To Q4)                                                 CEMM combines LLM-generated merging programs with
+We evaluate three ablations using the RF-TE backbone at                complementarity-driven algorithm selection in response to
+n = 50. (1) CEMM w/o Co-Evo replaces the LLM-generated                 evolving source models. Meanwhile, the proposed dual-role
+merging programs with Genome’s handcrafted crossover and               population strategy simultaneously maintains task-specific
+mutation operators while retaining dual-role model evolution.          specialization and generalist proficiency. Extensive experi-
+(2) CEMM w/o Dual-Role replaces the separate expert and gen-           ments across five representative VRP variants and two NCO
+eralist updates with a single-role model population selected by        backbones demonstrate that CEMM outperforms the multi-
+average performance. (3) CEMM w/o CDS retains the other                task learning paradigm and SOTA model-merging methods,
+CEMM components but replaces complementarity-driven                    while also surpassing task-specific experts in several settings.
+algorithm selection with fitness-based selection, retaining the        When combined with ensemble inference, its performance can
+algorithms with the lowest average gaps across tasks.                  be further enhanced. A current limitation is that the evolution-
+   As shown in Table 4, removing any component degrades                ary process relies on LLMs for algorithm generation, which
+the average performance. Without the co-evolution mecha-               incurs additional offline computational overhead. Future work
+nism (w/o Co-Evo), the average gap increases from 2.0345%              will investigate more efficient evolution methods.
+                        References                                 Ilharco, G.; Ribeiro, M. T.; Wortsman, M.; Schmidt, L.;
+Berto, F.; Hua, C.; Zepeda, N. G.; Hottung, A.; Wouda, N.;         Hajishirzi, H.; and Farhadi, A. 2023. Editing models with
+Lan, L.; Park, J.; Tierney, K.; and Park, J. 2025. RouteFinder:    task arithmetic. In International Conference on Learning
+Towards foundation models for vehicle routing problems.            Representations.
+Transactions on Machine Learning Research.                         Jiang, X.; Wu, Y.; Li, M.; Cao, Z.; and Zhang, Y. 2025.
+Chen, J.; Cao, Z.; Wang, J.; Wu, Y.; Qin, H.; Zhang, Z.;           Large language models as end-to-end combinatorial optimiza-
+and Gong, Y.-J. 2025a. Rethinking neural multi-objective           tion solvers. In Advances in Neural Information Processing
+combinatorial optimization via neat weight embedding. In           Systems, volume 38, 164787–164826.
+The Thirteenth International Conference on Learning Repre-         Kwon, Y.-D.; Choo, J.; Kim, B.; Yoon, I.; Gwon, Y.; and
+sentations.                                                        Min, S. 2020. POMO: Policy optimization with multiple
+Chen, J.; Wang, J.; Cao, Z.; and Wu, Y. 2025b. Neural              optima for reinforcement learning. In Advances in Neural
+multi-objective combinatorial optimization via graph-image         Information Processing Systems, volume 33, 21188–21198.
+multimodal fusion. In International Conference on Learning         Li, C.-A.; Lin, T.-H.; Chen, Y.-N.; and Lee, H.-y. 2025a.
+Representations.                                                   Transferring textual preferences to vision-language under-
+Cheng, R.; Xiong, F.; Wei, Y.; Zhu, W.; and Yuan, C. 2025.         standing through model merging. In Proceedings of the 63rd
+Whoever started the interference should end it: Guiding            Annual Meeting of the Association for Computational Lin-
+data-free model merging via task vectors. In International         guistics (Volume 2: Short Papers), 923–943. Association for
+Conference on Machine Learning.                                    Computational Linguistics. ISBN 979-8-89176-252-7.
+Du, G.; Lee, J.; Li, J.; Jiang, R.; Guo, Y.; Yu, S.; Liu, H.;      Li, H.; Liu, F.; Zheng, Z.; Zhang, Y.; and Wang, Z. 2025b.
+Goh, S. K.; Tang, H.-K.; He, D.; et al. 2024. Parameter            CaDA: Cross-problem routing solver with constraint-aware
+competition balancing for model merging. In Advances in            dual-attention. In International Conference on Machine
+Neural Information Processing Systems, volume 37, 84746–           Learning.
+84776.
+                                                                   Liao, Z.; Chen, J.; Wang, D.; Zhang, Z.; and Wang, J. 2025.
+Fang, Z.; Wang, D.; Chen, J.; Wang, J.; and Zhang, Z. 2026.        BOPO: Neural combinatorial optimization via best-anchored
+UCPO: A Universal constrained combinatorial optimization           and objective-guided preference optimization. In Interna-
+method via preference optimization. In Proceedings of the          tional Conference on Machine Learning.
+AAAI Conference on Artificial Intelligence.
+                                                                   Liu, F.; Lin, X.; Wang, Z.; Zhang, Q.; Xialiang, T.; and Yuan,
+Farn, H.; Su, H.; Kumar, S. H.; Sahay, S.; Chen, S.-T.; and        M. 2024a. Multi-task learning for routing problem with
+Lee, H.-y. 2024. Safeguard fine-tuned LLMs through pre- and        cross-problem zero-shot generalization. In Proceedings of
+post-tuning model merging. arXiv preprint arXiv:2412.19512.        the 30th ACM SIGKDD Conference on Knowledge Discovery
+Feng, S.; Wang, Z.; Wang, Y.; Ebrahimi, S.; Palangi, H.;           and Data Mining, 1898–1908.
+Miculicich, L.; Kulshrestha, A.; Rauschmayr, N.; Choi, Y.;
+                                                                   Liu, F.; Liu, Y.; Zhang, Q.; Tong, X.; and Yuan, M. 2026.
+Tsvetkov, Y.; et al. 2025. Model Swarms: Collaborative search
+                                                                   EoH-S: Evolution of heuristic set using LLMs for automated
+to adapt LLM experts via swarm intelligence. In International
+                                                                   heuristic design. Proceedings of the AAAI Conference on
+Conference on Machine Learning.
+                                                                   Artificial Intelligence.
+Fu, W.; Li, J.; Liao, Z.; and Fu, Y. 2025a. A bi-objective opti-
+mization approach for scheduling electric ground-handling          Liu, F.; Tong, X.; Yuan, M.; Lin, X.; Luo, F.; Wang, Z.; Lu,
+vehicles in an airport. Complex & Intelligent Systems, 11(4).      Z.; and Zhang, Q. 2024b. Evolution of heuristics: Towards
+                                                                   efficient automatic algorithm design using large language
+Fu, Y.; Zhang, Z.; Gao, K.; Pan, Q.; and Rahman, H. F.             model. In International Conference on Machine Learning.
+2025b. Integrated distributed flexible job shop scheduling and
+vehicle routing problem via Q-learning-based evolutionary          Luo, F.; Lin, X.; Wu, Y.; Wang, Z.; Xialiang, T.; Yuan, M.; and
+algorithms. Information Sciences, 713: 122169.                     Zhang, Q. 2025. Boosting neural combinatorial optimization
+                                                                   for large-scale vehicle routing problems. In The Thirteenth
+Goh, Y. L.; Ma, Y.; Zhou, J.; Cao, Z.; Dupty, M. H.; and
+                                                                   International Conference on Learning Representations.
+Lee, W. S. 2025. Shield: Multi-task multi-distribution vehicle
+routing solver with sparsity & hierarchy in efficiently layered    Meng, D.; Cao, Z.; Gao, J.; Wu, Y.; and Hou, Y. 2025. Unite-
+decoder. In International Conference on Machine Learning.          Former: Unifying node and edge modalities in transformers
+Guo, S.; Yin, N.; Kwok, J.; and Yao, Q. 2025. Nested-              for vehicle routing problems. In The Thirty-ninth Annual
+refinement metamorphosis: Reflective evolution for efficient       Conference on Neural Information Processing Systems.
+optimization of networking problems. In Findings of the            Novikov, A.; Vũ, N.; Eisenberger, M.; Dupont, E.; Huang,
+Association for Computational Linguistics: ACL 2025, 17398–        P.-S.; Wagner, A. Z.; Shirobokov, S.; Kozlovskii, B.; Ruiz,
+17429.                                                             F. J.; Mehrabian, A.; et al. 2025. AlphaEvolve: A coding
+Huang, S.-C.; Li, P.-Z.; Hsu, Y.-C.; Chen, K.-M.; Lin, Y. T.;      agent for scientific and algorithmic discovery. arXiv preprint
+Hsiao, S.-K.; Tsai, R.; and Lee, H.-Y. 2024. Chat vector: A        arXiv:2506.13131.
+simple approach to equip LLMs with instruction following           Pan, Y.; Cao, Z.; Gu, C.; Liu, L.; Zhao, P.; Chen, Y.; and
+and model alignment in new languages. In Proceedings of the        Lin, F. 2025. Multi-task vehicle routing solver via mixture
+62nd Annual Meeting of the Association for Computational           of specialized experts under state-decomposable MDP. In
+Linguistics (Volume 1: Long Papers), 10943–10959.                  Conference on Neural Information Processing Systems.
+Uchoa, E.; Pecin, D.; Pessoa, A.; Poggi, M.; and Subramanian,
+A. 2017. New benchmark instances for the Capacitated
+Vehicle Routing Problem. European Journal of Operational
+Research, 257(3): 845–858.
+Wouda, N. A.; Lan, L.; and Kool, W. 2024. PyVRP: A
+High-performance VRP solver package. INFORMS Journal
+on Computing, 36(4): 943–955.
+Xie, Z.; Liu, F.; Wang, Z.; and Zhang, Q. 2025. LLM-driven
+neighborhood search for efficient heuristic design. In 2025
+IEEE Congress on Evolutionary Computation (CEC), 1–8.
+IEEE.
+Yu, L.; Yu, B.; Yu, H.; Huang, F.; and Li, Y. 2024. Language
+models are super mario: Absorbing abilities from homologous
+models as a free lunch. In International Conference on
+Machine Learning.
+Zhang, Y.; Ye, P.; Yang, X.; Feng, S.; Zhang, S.; Bai, L.;
+Ouyang, W.; and Hu, S. 2026. Nature-inspired population-
+based evolution of large language models. In Proceedings of
+the 64th Annual Meeting of the Association for Computational
+Linguistics (Volume 1: Long Papers).
+Zheng, Z.; Xie, Z.; Wang, Z.; and Hooi, B. 2025. Monte carlo
+tree search for comprehensive exploration in LLM-based
+automatic heuristic design. In International Conference on
+Machine Learning.
+Zhou, J.; Cao, Z.; Wu, Y.; Song, W.; Ma, Y.; Zhang, J.; and
+Xu, C. 2024. MVMoE: Multi-task vehicle routing solver with
+mixture-of-experts. In Proceedings of the 41st International
+Conference on Machine Learning, 61804–61824.
+Zong, Z.; Wang, H.; Wang, J.; Zheng, M.; and Li, Y. 2022.
+RBG: Hierarchically solving large-scale routing problems in
+logistic systems via reinforcement learning. In Proceedings of
+the 28th ACM SIGKDD Conference on Knowledge Discovery
+and Data Mining, 4648–4658.
+

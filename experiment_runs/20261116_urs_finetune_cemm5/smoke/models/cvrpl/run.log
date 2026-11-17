@@ -1,0 +1,18 @@
+[2026-11-16 22:27:18] Trainer.py(66) : 1 problems for training: ['cvrpl']
+[2026-11-16 22:27:18] Trainer.py(67) : 1 problems for validation: ['cvrpl']
+[2026-11-16 22:27:20] Trainer.py(147) : Successfully load   16 CVRPL100         ==> oracle score: 15.3623
+[2026-11-16 22:27:21] finetune.py(133) : Fine-tune configuration: {"task": "cvrpl", "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt", "base_epoch": 500, "base_file_sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86", "base_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887", "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887", "optimizer_state_reset": true, "start_epoch": 1, "env_params": {"problem_size": 100, "capacity": 50, "data_dir": "/public/home/shiys/merge/URS/dataset"}, "model_params": {"embedding_dim": 128, "encoder_layer_num": 12, "ff_hidden_dim": 512, "logit_clipping": 50, "demand_max1": true, "eval_type": "greedy"}, "optimizer_params": {"optimizer_type": "AdamW", "optimizer": {"lr": 3e-05, "weight_decay": 1e-06}, "lr_decay_epoch": [26]}, "trainer_params": {"use_cuda": true, "cuda_device_num": 0, "epochs": 1, "instances_per_epoch": 160, "batches_per_epoch": 2, "batch_size": 128, "train_problem_list": ["cvrpl"], "validation_problem_list": ["cvrpl"], "validation_scale": 100, "validation_episodes": 16, "validation_batch_size": 125, "model_load": {"enable": false}, "logging": {"model_save_interval": 1, "log_image_params_1": {"json_foldername": "log_image_style", "filename": "style_score.json"}, "log_image_params_2": {"json_foldername": "log_image_style", "filename": "style_loss.json"}}}, "seed": 3407, "torch": "2.5.1+cu124", "cuda": "12.4", "device": "NVIDIA GeForce RTX 4090", "validation_protocol": "Original Trainer: own task, greedy POMO, no augmentation", "final_checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_cemm5/smoke/models/cvrpl/checkpoint_1.pt", "status": "running"}
+[2026-11-16 22:27:21] Trainer.py(158) : ========================================================================
+[2026-11-16 22:27:21] Trainer.py(167) : Epoch    1: Current learning rate: 3e-05
+[2026-11-16 22:27:23] finetune.py(50) : Epoch 1: instances 128/160, batch 1, score 15.762953, loss -0.124930, elapsed 1.6s
+[2026-11-16 22:27:23] finetune.py(50) : Epoch 1: instances 160/160, batch 2, score 16.112995, loss -0.123730, elapsed 2.1s
+[2026-11-16 22:27:24] Trainer.py(389) : Epoch    1:   16 CVRPL100         ==> Score: 15.5223, Gap:  1.0418%
+[2026-11-16 22:27:24] Trainer.py(187) : Epoch    1: Average gap: 1.0418%
+[2026-11-16 22:27:24] Trainer.py(190) : Epoch    1: New best average gap: 1.0418%, saving best checkpoint
+[2026-11-16 22:27:24] Trainer.py(203) : Epoch    1/   1: Time Est.: Elapsed[0.04m], Remain[0.00m]
+[2026-11-16 22:27:24] Trainer.py(216) : Saving trained_model
+[2026-11-16 22:27:24] Trainer.py(226) :  *** Training Done *** 
+[2026-11-16 22:27:24] Trainer.py(227) : Now, printing log array...
+[2026-11-16 22:27:24] utils.py(270) : train_loss_list = -0.12373045831918716
+[2026-11-16 22:27:24] utils.py(270) : cvrpl_eval_100_list = 15.522327423095703
+[2026-11-16 22:27:24] utils.py(270) : cvrpl_gap_100_list = 1.0418341159820557

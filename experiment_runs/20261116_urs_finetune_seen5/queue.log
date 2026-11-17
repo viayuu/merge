@@ -1,0 +1,20 @@
+GPUs: ['NVIDIA GeForce RTX 4090', 'NVIDIA GeForce RTX 4090']
+2026-11-16T22:47:04+08:00 START base GPU 0
+2026-11-16T22:47:04+08:00 START cvrptw GPU 1
+2026-11-16T22:47:40+08:00 DONE base
+Evaluated models: base
+2026-11-16T22:47:40+08:00 START ocvrptw GPU 0
+2026-11-17T02:43:53+08:00 DONE cvrptw
+Evaluated models: base, cvrptw
+2026-11-17T02:43:53+08:00 START cvrpb GPU 1
+2026-11-17T02:54:39+08:00 DONE ocvrptw
+Evaluated models: base, cvrptw, ocvrptw
+2026-11-17T02:54:39+08:00 START cvrp GPU 0
+2026-11-17T02:55:16+08:00 DONE cvrp
+Evaluated models: base, cvrp, cvrptw, ocvrptw
+2026-11-17T02:55:16+08:00 START ocvrp GPU 0
+2026-11-17T02:55:54+08:00 DONE ocvrp
+Evaluated models: base, cvrp, cvrptw, ocvrp, ocvrptw
+2026-11-17T06:06:07+08:00 DONE cvrpb
+Evaluated models: base, cvrp, cvrpb, cvrptw, ocvrp, ocvrptw
+2026-11-17T06:06:10+08:00 ALL COMPLETE

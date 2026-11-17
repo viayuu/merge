@@ -1,0 +1,26 @@
+[
+  {
+    "task": "cvrptw",
+    "device": "NVIDIA GeForce RTX 4090",
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "status": "running"
+  },
+  {
+    "task": "ocvrptw",
+    "device": "NVIDIA GeForce RTX 4090",
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "status": "running"
+  },
+  {
+    "task": "cvrp",
+    "device": "NVIDIA GeForce RTX 3090",
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "status": "running"
+  },
+  {
+    "task": "ocvrp",
+    "device": "NVIDIA GeForce RTX 3090",
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "status": "running"
+  }
+]

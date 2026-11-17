@@ -1,0 +1,616 @@
+[2026-11-16 23:25:25] Trainer.py(66) : 1 problems for training: ['cvrp']
+[2026-11-16 23:25:25] Trainer.py(67) : 1 problems for validation: ['cvrp']
+/public/home/shiys/miniconda3/envs/easynco/lib/python3.9/site-packages/torch/__init__.py:1144: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:432.)
+  _C._set_default_tensor_type(t)
+[2026-11-16 23:25:27] Trainer.py(147) : Successfully load 1000 CVRP100          ==> oracle score: 15.5036
+[2026-11-16 23:25:27] finetune.py(158) : Fine-tune configuration: {"task": "cvrp", "base_checkpoint": "/public/home/shiys/merge/URS/pretrained/unified_checkpoint_500.pt", "base_epoch": 500, "base_file_sha256": "1ed6f04fddc2f918342c91f7b2ba8149a7408dae9cdbfe686dae47c60b3b4f86", "base_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887", "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887", "optimizer_state_reset": true, "start_epoch": 1, "env_params": {"problem_size": 100, "capacity": 50, "data_dir": "/public/home/shiys/merge/URS/dataset"}, "model_params": {"embedding_dim": 128, "encoder_layer_num": 12, "ff_hidden_dim": 512, "logit_clipping": 50, "demand_max1": true, "eval_type": "greedy"}, "optimizer_params": {"optimizer_type": "AdamW", "optimizer": {"lr": 3e-05, "weight_decay": 1e-06}, "lr_decay_epoch": [26]}, "trainer_params": {"use_cuda": true, "cuda_device_num": 0, "epochs": 30, "instances_per_epoch": 100000, "batches_per_epoch": 782, "batch_size": 128, "train_problem_list": ["cvrp"], "validation_problem_list": ["cvrp"], "validation_scale": 100, "validation_episodes": 1000, "validation_batch_size": 125, "model_load": {"enable": false}, "logging": {"model_save_interval": 1, "log_image_params_1": {"json_foldername": "log_image_style", "filename": "style_score.json"}, "log_image_params_2": {"json_foldername": "log_image_style", "filename": "style_loss.json"}}}, "seed": 3407, "torch": "2.5.1+cu124", "cuda": "12.4", "device": "NVIDIA GeForce RTX 3090", "validation_protocol": "Original Trainer: own task, greedy POMO, no augmentation", "final_checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt", "status": "running"}
+[2026-11-16 23:25:27] Trainer.py(158) : ========================================================================
+[2026-11-16 23:25:27] Trainer.py(167) : Epoch    1: Current learning rate: 3e-05
+[2026-11-16 23:25:28] finetune.py(51) : Epoch 1: instances 128/100000, batch 1, score 15.716167, loss -0.118935, elapsed 0.9s
+[2026-11-16 23:25:29] finetune.py(51) : Epoch 1: instances 256/100000, batch 2, score 15.839655, loss -0.113832, elapsed 1.4s
+[2026-11-16 23:25:29] finetune.py(51) : Epoch 1: instances 384/100000, batch 3, score 15.858137, loss -0.112100, elapsed 1.8s
+[2026-11-16 23:25:30] finetune.py(51) : Epoch 1: instances 512/100000, batch 4, score 15.757210, loss -0.113227, elapsed 2.3s
+[2026-11-16 23:25:30] finetune.py(51) : Epoch 1: instances 640/100000, batch 5, score 16.051968, loss -0.115765, elapsed 2.8s
+[2026-11-16 23:26:15] finetune.py(51) : Epoch 1: instances 12800/100000, batch 100, score 15.977159, loss -0.116406, elapsed 47.9s
+[2026-11-16 23:27:03] finetune.py(51) : Epoch 1: instances 25600/100000, batch 200, score 16.077497, loss -0.116775, elapsed 95.4s
+[2026-11-16 23:27:50] finetune.py(51) : Epoch 1: instances 38400/100000, batch 300, score 15.824963, loss -0.116578, elapsed 143.2s
+[2026-11-16 23:28:38] finetune.py(51) : Epoch 1: instances 51200/100000, batch 400, score 15.798889, loss -0.116391, elapsed 190.6s
+[2026-11-16 23:29:27] finetune.py(51) : Epoch 1: instances 64000/100000, batch 500, score 15.764091, loss -0.116325, elapsed 239.6s
+[2026-11-16 23:30:15] finetune.py(51) : Epoch 1: instances 76800/100000, batch 600, score 15.911539, loss -0.116264, elapsed 287.5s
+[2026-11-16 23:31:02] finetune.py(51) : Epoch 1: instances 89600/100000, batch 700, score 15.690538, loss -0.115972, elapsed 335.1s
+[2026-11-16 23:31:42] finetune.py(51) : Epoch 1: instances 100000/100000, batch 782, score 15.706835, loss -0.115962, elapsed 374.8s
+[2026-11-16 23:31:44] Trainer.py(389) : Epoch    1: 1000 CVRP100          ==> Score: 15.9021, Gap:  2.5700%
+[2026-11-16 23:31:44] Trainer.py(187) : Epoch    1: Average gap: 2.5700%
+[2026-11-16 23:31:44] Trainer.py(190) : Epoch    1: New best average gap: 2.5700%, saving best checkpoint
+[2026-11-16 23:31:44] Trainer.py(203) : Epoch    1/  30: Time Est.: Elapsed[6.28m], Remain[3.04h (0.13d)]
+[2026-11-16 23:31:44] Trainer.py(216) : Saving trained_model
+[2026-11-16 23:31:44] Trainer.py(158) : ========================================================================
+[2026-11-16 23:31:44] Trainer.py(167) : Epoch    2: Current learning rate: 3e-05
+[2026-11-16 23:31:45] finetune.py(51) : Epoch 2: instances 128/100000, batch 1, score 15.987485, loss -0.125181, elapsed 0.5s
+[2026-11-16 23:31:45] finetune.py(51) : Epoch 2: instances 256/100000, batch 2, score 16.065022, loss -0.122210, elapsed 0.9s
+[2026-11-16 23:31:46] finetune.py(51) : Epoch 2: instances 384/100000, batch 3, score 15.991258, loss -0.119490, elapsed 1.4s
+[2026-11-16 23:31:46] finetune.py(51) : Epoch 2: instances 512/100000, batch 4, score 15.684265, loss -0.120877, elapsed 1.9s
+[2026-11-16 23:31:47] finetune.py(51) : Epoch 2: instances 640/100000, batch 5, score 15.905149, loss -0.116186, elapsed 2.4s
+[2026-11-16 23:32:32] finetune.py(51) : Epoch 2: instances 12800/100000, batch 100, score 16.054245, loss -0.114358, elapsed 47.5s
+[2026-11-16 23:33:19] finetune.py(51) : Epoch 2: instances 25600/100000, batch 200, score 15.807971, loss -0.115655, elapsed 95.0s
+[2026-11-16 23:34:08] finetune.py(51) : Epoch 2: instances 38400/100000, batch 300, score 15.912304, loss -0.115573, elapsed 143.3s
+[2026-11-16 23:34:55] finetune.py(51) : Epoch 2: instances 51200/100000, batch 400, score 15.953315, loss -0.115452, elapsed 190.9s
+[2026-11-16 23:35:43] finetune.py(51) : Epoch 2: instances 64000/100000, batch 500, score 16.000526, loss -0.115426, elapsed 238.4s
+[2026-11-16 23:36:30] finetune.py(51) : Epoch 2: instances 76800/100000, batch 600, score 15.802439, loss -0.115355, elapsed 285.9s
+[2026-11-16 23:37:18] finetune.py(51) : Epoch 2: instances 89600/100000, batch 700, score 15.944803, loss -0.115475, elapsed 333.5s
+[2026-11-16 23:37:57] finetune.py(51) : Epoch 2: instances 100000/100000, batch 782, score 16.064642, loss -0.115493, elapsed 372.3s
+[2026-11-16 23:37:59] Trainer.py(389) : Epoch    2: 1000 CVRP100          ==> Score: 15.9036, Gap:  2.5798%
+[2026-11-16 23:37:59] Trainer.py(187) : Epoch    2: Average gap: 2.5798%
+[2026-11-16 23:37:59] Trainer.py(203) : Epoch    2/  30: Time Est.: Elapsed[12.53m], Remain[2.92h (0.12d)]
+[2026-11-16 23:37:59] Trainer.py(210) : Saving log_image
+[2026-11-16 23:37:59] Trainer.py(216) : Saving trained_model
+[2026-11-16 23:37:59] Trainer.py(158) : ========================================================================
+[2026-11-16 23:37:59] Trainer.py(167) : Epoch    3: Current learning rate: 3e-05
+[2026-11-16 23:38:00] finetune.py(51) : Epoch 3: instances 128/100000, batch 1, score 15.783165, loss -0.105895, elapsed 0.5s
+[2026-11-16 23:38:00] finetune.py(51) : Epoch 3: instances 256/100000, batch 2, score 15.813496, loss -0.106717, elapsed 1.0s
+[2026-11-16 23:38:01] finetune.py(51) : Epoch 3: instances 384/100000, batch 3, score 15.952360, loss -0.109542, elapsed 1.5s
+[2026-11-16 23:38:01] finetune.py(51) : Epoch 3: instances 512/100000, batch 4, score 16.096516, loss -0.107944, elapsed 2.0s
+[2026-11-16 23:38:02] finetune.py(51) : Epoch 3: instances 640/100000, batch 5, score 15.774778, loss -0.110347, elapsed 2.4s
+[2026-11-16 23:38:47] finetune.py(51) : Epoch 3: instances 12800/100000, batch 100, score 15.959506, loss -0.115563, elapsed 47.6s
+[2026-11-16 23:39:34] finetune.py(51) : Epoch 3: instances 25600/100000, batch 200, score 15.791131, loss -0.115464, elapsed 95.1s
+[2026-11-16 23:40:22] finetune.py(51) : Epoch 3: instances 38400/100000, batch 300, score 16.262466, loss -0.115779, elapsed 142.7s
+[2026-11-16 23:41:09] finetune.py(51) : Epoch 3: instances 51200/100000, batch 400, score 16.209118, loss -0.116000, elapsed 190.3s
+[2026-11-16 23:41:57] finetune.py(51) : Epoch 3: instances 64000/100000, batch 500, score 15.711578, loss -0.116315, elapsed 237.8s
+[2026-11-16 23:42:45] finetune.py(51) : Epoch 3: instances 76800/100000, batch 600, score 15.739357, loss -0.116460, elapsed 285.4s
+[2026-11-16 23:43:32] finetune.py(51) : Epoch 3: instances 89600/100000, batch 700, score 15.977457, loss -0.116355, elapsed 333.1s
+[2026-11-16 23:44:11] finetune.py(51) : Epoch 3: instances 100000/100000, batch 782, score 15.506454, loss -0.116342, elapsed 371.9s
+[2026-11-16 23:44:13] Trainer.py(389) : Epoch    3: 1000 CVRP100          ==> Score: 15.8990, Gap:  2.5498%
+[2026-11-16 23:44:13] Trainer.py(187) : Epoch    3: Average gap: 2.5498%
+[2026-11-16 23:44:13] Trainer.py(190) : Epoch    3: New best average gap: 2.5498%, saving best checkpoint
+[2026-11-16 23:44:14] Trainer.py(203) : Epoch    3/  30: Time Est.: Elapsed[18.78m], Remain[2.82h (0.12d)]
+[2026-11-16 23:44:14] Trainer.py(210) : Saving log_image
+[2026-11-16 23:44:14] Trainer.py(216) : Saving trained_model
+[2026-11-16 23:44:14] Trainer.py(158) : ========================================================================
+[2026-11-16 23:44:14] Trainer.py(167) : Epoch    4: Current learning rate: 3e-05
+[2026-11-16 23:44:15] finetune.py(51) : Epoch 4: instances 128/100000, batch 1, score 15.874265, loss -0.112868, elapsed 0.5s
+[2026-11-16 23:44:15] finetune.py(51) : Epoch 4: instances 256/100000, batch 2, score 15.747007, loss -0.113991, elapsed 1.0s
+[2026-11-16 23:44:16] finetune.py(51) : Epoch 4: instances 384/100000, batch 3, score 15.821856, loss -0.112812, elapsed 1.4s
+[2026-11-16 23:44:16] finetune.py(51) : Epoch 4: instances 512/100000, batch 4, score 16.060020, loss -0.113618, elapsed 1.9s
+[2026-11-16 23:44:17] finetune.py(51) : Epoch 4: instances 640/100000, batch 5, score 15.956253, loss -0.113814, elapsed 2.4s
+[2026-11-16 23:45:02] finetune.py(51) : Epoch 4: instances 12800/100000, batch 100, score 15.741550, loss -0.114623, elapsed 47.6s
+[2026-11-16 23:45:49] finetune.py(51) : Epoch 4: instances 25600/100000, batch 200, score 15.614235, loss -0.115662, elapsed 95.2s
+[2026-11-16 23:46:37] finetune.py(51) : Epoch 4: instances 38400/100000, batch 300, score 16.103661, loss -0.115695, elapsed 142.7s
+[2026-11-16 23:47:24] finetune.py(51) : Epoch 4: instances 51200/100000, batch 400, score 15.922126, loss -0.115678, elapsed 190.2s
+[2026-11-16 23:48:12] finetune.py(51) : Epoch 4: instances 64000/100000, batch 500, score 16.496971, loss -0.115262, elapsed 237.8s
+[2026-11-16 23:49:00] finetune.py(51) : Epoch 4: instances 76800/100000, batch 600, score 16.082026, loss -0.115238, elapsed 285.3s
+[2026-11-16 23:49:47] finetune.py(51) : Epoch 4: instances 89600/100000, batch 700, score 15.829444, loss -0.115251, elapsed 332.9s
+[2026-11-16 23:50:26] finetune.py(51) : Epoch 4: instances 100000/100000, batch 782, score 15.618176, loss -0.115319, elapsed 371.8s
+[2026-11-16 23:50:28] Trainer.py(389) : Epoch    4: 1000 CVRP100          ==> Score: 15.9028, Gap:  2.5744%
+[2026-11-16 23:50:28] Trainer.py(187) : Epoch    4: Average gap: 2.5744%
+[2026-11-16 23:50:28] Trainer.py(203) : Epoch    4/  30: Time Est.: Elapsed[25.02m], Remain[2.71h (0.11d)]
+[2026-11-16 23:50:28] Trainer.py(210) : Saving log_image
+[2026-11-16 23:50:28] Trainer.py(216) : Saving trained_model
+[2026-11-16 23:50:28] Trainer.py(158) : ========================================================================
+[2026-11-16 23:50:28] Trainer.py(167) : Epoch    5: Current learning rate: 3e-05
+[2026-11-16 23:50:29] finetune.py(51) : Epoch 5: instances 128/100000, batch 1, score 15.794428, loss -0.115617, elapsed 0.5s
+[2026-11-16 23:50:29] finetune.py(51) : Epoch 5: instances 256/100000, batch 2, score 15.812949, loss -0.110923, elapsed 0.9s
+[2026-11-16 23:50:30] finetune.py(51) : Epoch 5: instances 384/100000, batch 3, score 15.612951, loss -0.110688, elapsed 1.4s
+[2026-11-16 23:50:30] finetune.py(51) : Epoch 5: instances 512/100000, batch 4, score 15.897333, loss -0.105790, elapsed 1.9s
+[2026-11-16 23:50:31] finetune.py(51) : Epoch 5: instances 640/100000, batch 5, score 15.814531, loss -0.108607, elapsed 2.4s
+[2026-11-16 23:51:16] finetune.py(51) : Epoch 5: instances 12800/100000, batch 100, score 15.598070, loss -0.115463, elapsed 47.5s
+[2026-11-16 23:52:03] finetune.py(51) : Epoch 5: instances 25600/100000, batch 200, score 15.828204, loss -0.115202, elapsed 95.0s
+[2026-11-16 23:52:51] finetune.py(51) : Epoch 5: instances 38400/100000, batch 300, score 15.811867, loss -0.115428, elapsed 142.5s
+[2026-11-16 23:53:38] finetune.py(51) : Epoch 5: instances 51200/100000, batch 400, score 15.677903, loss -0.115388, elapsed 190.0s
+[2026-11-16 23:54:26] finetune.py(51) : Epoch 5: instances 64000/100000, batch 500, score 15.899079, loss -0.115202, elapsed 237.6s
+[2026-11-16 23:55:14] finetune.py(51) : Epoch 5: instances 76800/100000, batch 600, score 16.078686, loss -0.114984, elapsed 285.1s
+[2026-11-16 23:56:01] finetune.py(51) : Epoch 5: instances 89600/100000, batch 700, score 15.728592, loss -0.114604, elapsed 332.8s
+[2026-11-16 23:56:40] finetune.py(51) : Epoch 5: instances 100000/100000, batch 782, score 15.724358, loss -0.114601, elapsed 371.8s
+[2026-11-16 23:56:42] Trainer.py(389) : Epoch    5: 1000 CVRP100          ==> Score: 15.8923, Gap:  2.5069%
+[2026-11-16 23:56:42] Trainer.py(187) : Epoch    5: Average gap: 2.5069%
+[2026-11-16 23:56:42] Trainer.py(190) : Epoch    5: New best average gap: 2.5069%, saving best checkpoint
+[2026-11-16 23:56:43] Trainer.py(203) : Epoch    5/  30: Time Est.: Elapsed[31.26m], Remain[2.60h (0.11d)]
+[2026-11-16 23:56:43] Trainer.py(210) : Saving log_image
+[2026-11-16 23:56:43] Trainer.py(216) : Saving trained_model
+[2026-11-16 23:56:43] Trainer.py(158) : ========================================================================
+[2026-11-16 23:56:43] Trainer.py(167) : Epoch    6: Current learning rate: 3e-05
+[2026-11-16 23:56:43] finetune.py(51) : Epoch 6: instances 128/100000, batch 1, score 16.095568, loss -0.109972, elapsed 0.5s
+[2026-11-16 23:56:44] finetune.py(51) : Epoch 6: instances 256/100000, batch 2, score 15.887341, loss -0.117998, elapsed 0.9s
+[2026-11-16 23:56:44] finetune.py(51) : Epoch 6: instances 384/100000, batch 3, score 16.076319, loss -0.112810, elapsed 1.4s
+[2026-11-16 23:56:45] finetune.py(51) : Epoch 6: instances 512/100000, batch 4, score 15.624554, loss -0.117613, elapsed 1.9s
+[2026-11-16 23:56:45] finetune.py(51) : Epoch 6: instances 640/100000, batch 5, score 15.979988, loss -0.116997, elapsed 2.4s
+[2026-11-16 23:57:31] finetune.py(51) : Epoch 6: instances 12800/100000, batch 100, score 15.848429, loss -0.112692, elapsed 48.0s
+[2026-11-16 23:58:19] finetune.py(51) : Epoch 6: instances 25600/100000, batch 200, score 15.930483, loss -0.113855, elapsed 95.6s
+[2026-11-16 23:59:06] finetune.py(51) : Epoch 6: instances 38400/100000, batch 300, score 16.131454, loss -0.113870, elapsed 143.2s
+[2026-11-16 23:59:54] finetune.py(51) : Epoch 6: instances 51200/100000, batch 400, score 16.008879, loss -0.114076, elapsed 190.8s
+[2026-11-17 00:00:41] finetune.py(51) : Epoch 6: instances 64000/100000, batch 500, score 15.950197, loss -0.113740, elapsed 238.4s
+[2026-11-17 00:01:29] finetune.py(51) : Epoch 6: instances 76800/100000, batch 600, score 16.020435, loss -0.113586, elapsed 286.0s
+[2026-11-17 00:02:17] finetune.py(51) : Epoch 6: instances 89600/100000, batch 700, score 15.715093, loss -0.113548, elapsed 333.6s
+[2026-11-17 00:02:55] finetune.py(51) : Epoch 6: instances 100000/100000, batch 782, score 15.964847, loss -0.113693, elapsed 372.6s
+[2026-11-17 00:02:58] Trainer.py(389) : Epoch    6: 1000 CVRP100          ==> Score: 15.9033, Gap:  2.5780%
+[2026-11-17 00:02:58] Trainer.py(187) : Epoch    6: Average gap: 2.5780%
+[2026-11-17 00:02:58] Trainer.py(203) : Epoch    6/  30: Time Est.: Elapsed[37.51m], Remain[2.50h (0.10d)]
+[2026-11-17 00:02:58] Trainer.py(210) : Saving log_image
+[2026-11-17 00:02:58] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:02:58] Trainer.py(158) : ========================================================================
+[2026-11-17 00:02:58] Trainer.py(167) : Epoch    7: Current learning rate: 3e-05
+[2026-11-17 00:02:58] finetune.py(51) : Epoch 7: instances 128/100000, batch 1, score 16.220783, loss -0.109331, elapsed 0.5s
+[2026-11-17 00:02:59] finetune.py(51) : Epoch 7: instances 256/100000, batch 2, score 16.134201, loss -0.113366, elapsed 0.9s
+[2026-11-17 00:02:59] finetune.py(51) : Epoch 7: instances 384/100000, batch 3, score 16.167585, loss -0.108360, elapsed 1.4s
+[2026-11-17 00:03:00] finetune.py(51) : Epoch 7: instances 512/100000, batch 4, score 15.993490, loss -0.107401, elapsed 1.9s
+[2026-11-17 00:03:00] finetune.py(51) : Epoch 7: instances 640/100000, batch 5, score 15.807449, loss -0.109374, elapsed 2.4s
+[2026-11-17 00:03:46] finetune.py(51) : Epoch 7: instances 12800/100000, batch 100, score 15.745394, loss -0.114186, elapsed 47.7s
+[2026-11-17 00:04:33] finetune.py(51) : Epoch 7: instances 25600/100000, batch 200, score 15.869499, loss -0.115082, elapsed 95.3s
+[2026-11-17 00:05:21] finetune.py(51) : Epoch 7: instances 38400/100000, batch 300, score 15.946501, loss -0.114367, elapsed 142.9s
+[2026-11-17 00:06:08] finetune.py(51) : Epoch 7: instances 51200/100000, batch 400, score 15.896876, loss -0.114086, elapsed 190.5s
+[2026-11-17 00:06:57] finetune.py(51) : Epoch 7: instances 64000/100000, batch 500, score 15.638314, loss -0.114088, elapsed 238.7s
+[2026-11-17 00:07:49] finetune.py(51) : Epoch 7: instances 76800/100000, batch 600, score 15.909303, loss -0.114031, elapsed 290.9s
+[2026-11-17 00:08:36] finetune.py(51) : Epoch 7: instances 89600/100000, batch 700, score 15.914049, loss -0.114143, elapsed 338.5s
+[2026-11-17 00:09:17] finetune.py(51) : Epoch 7: instances 100000/100000, batch 782, score 16.168083, loss -0.114338, elapsed 378.7s
+[2026-11-17 00:09:19] Trainer.py(389) : Epoch    7: 1000 CVRP100          ==> Score: 15.8926, Gap:  2.5087%
+[2026-11-17 00:09:19] Trainer.py(187) : Epoch    7: Average gap: 2.5087%
+[2026-11-17 00:09:19] Trainer.py(203) : Epoch    7/  30: Time Est.: Elapsed[43.86m], Remain[2.40h (0.10d)]
+[2026-11-17 00:09:19] Trainer.py(210) : Saving log_image
+[2026-11-17 00:09:19] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:09:19] Trainer.py(158) : ========================================================================
+[2026-11-17 00:09:19] Trainer.py(167) : Epoch    8: Current learning rate: 3e-05
+[2026-11-17 00:09:19] finetune.py(51) : Epoch 8: instances 128/100000, batch 1, score 15.845148, loss -0.103051, elapsed 0.5s
+[2026-11-17 00:09:20] finetune.py(51) : Epoch 8: instances 256/100000, batch 2, score 15.870280, loss -0.103718, elapsed 0.9s
+[2026-11-17 00:09:20] finetune.py(51) : Epoch 8: instances 384/100000, batch 3, score 15.896039, loss -0.109675, elapsed 1.4s
+[2026-11-17 00:09:21] finetune.py(51) : Epoch 8: instances 512/100000, batch 4, score 16.094765, loss -0.107223, elapsed 1.9s
+[2026-11-17 00:09:21] finetune.py(51) : Epoch 8: instances 640/100000, batch 5, score 15.945442, loss -0.106834, elapsed 2.4s
+[2026-11-17 00:10:07] finetune.py(51) : Epoch 8: instances 12800/100000, batch 100, score 15.655034, loss -0.113924, elapsed 47.7s
+[2026-11-17 00:10:54] finetune.py(51) : Epoch 8: instances 25600/100000, batch 200, score 16.019409, loss -0.114474, elapsed 95.4s
+[2026-11-17 00:11:42] finetune.py(51) : Epoch 8: instances 38400/100000, batch 300, score 16.011187, loss -0.114370, elapsed 143.4s
+[2026-11-17 00:12:30] finetune.py(51) : Epoch 8: instances 51200/100000, batch 400, score 15.647266, loss -0.114073, elapsed 191.0s
+[2026-11-17 00:13:18] finetune.py(51) : Epoch 8: instances 64000/100000, batch 500, score 15.745897, loss -0.113918, elapsed 238.7s
+[2026-11-17 00:14:06] finetune.py(51) : Epoch 8: instances 76800/100000, batch 600, score 15.833788, loss -0.113728, elapsed 287.0s
+[2026-11-17 00:14:54] finetune.py(51) : Epoch 8: instances 89600/100000, batch 700, score 15.782328, loss -0.113815, elapsed 334.5s
+[2026-11-17 00:15:33] finetune.py(51) : Epoch 8: instances 100000/100000, batch 782, score 15.907401, loss -0.113649, elapsed 373.5s
+[2026-11-17 00:15:35] Trainer.py(389) : Epoch    8: 1000 CVRP100          ==> Score: 15.8928, Gap:  2.5102%
+[2026-11-17 00:15:35] Trainer.py(187) : Epoch    8: Average gap: 2.5102%
+[2026-11-17 00:15:35] Trainer.py(203) : Epoch    8/  30: Time Est.: Elapsed[50.13m], Remain[2.30h (0.10d)]
+[2026-11-17 00:15:35] Trainer.py(210) : Saving log_image
+[2026-11-17 00:15:35] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:15:35] Trainer.py(158) : ========================================================================
+[2026-11-17 00:15:35] Trainer.py(167) : Epoch    9: Current learning rate: 3e-05
+[2026-11-17 00:15:35] finetune.py(51) : Epoch 9: instances 128/100000, batch 1, score 16.041082, loss -0.110315, elapsed 0.5s
+[2026-11-17 00:15:36] finetune.py(51) : Epoch 9: instances 256/100000, batch 2, score 15.912737, loss -0.107734, elapsed 1.0s
+[2026-11-17 00:15:36] finetune.py(51) : Epoch 9: instances 384/100000, batch 3, score 15.868517, loss -0.108712, elapsed 1.4s
+[2026-11-17 00:15:37] finetune.py(51) : Epoch 9: instances 512/100000, batch 4, score 15.993086, loss -0.105798, elapsed 1.9s
+[2026-11-17 00:15:37] finetune.py(51) : Epoch 9: instances 640/100000, batch 5, score 15.983423, loss -0.107195, elapsed 2.4s
+[2026-11-17 00:16:23] finetune.py(51) : Epoch 9: instances 12800/100000, batch 100, score 15.775064, loss -0.113595, elapsed 47.7s
+[2026-11-17 00:17:10] finetune.py(51) : Epoch 9: instances 25600/100000, batch 200, score 15.654394, loss -0.113902, elapsed 95.4s
+[2026-11-17 00:17:58] finetune.py(51) : Epoch 9: instances 38400/100000, batch 300, score 15.959128, loss -0.113539, elapsed 143.1s
+[2026-11-17 00:18:46] finetune.py(51) : Epoch 9: instances 51200/100000, batch 400, score 15.825446, loss -0.113916, elapsed 190.8s
+[2026-11-17 00:19:33] finetune.py(51) : Epoch 9: instances 64000/100000, batch 500, score 15.562075, loss -0.113835, elapsed 238.4s
+[2026-11-17 00:20:25] finetune.py(51) : Epoch 9: instances 76800/100000, batch 600, score 16.019949, loss -0.113878, elapsed 289.8s
+[2026-11-17 00:21:12] finetune.py(51) : Epoch 9: instances 89600/100000, batch 700, score 15.896191, loss -0.113720, elapsed 337.3s
+[2026-11-17 00:21:51] finetune.py(51) : Epoch 9: instances 100000/100000, batch 782, score 16.041851, loss -0.113642, elapsed 376.3s
+[2026-11-17 00:21:53] Trainer.py(389) : Epoch    9: 1000 CVRP100          ==> Score: 15.8939, Gap:  2.5169%
+[2026-11-17 00:21:53] Trainer.py(187) : Epoch    9: Average gap: 2.5169%
+[2026-11-17 00:21:53] Trainer.py(203) : Epoch    9/  30: Time Est.: Elapsed[56.44m], Remain[2.19h (0.09d)]
+[2026-11-17 00:21:53] Trainer.py(210) : Saving log_image
+[2026-11-17 00:21:53] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:21:54] Trainer.py(158) : ========================================================================
+[2026-11-17 00:21:54] Trainer.py(167) : Epoch   10: Current learning rate: 3e-05
+[2026-11-17 00:21:55] finetune.py(51) : Epoch 10: instances 128/100000, batch 1, score 15.806237, loss -0.102243, elapsed 0.5s
+[2026-11-17 00:21:55] finetune.py(51) : Epoch 10: instances 256/100000, batch 2, score 15.612186, loss -0.110699, elapsed 1.0s
+[2026-11-17 00:21:56] finetune.py(51) : Epoch 10: instances 384/100000, batch 3, score 15.953997, loss -0.111993, elapsed 1.4s
+[2026-11-17 00:21:56] finetune.py(51) : Epoch 10: instances 512/100000, batch 4, score 16.306911, loss -0.112160, elapsed 1.9s
+[2026-11-17 00:21:57] finetune.py(51) : Epoch 10: instances 640/100000, batch 5, score 16.121378, loss -0.115125, elapsed 2.4s
+[2026-11-17 00:22:42] finetune.py(51) : Epoch 10: instances 12800/100000, batch 100, score 15.608358, loss -0.113543, elapsed 48.0s
+[2026-11-17 00:23:30] finetune.py(51) : Epoch 10: instances 25600/100000, batch 200, score 16.064964, loss -0.113408, elapsed 95.6s
+[2026-11-17 00:24:17] finetune.py(51) : Epoch 10: instances 38400/100000, batch 300, score 15.972225, loss -0.113557, elapsed 143.2s
+[2026-11-17 00:25:05] finetune.py(51) : Epoch 10: instances 51200/100000, batch 400, score 15.949887, loss -0.113730, elapsed 190.8s
+[2026-11-17 00:25:53] finetune.py(51) : Epoch 10: instances 64000/100000, batch 500, score 16.059120, loss -0.113641, elapsed 238.4s
+[2026-11-17 00:26:40] finetune.py(51) : Epoch 10: instances 76800/100000, batch 600, score 16.103357, loss -0.113663, elapsed 286.1s
+[2026-11-17 00:27:30] finetune.py(51) : Epoch 10: instances 89600/100000, batch 700, score 15.631294, loss -0.113490, elapsed 335.3s
+[2026-11-17 00:28:08] finetune.py(51) : Epoch 10: instances 100000/100000, batch 782, score 16.279533, loss -0.113427, elapsed 374.2s
+[2026-11-17 00:28:10] Trainer.py(389) : Epoch   10: 1000 CVRP100          ==> Score: 15.8972, Gap:  2.5387%
+[2026-11-17 00:28:11] Trainer.py(187) : Epoch   10: Average gap: 2.5387%
+[2026-11-17 00:28:11] Trainer.py(203) : Epoch   10/  30: Time Est.: Elapsed[1.05h (0.04d)], Remain[2.09h (0.09d)]
+[2026-11-17 00:28:11] Trainer.py(210) : Saving log_image
+[2026-11-17 00:28:11] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:28:11] Trainer.py(158) : ========================================================================
+[2026-11-17 00:28:11] Trainer.py(167) : Epoch   11: Current learning rate: 3e-05
+[2026-11-17 00:28:11] finetune.py(51) : Epoch 11: instances 128/100000, batch 1, score 15.847854, loss -0.103487, elapsed 0.5s
+[2026-11-17 00:28:12] finetune.py(51) : Epoch 11: instances 256/100000, batch 2, score 15.800942, loss -0.102668, elapsed 0.9s
+[2026-11-17 00:28:12] finetune.py(51) : Epoch 11: instances 384/100000, batch 3, score 15.786276, loss -0.110531, elapsed 1.4s
+[2026-11-17 00:28:13] finetune.py(51) : Epoch 11: instances 512/100000, batch 4, score 15.812032, loss -0.108404, elapsed 1.9s
+[2026-11-17 00:28:13] finetune.py(51) : Epoch 11: instances 640/100000, batch 5, score 15.780492, loss -0.107667, elapsed 2.4s
+[2026-11-17 00:28:58] finetune.py(51) : Epoch 11: instances 12800/100000, batch 100, score 15.969612, loss -0.112792, elapsed 47.5s
+[2026-11-17 00:29:46] finetune.py(51) : Epoch 11: instances 25600/100000, batch 200, score 16.070534, loss -0.112628, elapsed 95.7s
+[2026-11-17 00:30:35] finetune.py(51) : Epoch 11: instances 38400/100000, batch 300, score 15.736175, loss -0.112520, elapsed 144.1s
+[2026-11-17 00:31:22] finetune.py(51) : Epoch 11: instances 51200/100000, batch 400, score 16.114189, loss -0.112678, elapsed 191.6s
+[2026-11-17 00:32:11] finetune.py(51) : Epoch 11: instances 64000/100000, batch 500, score 16.093084, loss -0.112909, elapsed 240.0s
+[2026-11-17 00:32:58] finetune.py(51) : Epoch 11: instances 76800/100000, batch 600, score 15.536851, loss -0.112949, elapsed 287.6s
+[2026-11-17 00:33:46] finetune.py(51) : Epoch 11: instances 89600/100000, batch 700, score 15.786406, loss -0.112909, elapsed 335.2s
+[2026-11-17 00:34:25] finetune.py(51) : Epoch 11: instances 100000/100000, batch 782, score 16.242783, loss -0.112900, elapsed 374.2s
+[2026-11-17 00:34:27] Trainer.py(389) : Epoch   11: 1000 CVRP100          ==> Score: 15.8926, Gap:  2.5090%
+[2026-11-17 00:34:27] Trainer.py(187) : Epoch   11: Average gap: 2.5090%
+[2026-11-17 00:34:27] Trainer.py(203) : Epoch   11/  30: Time Est.: Elapsed[1.15h (0.05d)], Remain[1.99h (0.08d)]
+[2026-11-17 00:34:27] Trainer.py(210) : Saving log_image
+[2026-11-17 00:34:27] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:34:27] Trainer.py(158) : ========================================================================
+[2026-11-17 00:34:27] Trainer.py(167) : Epoch   12: Current learning rate: 3e-05
+[2026-11-17 00:34:28] finetune.py(51) : Epoch 12: instances 128/100000, batch 1, score 16.097637, loss -0.126029, elapsed 0.5s
+[2026-11-17 00:34:28] finetune.py(51) : Epoch 12: instances 256/100000, batch 2, score 15.781473, loss -0.125299, elapsed 0.9s
+[2026-11-17 00:34:29] finetune.py(51) : Epoch 12: instances 384/100000, batch 3, score 16.000750, loss -0.119608, elapsed 1.4s
+[2026-11-17 00:34:29] finetune.py(51) : Epoch 12: instances 512/100000, batch 4, score 15.830189, loss -0.119558, elapsed 1.9s
+[2026-11-17 00:34:30] finetune.py(51) : Epoch 12: instances 640/100000, batch 5, score 15.692319, loss -0.117531, elapsed 2.4s
+[2026-11-17 00:35:15] finetune.py(51) : Epoch 12: instances 12800/100000, batch 100, score 15.813181, loss -0.110904, elapsed 47.6s
+[2026-11-17 00:36:03] finetune.py(51) : Epoch 12: instances 25600/100000, batch 200, score 16.123013, loss -0.112068, elapsed 95.2s
+[2026-11-17 00:36:50] finetune.py(51) : Epoch 12: instances 38400/100000, batch 300, score 15.888659, loss -0.112209, elapsed 142.8s
+[2026-11-17 00:37:40] finetune.py(51) : Epoch 12: instances 51200/100000, batch 400, score 15.812531, loss -0.112278, elapsed 192.4s
+[2026-11-17 00:38:35] finetune.py(51) : Epoch 12: instances 64000/100000, batch 500, score 15.776403, loss -0.112405, elapsed 247.5s
+[2026-11-17 00:39:29] finetune.py(51) : Epoch 12: instances 76800/100000, batch 600, score 15.922913, loss -0.112371, elapsed 301.4s
+[2026-11-17 00:40:22] finetune.py(51) : Epoch 12: instances 89600/100000, batch 700, score 16.087440, loss -0.112671, elapsed 354.9s
+[2026-11-17 00:41:02] finetune.py(51) : Epoch 12: instances 100000/100000, batch 782, score 15.805279, loss -0.112871, elapsed 395.0s
+[2026-11-17 00:41:05] Trainer.py(389) : Epoch   12: 1000 CVRP100          ==> Score: 15.8919, Gap:  2.5042%
+[2026-11-17 00:41:05] Trainer.py(187) : Epoch   12: Average gap: 2.5042%
+[2026-11-17 00:41:05] Trainer.py(190) : Epoch   12: New best average gap: 2.5042%, saving best checkpoint
+[2026-11-17 00:41:05] Trainer.py(203) : Epoch   12/  30: Time Est.: Elapsed[1.26h (0.05d)], Remain[1.89h (0.08d)]
+[2026-11-17 00:41:05] Trainer.py(210) : Saving log_image
+[2026-11-17 00:41:05] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:41:05] Trainer.py(158) : ========================================================================
+[2026-11-17 00:41:05] Trainer.py(167) : Epoch   13: Current learning rate: 3e-05
+[2026-11-17 00:41:06] finetune.py(51) : Epoch 13: instances 128/100000, batch 1, score 15.661809, loss -0.099334, elapsed 0.5s
+[2026-11-17 00:41:06] finetune.py(51) : Epoch 13: instances 256/100000, batch 2, score 15.818733, loss -0.106149, elapsed 0.9s
+[2026-11-17 00:41:06] finetune.py(51) : Epoch 13: instances 384/100000, batch 3, score 15.852631, loss -0.109643, elapsed 1.4s
+[2026-11-17 00:41:07] finetune.py(51) : Epoch 13: instances 512/100000, batch 4, score 15.817705, loss -0.109150, elapsed 1.9s
+[2026-11-17 00:41:07] finetune.py(51) : Epoch 13: instances 640/100000, batch 5, score 15.765846, loss -0.108805, elapsed 2.4s
+[2026-11-17 00:41:53] finetune.py(51) : Epoch 13: instances 12800/100000, batch 100, score 15.936347, loss -0.113014, elapsed 47.5s
+[2026-11-17 00:42:40] finetune.py(51) : Epoch 13: instances 25600/100000, batch 200, score 15.858656, loss -0.112809, elapsed 95.2s
+[2026-11-17 00:43:28] finetune.py(51) : Epoch 13: instances 38400/100000, batch 300, score 15.715904, loss -0.112354, elapsed 142.8s
+[2026-11-17 00:44:18] finetune.py(51) : Epoch 13: instances 51200/100000, batch 400, score 15.812766, loss -0.112177, elapsed 193.4s
+[2026-11-17 00:45:07] finetune.py(51) : Epoch 13: instances 64000/100000, batch 500, score 15.773453, loss -0.112373, elapsed 242.0s
+[2026-11-17 00:45:55] finetune.py(51) : Epoch 13: instances 76800/100000, batch 600, score 15.931368, loss -0.112454, elapsed 290.1s
+[2026-11-17 00:46:43] finetune.py(51) : Epoch 13: instances 89600/100000, batch 700, score 15.816395, loss -0.112334, elapsed 337.9s
+[2026-11-17 00:47:22] finetune.py(51) : Epoch 13: instances 100000/100000, batch 782, score 15.612389, loss -0.112414, elapsed 376.7s
+[2026-11-17 00:47:24] Trainer.py(389) : Epoch   13: 1000 CVRP100          ==> Score: 15.8900, Gap:  2.4918%
+[2026-11-17 00:47:24] Trainer.py(187) : Epoch   13: Average gap: 2.4918%
+[2026-11-17 00:47:24] Trainer.py(190) : Epoch   13: New best average gap: 2.4918%, saving best checkpoint
+[2026-11-17 00:47:24] Trainer.py(203) : Epoch   13/  30: Time Est.: Elapsed[1.37h (0.06d)], Remain[1.79h (0.07d)]
+[2026-11-17 00:47:24] Trainer.py(210) : Saving log_image
+[2026-11-17 00:47:24] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:47:24] Trainer.py(158) : ========================================================================
+[2026-11-17 00:47:24] Trainer.py(167) : Epoch   14: Current learning rate: 3e-05
+[2026-11-17 00:47:25] finetune.py(51) : Epoch 14: instances 128/100000, batch 1, score 15.894728, loss -0.116827, elapsed 0.5s
+[2026-11-17 00:47:25] finetune.py(51) : Epoch 14: instances 256/100000, batch 2, score 15.885895, loss -0.110730, elapsed 0.9s
+[2026-11-17 00:47:26] finetune.py(51) : Epoch 14: instances 384/100000, batch 3, score 16.045759, loss -0.115657, elapsed 1.5s
+[2026-11-17 00:47:26] finetune.py(51) : Epoch 14: instances 512/100000, batch 4, score 16.171322, loss -0.115777, elapsed 2.0s
+[2026-11-17 00:47:27] finetune.py(51) : Epoch 14: instances 640/100000, batch 5, score 15.821475, loss -0.116227, elapsed 2.4s
+[2026-11-17 00:48:12] finetune.py(51) : Epoch 14: instances 12800/100000, batch 100, score 15.822853, loss -0.109809, elapsed 47.7s
+[2026-11-17 00:48:59] finetune.py(51) : Epoch 14: instances 25600/100000, batch 200, score 15.993176, loss -0.111762, elapsed 95.2s
+[2026-11-17 00:49:47] finetune.py(51) : Epoch 14: instances 38400/100000, batch 300, score 15.989902, loss -0.111714, elapsed 142.6s
+[2026-11-17 00:50:35] finetune.py(51) : Epoch 14: instances 51200/100000, batch 400, score 15.976521, loss -0.111969, elapsed 191.0s
+[2026-11-17 00:51:27] finetune.py(51) : Epoch 14: instances 64000/100000, batch 500, score 15.957964, loss -0.112055, elapsed 242.4s
+[2026-11-17 00:52:15] finetune.py(51) : Epoch 14: instances 76800/100000, batch 600, score 16.230629, loss -0.112367, elapsed 290.8s
+[2026-11-17 00:53:05] finetune.py(51) : Epoch 14: instances 89600/100000, batch 700, score 15.672573, loss -0.112271, elapsed 340.7s
+[2026-11-17 00:53:45] finetune.py(51) : Epoch 14: instances 100000/100000, batch 782, score 15.216961, loss -0.112271, elapsed 381.2s
+[2026-11-17 00:53:48] Trainer.py(389) : Epoch   14: 1000 CVRP100          ==> Score: 15.8964, Gap:  2.5336%
+[2026-11-17 00:53:48] Trainer.py(187) : Epoch   14: Average gap: 2.5336%
+[2026-11-17 00:53:48] Trainer.py(203) : Epoch   14/  30: Time Est.: Elapsed[1.47h (0.06d)], Remain[1.68h (0.07d)]
+[2026-11-17 00:53:48] Trainer.py(210) : Saving log_image
+[2026-11-17 00:53:48] Trainer.py(216) : Saving trained_model
+[2026-11-17 00:53:48] Trainer.py(158) : ========================================================================
+[2026-11-17 00:53:48] Trainer.py(167) : Epoch   15: Current learning rate: 3e-05
+[2026-11-17 00:53:48] finetune.py(51) : Epoch 15: instances 128/100000, batch 1, score 15.777615, loss -0.104804, elapsed 0.5s
+[2026-11-17 00:53:49] finetune.py(51) : Epoch 15: instances 256/100000, batch 2, score 15.837534, loss -0.106111, elapsed 1.0s
+[2026-11-17 00:53:49] finetune.py(51) : Epoch 15: instances 384/100000, batch 3, score 15.996348, loss -0.100484, elapsed 1.5s
+[2026-11-17 00:53:50] finetune.py(51) : Epoch 15: instances 512/100000, batch 4, score 16.098705, loss -0.104273, elapsed 2.0s
+[2026-11-17 00:53:50] finetune.py(51) : Epoch 15: instances 640/100000, batch 5, score 16.132393, loss -0.105407, elapsed 2.4s
+[2026-11-17 00:54:42] finetune.py(51) : Epoch 15: instances 12800/100000, batch 100, score 15.716608, loss -0.112950, elapsed 54.1s
+[2026-11-17 00:55:33] finetune.py(51) : Epoch 15: instances 25600/100000, batch 200, score 15.763037, loss -0.112982, elapsed 105.4s
+[2026-11-17 00:56:21] finetune.py(51) : Epoch 15: instances 38400/100000, batch 300, score 15.853895, loss -0.113131, elapsed 153.4s
+[2026-11-17 00:57:13] finetune.py(51) : Epoch 15: instances 51200/100000, batch 400, score 16.077339, loss -0.113188, elapsed 205.1s
+[2026-11-17 00:58:03] finetune.py(51) : Epoch 15: instances 64000/100000, batch 500, score 16.000233, loss -0.113061, elapsed 255.2s
+[2026-11-17 00:58:55] finetune.py(51) : Epoch 15: instances 76800/100000, batch 600, score 15.784305, loss -0.113223, elapsed 307.4s
+[2026-11-17 00:59:44] finetune.py(51) : Epoch 15: instances 89600/100000, batch 700, score 16.042311, loss -0.113559, elapsed 355.9s
+[2026-11-17 01:00:23] finetune.py(51) : Epoch 15: instances 100000/100000, batch 782, score 16.385578, loss -0.113711, elapsed 395.1s
+[2026-11-17 01:00:25] Trainer.py(389) : Epoch   15: 1000 CVRP100          ==> Score: 15.8962, Gap:  2.5321%
+[2026-11-17 01:00:25] Trainer.py(187) : Epoch   15: Average gap: 2.5321%
+[2026-11-17 01:00:25] Trainer.py(203) : Epoch   15/  30: Time Est.: Elapsed[1.58h (0.07d)], Remain[1.58h (0.07d)]
+[2026-11-17 01:00:25] Trainer.py(210) : Saving log_image
+[2026-11-17 01:00:25] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:00:25] Trainer.py(158) : ========================================================================
+[2026-11-17 01:00:25] Trainer.py(167) : Epoch   16: Current learning rate: 3e-05
+[2026-11-17 01:00:26] finetune.py(51) : Epoch 16: instances 128/100000, batch 1, score 15.872287, loss -0.109524, elapsed 0.5s
+[2026-11-17 01:00:26] finetune.py(51) : Epoch 16: instances 256/100000, batch 2, score 15.956884, loss -0.116625, elapsed 0.9s
+[2026-11-17 01:00:27] finetune.py(51) : Epoch 16: instances 384/100000, batch 3, score 16.064554, loss -0.118549, elapsed 1.4s
+[2026-11-17 01:00:27] finetune.py(51) : Epoch 16: instances 512/100000, batch 4, score 16.027414, loss -0.119396, elapsed 1.9s
+[2026-11-17 01:00:28] finetune.py(51) : Epoch 16: instances 640/100000, batch 5, score 15.742542, loss -0.115410, elapsed 2.4s
+[2026-11-17 01:01:13] finetune.py(51) : Epoch 16: instances 12800/100000, batch 100, score 15.922247, loss -0.113635, elapsed 47.5s
+[2026-11-17 01:02:01] finetune.py(51) : Epoch 16: instances 25600/100000, batch 200, score 15.879066, loss -0.113211, elapsed 95.1s
+[2026-11-17 01:02:48] finetune.py(51) : Epoch 16: instances 38400/100000, batch 300, score 15.768553, loss -0.113283, elapsed 142.9s
+[2026-11-17 01:03:36] finetune.py(51) : Epoch 16: instances 51200/100000, batch 400, score 15.845291, loss -0.113101, elapsed 190.5s
+[2026-11-17 01:04:23] finetune.py(51) : Epoch 16: instances 64000/100000, batch 500, score 15.811125, loss -0.113037, elapsed 238.0s
+[2026-11-17 01:05:11] finetune.py(51) : Epoch 16: instances 76800/100000, batch 600, score 15.938240, loss -0.112695, elapsed 285.4s
+[2026-11-17 01:05:58] finetune.py(51) : Epoch 16: instances 89600/100000, batch 700, score 15.934492, loss -0.112622, elapsed 332.9s
+[2026-11-17 01:06:37] finetune.py(51) : Epoch 16: instances 100000/100000, batch 782, score 16.059349, loss -0.112491, elapsed 371.8s
+[2026-11-17 01:06:39] Trainer.py(389) : Epoch   16: 1000 CVRP100          ==> Score: 15.8852, Gap:  2.4609%
+[2026-11-17 01:06:39] Trainer.py(187) : Epoch   16: Average gap: 2.4609%
+[2026-11-17 01:06:39] Trainer.py(190) : Epoch   16: New best average gap: 2.4609%, saving best checkpoint
+[2026-11-17 01:06:40] Trainer.py(203) : Epoch   16/  30: Time Est.: Elapsed[1.69h (0.07d)], Remain[1.48h (0.06d)]
+[2026-11-17 01:06:40] Trainer.py(210) : Saving log_image
+[2026-11-17 01:06:40] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:06:40] Trainer.py(158) : ========================================================================
+[2026-11-17 01:06:40] Trainer.py(167) : Epoch   17: Current learning rate: 3e-05
+[2026-11-17 01:06:40] finetune.py(51) : Epoch 17: instances 128/100000, batch 1, score 15.682007, loss -0.114444, elapsed 0.5s
+[2026-11-17 01:06:41] finetune.py(51) : Epoch 17: instances 256/100000, batch 2, score 16.037556, loss -0.112375, elapsed 1.0s
+[2026-11-17 01:06:41] finetune.py(51) : Epoch 17: instances 384/100000, batch 3, score 16.049664, loss -0.109179, elapsed 1.4s
+[2026-11-17 01:06:42] finetune.py(51) : Epoch 17: instances 512/100000, batch 4, score 15.972607, loss -0.109422, elapsed 1.9s
+[2026-11-17 01:06:42] finetune.py(51) : Epoch 17: instances 640/100000, batch 5, score 15.793032, loss -0.110824, elapsed 2.4s
+[2026-11-17 01:07:27] finetune.py(51) : Epoch 17: instances 12800/100000, batch 100, score 16.010946, loss -0.112766, elapsed 47.5s
+[2026-11-17 01:08:15] finetune.py(51) : Epoch 17: instances 25600/100000, batch 200, score 15.688450, loss -0.112358, elapsed 95.0s
+[2026-11-17 01:09:02] finetune.py(51) : Epoch 17: instances 38400/100000, batch 300, score 16.134218, loss -0.112732, elapsed 142.6s
+[2026-11-17 01:09:50] finetune.py(51) : Epoch 17: instances 51200/100000, batch 400, score 16.084957, loss -0.112635, elapsed 190.0s
+[2026-11-17 01:10:37] finetune.py(51) : Epoch 17: instances 64000/100000, batch 500, score 16.016582, loss -0.112892, elapsed 237.4s
+[2026-11-17 01:11:25] finetune.py(51) : Epoch 17: instances 76800/100000, batch 600, score 16.215399, loss -0.113101, elapsed 284.9s
+[2026-11-17 01:12:12] finetune.py(51) : Epoch 17: instances 89600/100000, batch 700, score 15.731773, loss -0.113085, elapsed 332.4s
+[2026-11-17 01:12:51] finetune.py(51) : Epoch 17: instances 100000/100000, batch 782, score 15.673338, loss -0.113093, elapsed 371.2s
+[2026-11-17 01:12:53] Trainer.py(389) : Epoch   17: 1000 CVRP100          ==> Score: 15.8940, Gap:  2.5181%
+[2026-11-17 01:12:53] Trainer.py(187) : Epoch   17: Average gap: 2.5181%
+[2026-11-17 01:12:53] Trainer.py(203) : Epoch   17/  30: Time Est.: Elapsed[1.79h (0.07d)], Remain[1.37h (0.06d)]
+[2026-11-17 01:12:53] Trainer.py(210) : Saving log_image
+[2026-11-17 01:12:53] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:12:53] Trainer.py(158) : ========================================================================
+[2026-11-17 01:12:53] Trainer.py(167) : Epoch   18: Current learning rate: 3e-05
+[2026-11-17 01:12:54] finetune.py(51) : Epoch 18: instances 128/100000, batch 1, score 16.292755, loss -0.108523, elapsed 0.5s
+[2026-11-17 01:12:54] finetune.py(51) : Epoch 18: instances 256/100000, batch 2, score 16.143526, loss -0.114153, elapsed 0.9s
+[2026-11-17 01:12:55] finetune.py(51) : Epoch 18: instances 384/100000, batch 3, score 15.813849, loss -0.111954, elapsed 1.4s
+[2026-11-17 01:12:55] finetune.py(51) : Epoch 18: instances 512/100000, batch 4, score 15.893509, loss -0.110479, elapsed 1.9s
+[2026-11-17 01:12:56] finetune.py(51) : Epoch 18: instances 640/100000, batch 5, score 15.801043, loss -0.109873, elapsed 2.4s
+[2026-11-17 01:13:41] finetune.py(51) : Epoch 18: instances 12800/100000, batch 100, score 15.971437, loss -0.112365, elapsed 47.5s
+[2026-11-17 01:14:28] finetune.py(51) : Epoch 18: instances 25600/100000, batch 200, score 15.963912, loss -0.112266, elapsed 94.9s
+[2026-11-17 01:15:16] finetune.py(51) : Epoch 18: instances 38400/100000, batch 300, score 15.597607, loss -0.111990, elapsed 142.3s
+[2026-11-17 01:16:03] finetune.py(51) : Epoch 18: instances 51200/100000, batch 400, score 15.946647, loss -0.112409, elapsed 189.8s
+[2026-11-17 01:16:50] finetune.py(51) : Epoch 18: instances 64000/100000, batch 500, score 16.114885, loss -0.112510, elapsed 237.2s
+[2026-11-17 01:17:38] finetune.py(51) : Epoch 18: instances 76800/100000, batch 600, score 15.867588, loss -0.112257, elapsed 284.7s
+[2026-11-17 01:18:25] finetune.py(51) : Epoch 18: instances 89600/100000, batch 700, score 15.727710, loss -0.112262, elapsed 332.1s
+[2026-11-17 01:19:04] finetune.py(51) : Epoch 18: instances 100000/100000, batch 782, score 15.868193, loss -0.112239, elapsed 370.9s
+[2026-11-17 01:19:06] Trainer.py(389) : Epoch   18: 1000 CVRP100          ==> Score: 15.8921, Gap:  2.5058%
+[2026-11-17 01:19:06] Trainer.py(187) : Epoch   18: Average gap: 2.5058%
+[2026-11-17 01:19:06] Trainer.py(203) : Epoch   18/  30: Time Est.: Elapsed[1.89h (0.08d)], Remain[1.26h (0.05d)]
+[2026-11-17 01:19:06] Trainer.py(210) : Saving log_image
+[2026-11-17 01:19:06] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:19:07] Trainer.py(158) : ========================================================================
+[2026-11-17 01:19:07] Trainer.py(167) : Epoch   19: Current learning rate: 3e-05
+[2026-11-17 01:19:07] finetune.py(51) : Epoch 19: instances 128/100000, batch 1, score 15.387024, loss -0.095743, elapsed 0.5s
+[2026-11-17 01:19:08] finetune.py(51) : Epoch 19: instances 256/100000, batch 2, score 16.093449, loss -0.106942, elapsed 0.9s
+[2026-11-17 01:19:08] finetune.py(51) : Epoch 19: instances 384/100000, batch 3, score 16.135328, loss -0.109170, elapsed 1.4s
+[2026-11-17 01:19:09] finetune.py(51) : Epoch 19: instances 512/100000, batch 4, score 15.847744, loss -0.112033, elapsed 1.9s
+[2026-11-17 01:19:09] finetune.py(51) : Epoch 19: instances 640/100000, batch 5, score 16.095293, loss -0.111635, elapsed 2.4s
+[2026-11-17 01:19:54] finetune.py(51) : Epoch 19: instances 12800/100000, batch 100, score 15.809555, loss -0.111205, elapsed 47.5s
+[2026-11-17 01:20:41] finetune.py(51) : Epoch 19: instances 25600/100000, batch 200, score 15.772070, loss -0.111675, elapsed 94.9s
+[2026-11-17 01:21:29] finetune.py(51) : Epoch 19: instances 38400/100000, batch 300, score 15.964058, loss -0.111510, elapsed 142.3s
+[2026-11-17 01:22:16] finetune.py(51) : Epoch 19: instances 51200/100000, batch 400, score 15.566284, loss -0.111235, elapsed 189.7s
+[2026-11-17 01:23:04] finetune.py(51) : Epoch 19: instances 64000/100000, batch 500, score 16.306969, loss -0.111107, elapsed 237.4s
+[2026-11-17 01:23:51] finetune.py(51) : Epoch 19: instances 76800/100000, batch 600, score 16.043098, loss -0.111020, elapsed 284.8s
+[2026-11-17 01:24:39] finetune.py(51) : Epoch 19: instances 89600/100000, batch 700, score 15.964804, loss -0.110889, elapsed 332.3s
+[2026-11-17 01:25:18] finetune.py(51) : Epoch 19: instances 100000/100000, batch 782, score 15.946961, loss -0.110864, elapsed 371.1s
+[2026-11-17 01:25:20] Trainer.py(389) : Epoch   19: 1000 CVRP100          ==> Score: 15.9002, Gap:  2.5575%
+[2026-11-17 01:25:20] Trainer.py(187) : Epoch   19: Average gap: 2.5575%
+[2026-11-17 01:25:20] Trainer.py(203) : Epoch   19/  30: Time Est.: Elapsed[2.00h (0.08d)], Remain[1.16h (0.05d)]
+[2026-11-17 01:25:20] Trainer.py(210) : Saving log_image
+[2026-11-17 01:25:20] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:25:20] Trainer.py(158) : ========================================================================
+[2026-11-17 01:25:20] Trainer.py(167) : Epoch   20: Current learning rate: 3e-05
+[2026-11-17 01:25:21] finetune.py(51) : Epoch 20: instances 128/100000, batch 1, score 16.057465, loss -0.111575, elapsed 0.5s
+[2026-11-17 01:25:21] finetune.py(51) : Epoch 20: instances 256/100000, batch 2, score 15.998198, loss -0.111744, elapsed 0.9s
+[2026-11-17 01:25:22] finetune.py(51) : Epoch 20: instances 384/100000, batch 3, score 15.904601, loss -0.113344, elapsed 1.4s
+[2026-11-17 01:25:22] finetune.py(51) : Epoch 20: instances 512/100000, batch 4, score 15.852494, loss -0.113322, elapsed 1.9s
+[2026-11-17 01:25:22] finetune.py(51) : Epoch 20: instances 640/100000, batch 5, score 15.745209, loss -0.113079, elapsed 2.4s
+[2026-11-17 01:26:08] finetune.py(51) : Epoch 20: instances 12800/100000, batch 100, score 15.739103, loss -0.113116, elapsed 47.5s
+[2026-11-17 01:26:55] finetune.py(51) : Epoch 20: instances 25600/100000, batch 200, score 15.988627, loss -0.112629, elapsed 94.9s
+[2026-11-17 01:27:42] finetune.py(51) : Epoch 20: instances 38400/100000, batch 300, score 15.783669, loss -0.111942, elapsed 142.4s
+[2026-11-17 01:28:30] finetune.py(51) : Epoch 20: instances 51200/100000, batch 400, score 16.029858, loss -0.111808, elapsed 189.8s
+[2026-11-17 01:29:17] finetune.py(51) : Epoch 20: instances 64000/100000, batch 500, score 15.733482, loss -0.112057, elapsed 237.3s
+[2026-11-17 01:30:05] finetune.py(51) : Epoch 20: instances 76800/100000, batch 600, score 15.937429, loss -0.111526, elapsed 284.7s
+[2026-11-17 01:30:52] finetune.py(51) : Epoch 20: instances 89600/100000, batch 700, score 15.853426, loss -0.111660, elapsed 332.1s
+[2026-11-17 01:31:31] finetune.py(51) : Epoch 20: instances 100000/100000, batch 782, score 15.668737, loss -0.111531, elapsed 371.0s
+[2026-11-17 01:31:33] Trainer.py(389) : Epoch   20: 1000 CVRP100          ==> Score: 15.9009, Gap:  2.5623%
+[2026-11-17 01:31:33] Trainer.py(187) : Epoch   20: Average gap: 2.5623%
+[2026-11-17 01:31:33] Trainer.py(203) : Epoch   20/  30: Time Est.: Elapsed[2.10h (0.09d)], Remain[1.05h (0.04d)]
+[2026-11-17 01:31:33] Trainer.py(210) : Saving log_image
+[2026-11-17 01:31:33] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:31:34] Trainer.py(158) : ========================================================================
+[2026-11-17 01:31:34] Trainer.py(167) : Epoch   21: Current learning rate: 3e-05
+[2026-11-17 01:31:34] finetune.py(51) : Epoch 21: instances 128/100000, batch 1, score 15.931183, loss -0.119895, elapsed 0.5s
+[2026-11-17 01:31:34] finetune.py(51) : Epoch 21: instances 256/100000, batch 2, score 15.999033, loss -0.115834, elapsed 0.9s
+[2026-11-17 01:31:35] finetune.py(51) : Epoch 21: instances 384/100000, batch 3, score 15.722753, loss -0.113761, elapsed 1.4s
+[2026-11-17 01:31:35] finetune.py(51) : Epoch 21: instances 512/100000, batch 4, score 15.959146, loss -0.117425, elapsed 1.9s
+[2026-11-17 01:31:36] finetune.py(51) : Epoch 21: instances 640/100000, batch 5, score 15.858683, loss -0.119036, elapsed 2.4s
+[2026-11-17 01:32:21] finetune.py(51) : Epoch 21: instances 12800/100000, batch 100, score 16.016155, loss -0.111881, elapsed 47.4s
+[2026-11-17 01:33:08] finetune.py(51) : Epoch 21: instances 25600/100000, batch 200, score 15.872297, loss -0.112457, elapsed 94.8s
+[2026-11-17 01:33:56] finetune.py(51) : Epoch 21: instances 38400/100000, batch 300, score 15.752258, loss -0.112592, elapsed 142.3s
+[2026-11-17 01:34:43] finetune.py(51) : Epoch 21: instances 51200/100000, batch 400, score 15.595274, loss -0.112687, elapsed 189.7s
+[2026-11-17 01:35:31] finetune.py(51) : Epoch 21: instances 64000/100000, batch 500, score 15.816829, loss -0.112467, elapsed 237.1s
+[2026-11-17 01:36:18] finetune.py(51) : Epoch 21: instances 76800/100000, batch 600, score 16.034121, loss -0.112328, elapsed 284.5s
+[2026-11-17 01:37:06] finetune.py(51) : Epoch 21: instances 89600/100000, batch 700, score 16.060198, loss -0.112191, elapsed 332.0s
+[2026-11-17 01:37:44] finetune.py(51) : Epoch 21: instances 100000/100000, batch 782, score 15.525652, loss -0.112185, elapsed 370.8s
+[2026-11-17 01:37:46] Trainer.py(389) : Epoch   21: 1000 CVRP100          ==> Score: 15.8949, Gap:  2.5236%
+[2026-11-17 01:37:47] Trainer.py(187) : Epoch   21: Average gap: 2.5236%
+[2026-11-17 01:37:47] Trainer.py(203) : Epoch   21/  30: Time Est.: Elapsed[2.21h (0.09d)], Remain[56.71m]
+[2026-11-17 01:37:47] Trainer.py(210) : Saving log_image
+[2026-11-17 01:37:47] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:37:47] Trainer.py(158) : ========================================================================
+[2026-11-17 01:37:47] Trainer.py(167) : Epoch   22: Current learning rate: 3e-05
+[2026-11-17 01:37:47] finetune.py(51) : Epoch 22: instances 128/100000, batch 1, score 16.156374, loss -0.106099, elapsed 0.5s
+[2026-11-17 01:37:48] finetune.py(51) : Epoch 22: instances 256/100000, batch 2, score 15.901491, loss -0.103162, elapsed 0.9s
+[2026-11-17 01:37:48] finetune.py(51) : Epoch 22: instances 384/100000, batch 3, score 15.686420, loss -0.104132, elapsed 1.5s
+[2026-11-17 01:37:49] finetune.py(51) : Epoch 22: instances 512/100000, batch 4, score 15.967932, loss -0.104527, elapsed 2.0s
+[2026-11-17 01:37:49] finetune.py(51) : Epoch 22: instances 640/100000, batch 5, score 16.163250, loss -0.105966, elapsed 2.4s
+[2026-11-17 01:38:34] finetune.py(51) : Epoch 22: instances 12800/100000, batch 100, score 15.758348, loss -0.111073, elapsed 47.4s
+[2026-11-17 01:39:22] finetune.py(51) : Epoch 22: instances 25600/100000, batch 200, score 15.927719, loss -0.111391, elapsed 94.9s
+[2026-11-17 01:40:09] finetune.py(51) : Epoch 22: instances 38400/100000, batch 300, score 15.819321, loss -0.111899, elapsed 142.3s
+[2026-11-17 01:40:57] finetune.py(51) : Epoch 22: instances 51200/100000, batch 400, score 15.752203, loss -0.111622, elapsed 189.8s
+[2026-11-17 01:41:44] finetune.py(51) : Epoch 22: instances 64000/100000, batch 500, score 15.748107, loss -0.111406, elapsed 237.2s
+[2026-11-17 01:42:32] finetune.py(51) : Epoch 22: instances 76800/100000, batch 600, score 15.992702, loss -0.111204, elapsed 284.8s
+[2026-11-17 01:43:19] finetune.py(51) : Epoch 22: instances 89600/100000, batch 700, score 15.907028, loss -0.111070, elapsed 332.3s
+[2026-11-17 01:43:58] finetune.py(51) : Epoch 22: instances 100000/100000, batch 782, score 15.519114, loss -0.110926, elapsed 371.1s
+[2026-11-17 01:44:00] Trainer.py(389) : Epoch   22: 1000 CVRP100          ==> Score: 15.9008, Gap:  2.5614%
+[2026-11-17 01:44:00] Trainer.py(187) : Epoch   22: Average gap: 2.5614%
+[2026-11-17 01:44:00] Trainer.py(203) : Epoch   22/  30: Time Est.: Elapsed[2.31h (0.10d)], Remain[50.38m]
+[2026-11-17 01:44:00] Trainer.py(210) : Saving log_image
+[2026-11-17 01:44:00] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:44:00] Trainer.py(158) : ========================================================================
+[2026-11-17 01:44:00] Trainer.py(167) : Epoch   23: Current learning rate: 3e-05
+[2026-11-17 01:44:01] finetune.py(51) : Epoch 23: instances 128/100000, batch 1, score 15.890035, loss -0.110351, elapsed 0.5s
+[2026-11-17 01:44:01] finetune.py(51) : Epoch 23: instances 256/100000, batch 2, score 15.786147, loss -0.111796, elapsed 0.9s
+[2026-11-17 01:44:02] finetune.py(51) : Epoch 23: instances 384/100000, batch 3, score 15.502026, loss -0.114822, elapsed 1.4s
+[2026-11-17 01:44:02] finetune.py(51) : Epoch 23: instances 512/100000, batch 4, score 15.996500, loss -0.115153, elapsed 1.9s
+[2026-11-17 01:44:03] finetune.py(51) : Epoch 23: instances 640/100000, batch 5, score 16.169834, loss -0.116368, elapsed 2.4s
+[2026-11-17 01:44:48] finetune.py(51) : Epoch 23: instances 12800/100000, batch 100, score 15.943813, loss -0.110912, elapsed 47.4s
+[2026-11-17 01:45:35] finetune.py(51) : Epoch 23: instances 25600/100000, batch 200, score 16.292408, loss -0.111090, elapsed 94.9s
+[2026-11-17 01:46:23] finetune.py(51) : Epoch 23: instances 38400/100000, batch 300, score 15.940568, loss -0.110919, elapsed 142.4s
+[2026-11-17 01:47:10] finetune.py(51) : Epoch 23: instances 51200/100000, batch 400, score 15.731081, loss -0.111253, elapsed 189.8s
+[2026-11-17 01:47:58] finetune.py(51) : Epoch 23: instances 64000/100000, batch 500, score 15.974167, loss -0.111444, elapsed 237.2s
+[2026-11-17 01:48:45] finetune.py(51) : Epoch 23: instances 76800/100000, batch 600, score 15.696082, loss -0.111242, elapsed 284.7s
+[2026-11-17 01:49:32] finetune.py(51) : Epoch 23: instances 89600/100000, batch 700, score 15.845013, loss -0.111059, elapsed 332.1s
+[2026-11-17 01:50:11] finetune.py(51) : Epoch 23: instances 100000/100000, batch 782, score 16.281694, loss -0.111157, elapsed 370.9s
+[2026-11-17 01:50:13] Trainer.py(389) : Epoch   23: 1000 CVRP100          ==> Score: 15.8952, Gap:  2.5258%
+[2026-11-17 01:50:13] Trainer.py(187) : Epoch   23: Average gap: 2.5258%
+[2026-11-17 01:50:13] Trainer.py(203) : Epoch   23/  30: Time Est.: Elapsed[2.41h (0.10d)], Remain[44.06m]
+[2026-11-17 01:50:13] Trainer.py(210) : Saving log_image
+[2026-11-17 01:50:14] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:50:14] Trainer.py(158) : ========================================================================
+[2026-11-17 01:50:14] Trainer.py(167) : Epoch   24: Current learning rate: 3e-05
+[2026-11-17 01:50:14] finetune.py(51) : Epoch 24: instances 128/100000, batch 1, score 15.702795, loss -0.124887, elapsed 0.5s
+[2026-11-17 01:50:15] finetune.py(51) : Epoch 24: instances 256/100000, batch 2, score 16.159813, loss -0.118820, elapsed 0.9s
+[2026-11-17 01:50:15] finetune.py(51) : Epoch 24: instances 384/100000, batch 3, score 15.810238, loss -0.119917, elapsed 1.4s
+[2026-11-17 01:50:16] finetune.py(51) : Epoch 24: instances 512/100000, batch 4, score 15.705061, loss -0.116246, elapsed 1.9s
+[2026-11-17 01:50:16] finetune.py(51) : Epoch 24: instances 640/100000, batch 5, score 15.843053, loss -0.117734, elapsed 2.4s
+[2026-11-17 01:51:01] finetune.py(51) : Epoch 24: instances 12800/100000, batch 100, score 16.042957, loss -0.112407, elapsed 47.5s
+[2026-11-17 01:51:49] finetune.py(51) : Epoch 24: instances 25600/100000, batch 200, score 15.946045, loss -0.111210, elapsed 94.9s
+[2026-11-17 01:52:36] finetune.py(51) : Epoch 24: instances 38400/100000, batch 300, score 15.910805, loss -0.110835, elapsed 142.3s
+[2026-11-17 01:53:24] finetune.py(51) : Epoch 24: instances 51200/100000, batch 400, score 15.695293, loss -0.110409, elapsed 189.8s
+[2026-11-17 01:54:11] finetune.py(51) : Epoch 24: instances 64000/100000, batch 500, score 15.937566, loss -0.110138, elapsed 237.2s
+[2026-11-17 01:54:58] finetune.py(51) : Epoch 24: instances 76800/100000, batch 600, score 15.845037, loss -0.110009, elapsed 284.7s
+[2026-11-17 01:55:46] finetune.py(51) : Epoch 24: instances 89600/100000, batch 700, score 16.070786, loss -0.109987, elapsed 332.1s
+[2026-11-17 01:56:25] finetune.py(51) : Epoch 24: instances 100000/100000, batch 782, score 15.159145, loss -0.110211, elapsed 370.9s
+[2026-11-17 01:56:27] Trainer.py(389) : Epoch   24: 1000 CVRP100          ==> Score: 15.8932, Gap:  2.5127%
+[2026-11-17 01:56:27] Trainer.py(187) : Epoch   24: Average gap: 2.5127%
+[2026-11-17 01:56:27] Trainer.py(203) : Epoch   24/  30: Time Est.: Elapsed[2.52h (0.10d)], Remain[37.75m]
+[2026-11-17 01:56:27] Trainer.py(210) : Saving log_image
+[2026-11-17 01:56:27] Trainer.py(216) : Saving trained_model
+[2026-11-17 01:56:27] Trainer.py(158) : ========================================================================
+[2026-11-17 01:56:27] Trainer.py(167) : Epoch   25: Current learning rate: 3e-05
+[2026-11-17 01:56:27] finetune.py(51) : Epoch 25: instances 128/100000, batch 1, score 15.887848, loss -0.097176, elapsed 0.5s
+[2026-11-17 01:56:28] finetune.py(51) : Epoch 25: instances 256/100000, batch 2, score 16.010353, loss -0.110232, elapsed 0.9s
+[2026-11-17 01:56:28] finetune.py(51) : Epoch 25: instances 384/100000, batch 3, score 15.704258, loss -0.107677, elapsed 1.4s
+[2026-11-17 01:56:29] finetune.py(51) : Epoch 25: instances 512/100000, batch 4, score 15.849382, loss -0.108097, elapsed 1.9s
+[2026-11-17 01:56:29] finetune.py(51) : Epoch 25: instances 640/100000, batch 5, score 15.607268, loss -0.107300, elapsed 2.4s
+[2026-11-17 01:57:14] finetune.py(51) : Epoch 25: instances 12800/100000, batch 100, score 15.747045, loss -0.110879, elapsed 47.5s
+[2026-11-17 01:58:02] finetune.py(51) : Epoch 25: instances 25600/100000, batch 200, score 16.000820, loss -0.110955, elapsed 94.9s
+[2026-11-17 01:58:49] finetune.py(51) : Epoch 25: instances 38400/100000, batch 300, score 15.824995, loss -0.110992, elapsed 142.4s
+[2026-11-17 01:59:37] finetune.py(51) : Epoch 25: instances 51200/100000, batch 400, score 15.979073, loss -0.111011, elapsed 189.9s
+[2026-11-17 02:00:24] finetune.py(51) : Epoch 25: instances 64000/100000, batch 500, score 16.059036, loss -0.111183, elapsed 237.3s
+[2026-11-17 02:01:12] finetune.py(51) : Epoch 25: instances 76800/100000, batch 600, score 15.964401, loss -0.111355, elapsed 284.9s
+[2026-11-17 02:01:59] finetune.py(51) : Epoch 25: instances 89600/100000, batch 700, score 15.845846, loss -0.111400, elapsed 332.4s
+[2026-11-17 02:02:38] finetune.py(51) : Epoch 25: instances 100000/100000, batch 782, score 16.452335, loss -0.111273, elapsed 371.2s
+[2026-11-17 02:02:40] Trainer.py(389) : Epoch   25: 1000 CVRP100          ==> Score: 15.8954, Gap:  2.5270%
+[2026-11-17 02:02:40] Trainer.py(187) : Epoch   25: Average gap: 2.5270%
+[2026-11-17 02:02:40] Trainer.py(203) : Epoch   25/  30: Time Est.: Elapsed[2.62h (0.11d)], Remain[31.44m]
+[2026-11-17 02:02:40] Trainer.py(210) : Saving log_image
+[2026-11-17 02:02:40] Trainer.py(216) : Saving trained_model
+[2026-11-17 02:02:41] Trainer.py(158) : ========================================================================
+[2026-11-17 02:02:41] Trainer.py(167) : Epoch   26: Current learning rate: 3e-06
+[2026-11-17 02:02:41] finetune.py(51) : Epoch 26: instances 128/100000, batch 1, score 15.693103, loss -0.110177, elapsed 0.5s
+[2026-11-17 02:02:41] finetune.py(51) : Epoch 26: instances 256/100000, batch 2, score 15.706940, loss -0.115547, elapsed 0.9s
+[2026-11-17 02:02:42] finetune.py(51) : Epoch 26: instances 384/100000, batch 3, score 15.979065, loss -0.113877, elapsed 1.4s
+[2026-11-17 02:02:42] finetune.py(51) : Epoch 26: instances 512/100000, batch 4, score 15.657436, loss -0.114554, elapsed 1.9s
+[2026-11-17 02:02:43] finetune.py(51) : Epoch 26: instances 640/100000, batch 5, score 15.704988, loss -0.116085, elapsed 2.4s
+[2026-11-17 02:03:28] finetune.py(51) : Epoch 26: instances 12800/100000, batch 100, score 15.814560, loss -0.111985, elapsed 47.4s
+[2026-11-17 02:04:15] finetune.py(51) : Epoch 26: instances 25600/100000, batch 200, score 15.853829, loss -0.111292, elapsed 94.8s
+[2026-11-17 02:05:03] finetune.py(51) : Epoch 26: instances 38400/100000, batch 300, score 15.966553, loss -0.111168, elapsed 142.3s
+[2026-11-17 02:05:50] finetune.py(51) : Epoch 26: instances 51200/100000, batch 400, score 15.874769, loss -0.110817, elapsed 189.7s
+[2026-11-17 02:06:38] finetune.py(51) : Epoch 26: instances 64000/100000, batch 500, score 15.675442, loss -0.110808, elapsed 237.1s
+[2026-11-17 02:07:25] finetune.py(51) : Epoch 26: instances 76800/100000, batch 600, score 15.733789, loss -0.110680, elapsed 284.5s
+[2026-11-17 02:08:13] finetune.py(51) : Epoch 26: instances 89600/100000, batch 700, score 15.796285, loss -0.110571, elapsed 332.0s
+[2026-11-17 02:08:51] finetune.py(51) : Epoch 26: instances 100000/100000, batch 782, score 16.560972, loss -0.110638, elapsed 370.8s
+[2026-11-17 02:08:53] Trainer.py(389) : Epoch   26: 1000 CVRP100          ==> Score: 15.8916, Gap:  2.5022%
+[2026-11-17 02:08:53] Trainer.py(187) : Epoch   26: Average gap: 2.5022%
+[2026-11-17 02:08:53] Trainer.py(203) : Epoch   26/  30: Time Est.: Elapsed[2.72h (0.11d)], Remain[25.14m]
+[2026-11-17 02:08:53] Trainer.py(210) : Saving log_image
+[2026-11-17 02:08:54] Trainer.py(216) : Saving trained_model
+[2026-11-17 02:08:54] Trainer.py(158) : ========================================================================
+[2026-11-17 02:08:54] Trainer.py(167) : Epoch   27: Current learning rate: 3e-06
+[2026-11-17 02:08:54] finetune.py(51) : Epoch 27: instances 128/100000, batch 1, score 15.867214, loss -0.119908, elapsed 0.5s
+[2026-11-17 02:08:55] finetune.py(51) : Epoch 27: instances 256/100000, batch 2, score 15.851251, loss -0.114779, elapsed 0.9s
+[2026-11-17 02:08:55] finetune.py(51) : Epoch 27: instances 384/100000, batch 3, score 15.904495, loss -0.112399, elapsed 1.4s
+[2026-11-17 02:08:56] finetune.py(51) : Epoch 27: instances 512/100000, batch 4, score 15.812342, loss -0.109773, elapsed 1.9s
+[2026-11-17 02:08:56] finetune.py(51) : Epoch 27: instances 640/100000, batch 5, score 15.733995, loss -0.109643, elapsed 2.4s
+[2026-11-17 02:09:41] finetune.py(51) : Epoch 27: instances 12800/100000, batch 100, score 16.111610, loss -0.110569, elapsed 47.4s
+[2026-11-17 02:10:29] finetune.py(51) : Epoch 27: instances 25600/100000, batch 200, score 15.816676, loss -0.110950, elapsed 94.9s
+[2026-11-17 02:11:16] finetune.py(51) : Epoch 27: instances 38400/100000, batch 300, score 16.149313, loss -0.110729, elapsed 142.4s
+[2026-11-17 02:12:04] finetune.py(51) : Epoch 27: instances 51200/100000, batch 400, score 15.725124, loss -0.110712, elapsed 189.9s
+[2026-11-17 02:12:51] finetune.py(51) : Epoch 27: instances 64000/100000, batch 500, score 15.871895, loss -0.110947, elapsed 237.3s
+[2026-11-17 02:13:38] finetune.py(51) : Epoch 27: instances 76800/100000, batch 600, score 16.035391, loss -0.110798, elapsed 284.8s
+[2026-11-17 02:14:26] finetune.py(51) : Epoch 27: instances 89600/100000, batch 700, score 15.899717, loss -0.110792, elapsed 332.4s
+[2026-11-17 02:15:05] finetune.py(51) : Epoch 27: instances 100000/100000, batch 782, score 16.327959, loss -0.110832, elapsed 371.2s
+[2026-11-17 02:15:07] Trainer.py(389) : Epoch   27: 1000 CVRP100          ==> Score: 15.8890, Gap:  2.4856%
+[2026-11-17 02:15:07] Trainer.py(187) : Epoch   27: Average gap: 2.4856%
+[2026-11-17 02:15:07] Trainer.py(203) : Epoch   27/  30: Time Est.: Elapsed[2.83h (0.12d)], Remain[18.85m]
+[2026-11-17 02:15:07] Trainer.py(210) : Saving log_image
+[2026-11-17 02:15:07] Trainer.py(216) : Saving trained_model
+[2026-11-17 02:15:07] Trainer.py(158) : ========================================================================
+[2026-11-17 02:15:07] Trainer.py(167) : Epoch   28: Current learning rate: 3e-06
+[2026-11-17 02:15:08] finetune.py(51) : Epoch 28: instances 128/100000, batch 1, score 15.967894, loss -0.091803, elapsed 0.5s
+[2026-11-17 02:15:08] finetune.py(51) : Epoch 28: instances 256/100000, batch 2, score 15.854726, loss -0.103169, elapsed 0.9s
+[2026-11-17 02:15:09] finetune.py(51) : Epoch 28: instances 384/100000, batch 3, score 15.919044, loss -0.101356, elapsed 1.4s
+[2026-11-17 02:15:09] finetune.py(51) : Epoch 28: instances 512/100000, batch 4, score 15.846283, loss -0.101621, elapsed 1.9s
+[2026-11-17 02:15:10] finetune.py(51) : Epoch 28: instances 640/100000, batch 5, score 15.858302, loss -0.103829, elapsed 2.4s
+[2026-11-17 02:15:55] finetune.py(51) : Epoch 28: instances 12800/100000, batch 100, score 15.893475, loss -0.109921, elapsed 47.5s
+[2026-11-17 02:16:42] finetune.py(51) : Epoch 28: instances 25600/100000, batch 200, score 15.765324, loss -0.110090, elapsed 95.1s
+[2026-11-17 02:17:30] finetune.py(51) : Epoch 28: instances 38400/100000, batch 300, score 15.814796, loss -0.110274, elapsed 142.6s
+[2026-11-17 02:18:17] finetune.py(51) : Epoch 28: instances 51200/100000, batch 400, score 15.806902, loss -0.110607, elapsed 190.1s
+[2026-11-17 02:19:05] finetune.py(51) : Epoch 28: instances 64000/100000, batch 500, score 15.842333, loss -0.110877, elapsed 237.4s
+[2026-11-17 02:19:52] finetune.py(51) : Epoch 28: instances 76800/100000, batch 600, score 15.936168, loss -0.110876, elapsed 284.9s
+[2026-11-17 02:20:40] finetune.py(51) : Epoch 28: instances 89600/100000, batch 700, score 15.774467, loss -0.111062, elapsed 332.3s
+[2026-11-17 02:21:19] finetune.py(51) : Epoch 28: instances 100000/100000, batch 782, score 15.734050, loss -0.111134, elapsed 371.2s
+[2026-11-17 02:21:21] Trainer.py(389) : Epoch   28: 1000 CVRP100          ==> Score: 15.8886, Gap:  2.4831%
+[2026-11-17 02:21:21] Trainer.py(187) : Epoch   28: Average gap: 2.4831%
+[2026-11-17 02:21:21] Trainer.py(203) : Epoch   28/  30: Time Est.: Elapsed[2.93h (0.12d)], Remain[12.56m]
+[2026-11-17 02:21:21] Trainer.py(210) : Saving log_image
+[2026-11-17 02:21:21] Trainer.py(216) : Saving trained_model
+[2026-11-17 02:21:21] Trainer.py(158) : ========================================================================
+[2026-11-17 02:21:21] Trainer.py(167) : Epoch   29: Current learning rate: 3e-06
+[2026-11-17 02:21:21] finetune.py(51) : Epoch 29: instances 128/100000, batch 1, score 15.884800, loss -0.114796, elapsed 0.5s
+[2026-11-17 02:21:22] finetune.py(51) : Epoch 29: instances 256/100000, batch 2, score 15.704185, loss -0.110543, elapsed 0.9s
+[2026-11-17 02:21:22] finetune.py(51) : Epoch 29: instances 384/100000, batch 3, score 16.004076, loss -0.110311, elapsed 1.4s
+[2026-11-17 02:21:23] finetune.py(51) : Epoch 29: instances 512/100000, batch 4, score 15.901689, loss -0.108957, elapsed 1.9s
+[2026-11-17 02:21:23] finetune.py(51) : Epoch 29: instances 640/100000, batch 5, score 15.833666, loss -0.110566, elapsed 2.4s
+[2026-11-17 02:22:08] finetune.py(51) : Epoch 29: instances 12800/100000, batch 100, score 15.817646, loss -0.112157, elapsed 47.5s
+[2026-11-17 02:22:56] finetune.py(51) : Epoch 29: instances 25600/100000, batch 200, score 15.804930, loss -0.111788, elapsed 95.2s
+[2026-11-17 02:23:44] finetune.py(51) : Epoch 29: instances 38400/100000, batch 300, score 15.741049, loss -0.111278, elapsed 142.7s
+[2026-11-17 02:24:31] finetune.py(51) : Epoch 29: instances 51200/100000, batch 400, score 15.858783, loss -0.111242, elapsed 190.1s
+[2026-11-17 02:25:18] finetune.py(51) : Epoch 29: instances 64000/100000, batch 500, score 16.113348, loss -0.110931, elapsed 237.5s
+[2026-11-17 02:26:06] finetune.py(51) : Epoch 29: instances 76800/100000, batch 600, score 16.041590, loss -0.110784, elapsed 285.0s
+[2026-11-17 02:26:53] finetune.py(51) : Epoch 29: instances 89600/100000, batch 700, score 15.768289, loss -0.110789, elapsed 332.4s
+[2026-11-17 02:27:32] finetune.py(51) : Epoch 29: instances 100000/100000, batch 782, score 15.575082, loss -0.110932, elapsed 371.2s
+[2026-11-17 02:27:34] Trainer.py(389) : Epoch   29: 1000 CVRP100          ==> Score: 15.8884, Gap:  2.4815%
+[2026-11-17 02:27:34] Trainer.py(187) : Epoch   29: Average gap: 2.4815%
+[2026-11-17 02:27:34] Trainer.py(203) : Epoch   29/  30: Time Est.: Elapsed[3.04h (0.13d)], Remain[6.28m]
+[2026-11-17 02:27:34] Trainer.py(210) : Saving log_image
+[2026-11-17 02:27:34] Trainer.py(216) : Saving trained_model
+[2026-11-17 02:27:35] Trainer.py(158) : ========================================================================
+[2026-11-17 02:27:35] Trainer.py(167) : Epoch   30: Current learning rate: 3e-06
+[2026-11-17 02:27:35] finetune.py(51) : Epoch 30: instances 128/100000, batch 1, score 15.924228, loss -0.100989, elapsed 0.5s
+[2026-11-17 02:27:36] finetune.py(51) : Epoch 30: instances 256/100000, batch 2, score 15.735369, loss -0.105823, elapsed 0.9s
+[2026-11-17 02:27:36] finetune.py(51) : Epoch 30: instances 384/100000, batch 3, score 15.905790, loss -0.108185, elapsed 1.4s
+[2026-11-17 02:27:36] finetune.py(51) : Epoch 30: instances 512/100000, batch 4, score 16.037773, loss -0.111937, elapsed 1.9s
+[2026-11-17 02:27:37] finetune.py(51) : Epoch 30: instances 640/100000, batch 5, score 15.820309, loss -0.112307, elapsed 2.4s
+[2026-11-17 02:28:22] finetune.py(51) : Epoch 30: instances 12800/100000, batch 100, score 15.806661, loss -0.111887, elapsed 47.4s
+[2026-11-17 02:29:09] finetune.py(51) : Epoch 30: instances 25600/100000, batch 200, score 15.752444, loss -0.110940, elapsed 94.9s
+[2026-11-17 02:29:57] finetune.py(51) : Epoch 30: instances 38400/100000, batch 300, score 15.878293, loss -0.111156, elapsed 142.4s
+[2026-11-17 02:30:44] finetune.py(51) : Epoch 30: instances 51200/100000, batch 400, score 15.989726, loss -0.110683, elapsed 189.9s
+[2026-11-17 02:31:32] finetune.py(51) : Epoch 30: instances 64000/100000, batch 500, score 15.768167, loss -0.110626, elapsed 237.4s
+[2026-11-17 02:32:19] finetune.py(51) : Epoch 30: instances 76800/100000, batch 600, score 15.913533, loss -0.110575, elapsed 284.9s
+[2026-11-17 02:33:07] finetune.py(51) : Epoch 30: instances 89600/100000, batch 700, score 15.718374, loss -0.110810, elapsed 332.4s
+[2026-11-17 02:33:46] finetune.py(51) : Epoch 30: instances 100000/100000, batch 782, score 15.541557, loss -0.110858, elapsed 371.3s
+[2026-11-17 02:33:48] Trainer.py(389) : Epoch   30: 1000 CVRP100          ==> Score: 15.8879, Gap:  2.4785%
+[2026-11-17 02:33:48] Trainer.py(187) : Epoch   30: Average gap: 2.4785%
+[2026-11-17 02:33:48] Trainer.py(203) : Epoch   30/  30: Time Est.: Elapsed[3.14h (0.13d)], Remain[0.00m]
+[2026-11-17 02:33:48] Trainer.py(210) : Saving log_image
+[2026-11-17 02:33:48] Trainer.py(216) : Saving trained_model
+[2026-11-17 02:33:48] Trainer.py(226) :  *** Training Done *** 
+[2026-11-17 02:33:48] Trainer.py(227) : Now, printing log array...
+[2026-11-17 02:33:48] utils.py(270) : train_loss_list = [-0.11596212514877319, -0.11549291578054428, -0.11634200050592422, -0.11531912691116333, -0.11460115783691406, -0.11369266964435577, -0.11433798237323761, -0.11364863652944565, -0.11364183790445327, -0.11342722541809082, -0.11289997301340103, -0.11287127511262894, -0.11241382069349289, -0.11227126675844193, -0.11371062084674835, -0.11249057458400727, -0.11309275836229324, -0.11223888008594513, -0.11086359461784363, -0.11153112900018693, -0.11218464488744735, -0.11092638558864594, -0.111156705493927, -0.11021069874048232, -0.11127273716449737, -0.11063775009155273, -0.11083204905509948, -0.11113425567388535, -0.11093171384811401, -0.11085822038650513]
+[2026-11-17 02:33:48] utils.py(270) : cvrp_eval_100_list = [15.902092933654785, 15.903605461120605, 15.898958206176758, 15.9027738571167, 15.892304420471191, 15.903326988220215, 15.89258861541748, 15.89281177520752, 15.893860816955566, 15.897235870361328, 15.892641067504883, 15.891894340515137, 15.889959335327148, 15.896442413330078, 15.89621353149414, 15.885170936584473, 15.894041061401367, 15.892133712768555, 15.900156021118164, 15.900897026062012, 15.894889831542969, 15.900754928588867, 15.895238876342773, 15.893210411071777, 15.89542293548584, 15.891584396362305, 15.889006614685059, 15.88861083984375, 15.888371467590332, 15.887906074523926]
+[2026-11-17 02:33:48] utils.py(270) : cvrp_gap_100_list = [2.5700151920318604, 2.579771041870117, 2.5497958660125732, 2.5744071006774902, 2.50687837600708, 2.577974796295166, 2.508711338043213, 2.510150671005249, 2.5169172286987305, 2.538686513900757, 2.509049654006958, 2.5042331218719482, 2.4917521476745605, 2.5335686206817627, 2.532092332839966, 2.460866689682007, 2.5180797576904297, 2.50577712059021, 2.5575218200683594, 2.5623013973236084, 2.5235543251037598, 2.561384916305542, 2.525805711746216, 2.5127220153808594, 2.5269930362701416, 2.5022339820861816, 2.485607147216797, 2.4830543994903564, 2.4815104007720947, 2.478508472442627]

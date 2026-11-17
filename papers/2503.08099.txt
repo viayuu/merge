@@ -1,0 +1,1425 @@
+                                                               Whoever Started the Interference Should End It:
+                                                              Guiding Data-Free Model Merging via Task Vectors
+
+
+                                                            Runxi Cheng 1 * Feng Xiong 2 * Yongxian Wei 1 Wanyun Zhu 3 Chun Yuan 1 †
+
+
+                                                                 Abstract                                   1. Introduction
+                                                                                                            With the widespread adoption of the pre-training and fine-
+arXiv:2503.08099v2 [cs.LG] 11 Jun 2025
+
+
+
+
+                                                                                                            tuning paradigm, a large number of pre-trained and fine-
+                                              Model merging seeks to integrate task-specific                tuned checkpoints have been released in open-source com-
+                                              expert models into a unified architecture while               munities. However, directly applying multiple individual
+                                              preserving multi-task generalization capabilities,            models for multi-task problems incurs significant storage
+                                              yet parameter interference between constituent                costs. While multi-task learning has been employed to ad-
+                                              models frequently induces performance degrada-                dress this issue, it typically requires costly training and
+                                              tion. Although prior work has explored many                   poses potential privacy risks. Recently, model merging has
+                                              merging strategies, resolving interference without            emerged as a solution, enabling the integration of multiple
+                                              additional data for retraining or test-time com-              expert models into a single unified multi-task model without
+                                              putation remains challenging. In this paper, we               the need for expensive retraining on multi-task datasets.
+                                              theoretically demonstrate that the task vectors of
+                                              the linear layer constitute an approximate linear             However, due to interference among the expert models, the
+                                              subspace for its corresponding input. Therefore,              merged model exhibits a performance gap when compared
+                                              we can minimize interference under the guidance               to its corresponding expert models on specific tasks. Nu-
+                                              of task vectors. Based on this insight, we pro-               merous model merging approaches have been proposed to
+                                              pose WUDI-Merging (Whoever started the in-                    address this issue. Test-time adaptation model merging
+                                              terference shoUld enD It), a simple yet effective             methods, such as AdaMerging (Yang et al., 2024b) and
+                                              model merging method that eliminates interfer-                Surgery (Yang et al., 2024a), leverage unlabeled test data to
+                                              ence without any additional data or rescaling co-             resolve interference through reweighting or model editing.
+                                              efficients. Comprehensive empirical evaluations               MoE-like (Mixture-of-Experts) model merging methods, ex-
+                                              across vision and language benchmarks demon-                  emplified by EMR-Merging (Huang et al., 2024), retain
+                                              strate our method’s superiority, achieving state-             additional task-specific parameters, such as task-specific
+                                              of-the-art performance in data-free model merg-               masks, to prevent interference when integrating diverse ex-
+                                              ing scenarios (average 10.9% improvement ver-                 pert models into a unified model. While these approaches ef-
+                                              sus baseline methods) while even outperforming                fectively mitigate the interference, they require extra storage
+                                              mainstream test-time adaptation approaches by                 or access to test data. Conversely, data-free model merging
+                                              3.3%, and only very few computing resources are               methods, like Task Arithmetic (Ilharco et al., 2023), enable
+                                              required. The source code and implementation de-              model merging without additional data or storage require-
+                                              tails are available at https://github.com/                    ments, which is particularly advantageous when data privacy
+                                              nathanielyvo/WUDI-Merging.                                    or availability is a concern. However, due to the absence
+                                                                                                            of data, current data-free model merging techniques still
+                                                                                                            exhibit a performance gap compared to the aforementioned
+                                                                                                            methods and multi-task learning.
+                                            *                     1
+                                              Equal contribution    Tsinghua Shenzhen International         In this paper, we revisit the update process of fine-tuning
+                                         Graduate School, Tsinghua University 2 Guangdong Provin-
+                                         cial Key Laboratory of Novel Security Intelligence Tech-           phase. Consider a linear layer whose parameters are updated
+                                         nologies 3 CUHK-Shenzhen.       Correspondence to: Runxi           through gradient descent: each neuron’s weight adjustment
+                                         Cheng      <crx23@mails.tsinghua.edu.cn>,    Chun    Yuan          derives from the product of the learning rate, the gradient
+                                         <yuanc@sz.tsinghua.edu.cn>.                                        of its output, and the corresponding input vector. Crucially,
+                                                                                                            since the learning rate and total optimization steps always
+                                         Proceedings of the 42 nd International Conference on Machine
+                                         Learning, Vancouver, Canada. PMLR 267, 2025. Copyright 2025        remain constrained during standard fine-tuning procedures,
+                                         by the author(s).                                                  the corresponding inputs for individual samples remain con-
+
+                                                                                                        1
+                  Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+            Task Vectors 𝜏'              Corresponding Input       Coefficient
+                                                                                     introduced Fisher Merging, performing weighted model
+                                    𝑥!                         ·      𝛼!,#           merging by utilizing the Fisher information matrix to as-
+                                                  +
+                                    𝑥$                         ·      𝛼$,#
+                                                                                     sess the importance coefficient of expert models. Jin et al.
+                                                  +                                  (2023) addressed model merging by minimizing prediction
+                                    𝑥%                         ·      𝛼%,#           differences between the merged model and the expert mod-
+𝜏'#                             ≈
+                                                                                     els. Recently, Ilharco et al. (2023) demonstrated that we
+
+
+
+
+                                                 ···
+                                                                                     can effectively edit models by simply applying arithmetic
+      Approximate Linear Subspace   𝑥&                         ·      𝛼&,#
+                                                                                     operations to task vectors. However, the interference among
+       of The Corresponding Input                                                    expert models remains a significant challenge. Yadav et al.
+                                                                                     (2023) proposed Ties-Merging to resolve this challenge by
+Figure 1: The task vector constitude an approximate linear
+                                                                                     three novel steps. Yu et al. (2024) introduced DARE, which
+subspace of its corresponding input.
+                                                                                     resolves the merging interference by dropping parameters
+sistent across successive update iterations. The temporal                            and unscaling operations. Wang et al. (2024) introduced
+consistency indicated that the cumulative update to each                             Consensus Merging, which enhanced the overall perfor-
+neuron can be approximated as a weighted summation of                                mance of existing model merging methods by removing
+fixed input vectors, with coefficients determined by the prod-                       the selfish and catastrophic weights. Furthermore, Xiong
+uct of learning rates and corresponding gradient magnitudes.                         et al. (2024); Wei et al. (2025) proposed to align the loss be-
+This implies that the task vectors of a linear layer constitute                      tween the merged model and expert models. Although these
+an approximate linear subspace of the input, allowing us to                          methods alleviate interference between experts to some ex-
+implicitly utilize training data information solely through                          tent, a gap still exists between data-free model merging and
+the task vectors. In this context, the task vectors are com-                         test-time adaptation model merging methods.
+puted by calculating the difference between the weights of
+the expert models and those of the pre-trained model.                                Test-time adaptation Model Merging: Test-time adapta-
+                                                                                     tion model merging leverages a portion of unlabeled test
+Based on this insight, we propose WUDI-Merging                                       data to resolve interference among expert models. Yang et al.
+(Whoever started the interference shoUd enD It), a simple                            (2024b) proposed AdaMerging, which utilized entropy min-
+yet effective data-free model merging method. We evaluate                            imization on unlabeled test samples as a heuristic objective
+our method on both vision and natural language processing                            function to learn the merging coefficients. In addition, Yang
+tasks, where our method significantly surpasses recent data-                         et al. (2024a) introduced Representation Surgery, which
+free model merging techniques and outperforms mainstream                             reduces representation bias by minimizing the distance be-
+test-time adaptation model merging methods. In Summary,                              tween the representations of the merged model and those of
+our contributions are summarized as follows:                                         individual models. Despite these methods are promising, a
+                                                                                     critical limitation of these methods lies in their reliance on
+      • Through detailed theoretical analysis, we have demon-                        access to test data, which may not be feasible in practice.
+        strated that the task vectors within the linear layer ap-
+        proximately form a linear subspace of the input space.                       MoE-like Model Merging: MoE-like model merging has
+                                                                                     emerged as a promising paradigm for leveraging multiple
+      • We propose WUDI-Merging, a simple yet effective
+                                                                                     specialized models while storing task-specific knowledge in
+        data-free model merging method that minimizes inter-
+                                                                                     multi-task learning scenarios. Huang et al. (2024) proposed
+        ference to the task vector without requiring any addi-
+                                                                                     EMR-Merging, which elect a unified model and uses task-
+        tional data, extra storage, or rescaling coefficients.
+                                                                                     specific masks for multi-task learning problems. Lu et al.
+      • Extensive evaluations have demonstrated that WUDI-                           (2024) introduced Twin-Merging, incorporating a router to
+        Merging achieves state-of-the-art performance in data-                       dynamically merge shared and exclusive knowledge based
+        free model merging, surpassing mainstream test-time                          on the test inputs. While these methods effectively mitigate
+        adaptation model merging methods.                                            interference issues in model merging, they present certain
+                                                                                     practical limitations. The requirement for storing multiple
+2. Related Work                                                                      task-specific components increases memory overhead.
+
+Current research primarily falls into three categories: Data-                        Although test-time adaptation and MoE-like methods have
+free, Test-time adaption, and MoE-like methods.                                      achieved remarkable results in resolving interference among
+                                                                                     expert models, their practical applicability is limited. This
+Data-Free Model Merging: Data-free model merging aims                                limitation arises from challenges such as data privacy con-
+to combine different expert models without any additional                            cerns, the need for extra storage, and the lack of parallelism
+data for retraining. Wortsman et al. (2022) proposed Simple                          in unified models. Therefore, in this paper, we primarily
+Averaging, which constructs the merged model by averaging                            focus on the data-free model merging.
+the parameters across all models. Matena & Raffel (2022)
+
+                                                                                 2
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+
+
+
+           Figure 2: The input consistency between the pretrained model and the fine-tuned model for ViT-B/32
+
+3. Methodology                                                        Interference of the Linear Layer. Let θ i,l , θ m,l denote the
+                                                                      parameters for the linear layer l of expert model for task i
+3.1. Preliminary of Model Merging                                     and merged model, respectively. Similarly, let τ i,l and τ m,l
+Notation. Formally, let θ denote the parameters of the                represent the corresponding task vectors associated with θ i,l
+pretrained model, and let θ i represent the parameters of the         and θ m,l . Additionally, we define corresponding input as
+expert model for task i, fine-tuned from θ. Following Task            xi,l . Then, we can formally define the interference of the
+Arithmetic (Ilharco et al., 2023), we define the task vector          l-th linear linear for task i as follows (Jin et al., 2023; Fang
+τ i for task i as the difference between the expert model and         et al., 2024; Zeng et al., 2019):
+the pretrained model:
+                                                                            Ji (τ m,l ) = Exi,l ∼p(xi,l ) ∥θ m,l xi,l − θ i,l xi,l ∥22         (3)
+                        τ i = θi − θ                       (1)                          = Exi,l ∼p(xi,l ) ∥τ m,l xi,l −       τ i,l xi,l ∥22   (4)
+We then define the merged task vector as τ m , and the final                            =   Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22                    (5)
+parameters of the merged model as θ m = θ + τ m
+The impact of the Linear Layer’s Task Vector. As demon-               3.2. Towards Understanding the Task Vector
+strated by Jin et al. (2023); Xiong et al. (2024), the task           In practical fine-tuning scenarios, the process typically em-
+vector in the linear layer encapsulates most of the capa-             ploys a small learning rate and is executed over a limited
+bilities of the expert models. As shown in Figure A.3, an             number of iterations and we assume the model is Lipschitz
+expert model utilizing only the task vector of the linear layer       continuous (Kim et al., 2021; Latorre et al., 2020; Fazlyab
+achieves performance comparable to that of the full expert            et al., 2019). Based on these, we propose Lemma 1 to
+model. Therefore, we primarily focus on the linear layers             analyze the consistency of the input for the linear layer l.
+of the model.
+                                                                      Lemma 1 (Input consistency). Let xpl , xql denote the input
+Interference Vector. Empirical observation (Ilharco et al.,           of the linear layer l after p and q (p > q) iterations during
+2023) reveals that task vectors for a certain pretrained model        fine-tuning, respectively. Denote ηi as the learning rate
+and task exhibit consistent directional characteristics within        of iteration i. Assume that the model before layer l is Cl -
+the parameter manifold. This directional consistency sug-             Lipschitz continuous, and the gradient of loss is bounded in
+gests that task vectors converge to local optima. Therefore,          ℓ2 -norm by Gl , then:
+for task i, we defined the rest of the weight in τ m as inter-                                             Pp
+ference vector δ i , which is formulated as:                                        ∥xpl − xql ∥2 ≤ Cl Gl ( i=q+1 ηi )           (6)
+
+                       δi = τ m − τ i                      (2)        The proof is in Appendix A.1.1.
+
+                                                                  3
+              Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+According to Lemma 1, the input of a individual sample                                an approximate linear subspace of its associated inputs. By
+to linear layer l remain highly consistent across different                           leveraging this property, we can exploit the training data
+iterations when both the learning rate and the number of                              information solely through the task vectors.
+iterations are small. We further validate this conclusion
+through an experimental study. Specifically, we compute                               3.3. Methodology
+the input consistency between the pre-trained model and the
+fine-tuned model, where the input of the pre-trained model                            In this section, we introduce WUDI-Merging (Whoever
+can be seen as x0l and the input of the expert model can be                           started the interference shoUd enD It), a simple yet effective
+seen as the xTl .                                                                     Data-Free Model Merging method that operates without
+                                                                                      the need for any additional data or rescaling coefficients.
+           ∆Direction = 1 − cos(xexpert , xpretrain )                      (7)        Building upon the insights from Section 3.2, we observe that
+                                                                                      the task vector constitutes an approximate linear subspace
+                                  |∥xexpert ∥2 − ∥xpretrain ∥2 |
+          ∆Magnitude =                                                     (8)        for its corresponding inputs. This property motivated us to
+                                         ∥xpretrain ∥2                                reconstruct the inputs by the task vectors:
+Where the xexpert and xpretrain represent the input of the ex-                                  PK
+                                                                                        xi,l = k=1 αi,l  k
+                                                                                                           (xi,l )(τ ki,l )⊤ + ε(xi,l ), xi,l ∈ Di,l
+pert model and the pretrained model, respectively. The result
+                                                                                                                                                 (13)
+is shown in Fig. 2. Most layers exhibit high consistency,
+with direction changes less than 0.4, indicating that the in-                                  k
+                                                                                      Where αi,l   (xi,l ) are the reconstruction coefficients of xi,l ,
+puts remains highly consistency between the pretrained and                            and ε(xi,l ) represents the reconstruction error. Then, we can
+fine-tuned models. With this observation, we reconsider the                           reformulate the interference of the linear layer l as follows:
+update process of the task vector, which can be formulated
+                                                                                                                    PK
+as follows:                                                                                                                 k
+                                                                                        Ji (τ m,l ) = Exi,l ∥δ i,l ( k=1 αi,l (xi,l )(τ ki,l )⊤
+         PT
+   τ kl = t=1 −ηt · ∂L(θ
+                            t−1
+                                )
+                                                           (9)                                                                              + ε(xi,l ))∥22 (14)
+                        ∂θ t−1    l,k
+
+          PT              PN      ∂L(θ t−1 )
+                                                            t−1 t−1
+                                                        ∂(θ l,k xn,l )                Based on these discussions, we propose Theorem 1:
+      =       t=1   −ηt      n=1 ∂(θ t−1 xt−1 )     ·         t−1
+                                                           ∂θ l,k
+                                                                          (10)
+                                     l,k  n,l                                         Theorem 1 (Upper bound of interference). Denote xi,l
+          PT              PN      ∂L(θ t−1 )                 ⊤                        as the linear layer l’s input of task i, δ i,l and τ i,l as the
+      =       t=1   −ηt      n=1 ∂(θ t−1 xt−1 )     ·(xt−1
+                                                       n,l )              (11)
+          |                  {z
+                                     l,k  n,l
+                                                }                                     linear layer l’s interference vector and task vector of task i,
+                          coefficient                                                 respectively, then:
+                                                                                                                                                       2
+where τ kl denote the task vector of neuron k in linear layer l,                       Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22 ≤ ωi,l
+                                                                                                                          1
+                                                                                                                              · δ i,l (τ i,l )⊤        F
+and θ t−1
+       l,k denote the parameters of neuron k in linear layer                                                                                2                  2
+                                                                                                                                         + ωi,l · ∥δ i,l ∥F (15)
+l at time t. According to Eq. 11, each neuron in the linear
+layer can be interpreted as a weighted sum of the inputs                                       1
+                                                                                      Where ωi,l      2
+                                                                                                 and ωi,l is the reconstruction constant. The proof
+across different iterations. Given that the inputs remain                             is in Appendix A.1.3.
+highly consistent across iterations, as previously established,
+we propose Proposition 1:                                                             According to Theorem 1, we can minimize the upper bound
+Proposition 1 (Approximate Linear Combination). Let                        τ kl       of interference for task i by:
+denote the task vector of neuron k in linear layer l. Con-                                                                        2                        2
+sider N input samples {xn }N                   t
+                                                                                                    1
+                                                                                               min ωi,l · δ i,l (τ i,l )⊤                2
+                                                                                                                                      + ωi,l · ∥δ i,l ∥F           (16)
+                                 n=1 ,and let xn,l denote the                                   δ i,l                             F
+corresponding input to layer l after t iteration for sample                                                                        2
+                                                                                                                        2         ωi,l         2
+xn during fine-tuning. Assume the gradient of the loss with                                ⇔ min δ i,l (τ i,l )⊤        F
+                                                                                                                            +      1 · ∥δ i,l ∥F                   (17)
+respect to the product τ kl xtn,l is bounded by Γl . Then, the                                  δ i,l                             ωi,l
+following inequality holds:
+                                                                                      However, the reconstruction constant is related to the actual
+          PN                            PT PT                                         input, which is inaccessible. As a substitute, we can use
+  τ kl − n=1 βn,l
+               k
+                  (xT n,l )
+                            ⊤
+                                ≤ Φl · ( t=1 i=t ηt ηi ).
+                              2                                                       an empirical coefficient ω. Consequently, we consider the
+                                                     (12)                             following optimization objective:
+                                k
+                                     PT        ∂L(θ t )
+where Φl = N ·Cl ·Gl ·Γl and βn,l = t=1 −ηt ∂(θt−1 xt ) .
+                                                                                                                              2                    2
+The proof is in Appendix A.1.2.
+                                                                    l,k   n,l
+                                                                                                        min δ i,l (τ i,l )⊤   F
+                                                                                                                                   + ω · ∥δ i,l ∥F                 (18)
+                                                                                                        δ i,l
+
+Consequently, each neuron in the linear layer can be approx-                          Given that task vectors of different scales can tolerate vary-
+imated as a weighted sum of its corresponding inputs. That                            ing degrees of deviation, we adjust our optimization accord-
+is to say, for linear layer l, the task vector τ i,l constitutes                      ingly. Specifically, we weight the loss of each task based
+
+                                                                                  4
+                Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+on the scale of its task vector. By weighting each loss with                  Algorithm 1 WUDI-Merging
+the square of the F-norm, we balance the interference of                       1: Input: pretrained model parameters θ; task vectors
+different tasks. Therefore, the final objective function can                        T = {τ i,l }P i=1 ; solution steps N ; learning rate ζ.
+be formulated as:                                                              2:   Output: merged multi-task model parameters              θm .
+                                                                                    ▷ Initialize merged task vector: τ 0m,l = i τ i,l .
+                                                                                                                                    P
+                     1                  ⊤ 2               2                    3:
+            P
+      min      i ∥τ ∥2 ( δ i,l (τ i,l )   F
+                                            + ω · ∥δ i,l ∥F )
+     {δ i,l }          i,l F
+                                                                               4:   for linear layer l ∈ {1, · · · , Ψ} do
+ ⇔ min
+                P      1
+                               ( (τ m,l − τ i,l )(τ i,l )⊤
+                                                             2                 5:      for n ∈ {1, · · · , N } do
+                 i ∥τ i,l ∥2                                 F
+     τ m,l                 F                                                   6:         ▷ Calculate loss by merged task vector and task
+                                                                 2                        vectors:
+                                         + ω · ∥τ m,l − τ i,l ∥F ) (19)                                                                    2
+                                                                                          Ll = i ∥τ 1 ∥2 (τ m,l − τ i,l )(τ i,l )⊤ F
+                                                                                                 P
+                                                                               7:
+                                                                                                         i,l F
+Then, we can get the close-form solution for Eq. 19,
+                                                                               8:         ▷ Update the merged task vector τ nm,l :
+ τ m,l = Matmul( i ∥τ 1 ∥2 τ i,l (τ ⊤
+                  P                                                                                                                      
+                                    i,l τ i,l + ωI),                                      τ nm,l = τ n−1                          n−1
+                         i,l                                                   9:                     m,l   −  ζ · ∇   n−1 Ll
+                                                                                                                     τ m,l      τ m,l ; T
+                      P F1
+                     ( i ∥τ ∥2 (τ ⊤ i,l τ i,l + ωI))
+                                                     −1
+                                                        ) (20)                10:      end for
+                                       i,l F
+                                                                              11:   end for
+The detailed derivation is in Appendix A.1.4. However,                        12:   ▷ Assemble the merged task vectors from all linear
+selecting a general regularization coefficient ω suitable for                       layers:
+different tasks is challenging. To address this issue, we                     13:   τ m = {τ N       Ψ
+                                                                                                m,l }l=1
+propose an alternative approach. Revisiting Eq.18, which                      14:   ▷ Calculate the Merged multi-task model parameters:
+can be seen as a form of ridge regression, and motivated                      15:   θm = θ + τ m
+by prior work (Smith et al., 2021; Wang et al., 2022; Zou
+et al., 2021) which have demonstrated that gradient descent
+methods such as SGD and Adam induce implicit regulariza-                      Baselines: We primarily compared WUDI-Merging with
+tion and shown better generalization in such problems, we                     recent data-free model merging methods, including Weight
+propose to solve the problem by using the gradient descent.                   Averaging (Wortsman et al., 2022), Fisher Merging (Matena
+Therefore, we can eliminate the regularization term, which                    & Raffel, 2022), RegMean (Jin et al., 2023), Task Arith-
+allows us to avoid the need to search for an appropriate co-                  metic (Ilharco et al., 2023), Ties-Merging (Yadav et al.,
+efficient. Accordingly, the loss function for gradient descent                2023), Consensus Merging (Wang et al., 2024), and
+is formulated as follows:                                                     PCB Merging (Du et al., 2024). Additionally, we com-
+                                                    2                         pared WUDI-Merging with mainstream test-time adapta-
+          Ll = i ∥τ 1 ∥2 (τ m,l − τ i,l )(τ i,l )⊤ F
+               P
+                                                          (21)
+                          i,l F
+                                                                              tion methods, namely Adamerging (Yang et al., 2024b) and
+Since the optimization of each linear layer is independent,                   Surgery (Yang et al., 2024a).
+we can sequentially solve the problem layer by layer, thereby                 Experiment Details. Our method only uses two hyperpa-
+avoiding significant computational overhead. The algorith-                    rameters. In practice, we used Adam optimizer and set the
+mic flow is detailed in Algorithm 1.                                          learning rate to 1e-5. The number of iterations is set to 300.
+                                                                              Following (Jin et al., 2023; Xiong et al., 2024), we only
+4. Experiment                                                                 applied our method to the linear layer in the model. We
+                                                                              provide more details in A.8
+4.1. Experimental Settings
+Datasets. For vision tasks, following (Yang et al., 2024b;                    4.2. Main Results
+Wang et al., 2024), we investigate multi-task model merging
+                                                                              Results of Visual Tasks. The main experimental results
+across eight image classification datasets. For discriminative
+                                                                              of vision tasks are presented in Tables 1, 2, and 10. These
+language tasks, we employ the GLUE (Wang et al., 2018) to
+                                                                              findings illustrate that a performance gap generally persists
+assess our method. For generative language tasks, follow-
+                                                                              between Test-Time Adaptation (TTA) methods and current
+ing Yu et al. (2024), we evaluate our method on instruction-
+                                                                              data-free methods. Compared to the aforementioned ap-
+following, mathematical reasoning and code-generation.
+                                                                              proaches, our proposed method notably outperforms all
+Models. For vision tasks, we employ the ViTs (Dosovit-                        existing methods without utilizing additional data or re-
+skiy et al., 2020) derived from CLIP (Radford et al., 2021),                  quiring extra storage. Specifically, on the ViT-B/32 model,
+including ViT-B/32, ViT-B/16 and ViT-L/14. For discrimi-                      WUDI-Merging achieves 8.9% performance improvement
+native language tasks, we employ the RoBERTa-Base (Liu                        over the sota data-free method PCB-Merging and surpasses
+et al., 2019) and RoBERTa-Large for evaluation. For gener-                    the leading TTA method AdaMerging++ by 4.1%. For the
+ative language tasks, we employ the Llama2 (Touvron et al.,                   ViT-L/14 model, WUDI-Merging exceeds PCB-Merging by
+2023) for evaluation.                                                         5.1% and outperforms AdaMerging++ by 1.6%. Notably,
+
+                                                                          5
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+              Table 1: Multi-task performance when merging ViT-B/32 models on 8-task vision benchmark.
+
+  Method                   SUN397    Cars     RESISC45         EuroSAT      SVHN      GTSRB      MNIST      DTD      Avg Acc
+                                                   Non-merging Methods
+  Pretrained                62.3      59.7       60.7        45.5            31.4      32.6        48.5      43.8      48.0
+  Individual                79.2      77.7       96.1        99.7            97.5      98.7        99.7      79.4      90.8
+  Traditional MTL           73.9      74.4       93.9        98.2            95.8      98.9        99.5      77.9      88.9
+                                                Test-time Adaptation Methods
+  AdaMerging                64.5      68.1       79.2           93.8       87.0        91.9        97.5      59.1      80.1
+  AdaMerging++              66.6      68.3       82.2           94.2       89.6        89.0        98.3      60.6      81.1
+  Representation Surgery    63.8      59.9       83.3           97.9       87.0        87.0        98.6      69.4      80.9
+                                                        Data-free Methods
+  Weight Averaging          65.3      63.4       71.4             71.7       64.2      52.8        87.5      50.1      65.8
+  Fisher Merging            68.6      69.2       70.7             66.4       72.9      51.1        87.9      59.9      68.3
+  RegMean                   65.3      63.5       75.6             78.6       78.1      67.4        93.7      52.0      71.8
+  Task Arithmetic           55.2      54.9       66.7             78.9       80.2      69.7        97.3      50.4      69.1
+  Ties-Merging              59.8      58.6       70.7             79.7       86.2      72.1        98.3      54.2      72.4
+  Consensus Merging         65.7      63.6       76.5             77.2       81.7      70.3        97.0      57.1      73.6
+  PCB Merging               66.7      65.5       78.5             79.3       86.4      77.1        98.2      59.1      76.3
+  WUDI-Merging (Ours)       71.1      71.0       85.7             95.6       94.2      94.7        99.5      69.7    85.2△8.9
+
+
+              Table 2: Multi-task performance when merging ViT-L/14 models on 8-task vision benchmark.
+
+  Method                   SUN397    Cars     RESISC45         EuroSAT      SVHN      GTSRB      MNIST      DTD      Avg Acc
+                                                   Non-merging Methods
+  Pretrained                66.8      77.7       71.0         59.9           58.4       50.5       76.3      55.3      64.5
+  Individual                82.3      92.4       97.4         100            98.1       99.2       99.7      84.1      94.2
+  Traditional MTL           80.8      90.6       96.3         96.3           97.6       99.1       99.6      84.4      93.5
+                                                Test-time Adaptation Methods
+  AdaMerging                79.0      90.3       90.8           96.2       93.4         98.0       99.0      79.9      90.8
+  AdaMerging++              79.4      90.3       91.6           97.4       93.4         97.5       99.0      79.2      91.0
+  Representation Surgery    75.7      84.4       93.1           98.8       91.3         93.4       99.1      76.1      89.0
+                                                     Date-free Methods
+  Weight Averaging          72.1      81.6       82.6          91.9          78.2       70.7       97.1      62.8      79.6
+  Fisher Merging            69.2      88.6       87.5          93.5          80.6       74.8       93.3      70.0      82.2
+  RegMean                   73.3      81.8       86.1          97.0          88.0       84.2       98.5      60.8      83.7
+  Task Arithmetic           73.9      82.1       86.6          94.1          87.9       86.7       98.9      65.6      84.5
+  Ties-Merging              76.5      85.0       89.3          95.7          90.3       83.3       99.0      68.8      86.0
+  Consensus Merging         75.0      84.3       89.4          95.6          88.3       82.4       98.9      68.0      85.2
+  PCB Merging               76.8      86.2       89.4          96.5          88.3       91.0       98.6      73.6      87.5
+  WUDI-Merging (Ours)       81.0      91.0       94.2          99.2          96.3       98.1       99.6      81.2    92.6△5.1
+
+
+
+our method lags behind supervised multi-task learning by           tasks. We observed 4.3% improvement over Ties-Merging
+only 4.7% and 0.9% on the ViT-B/32 and ViT-L/14 models.            (with DARE). However, regarding the results for code
+                                                                   tasks, our performance remained at an average level without
+Results of Language Tasks. Table 5 summarizes the results
+                                                                   achieving a significant advantage. Our analysis suggests
+for discriminative language tasks. In comparison to prior
+                                                                   that this may be attributed to substantial conflicts between
+studies, WUDI-Merging demonstrates substantial perfor-
+                                                                   the math and code tasks, leading to a considerable decline in
+mance improvements. Specifically, when evaluated against
+                                                                   one task’s performance when the other task excelled. This
+the advanced data-free approach Ties-Merging, WUDI-
+                                                                   phenomenon is also reflected in the results from alternative
+Merging achieved 19.7% improvement on the RoBERTa-
+                                                                   methods. Nevertheless, our overall average score remains
+Base model and 16.0% improvement on the RoBERTa-
+                                                                   significantly ahead of the current state-of-the-art.
+Large model. These findings strongly indicate the robust
+generalization capabilities of WUDI-Merging in language            Results of Merging LoRA Fine-tuned Models. To further
+tasks. Table 3 presents the results for generative language        demonstrate the generalizability of our method on LoRA
+
+
+                                                               6
+               Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+Table 3: Performance of merging decoder-based WizardLM-13B (LM), WizardMath-13B (Math), and llama-2-13b-
+codealpaca (Code) on all the datasets, we reported average normalized score.
+
+    Method                               AlpacaEval           GSM8K                  MATH           HumanEval          MBPP         Avg.
+    FT                                      100.0                 100.0              100.0            100.0            100.0        100.0
+    Task Arithmetic                         102.7                  91.0               70.5             50.0             87.7         80.4
+    TIES-Merging                            98.1                  97.4               68.1             60.0             89.4          82.6
+    Task Arithmetic (w/ DARE)               103.1                  88.0               72.5             63.3             92.9         84.0
+    TIES-Merging (w/ DARE)                  107.9                  90.3               65.6             80.0             92.4         87.2
+    WUDI-Merging (Ours)                     105.5                 105.9              103.3             58.3             84.7      91.5△4.3
+
+              Table 4: Experimental results of merging Flan-T5-base (LoRA fine-tuned) models on all eight tasks.
+
+  Method                          CoLA        MNLI          MRPC          QNLI               QQP     RTE        SST2      STSB       Avg.
+  Individual                      69.1         82.7          85.5             90.9           84.0     84.4      92.9       87.4      84.6
+  Ties-Merging                    68.3         56.3          79.4             89.8           83.7     79.4      91.6       71.2      77.5
+  AdaMerging++                    69.1         60.3          78.4             90.0           83.6     79.1      91.6       74.1      78.3
+  WUDI-Merging (Ours)             68.6         79.0          77.7             87.2           83.1     75.8      93.2       85.0    81.2△2.9
+
+
+
+Table 5: Multi-task performance when merging RoBERTa                           as observed in conventional settings. We hypothesize that
+models on 8-task GLUE benchmark. Following Lu et al.                           this arises from the random initialization of LoRA, which
+(2024), we reported average normalized score.                                  causes the task vector to accumulate gradients from nonzero
+                                                                               and thereby introduces a small amount of noise. This noise
+ Method                          RoBERTa-Base RoBERTa-Large                    degrades the task vector’s ability to reconstruct the corre-
+ Pretrained                         41.7                  38.2                 sponding input, leading to the observed performance gap.
+ Individual                         100.0                 100.0                Nevertheless, when evaluated under the LoRA-finetuned
+                                                                               model, WUDI still attains SOTA performance.
+ Weight Averaging                    52.6                 53.3
+ Task Arithmetic                     67.8                 70.9
+ Ties-Merging                        64.7                 72.4                 4.3. Ablation Study
+ Task Arithmetic (w/ DARE)           63.7                 70.9
+ Ties-Merging (w/ DARE)              65.6                 72.8                 Balanced Weight. In Eq. 19, we introduce a dynamic
+ WUDI-Merging (Ours)              85.3△19.7            88.8△16.0               weighting mechanism designed to balance the loss contri-
+                                                                               butions across multiple experts. The experimental results
+                                                                               presented in Table 7 demonstrate that the application of bal-
+Table 6: Experimental results of merging Qwen-14B (LoRA
+                                                                               anced weights significantly enhances generalization perfor-
+fine-tuned) models on all four tasks.
+                                                                               mance. This improvement further suggests that task vectors
+                                                                               with larger magnitudes exhibit greater resilience to higher
+Method                   MMLU TruthfulQA BBQ CNN              Avg.
+                                                                               levels of interference.
+Individual               68.35      53.34     93.53   19.46    58.67
+Task Arithmetic          67.56      52.33     78.38   20.54    54.70           Stabilization Analysis on Solution Steps. As shown in
+Ties-Merging (w/ DARE)   69.38      52.03     81.06   15.91    54.62           Fig. 4, we evaluate our method across a range of solution
+WUDI-Merging (Ours)      69.17      55.71     80.56   17.33 55.69△0.99
+                                                                               steps. The experimental results indicate a consistent in-
+                                                                               crease in accuracy across all datasets and models over it-
+                                                                               erations, with convergence typically achieved within 100
+fine-tuned models, we supplemented the experiments on                          to 200 iterations. These results underscore the generaliza-
+Flan-T5-base and Qwen-14. For merging LoRA, We first re-                       tion ability of our method and further highlight that only
+store LoRA matrix back into the task vector (τ i = Bi Ai ) ,                   a limited number of steps are required to reach a solution,
+then apply WUDI-Merging directly to τ i to obtain τ m , and                    thereby demonstrating the efficiency of our approach.
+merging it into θ. The experimental results obtained from
+merging Flan-T5-base (LoRA fine-tuned) models and Qwen-                        Stabilization Analysis on Task Numbers. To further in-
+14B (LoRA fine-tuned) are shown in the Table 4 and Table 6.                    vestigate the impact of task number on the performance
+We observed 0.99% improvement over Ties-Merging (with                          of WUDI-Merging, we conducted experiments by varying
+DARE) in Qwen-14B models, and 2.99% improvement over                           the number of tasks. Following the methodology outlined
+AdaMerging++ in Flan-T5 models. Experimental results                           in (Xiong et al., 2024; Wei et al., 2025), we sampled eight
+indicate that WUDI does not yield as large an improvement                      random subsets from the complete task set and calculated
+
+                                                                          7
+             Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+
+
+
+                   Figure 3: The interference of Task Arithmetic and WUDI-Merging for different layers.
+
+Table 7: The impact of applying balanced weighting to the
+loss function. We report the performance when merging
+RoBERTa models on 8-task GLUE benchmark.
+
+   Method               RoBERTa-Base        RoBERTa-Large
+   Task Arithmetic            67.8               70.9
+   Ours (w/o Balance)         77.4               82.4
+   Ours (w/ Balance)          85.3               88.8
+                                                                                    (a)                            (b)
+                                                                      Figure 4: Figure (a) presents the results obtained at different
+the average accuracy of the merged model across these sub-            stages of the solution process; Figure (b) presents the result
+sets. As shown in Fig. 4, all methods exhibit a decline in            of varying the number of tasks.
+average accuracy as the number of tasks increases, indi-
+cating heightened conflicts and interference among expert
+models. Baseline methods such as Task Arithmetic and
+Ties-Merging experience more pronounced performance
+drops, while WUDI-Merging consistently maintains higher
+accuracy as the number of tasks increases. This finding
+highlights the exceptional robustness of WUDI-Merging
+and its effective mitigation of task interference in multi-task
+learning scenarios.
+                                                                                    (a)                           (b)
+4.4. Further Analysis                                                 Figure 5: Figure (a) displays the results obtained using
+Comparison between Adam Optimization and Closed-                      the closed-form solution with varying regularization coef-
+Form Solution. While WUDI-Merging requires very few                   ficients; Figure (b) shows the results for different merging
+GPU resources for optimization, we also present a closed-             coefficients applied during the merging process.
+form solution for scenarios where GPU resources are not
+available. Specifically, beginning from Eq. 19, we derive             Analysis on Rescaling Coefficient. In this section, we
+the closed-form expression outlined in Eq. 20, which we re-           evaluated WUDI-Merging’s performance across a range of
+fer to as WUDI-Merging-CFS. Furthermore, we investigate               scaling coefficients to analyze the effect of the rescaling
+the influence of the regularization term on the closed-form           coefficient on WUDI-Merging. The rescaling coefficient is
+solution. As shown in Fig. 5, WUDI-Merging demonstrates               defined as θm = θ + ϵ · τ m .
+greater stability by utilizing implicit optimization through
+                                                                      Where ϵ is the rescaling coefficient. As shown in Fig. 5,
+the Adam optimizer. In contrast, WUDI-Merging-CFS is
+                                                                      WUDI-Merging achieves optimal performance for the mod-
+sensitive to the choice of regularization coefficient; more-
+                                                                      els ViT-B/32, ViT-B/16, and ViT-L/14 when ϵ is approx-
+over, its overall performance is typically inferior to that
+                                                                      imately 1. The results suggest that our method did not
+achieved with the Adam optimizer. Therefore, we suggest
+                                                                      necessitate the tuning of the rescaling coefficient. In other
+that employing gradient descent via Adam optimization is a
+                                                                      words, WUDI-Merging is rescaling-free.
+more effective strategy for solving Eq. 19. This assertion is
+further corroborated by previous studies (Smith et al., 2021;         The Interference of Each Layer. The evaluation of layer-
+Wang et al., 2022; Zou et al., 2021).                                 wise interference is presented in Fig. 3. The results indicate
+
+                                                                  8
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+
+
+
+Figure 6: Performance comparison when utilizing a subset of task vectors or random vectors for optimizing the loss function.
+
+Table 8: Computational time and gpu memory requirements.               The corresponding loss is computed as:
+                                                                                          n
+ Model       Solving steps    Solving Time      GPU Memory
+                                                                                          X       1                        ⊤
+                                                                                 Lsub =               2 (τ m − τ i ) τ sub
+                                                                                                                       i        (25)
+                                                                                                ∥τ i ∥F
+ ViT-B/32         300           1min54s           3.03GB                                  i=1
+ ViT-L/14         300           8min23s           4.02GB               The experimental results are presented in Fig. 6. The find-
+                                                                       ings indicate that the random linear subspace yielded poor
+Table 9: Comparison of different merging methods in terms              performance. Conversely, we observed that utilizing a more
+of accuracy, time, and GPU memory usage under the setting              complete task vector consistently led to improved results.
+of ViT-B/32.                                                           Notably, when the reconstruction was performed using the
+                                                                       linear subspace formed by the complete task vector, we
+ Method                      Accuracy Time GPU Memory                  achieved the best performance. These results underscore the
+ Ties Merging                 72.4      4s           0GB               necessity of employing the entire task vector for effective
+ Adamerging                   81.1    127min       17.1GB              reconstruction.
+ WUDI-Merging-CFS (CPU)       84.4      5s           0GB
+ WUDI-Merging-CFS (GPU)       84.4      2s          1.8GB
+                                                                       Computation Resource. To assess the computational ef-
+ WUDI-Merging                 85.2    1min54s      4.0GB               ficiency of our method, we measured the solving time and
+                                                                       GPU memory usage on the ViT-B/32 and ViT-L/14 archi-
+                                                                       tectures. The number of solving steps was fixed at 300, and
+that interference accumulates progressively as the depth of
+                                                                       the Adam optimizer was employed with the loss optimized
+the network increases. Specifically, task arithmetic intro-
+                                                                       sequentially, layer by layer. As shown in Table 8, executing
+duces a relative error of nearly 50% in the final output. In
+                                                                       our method on the ViT-B/32 architecture requires approx-
+contrast, our proposed method significantly mitigates this in-
+                                                                       imately 2 minutes and 3 GB of GPU memory. Even for
+terference compared to task arithmetic and effectively slows
+                                                                       the larger ViT-L/14 architecture model, it only necessitates
+the rate of interference accumulation.
+                                                                       about 8 minutes and 4 GB of GPU memory. These results
+Selection of Linear Subspace. Reconsidering Eq. 13, we                 indicate that our method is highly computationally efficient.
+investigate whether the entire task vector linear subspace is
+optimal for reconstruction in a data-free scenario. To verify          5. Conclusion
+this point, we employed both random vectors and a subset of
+the task vectors to optimize the loss. For the random vectors,         In this paper, we demonstrate that the task vectors constitute
+we sample them from a Gaussian distribution where the                  an approximate linear subspace of the corresponding input
+mean and standard deviation are computed from the original             for the linear layer. Therefore, we can minimize the interfer-
+task vectors:                                                          ence among expert models guided by the task vector. Based
+                    τ random
+                      i      ∼ N (µi , σi2 )             (22)          on the insight, we propose WUDI-Merging, a simple yet
+                                                                       effective model merging method that resolves interferences
+where µi = mean(τ i ), σi = std(τ i ). The loss is given by:           without requiring any additional data or rescaling coeffi-
+                 X     1                           ⊤                  cients. Extensive empirical evaluations demonstrate the ef-
+     Lrandom =             2 (τ m − τ i ) τ random
+                                            i               (23)       fectiveness of our method. We believe that this work is one
+                     ∥τ i ∥F
+                                                                       step toward a simple and general-purpose data-free model
+For the subset of task vectors, we sample a random subvector           merging technique. Further research may consider a more
+from the original task vector as follows:                              detailed way to resolve the conflict based on our method,
+                                                                       which has the potential to reach the performance of multi-
+                 τ sub
+                   i = τ i [rand index, :]                  (24)       task learning in the data-free model merging paradigm.
+
+                                                                   9
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+Acknowledgments                                                       Dubois, Y., Galambosi, B., Liang, P., and Hashimoto, T. B.
+                                                                        Length-controlled alpacaeval: A simple way to debias
+This work is supported by the National Key R&D Pro-                     automatic evaluators. arXiv preprint arXiv:2404.04475,
+gram of China (2022YFB4701400/4701402), SSTIC Grant                     2024.
+(KJZD20230923115106012, KJZD20230923114916032,
+GJHZ20240218113604008), Beijing Key Lab of Networked                  Fang, J., Jiang, H., Wang, K., Ma, Y., Wang, X., He,
+Multimedia.                                                             X., and Chua, T.-s. Alphaedit: Null-space constrained
+                                                                        knowledge editing for language models. arXiv preprint
+Impact Statement                                                        arXiv:2410.02355, 2024.
+
+This paper presents work whose goal is to advance the field           Fazlyab, M., Robey, A., Hassani, H., Morari, M., and Pap-
+of Machine Learning. There are many potential societal                  pas, G. Efficient and accurate estimation of lipschitz
+consequences of our work, none which we feel must be                    constants for deep neural networks. Advances in neural
+specifically highlighted here.                                          information processing systems, 32, 2019.
+
+                                                                      Helber, P., Bischke, B., Dengel, A., and Borth, D. Eurosat:
+References
+                                                                        A novel dataset and deep learning benchmark for land
+Austin, J., Odena, A., Nye, M., Bosma, M., Michalewski,                 use and land cover classification. IEEE Journal of Se-
+  H., Dohan, D., Jiang, E., Cai, C., Terry, M., Le, Q., et al.          lected Topics in Applied Earth Observations and Remote
+  Program synthesis with large language models. arXiv                   Sensing, 12(7):2217–2226, 2019.
+  preprint arXiv:2108.07732, 2021.
+                                                                      Hendrycks, D., Burns, C., Kadavath, S., Arora, A., Basart,
+Chen, M., Tworek, J., Jun, H., Yuan, Q., Pinto, H. P. D. O.,            S., Tang, E., Song, D., and Steinhardt, J. Measuring math-
+  Kaplan, J., Edwards, H., Burda, Y., Joseph, N., Brockman,             ematical problem solving with the math dataset. arXiv
+  G., et al. Evaluating large language models trained on                preprint arXiv:2103.03874, 2021.
+  code. arXiv preprint arXiv:2107.03374, 2021.
+Cheng, G., Han, J., and Lu, X. Remote sensing image scene             Huang, C., Ye, P., Chen, T., He, T., Yue, X., and Ouyang,
+  classification: Benchmark and state of the art. Proceed-             W. Emr-merging: Tuning-free high-performance model
+  ings of the IEEE, 105(10):1865–1883, 2017.                            merging. arXiv preprint arXiv:2405.17461, 2024.
+
+Cimpoi, M., Maji, S., Kokkinos, I., Mohamed, S., and                  Ilharco, G., Ribeiro, M. T., Wortsman, M., Schmidt, L.,
+  Vedaldi, A. Describing textures in the wild. In Pro-                   Hajishirzi, H., and Farhadi, A. Editing models with task
+  ceedings of the IEEE conference on computer vision and                 arithmetic. In Proceedings of the Eleventh International
+  pattern recognition, pp. 3606–3613, 2014.                              Conference on Learning Representations, 2023.
+Cobbe, K., Kosaraju, V., Bavarian, M., Chen, M., Jun, H.,             Jin, X., Ren, X., Preotiuc-Pietro, D., and Cheng, P. Data-
+  Kaiser, L., Plappert, M., Tworek, J., Hilton, J., Nakano,              less knowledge fusion by merging weights of language
+  R., et al. Training verifiers to solve math word problems.             models. In Proceedings of the Eleventh International
+  arXiv preprint arXiv:2110.14168, 2021.                                 Conference on Learning Representations, 2023.
+Cordts, M., Omran, M., Ramos, S., Rehfeld, T., Enzweiler,
+                                                                      Kim, H., Papamakarios, G., and Mnih, A. The lipschitz
+  M., Benenson, R., Franke, U., Roth, S., and Schiele,
+                                                                        constant of self-attention. In International Conference on
+  B. The cityscapes dataset for semantic urban scene un-
+                                                                        Machine Learning, pp. 5562–5571. PMLR, 2021.
+  derstanding. In Proceedings of the IEEE conference on
+  computer vision and pattern recognition, pp. 3213–3223,             Krause, J., Stark, M., Deng, J., and Fei-Fei, L. 3d object rep-
+  2016.                                                                 resentations for fine-grained categorization. In Proceed-
+Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn,                ings of the IEEE international conference on computer
+  D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer,                vision workshops, pp. 554–561, 2013.
+  M., Heigold, G., Gelly, S., Uszkoreit, J., and Houlsby, N.
+ An image is worth 16x16 words: Transformers for image                Latorre, F., Rolland, P., and Cevher, V. Lipschitz constant
+  recognition at scale. 2020.                                           estimation of neural networks via sparse polynomial opti-
+                                                                        mization. arXiv preprint arXiv:2004.08688, 2020.
+Du, G., Lee, J., Li, J., Jiang, R., Guo, Y., Yu, S., Liu,
+  H., Goh, S. K., Tang, H.-K., He, D., et al. Parameter               LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. Gradient-
+  competition balancing for model merging. arXiv preprint               based learning applied to document recognition. Proceed-
+  arXiv:2410.02396, 2024.                                               ings of the IEEE, 86(11):2278–2324, 1998.
+
+                                                                 10
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D.,             Wei, Y., Tang, A., Shen, L., Xiong, F., Yuan, C., and Cao, X.
+  Levy, O., Lewis, M., Zettlemoyer, L., and Stoyanov, V.               Modeling multi-task model merging as adaptive projec-
+  Roberta: A robustly optimized bert pretraining approach.             tive gradient descent. arXiv preprint arXiv:2501.01230,
+  2019.                                                                2025.
+
+Lu, Z., Fan, C., Wei, W., Qu, X., Chen, D., and Cheng, Y.             Wortsman, M., Ilharco, G., Gadre, S. Y., Roelofs, R.,
+  Twin-merging: Dynamic integration of modular expertise               Gontijo-Lopes, R., Morcos, A. S., Namkoong, H.,
+  in model merging. 2024.                                              Farhadi, A., Carmon, Y., Kornblith, S., and Schmidt, L.
+                                                                       Model soups: averaging weights of multiple fine-tuned
+Matena, M. S. and Raffel, C. A. Merging models with fisher-            models improves accuracy without increasing inference
+ weighted averaging. In Proceedings of the International               time. In Proceedings of the 39th International Confer-
+ Conference on Neural Information Processing Systems,                  ence on Machine Learning, volume 162 of Proceedings
+ volume 35, pp. 17703–17716, 2022.                                     of Machine Learning Research, pp. 23965–23998. PMLR,
+                                                                       17–23 Jul 2022.
+Netzer, Y., Wang, T., Coates, A., Bissacco, A., Wu, B.,
+  Ng, A. Y., et al. Reading digits in natural images with             Xiong, F., Cheng, R., Chen, W., Zhang, Z., Guo, Y.,
+  unsupervised feature learning. In NIPS workshop on deep               Yuan, C., and Xu, R. Multi-task model merging
+  learning and unsupervised feature learning, volume 2011,              via adaptive weight disentanglement. arXiv preprint
+  pp. 4. Granada, 2011.                                                 arXiv:2411.18729, 2024.
+
+Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G.,            Yadav, P., Tam, D., Choshen, L., Raffel, C., and Bansal,
+  Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark,              M. Ties-merging: resolving interference when merging
+  J., Krueger, G., and Sutskever, I. Learning transferable              models. In Proceedings of the International Conference
+  visual models from natural language supervision. 2021.                on Neural Information Processing Systems, volume 36,
+                                                                        pp. 7093–7115, 2023.
+Smith, S. L., Dherin, B., Barrett, D. G., and De, S. On
+                                                                      Yang, E., Shen, L., Wang, Z., Guo, G., Chen, X., Wang, X.,
+  the origin of implicit regularization in stochastic gradient
+                                                                        and Tao, D. Representation surgery for multi-task model
+  descent. arXiv preprint arXiv:2101.12176, 2021.
+                                                                        merging. In Proceedings of the 41st International Con-
+Stallkamp, J., Schlipsing, M., Salmen, J., and Igel, C. Man             ference on Machine Learning, volume 235, pp. 56332–
+  vs. computer: Benchmarking machine learning algo-                     56356. PMLR, 2024a.
+  rithms for traffic sign recognition. Neural networks, 32:           Yang, E., Wang, Z., Shen, L., Liu, S., Guo, G., Wang,
+  323–332, 2012.                                                        X., and Tao, D. Adamerging: Adaptive model merging
+                                                                        for multi-task learning. In Proceedings of the Twelfth
+Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux,
+                                                                        International Conference on Learning Representations,
+  M.-A., Lacroix, T., Rozière, B., Goyal, N., Hambro, E.,
+                                                                        2024b.
+  Azhar, F., et al. Llama: Open and efficient foundation lan-
+  guage models. arXiv preprint arXiv:2302.13971, 2023.                Yu, L., Yu, B., Yu, H., Huang, F., and Li, Y. Language
+                                                                        models are super mario: Absorbing abilities from ho-
+Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., and               mologous models as a free lunch. In Proceedings of the
+ Bowman, S. GLUE: A multi-task benchmark and analy-                     International Conference on Machine Learning. PMLR,
+ sis platform for natural language understanding. In Pro-               2024.
+ ceedings of the 2018 EMNLP Workshop BlackboxNLP:
+ Analyzing and Interpreting Neural Networks for NLP, pp.              Zeng, G., Chen, Y., Cui, B., and Yu, S. Continual learning of
+ 353–355, November 2018. doi: 10.18653/v1/W18-5446.                     context-dependent processing in neural networks. Nature
+                                                                        Machine Intelligence, 1(8):364–372, 2019.
+Wang, B., Meng, Q., Zhang, H., Sun, R., Chen, W., Ma, Z.-
+ M., and Liu, T.-Y. Does momentum change the implicit                 Zou, D., Wu, J., Braverman, V., Gu, Q., Foster, D. P., and
+ regularization on separable data? Advances in Neural                   Kakade, S. The benefits of implicit regularization from
+ Information Processing Systems, 35:26764–26776, 2022.                  sgd in least squares problems. Advances in neural infor-
+                                                                        mation processing systems, 34:5456–5468, 2021.
+Wang, K., Dimitriadis, N., Ortiz-Jimenez, G., Fleuret, F.,
+ and Frossard, P. Localizing task information for improved
+ model merging and compression. In Proceedings of the
+ 41st International Conference on Machine Learning, vol-
+ ume 235, pp. 50268–50287. PMLR, 2024.
+
+                                                                 11
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A. appendix
+A.1. Proof of theoretical results
+A.1.1. P ROOF OF LEMMA 1
+
+    Lemma (Input consistency). Let xpl , xql denote the input of the linear layer l after p and q (p > q) iterations during
+    fine-tuning, respectively. Denote ηi as the learning rate of iteration i. Assume that the model before layer l is
+    Cl -Lipschitz continuous, and the gradient of loss is bounded in ℓ2 -norm by Gl , then:
+                                                                                    p
+                                                                                    X
+                                                      ∥xpl − xql ∥2 ≤ Cl Gl (              ηi )                                  (26)
+                                                                                   i=q+1
+
+
+
+Proof. Let f∼l (x; θ ∼l ) denote the mapping from the input x to the input of layer l, parameterized by θ ∼l , which includes
+all parameters up to but not including layer l. Then,
+
+                                                                  xtl = f∼l (x; θ t∼l )                                             (27)
+
+The parameters are updated using gradient descent:
+
+                                                     θ i+1    i                   i
+                                                       ∼l = θ ∼l − ηi+1 ∇θ i∼l L(θ ),                                               (28)
+
+where ηi is the learning rate at iteration i, and L(θ i∼l ) is the loss function evaluated at θ i . From Eq. 28, the cumulative
+change in parameters is:
+                                           p
+                                           X                                                      q
+                                                                                                  X
+                         θ p∼l = θ 0∼l −         ηi ∇θi−1 L(θ i−1 ),           θ q∼l = θ 0∼l −          ηi ∇θi−1 L(θ i−1 )          (29)
+                                                        ∼l                                                   ∼l
+                                           i=1                                                    i=1
+
+The difference between xpl and xpl can be formulated as:
+
+                                                 xpl − xql = f∼l (x; θ p∼l ) − f∼l (x; θ q∼l )                                      (30)
+
+To analyze the magnitude of the change, we consider the ℓ2 -norm of the output difference.:
+
+                                           ∥xpl − xql ∥2 = ∥f∼l (x; θ p∼l ) − f∼l (x; θ q∼l )∥2                                     (31)
+
+Assume that the model before layer l is Cl -Lipschitz continuous, and the gradient of loss is bounded in ℓ2 -norm by Gl then:
+
+                   ∥xpl − xql ∥2 = ∥f∼l (x; θ p∼l ) − f∼l (x; θ q∼l )∥2                                                             (32)
+                                 ≤   Cl ∥θ p∼l   −   θ q∼l ∥2                                                                       (33)
+                                                      X p                                          q
+                                                                                                   X
+                                 = Cl ∥(θ 0∼l −              ηi ∇θi−1 L(θ i−1 )) − (θ 0∼l −              ηi ∇θi−1 L(θ i−1 ))∥2      (34)
+                                                                     ∼l                                        ∼l
+                                                      i=1                                          i=1
+                                            p
+                                            X
+                                 = Cl ∥              ηi ∇θi−1 L(θ i−1 )∥2                                                           (35)
+                                                             ∼l
+                                           i=q+1
+                                           Xp
+                                 = Cl             ηi ∥∇θi−1 L(θ i−1 )∥2                                                             (36)
+                                                             ∼l
+                                        i=q+1
+                                           Xp
+                                 ≤ Cl Gl (            ηi )                                                                          (37)
+                                             i=q+1
+
+where the Eq.33 follows from the Cl -Lipschitz continuity of f∼l , and Eq. 37 uses the assumption that the gradient is bounded
+in ℓ2 -norm by Gl .
+                                                                                                                                        ■
+
+                                                                          12
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.1.2. P ROOF OF P ROPOSITION 1
+
+    Proposition (Approximate Linear Combination). Let τ kl denote the task vector of neuron k in linear layer l.
+    Consider N input samples {xn }N                  t
+                                       n=1 ,and let xn,l denote the corresponding input to layer l after t iteration for
+    sample xn during fine-tuning. Assume the gradient of the loss with respect to the product θ t−1   t
+                                                                                                l,k xn,l is bounded by
+    Γl,k . Then, the following inequality holds:
+                                                          N
+                                                          X                                      XT X
+                                                                                                    T
+                                                                            ⊤
+                                               τ kl   −          k
+                                                                βn,l (xT
+                                                                       n,l )           ≤ Φl,k · (     ηt ηi ).                                             (38)
+                                                          n=1                     2                       t=1 i=t
+                                                                PT                       t
+                                         k
+    where Φl,k = N · Cl · Gl · Γl,k and βn,l =                    t=1   −ηt ∂(θ∂L(θ
+                                                                                t−1 t
+                                                                                   x
+                                                                                     )
+                                                                                                    .
+                                                                                  l,k       n,l )
+
+
+
+
+Proof. The task vector is calculated as the accumulation of gradients:
+
+                                                          T
+                                                          X             ∂L(θ t−1 )
+                                           τ kl =               −ηt ·                                                                                         (39)
+                                                          t=1
+                                                                         ∂θ t−1
+                                                                            l,k
+                                                          T
+                                                          X           XN
+                                                                           ∂L(θ t−1 )      ∂(θ t−1    t−1
+                                                                                               l,k xn,l )
+                                                      =         −ηt                      ·                                                                    (40)
+                                                          t=1         n=1
+                                                                          ∂(θ t−1  t−1
+                                                                              l,k xn,l )      ∂θ t−1
+                                                                                                  l,k
+                                                          T            N
+                                                          X           X    ∂L(θ t−1 )     t−1 ⊤
+                                                      =         −ηt           t−1 t−1 · (xn,l )                                                               (41)
+                                                          t=1         n=1
+                                                                          ∂(θ l,k x n,l )
+
+                                                                                                                                   ∂L(θ t−1 )
+     t
+Let γn,l,k denote the gradient of the loss with respect to the product θ t−1  t−1             t
+                                                                         l,k xn,l , that is, γn,l,k =                             ∂(θ t−1  t−1 ,   then:
+                                                                                                                                      l,k xn,l )
+
+
+                                               T
+                                               X                N
+                                                                X
+                                                                                 t−1 ⊤
+                                     τ kl =            −ηt             t
+                                                                      γn,l,k · (xn,l )                                                                        (42)
+                                               t=1              n=1
+                                               T
+                                               X                N
+                                                                X
+                                                                                       ⊤    T ⊤       T ⊤
+                                          =            −ηt             t
+                                                                      γn,l,k · ((xt−1
+                                                                                  n,l ) − (xn,l ) + (xn,l ) )                                                 (43)
+                                               t=1              n=1
+
+Rearranging, we obtain:
+
+                               T
+                               X           N
+                                           X                                     T
+                                                                                 X             N
+                                                                                               X
+                                                                      ⊤                                                    ⊤    T ⊤
+                      τ kl −         −ηt               t
+                                                      γn,l,k · (xT
+                                                                 n,l ) =                −ηt                t
+                                                                                                          γn,l,k · ((xt−1
+                                                                                                                      n,l ) − (xn,l ) )                       (44)
+                               t=1         n=1                                   t=1           n=1
+
+Taking the ℓ2 -norm of both sides, we have:
+
+                             T
+                             X           N
+                                         X                                        T
+                                                                                  X                 N
+                                                                                                    X
+                                                                ⊤                                                           ⊤    T ⊤
+                    τ kl −         −ηt          t
+                                               γn,l,k · (xT
+                                                          n,l )              =           −ηt                t
+                                                                                                           γn,l,k · ((xt−1
+                                                                                                                       n,l ) − (xn,l ) )                      (45)
+                             t=1         n=1                             2        t=1               n=1                                       2
+                                                                                 T
+                                                                                 X           N
+                                                                                             X
+                                                                                                                           ⊤    T ⊤
+                                                                             ≤         ηt                 t
+                                                                                                        |γn,l,k | · (xt−1
+                                                                                                                      n,l ) − (xn,l )                         (46)
+                                                                                                                                          2
+                                                                                 t=1         n=1
+
+
+        t          ∂L,(θ t−1 )
+Assume γn,l,k =       t−1 t−1
+                  ∂(θ l,k xn,l )
+                                   is bounded by Γl,k , then:
+
+                               T
+                               X           N
+                                           X                                         T
+                                                                                     X              N
+                                                                                                    X
+                                                                      ⊤                                                 ⊤    T ⊤
+                      τ kl −         −ηt               t
+                                                      γn,l,k · (xT
+                                                                 n,l )           ≤           ηt           Γl,k · (xt−1
+                                                                                                                   n,l ) − (xn,l )                            (47)
+                                                                                                                                          2
+                               t=1         n=1                               2       t=1            n=1
+
+
+                                                                                 13
+           Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+Applying Lemma.1 to Eq.47, then:
+                                      T
+                                      X           N
+                                                  X                                      T
+                                                                                         X          N
+                                                                                                    X                      T
+                                                                                                                           X
+                                                                            ⊤
+                           τ kl   −         −ηt          t
+                                                        γn,l,k   ·   (xT
+                                                                       n,l )         ≤         ηt         Γl,k · Cl Gl (         ηi )       (48)
+                                      t=1         n=1                            2       t=1        n=1                    i=t
+                                                                                                                  T
+                                                                                                                  X            XT
+                                                                                     = N · Γl,k · Cl · Gl ·                ηt (   ηi )      (49)
+                                                                                                                   t=1           i=t
+                                                                                                                    T X
+                                                                                                                    X T
+                                                                                     = N · Γl,k · Cl · Gl · (                     ηt ηi )   (50)
+                                                                                                                    t=1 i=t
+
+        k
+                PT          t
+Denote βn,l =    t=1   −ηt γn,l,k and Φl,k = N · Cl · Gl · Γl,k , then we can reformulate Eq.50 as follows:
+
+                                                      N
+                                                      X                                        XT X
+                                                                                                  T
+                                                                         ⊤
+                                             τ kl −          k
+                                                            βn,l (xT
+                                                                   n,l )             ≤ Φl,k · (     ηt ηi )                                 (51)
+                                                      n=1                        2                  t=1 i=t
+
+
+                                                                                                                                             ■
+
+
+
+
+                                                                                14
+             Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.1.3. P ROOF OF THEOREM 1
+
+    Theorem (Upper bound of interference). Denote xi,l as the linear layer l’s input of task i, δ i,l and τ i,l as the linear
+    layer l’s interference vector and task vector of task i, respectively, then:
+                                                                                                             2                        2
+                                      Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22 ≤ ωi,l
+                                                                         1
+                                                                             · δ i (τ i,l )⊤                 F
+                                                                                                                     2
+                                                                                                                  + ωi,l · ∥δ i ∥F                                     (52)
+           1        2
+    Where ωi,l and ωi,l is the reconstruction constant.
+
+
+Proof. According to Lemma 2, each neuron of the task vector associated with a linear layer can be interpreted as a weighted
+sum of the corresponding input samples. Consequently, the entire task vector forms an approximate linear subspace of the
+input space, which motivates us to reconstruct the input using the task vector:
+                                                          K
+                                                          X
+                                              xi,l =             k
+                                                                αi,l (xi,l )(τ ki,l )⊤ + ε(xi,l ),                xi,l ∈ Di,l                                             (53)
+                                                          k=1
+
+where Di,l is the input domain of layer l for task i, αi,l       k
+                                                                   (xi,l ) are the reconstruction coefficients of xi,l , (τ ki,l )⊤ are k-th
+neuron of task vector τ i,l , and ε(xi,l ) represents the reconstruction error. The expectation of interference is formulated as
+follows:                                                           Z
+                                 Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22 =             ∥δ i,l xi,l ∥22 · p(xi,l ) dxi,l .                       (54)
+                                                                                    xi,l ∈Di,l
+
+Reconstructing xi,l by Eq.53, then:
+
+                                                          Z                         K
+                                                                                                                                      !    2
+                                                                                    X
+                 Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22      =                     δi             k
+                                                                                          αi,l (xi,l )(τ ki,l )⊤      + ε(xi,l )               p(xi,l ) dxi,l .           (55)
+                                                           xi,l ∈Di,l               k=1                                                    2
+
+
+Scaling Eq.55 by the triangle inequality, then:
+                                                  Z                         K
+                                                                                                                            !     2
+                                                                            X
+            Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22   =                       δi             k
+                                                                                    αi,l (xi,l )(τ ki,l )⊤   + ε(xi,l )               p(xi,l ) dxi,l .                    (56)
+                                                    xi,l ∈Di,l              k=1                                                   2
+                                                  Z                   K                                                       2
+                                                                      X
+                                              =                              k
+                                                                            αi,l (xi,l )δ i (τ ki,l )⊤    + δ i ε(xi,l )          p(xi,l ) dxi,l .                        (57)
+                                                    xi,l ∈Di,l        k=1                                                     2
+                                                  Z                     K
+                                                                                                                                      !2
+                                                                        X
+                                              =                                  k
+                                                                                αi,l (xi,l )δ i (τ ki,l )⊤   + δ i ε(xi,l )                p(xi,l ) dxi,l .               (58)
+                                                    xi,l ∈Di,l          k=1                                                       2
+                                                  Z                   K
+                                                                                                                                               !2
+                                                                      X
+                                              ≤                                  k
+                                                                                αi,l (xi,l )      δ i (τ ki,l )⊤ 2    + ∥δ i ε(xi,l )∥2             p(xi,l ) dxi,l .      (59)
+                                                    xi,l ∈Di,l        k=1
+
+Applying the Cauchy-Schwarz inequality the part in brackets, then we can get:
+
+                                        K
+                                                                                                                   !2
+                                        X
+                                                   k
+                                                  αi,l (xi,l )        δ i (τ ki,l )⊤ 2    + ∥δ i ε(xi,l )∥2                                                               (60)
+                                        k=1
+                                        K
+                                                                                                                         !2
+                                        X
+                                  =                k
+                                                  αi,l (xi,l )    ·    δ i (τ ki,l )⊤ 2    + 1 · ∥δ i ε(xi,l )∥2                                                          (61)
+                                        k=1
+                                        K
+                                                                                !    K
+                                                                                                                                           !
+                                        X                      2                     X                        2                     2
+                                  ≤                k
+                                                  αi,l (xi,l )        +1    2
+                                                                                               δ i (τ ki,l )⊤ 2   +   ∥δ i ε(xi,l )∥2                                     (62)
+                                        k=1                                          k=1
+
+
+                                                                                      15
+               Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+Applying Eq.62 to Eq.59, then:
+                                        Z                 K
+                                                                                                                                !2
+                                                          X
+  Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22   ≤                            k
+                                                                αi,l (xi,l )         δ i (τ ki,l )⊤ 2     + ∥δ i ε(xi,l )∥2          p(xi,l ) dxi,l .                       (63)
+                                         xi,l ∈Di,l       k=1
+                                        Z                 K
+                                                                                               !     K
+                                                                                                                                                     !
+                                                          X                  2                       X                     2                     2
+                                    ≤                            k
+                                                                αi,l (xi,l )         +1    2
+                                                                                                            δ i (τ ki,l )⊤ 2   +   ∥δ i ε(xi,l )∥2       p(xi,l ) dxi,l . (64)
+                                         xi,l ∈Di,l       k=1                                        k=1
+                                        Z                 K
+                                                                                               !     K
+                                                                                                                                                           !
+                                                          X                      2                   X                     2             2             2
+                                    ≤                            k
+                                                                αi,l (xi,l )         + 12                   δ i (τ ki,l )⊤ 2   +   ∥δ i ∥F   ∥ε(xi,l )∥2       p(xi,l ) dxi,l .
+                                         xi,l ∈Di,l       k=1                                        k=1
+                                                                                                                                                                            (65)
+                                                                                                                                                        
+                  PK                            2                       2                                                   PK                    2
+Consider that         k=1    δ i (τ ki,l )⊤         =     δ i (τ i,l )⊤ F     and let αi,l (xi,l ) denote                           k
+                                                                                                                               k=1 αi,l (xi,l )
+                                                                                                                                                           2
+                                                                                                                                                      + 1 , then we can
+                                                2
+reformulated Eq.65 as follows:
+                                   Z                                                                                    
+                                                                                               2           2           2
+                               2
+  Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥2 ≤                      αi,l (xi,l )       δ i (τ i,l )⊤       F
+                                                                                                   + ∥δ i ∥F ∥ε(xi,l )∥2 p(xi,l ) dxi,l                                     (66)
+                                        xi,l ∈Di,l
+                                            Z                                                  !
+                                                                                                                    2
+                                    =                     αi,l (xi,l )p(xi,l ) dxi,l                δ i (τ i,l )⊤   F
+                                                                                                                                                                            (67)
+                                             xi,l ∈Di,l
+                                                                                        Z                                                                 !
+                                                                                                                                 2                                  2
+                                                                                +                         αi,l (xi,l ) ∥ε(xi,l )∥2       p(xi,l ) dxi,l        ∥δ i ∥F      (68)
+                                                                                           xi,l ∈Di,l
+                                                                                                     2
+                                                                                                                                                   
+                                                                                                                                                  2         2
+                                    = Exi,l ∼p(xi,l ) αi,l (xi,l ) · δ i (τ i,l )⊤
+                                                                  
+                                                                                                     F
+                                                                                                         + Exi,l ∼p(xi,l ) αi,l (xi,l ) ∥ε(xi,l )∥2 · ∥δ i ∥F (69)
+
+Considering that when τ i,l and xi,l are fixed, the reconstruction error and reconstruction coefficient are fixed,
+                                                                                  2
+therefore Exi,l ∼p(xi,l ) αi,l (xi,l ) and Exi,l ∼p(xi,l ) αi,l (xi,l ) ∥ε(xi,l )∥2 is a constant. Denote Exi,l ∼p(xi,l ) αi,l (xi,l ) and
+                                       2     1        2
+Exi,l ∼p(xi,l ) αi,l (xi,l ) ∥ε(xi,l )∥2 as ωi,l and ωi,l respectively. Therefore we can get:
+                                                                                                               2                     2
+                                            Exi,l ∼p(xi,l ) ∥δ i,l xi,l ∥22 ≤ ωi,l
+                                                                               1
+                                                                                   · δ i (τ i,l )⊤             F
+                                                                                                                       2
+                                                                                                                    + ωi,l · ∥δ i ∥F                                        (70)
+
+                                                                                                                                                                              ■
+
+
+
+
+                                                                                       16
+             Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.1.4. T HE DETAILED DERIVATION FOR THE CLOSE - FORM SOLUTION .
+Considering the objective with the regularization term. The objective can be formulated as follows:
+                                                                                                       2
+                                                                                                                                        2
+                                                              1
+                                                                          ( (τ m,l − τ i,l )τ ⊤
+                                                    P
+                                min obj =               i ∥τ i,l ∥2                           i,l          + ω · ∥τ m,l − τ i,l ∥F )                (71)
+                                τ m,l                             F                                    F
+                                                                                               2
+                                                                                                                                  2
+                                                1
+                                                          ( τ m,l τ ⊤             ⊤
+                                        P
+                           ⇔ min          i ∥τ i,l ∥2               i,l − τ i,l τ i,l              + ω · ∥τ m,l − τ i,l ∥F )                        (72)
+                                τ m,l               F                                          F
+
+                                                              2
+Calculate the gradient of τ m,l τ ⊤             ⊤
+                                  i,l − τ i,l τ i,l               :
+                                                              F
+
+                                     ∂                                              2
+                                          τ m,l τ ⊤             ⊤
+                                                  i,l − τ i,l τ i,l                 F
+                                                                                         = 2(τ m,l τ ⊤             ⊤
+                                                                                                     i,l − τ i,l τ i,l )τ i,l                       (73)
+                                   ∂τ m,l
+                                                2
+Calculate the gradient of ∥τ m,l − τ i,l ∥F
+
+                                                      ∂                    2
+                                                           ∥τ m,l − τ i,l ∥F = 2(τ m,l − τ i,l )                                                    (74)
+                                                    ∂τ m,l
+
+Combine the gradients:
+                                            X             1
+                                                                      2(τ m,l τ ⊤             ⊤
+                                                                                                                                              
+                           ∇τ m,l obj =                     2                   i,l − τ i,l τ i,l )τ i,l + 2ω(τ m,l − τ i,l )                       (75)
+                                                i   ∥τ i,l ∥F
+
+To find the minimizer τ m,l , set ∇τ m,l obj = 0:
+                                 X          1
+                                                         (τ m,l τ ⊤             ⊤
+                                                                                                              
+                                                2                 i,l − τ i,l τ i,l )τ i,l + ω(τ m,l − τ i,l ) = 0                                  (76)
+                                   i    ∥τ i,l ∥F
+
+The equation can be written in the form:
+                                                                              τ m,l A = B                                                           (77)
+where:                                                            X             1
+                                                                                          τ⊤
+                                                                                                             
+                                                         A=                         2      i,l τ i,l + ωI                                           (78)
+                                                                      i     ∥τ i,l ∥F
+                                                              X             1
+                                                                                    τ i,l τ ⊤
+                                                                                                                     
+                                                    B=                        2             i,l τ i,l + ωτ i,l                                      (79)
+                                                              i       ∥τ i,l ∥F
+Assuming A is invertible, the optimal τ m,l is:
+                                                                            τ m,l = BA−1                                                            (80)
+Substituting back A and B:
+                                                                                           !                                                !−1
+                                  X         1                                                      X        1
+                      τ m,l =                       2   (τ i,l τ ⊤
+                                                                 i,l τ i,l + ωτ i,l )                            2       (τ ⊤
+                                                                                                                            i,l τ i,l + ωI)         (81)
+                                    i   ∥τ i,l ∥F                                                  i   ∥τ i,l ∥F
+                                                                                          !                                                   !−1
+                                  X         1                                                   X           1
+                            =                       2   (τ i,l (τ ⊤
+                                                                  i,l τ i,l + ωI))                               2   (τ ⊤
+                                                                                                                        i,l τ i,l + ωI))            (82)
+                                    i   ∥τ i,l ∥F                                                  i   ∥τ i,l ∥F
+
+
+
+
+                                                                                    17
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.2. Towards understanding the conflict in Model Merging
+According to 3.2, the conflict among different experts arises from the interaction between the interference vector and the
+input. Moreover, this conflict may be exacerbated by the overlap of input domains. This phenomenon is further evidenced by
+the results of the vision and language tasks. Specifically, the domain overlap among various visual tasks is limited, whereas
+the inputs across different language tasks exhibit a larger overlap. Consequently, the current model-merging approach
+allows for a high degree of recovery in vision tasks, while there remains a notable disparity between the performance of the
+merged model and that of individual experts in language tasks. To address this limitation, it may be necessary to adopt a
+data processing perspective aimed at reducing the overlap of input domains across different language tasks.
+
+A.3. The impact of linear layer
+
+
+
+
+                                            Figure 7: The impact of linear layer
+
+Motivated by (Jin et al., 2023), we only apply our method to the linear layer in the model. To further demonstrate the
+effectiveness, we only apply the task vector of the linear layer to the pretrained model. The result is shown in Fig.7. The
+result shows that only using the task vector of the linear keeps most of the ability of the model. This means focusing on the
+linear layer is the key to the model merging problems.
+
+
+
+
+                                                             18
+               Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.4. Additional Experiments
+In this subsection, we provide the result of ViT-B/16 and the detailed result of discriminative language tasks in the following
+table, which further demonstrates the generalization of our method.
+
+                      Table 10: Multi-task performance when merging ViT-B/16 models on eight tasks.
+
+  Method                    SUN397          Cars          RESISC45       EuroSAT       SVHN    GTSRB   MNIST    DTD    Avg Acc
+                                                               Non-merging Methods
+  Pretrained                  63.8          64.6            65.7         54.5          52.0     43.3    51.7    45.1     55.0
+  Individual                  81.8          86.8            96.9         99.7          97.8     99.1    99.7    82.0     92.9
+                                                            Test-time Adaption Methods
+  TW AdaMerging               64.4          64.2            75.4          86.7        86.3      86.7    97.6    46.9     76.0
+  LW AdaMerging               70.2          80.7            81.6          94.8        91.6      95.8    98.5    66.2     84.9
+  Representation Surgery      68.3          72.3            88.7          97.7        91.0      89.5    98.9    72.9     84.9
+                                                                   Date-free Methods
+  Weight Averaging            67.7          70.0            75.3             79.5      74.9     60.1    94.4    43.8     70.7
+  Fisher Merging              68.5          69.9            75.2             80.4      73.2     61.2    94.5    50.7     71.7
+  RegMean                     69.1          71.6            77.6             88.8      83.7     70.2    96.9    54.6     76.6
+  Task Arithmetic             61.1          65.9            74.0             76.2      88.0     73.9    98.4    53.0     73.8
+  Ties-Merging                69.1          72.5            80.5             84.0      85.0     71.5    98.1    54.9     77.0
+  Consensus Merging           69.8          71.4            80.8             86.5      88.0     71.1    98.4    57.0     77.9
+  WUDI-Merging (ours)         75.7          82.5            90.7             98.0      95.4     96.6    99.4    74.7   89.1△11.2
+
+
+Table 11: Multi-task performance when merging RoBERTa models on 8-task GLUE benchmark. We report normalized
+score (Lu et al., 2024).
+
+  Method                         CoLA          SST-2          MRPC          STS-B      QQP     QNLI    MNLI    RTE       Avg.
+  Pre-trained                      0.0         53.8             85.0            4.0    37.5    53.1     37.1    71.2     41.7
+  Individual                      100.0        100.0           100.0           100.0   100.0   100.0   100.0   100.0    100.0
+  Weight Averaging                    0.0          59.2        85.8            47.0    45.4    63.9    48.0    71.2      52.6
+  Task Arithmetic                     8.4          88.3        89.6            32.8    82.0    85.4    75.5    80.4      67.8
+  Ties-Merging                       31.8          88.9        86.2            10.9    61.1    85.9    83.0    69.6      64.7
+  Task Arithmetic (w/ DARE)           0.0          88.1        86.6            30.2    84.3    79.1    64.0    77.2      63.7
+  Ties-Merging (w/ DARE)             11.8          95.5        85.8             9.4    86.8    88.7    83.1    63.6      65.6
+  WUDI-Merging (ours)                81.8          98.3        78.7            60.5    92.7    90.5    93.3    86.4    85.3△19.7
+
+
+Table 12: Multi-task performance when merging RoBERTa-Large models on 8-task GLUE benchmark. We report normalized
+score (Lu et al., 2024).
+
+  Method                         CoLA          SST-2          MRPC          STS-B      QQP     QNLI    MNLI    RTE       Avg.
+  Pre-trained                      0.0         51.5             40.9            20.9   36.4    56.0     37.6    62.4     38.2
+  Individual                      100.0        100.0           100.0           100.0   100.0   100.0   100.0   100.0    100.0
+  Weight Averaging                    7.4          55.1        84.2            46.3    56.7    73.8    35.8    66.7      53.3
+  Task Arithmetic                     7.4          86.1        86.8            78.0    90.7    77.0    73.3    67.6      70.9
+  Ties-Merging                       42.7          78.1        85.2            51.7    89.9    81.9    79.7    70.0      72.4
+  Task Arithmetic (w/ DARE)           4.1          85.2        85.8            71.6    91.3    85.6    75.2    68.1      70.9
+  Ties-Merging (w/ DARE)              2.9          90.4        86.8            75.4    92.4    86.4    79.0    69.1      72.8
+  WUDI-Merging (ours)                82.2          98.7        87.3            81.4    94.6    96.6    93.4    77.1    88.8△16.0
+
+
+
+
+                                                                          19
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.5. Consistency of the input between pretrained model and fine-tuned model
+In this section, we provide the input consistency between the pretrained model and the expert models, as shown in Fig.8 and
+Fig.9. It can be seen that the large model shows less consistency, however the change of the direction and magnitude still
+very small, where the change of the direction of the most layer is less than 0.4. Consider that he task vector is the weighted
+sum of the input from the start to end during fine-tuning, the task vector has better a consistency than the consistency
+between the pretrain model and the fine-tuned model.
+
+
+
+
+          Figure 8: The input consistency between the pretrained model and the fine-tuned model for ViT-B/16
+
+
+
+
+          Figure 9: The input consistency between the pretrained model and the fine-tuned model for ViT-L/14
+
+
+                                                             20
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.6. The detailed results of interference in different layers and tasks.
+To further demonstrate our method’s capability to eliminate layer-wise interference, we use relative error for evaluation.
+Specifically, for a given merged vector τ m , the relative error is calculated as follows:
+                                                      N
+                                                   1 X ||f (xn ; θ + τ m ) − f (xn ; θ + τ i )||
+                                Relative Error =                                                                           (83)
+                                                   N n=1          ||f (xn ; θ + τ i )||
+
+Fig. 10, 11, and 12 respectively present the relative errors of different models with varying numbers of layers across different
+datasets. Fig. 3 summarizes the average relative errors across these datasets for the models with different layer counts.
+
+
+
+
+                          Figure 10: The interference for different layers and tasks for ViT-B/32.
+
+
+
+
+                          Figure 11: The interference for different layers and tasks for ViT-B/16.
+
+
+                                                              21
+           Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+
+
+
+                        Figure 12: The interference for different layers and tasks for ViT-L/14.
+
+
+A.7. Performance comparison when using different steps for the solution process.
+Fig. 13 presents performance comparison for models of various sizes, including ViT-B/32, ViT-B/16, and ViT-L/14, when
+using different steps for the optimization process.
+
+
+
+
+                       Figure 13: The results obtained at different stages of the solution process.
+
+
+
+
+                                                           22
+            Whoever Started the Interference Should End It: Guiding Data-Free Model Merging via Task Vectors
+
+A.8. Details of the experiment.
+A.8.1. DATASETS
+Vision tasks. Following (Ilharco et al., 2023; Yadav et al., 2023; Yang et al., 2024b), we use SUN397 (Cordts et al., 2016),
+Cars (Krause et al., 2013), RESISC45 (Cheng et al., 2017), EuroSAT (Helber et al., 2019), SVHN (Netzer et al., 2011),
+GTSRB (Stallkamp et al., 2012), MNIST (LeCun et al., 1998), DTD (Cimpoi et al., 2014)
+NLP tasks. For discriminative language tasks, we use GLUE benchmark (Wang et al., 2018). For generative language tasks,
+we use AlpacaEval (Dubois et al., 2024), GSM8K (Cobbe et al., 2021), MATH (Hendrycks et al., 2021), HumanEval (Chen
+et al., 2021), MBPP (Austin et al., 2021).
+
+A.8.2. C ALCULATE R ESOURCES AND E NVIRONMENT.
+All of our experiments were conducted on NVIDIA A100 40GB, Python 3.10, PyTorch 2.4.0, and the CUDA 11.8 toolkit.
+
+A.8.3. H YPERPARAMETERS
+There are only two hyperparameters in our method. In practice, we set the learning rate to 1e-5 and the number of iteration
+to 300. Following (Jin et al., 2023; Xiong et al., 2024), we only applied our method to the linear layer in the model.
+
+
+
+
+                                                            23
+

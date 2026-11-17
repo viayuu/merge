@@ -1,0 +1,47 @@
+[
+  {
+    "task": "cvrp",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true
+  },
+  {
+    "task": "cvrpb",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true
+  },
+  {
+    "task": "cvrptw",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true
+  },
+  {
+    "task": "ocvrp",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true
+  },
+  {
+    "task": "ocvrptw",
+    "epoch": 1,
+    "optimizer_steps": [
+      2
+    ],
+    "initial_hash": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "finite_weights": true
+  }
+]

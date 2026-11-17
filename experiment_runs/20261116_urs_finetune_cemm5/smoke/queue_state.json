@@ -1,0 +1,57 @@
+{
+  "started": "2026-11-16T22:27:16+08:00",
+  "smoke": true,
+  "jobs": [
+    {
+      "name": "cvrptw",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-16T22:27:16+08:00",
+      "training_finished": "2026-11-16T22:27:25+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_cemm5/smoke/models/cvrptw/checkpoint_1.pt",
+      "finished": "2026-11-16T22:27:25+08:00"
+    },
+    {
+      "name": "cvrpl",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 1,
+      "started": "2026-11-16T22:27:16+08:00",
+      "training_finished": "2026-11-16T22:27:24+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_cemm5/smoke/models/cvrpl/checkpoint_1.pt",
+      "finished": "2026-11-16T22:27:24+08:00"
+    },
+    {
+      "name": "cvrpbp",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 1,
+      "started": "2026-11-16T22:27:24+08:00",
+      "training_finished": "2026-11-16T22:27:32+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_cemm5/smoke/models/cvrpbp/checkpoint_1.pt",
+      "finished": "2026-11-16T22:27:32+08:00"
+    },
+    {
+      "name": "cvrp",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-16T22:27:25+08:00",
+      "training_finished": "2026-11-16T22:27:32+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_cemm5/smoke/models/cvrp/checkpoint_1.pt",
+      "finished": "2026-11-16T22:27:32+08:00"
+    },
+    {
+      "name": "ocvrp",
+      "kind": "finetune",
+      "status": "completed",
+      "gpu": 0,
+      "started": "2026-11-16T22:27:32+08:00",
+      "training_finished": "2026-11-16T22:27:38+08:00",
+      "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_cemm5/smoke/models/ocvrp/checkpoint_1.pt",
+      "finished": "2026-11-16T22:27:38+08:00"
+    }
+  ],
+  "updated": "2026-11-16T22:27:38+08:00"
+}

@@ -1,0 +1,790 @@
+ Large Language Model-Empowered Co-Evolutionary Model Merging for Neural
+                    Vehicle Routing Solvers (Appendix)
+
+
+
+                                                     A      Implementation Details
+All task-aligned expert models are obtained by fine-tuning the checkpoint (Berto et al. 2025) at the 270th epoch for 30 additional
+epochs on each task. Each epoch consists of 100K VRP instances. We utilized the Adam optimizer with a learning rate of
+3 × 10−5 and set the batch sizes to 256 and 128 for n = 50 and n = 100, respectively. The learning rate was decayed by a
+factor of 0.1 during the final 5 epochs. In Figure 1, we visualize the performance (ranking) of the five initial expert models based
+on the RF-TE backbone across all datasets. It is evident that each model exhibits unique strengths, demonstrating that we have
+successfully obtained a diverse set of experts.
+
+
+          Expert C                      Expert O                   Expert B                   Expert L                   Expert Tw
+                OVRP                          OVRP                       OVRP                       OVRP                       OVRP
+
+ VRPB                         VRPB                          VRPB                       VRPB                       VRPB
+
+
+                       CVRP                          CVRP                       CVRP                       CVRP                        CVRP
+
+
+ VRPL                         VRPL                          VRPL                       VRPL                       VRPL
+
+               VRPTW                         VRPTW                      VRPTW                      VRPTW                       VRPTW
+
+        Figure 1: Capability distribution of expert models across five dimensions, highlighting their specialized strengths.
+
+
+
+                                                         B     Stability Analysis
+B.1     Robustness to Different LLMs
+To evaluate the robustness to the choice of LLMs, we additionally conducted comparison experiments at (n=50) using two other
+LLMs, Gemini-3.1-flash-lite-preview and DeepSeek-V3.2. As shown in Table 1, GPT-4o achieves overall performance slightly
+better than Gemini, while being marginally inferior to DeepSeek; however, all three CEMM variants consistently outperform the
+SOTA baseline, Genome. These results suggest that the proposed CEMM framework is largely model-agnostic. Although the
+quality of generated algorithms may vary with the capability of the underlying LLM, the core effectiveness of the method remains
+stable across different backbones. This indicates that the main performance gains come from the co-evolutionary mechanism
+rather than dependence on a specific LLM.
+
+                                     Table 1: Performance comparison of CEMM with different LLMs.
+
+         Method                                      CVRP          OVRP         VRPB          VRPL         VRPTW         Average
+         Genome                                      1.255%        2.609%       2.974%        1.397%       2.244%        2.096%
+         Gemini-3.1-flash-lite-preview               1.226%        2.561%       2.861%        1.404%       2.157%        2.042%
+         GPT-4o                                      1.184%        2.534%       2.853%        1.414%       2.187%        2.034%
+         DeepSeek-V3.2                               1.251%        2.416%       2.823%        1.474%       2.190%        2.031%
+
+
+B.2     Statistical Stability
+We conducted three independent runs on the RF-TE backbone model for all dynamic merging methods, multi-task baselines,
+and our proposed CEMM with n = 50 to verify the stability of our approach. Table 2 reports the mean and standard deviation
+      of the optimality gap. Figure 2 visualizes the performance with 95% confidence intervals. It is evident that CEMM consistently
+      demonstrates stable performance superior to the baselines, while CEMM+ further significantly enhances the solution quality.
+      Crucially, the confidence intervals of CEMM+ are largely distinct from the comparative methods, except for a slight overlap
+      with Genome+ on OVRP. This overall distinct separation strongly suggests that the performance improvement of CEMM+ is
+      statistically significant.
+
+                     Table 2: Average optimality gap (%) with standard deviation over three independent runs on 1,000 test instances (n = 50).
+
+                                  Method           CVRP                OVRP              VRPB           VRPL            VRPTW                 Average
+
+                                   MTL          1.264 ± 0.006     2.664 ± 0.017      3.028 ± 0.018   1.499 ± 0.024    2.060 ± 0.017         2.103 ± 0.008
+
+                                Model Swarm     1.221 ± 0.039     2.710 ± 0.036      2.944 ± 0.026   1.419 ± 0.032    2.331 ± 0.106         2.125 ± 0.025
+                                  Genome        1.221 ± 0.044     2.561 ± 0.124      3.044 ± 0.066   1.416 ± 0.023    2.261 ± 0.042         2.101 ± 0.031
+                                  CEMM          1.185 ± 0.005     2.549 ± 0.019      2.878 ± 0.043   1.420 ± 0.008    2.186 ± 0.003         2.044 ± 0.010
+
+                                 Genome+        1.134 ± 0.024     2.392 ± 0.138      2.892 ± 0.092   1.307 ± 0.033    2.161 ± 0.075         1.977 ± 0.037
+                                 CEMM+          0.899 ± 0.034     2.253 ± 0.043      2.559 ± 0.011   1.100 ± 0.023    1.740 ± 0.025         1.710 ± 0.013
+
+
+
+                                   CVRP                         OVRP                      VRPB                       VRPL                         VRPTW
+                     1.3                           2.8                                                                                2.4
+Optimality Gap (%)
+
+
+
+
+                                                   2.7                                                   1.5
+                     1.2                                                      3.0
+                                                   2.6                                                   1.4                          2.2
+                     1.1                           2.5                        2.8                        1.3                          2.0
+                     1.0                           2.4
+                                                                                                         1.2
+                                                   2.3                        2.6                                                     1.8
+                     0.9                                                                                 1.1
+                                                   2.2
+                               TL
+
+                        Ge arm
+                      Ge me
+
+                          CE +
+                             MM
+
+                                +
+
+
+                                                             TL
+
+                                                      Ge arm
+                                                    Ge me
+
+                                                        CE +
+                                                           MM
+
+                                                              +
+
+
+                                                                                       TL
+
+                                                                                Ge arm
+                                                                              Ge me
+
+                                                                                  CE +
+                                                                                     MM
+
+                                                                                        +
+
+
+                                                                                                                  TL
+
+                                                                                                           Ge arm
+                                                                                                         Ge me
+
+                                                                                                             CE +
+                                                                                                                MM
+
+                                                                                                                   +
+
+
+                                                                                                                                               TL
+
+                                                                                                                                        Gewarm
+                                                                                                                                      Ge me
+
+                                                                                                                                          CE +
+                                                                                                                                             MM
+
+                                                                                                                                                +
+                            me
+
+
+                            MM
+
+
+
+
+                                                          me
+
+
+                                                          MM
+
+
+
+
+                                                                                    me
+
+
+                                                                                    MM
+
+
+
+
+                                                                                                               me
+
+
+                                                                                                               MM
+
+
+
+
+                                                                                                                                            me
+
+
+                                                                                                                                            MM
+                            -M
+
+
+
+
+                                                          -M
+
+
+
+
+                                                                                    -M
+
+
+
+
+                                                                                                               -M
+
+
+
+
+                                                                                                                                            -M
+                           no
+
+
+
+
+                                                         no
+
+
+
+
+                                                                                   no
+
+
+
+
+                                                                                                              no
+
+
+
+
+                                                                                                                                           no
+                           w
+
+
+
+
+                                                         w
+
+
+
+
+                                                                                   w
+
+
+
+
+                                                                                                              w
+                     RF
+
+
+
+
+                                                   RF
+
+
+
+
+                                                                                 RF
+
+
+
+
+                                                                                                            RF
+
+
+
+
+                                                                                                                                         RF
+                         no
+
+
+
+
+                                                       no
+
+
+
+
+                                                                                 no
+
+
+
+
+                                                                                                            no
+
+
+
+
+                                                                                                                                         no
+                         CE
+
+
+
+
+                                                       CE
+
+
+
+
+                                                                                 CE
+
+
+
+
+                                                                                                            CE
+
+
+
+
+                                                                                                                                         CE
+                        lS
+
+
+
+
+                                                      lS
+
+
+
+
+                                                                                lS
+
+
+
+
+                                                                                                           lS
+
+
+
+
+                                                                                                                                        lS
+                      de
+
+
+
+
+                                                    de
+
+
+
+
+                                                                              de
+
+
+
+
+                                                                                                         de
+
+
+
+
+                                                                                                                                      de
+                           Mo
+
+
+
+
+                                                         Mo
+
+
+
+
+                                                                                    Mo
+
+
+
+
+                                                                                                               Mo
+
+
+
+
+                                                                                                                                            Mo
+                                         Figure 2: Performance ranges (95% confidence intervals) across different methods on n = 50.
+
+
+
+                                                                          C       Prompts of CEMM
+      Our prompt framework for LLM-generated merge algorithms can be categorized into Exploration (E1, E2) and Exploitation
+      (M1, M2). Each strategy is structured around four components: Task Description, Strategy Instructions, Reference Algorithm,
+      and Template Program. Below, we detail their underlying principles and present the specific prompts.
+       • E1: Population-Level Innovation. This strategy drives global exploration by prompting the LLM to generate entirely
+         novel merging paradigms. By reviewing the entire current population, the LLM is instructed to propose algorithms that are
+         orthogonal to existing solutions, thereby expanding the search boundary into untouched algorithmic spaces.
+                           Prompt for E1
+
+                           Your task is to design a new algorithm for merging the weights of multiple fine-tuned models into a single merged
+                           model that integrates knowledge from all models to improve performance. The function must have exactly two inputs:
+                            – base: A dictionary representing the pre-trained model’s state_dict, where keys are parameter names and values
+                              are parameter tensors.
+                            – model_dicts: A list of dictionaries, where each dictionary is a fine-tuned model’s state_dict derived from
+                              the same base model. All models in this list must be merged.
+                           Each fine-tuned model shares the same parameter structure as base. The function should return one output:
+                            – merged: The merged model’s state_dict.
+                           Below are all N algorithms currently in the population. The first algorithm includes both its description and code
+                           implementation, while the others only include their algorithm descriptions:
+    No.1 algorithm and the corresponding code:
+    {algorithm description}
+    {Code}
+    No.2 algorithm description:
+    {algorithm description}
+    ...
+    No.N algorithm description:
+    {algorithm description}
+    Now, propose a completely new merging algorithm that is fundamentally different from all of the above algorithms in
+    both concept and implementation. The new algorithm should explore a different merging strategy that has not been used
+    by any algorithm in the current population.
+    Firstly, describe your new algorithm and main steps in one sentence. Enclose the description in curly braces.
+    Secondly, implement the following Python function, ensuring code robustness by validating tensor broadcasting, avoiding
+    direct indexing on potentially empty tensors, and ensuring numerical stability:
+    {Template Projection}
+    Do not give additional explanations.
+
+• E2:Algorithmic Crossover. Acting as an evolutionary crossover operator, this strategy synthesizes a new algorithm by
+  integrating insights from two distinct parent algorithms. The LLM is tasked with inheriting conceptual strengths from the
+  provided references while establishing a unique implementation form, promoting the recombination of effective merging
+  heuristics.
+
+    Prompt for E2
+
+    Your task is to design a new algorithm for merging the weights of multiple fine-tuned models into a single merged
+    model that integrates knowledge from all models to improve performance. The function must have exactly two inputs:
+     – base: A dictionary representing the pre-trained model’s state_dict, where keys are parameter names and values
+       are parameter tensors.
+     – model_dicts: A list of dictionaries, where each dictionary is a fine-tuned model’s state_dict derived from
+       the same base model. All models in this list must be merged.
+    Each fine-tuned model shares the same parameter structure as base. The function should return one output:
+     – merged: The merged model’s state_dict.
+    Below are 2 reference algorithms with their descriptions and code implementations:
+    No.1 algorithm and the corresponding code:
+    {algorithm description}
+    {Code}
+    No.2 algorithm description:
+    {algorithm description}
+    {Code}
+    Now, propose a new merging algorithm that is conceptually inspired by the given ones but has a fundamentally different
+    form in both idea and implementation.
+    Firstly, describe your new algorithm and main steps in one sentence. Enclose the description in curly braces.
+    Secondly, implement the following Python function, ensuring code robustness by validating tensor broadcasting, avoiding
+    direct indexing on potentially empty tensors, and ensuring numerical stability:
+    {Template Projection}
+    Do not give additional explanations.
+
+• M1: Structural Mutation. This strategy facilitates local exploitation by performing structural modifications on a single
+  high-performing ancestor. It instructs the LLM to introduce functional variations or logical adjustments to the existing code
+  structure, thereby refining the algorithm’s mechanism without completely discarding its proven core logic.
+
+    Prompt for M1
+
+    Your task is to design a new algorithm for merging the weights of multiple fine-tuned models into a single merged
+    model that integrates knowledge from all models to improve performance. The function must have exactly two inputs:
+      – base: A dictionary representing the pre-trained model’s state_dict, where keys are parameter names and values
+        are parameter tensors.
+      – model_dicts: A list of dictionaries, where each dictionary is a fine-tuned model’s state_dict derived from
+        the same base model. All models in this list must be merged.
+     Each fine-tuned model shares the same parameter structure as base. The function should return one output:
+      – merged: The merged model’s state_dict.
+     I have one algorithm with its description and code implementation:
+     {algorithm description}
+     {Code}
+     Please assist me in creating a new algorithm that has a different form but can be a modified version of the algorithm
+     provided.
+     Firstly, describe your new algorithm and main steps in one sentence. The description must be inside a curly braces.
+     Secondly, implement the following Python function, ensuring code robustness by validating tensor broadcasting, avoiding
+     direct indexing on potentially empty tensors, and ensuring numerical stability:
+     {Template Projection}
+     Do not give additional explanations.
+
+ • M2: Hyperparameter Refinement. Focusing on fine-grained exploitation, this strategy directs the LLM to identify and
+   recalibrate key control parameters (e.g., scaling factors, thresholds) within a given algorithm. It aims to generate a variant
+   with optimized parameter settings that enhance the merging behavior for improved fitness, while preserving the original
+   algorithmic structure.
+
+     Prompt for M2
+
+     Your task is to design a new algorithm for merging the weights of multiple fine-tuned models into a single merged
+     model that integrates knowledge from all models to improve performance. The function must have exactly two inputs:
+      – base: A dictionary representing the pre-trained model’s state_dict, where keys are parameter names and values
+        are parameter tensors.
+      – model_dicts: A list of dictionaries, where each dictionary is a fine-tuned model’s state_dict derived from
+        the same base model. All models in this list must be merged.
+     Each fine-tuned model shares the same parameter structure as base. The function should return one output:
+      – merged: The merged model’s state_dict.
+     I have one algorithm with its description and code implementation:
+     {algorithm description}
+     {Code}
+     Please identify the main algorithm parameters and assist me in creating a new algorithm that has a different parameter
+     settings of the score function provided.
+     Firstly, describe your new algorithm and main steps in one sentence. The description must be inside a curly braces.
+     Secondly, implement the following Python function, ensuring code robustness by validating tensor broadcasting, avoiding
+     direct indexing on potentially empty tensors, and ensuring numerical stability:
+     {Template Projection}
+     Do not give additional explanations.
+
+
+                                     D    LLM-generated Merging Algorithms
+In this section, we demonstrate two model merging algorithms automatically generated during an evolutionary process driven
+by LLMs.
+                                                 Merging Algorithm 1:
+import torch
+import copy
+
+def merge_models(base, model_dicts):
+    ’’’
+    Args:
+        base (dict): State dict of the pre-trained (base) model.
+         model_dicts (list[dict]): List of fine-tuned model state dicts; all models in this
+     list must be merged.
+     Returns:
+         merged (dict): State dict of the merged model.
+     ’’’
+
+     # ---- Initialization ----
+     merged = copy.deepcopy(base)
+
+     # ---- Model Merging Loop ----
+     for key in base.keys():
+         # Create a list of updates for this parameter from all models
+         updates = [(model_dict[key] - base[key]) for model_dict in model_dicts]
+
+           # Stack updates to form a tensor for median calculation
+           updates_stacked = torch.stack(updates)
+
+           # Calculate the median of the updates
+           median_updates = torch.median(updates_stacked, dim=0).values
+
+           # Update the merged model parameter using the median of updates
+           merged[key] = base[key] + median_updates
+
+     return merged
+   The first algorithm merges models by applying an element-wise median operator to parameter updates obtained from multiple
+fine-tuned models. Given a pre-trained base model θ0 and a set of fine-tuned models {θ1 , . . . , θM }, the algorithm first constructs
+task-specific update vectors
+                                               ∆i = θi − θ0 , i = 1, . . . , M.                                                    (1)
+  For each parameter entry p, the merged update is computed as:
+                                         ∆⋆ (p) = median (∆1 (p), ∆2 (p), . . . , ∆M (p)) .                                       (2)
+  The merged model is then obtained by:
+                                                        θmerged = θ0 + ∆⋆ .                                                       (3)
+    The median operator provides a robust estimate of the central tendency of task-specific updates. Unlike mean-based merging,
+it is less sensitive to extreme coordinate values and therefore suppresses large but inconsistent parameter shifts introduced by
+individual fine-tuning processes.
+    From an optimization perspective, the median minimizes the sum of absolute deviations:
+                                                                    M
+                                                                    X
+                                                ∆⋆ (p) ∈ arg min          |∆i (p) − x| .                                          (4)
+                                                                x
+                                                                    i=1
+
+   As a result, the merged update tends to retain coordinate-wise changes supported by multiple source models while suppressing
+extreme task-specific values. This algorithm requires no additional training, introduces no auxiliary parameters, and operates
+purely at the parameter level. Its emergence illustrates that the evolutionary process can recover merging rules grounded in
+classical robust statistics without explicit human design.
+   In contrast to the static statistical rule of the first method, the second merging strategy introduces a dynamic, learning-based
+mechanism.
+                                                           Merging Algorithm 2:
+import torch
+import torch.nn.functional as F
+
+def merge_models(base, model_dicts):
+    ’’’
+    Args:
+        base (dict): State dict of the pre-trained (base) model.
+        model_dicts (list[dict]): List of fine-tuned model state dicts; all models in this
+    list must be merged.
+    Returns:
+        merged (dict): State dict of the merged model.
+    ’’’
+     # Initialize the merged model’s state_dict
+     merged = {k: base[k].clone() for k in base.keys()}
+
+     # Simple auxiliary model for learning weights
+     class WeightNet(torch.nn.Module):
+         def __init__(self, input_dim, hidden_dim, output_dim):
+             super(WeightNet, self).__init__()
+             self.fc1 = torch.nn.Linear(input_dim, hidden_dim)
+             self.fc2 = torch.nn.Linear(hidden_dim, output_dim)
+
+          def forward(self, x):
+              x = F.relu(self.fc1(x))
+              x = F.softmax(self.fc2(x), dim=-1)
+              return x
+
+     # Determine the number of models
+     n_models = len(model_dicts)
+
+     # Create an auxiliary neural network
+     weight_net = WeightNet(n_models, 16, n_models)
+
+     optimizer = torch.optim.Adam(weight_net.parameters(), lr=0.001)
+
+     # Training the auxiliary network
+     num_epochs = 100
+     for epoch in range(num_epochs):
+         total_loss = 0
+         for k in base.keys():
+             # Stack deltas for each parameter
+             deltas = torch.stack([model_dict[k] - base[k] for model_dict in model_dicts])
+
+                # Pass deltas through the weight network
+                weights = weight_net(deltas.view(n_models, -1).mean(dim=1))
+
+                # Compute weighted average of deltas
+                weighted_delta = torch.sum(weights.view(-1, *([1] * (deltas.dim() - 1))) * deltas
+    , dim=0)
+
+                # Compute loss as the negative of average delta magnitude (to learn meaningful
+    weights)
+                loss = -torch.norm(weighted_delta)
+                total_loss += loss
+
+          # Backpropagation
+          optimizer.zero_grad()
+          total_loss.backward()
+          optimizer.step()
+
+    # Apply learned weights to merge models
+    with torch.no_grad():
+        for k in base.keys():
+             deltas = torch.stack([model_dict[k] - base[k] for model_dict in model_dicts])
+             weights = weight_net(deltas.view(n_models, -1).mean(dim=1))
+             weighted_delta = torch.sum(weights.view(-1, *([1] * (deltas.dim() - 1))) * deltas
+    , dim=0)
+             merged[k] += weighted_delta
+
+     return merged
+
+
+
+This strategy introduces a small auxiliary neural network to adaptively determine the contribution of each fine-tuned model to
+the merged update. The auxiliary network is trained using only the parameter updates without accessing the original training
+data.
+  Let k index the parameter tensors in the model state dictionary, and let
+                                                (k)        (k)       (k)
+                                              ∆i      = θi       − θ0 ,           i = 1, . . . , M,                         (5)
+denote the update of model i for parameter tensor k. For each tensor, we compute the model-wise mean updates
+                                                                        
+                                                     (k)             (k)
+                                                    si = mean ∆i           ,                                                (6)
+
+                                    (k)        (k)
+and form the input vector s(k) = (s1 , . . . , sM ). The auxiliary network then produces a tensor-specific weight vector
+                                                                     M
+                                                                              (k)                  (k)
+                                                                       X
+                                      w(k) = fϕ s(k) ,                       wi     = 1,       wi        ≥ 0,               (7)
+                                                                       i=1
+
+  where fϕ denotes the auxiliary neural network parameterized by ϕ, and the weight constraints are enforced by its softmax
+output layer.
+  The merged update for parameter tensor k is
+                                                                       M
+                                                          (k)                 (k)     (k)
+                                                                       X
+                                                       ∆merged =             wi ∆i .                                        (8)
+                                                                       i=1
+
+The auxiliary network is trained by minimizing
+                                                                  M
+                                                                             (k)         (k)
+                                                                X X
+                                               L(ϕ) = −                     wi (ϕ)∆i               .                        (9)
+                                                                 k    i=1                      F
+
+  Thus, the shared network produces a potentially different set of model weights for each parameter tensor based on its mean
+updates. The objective encourages weighted updates with large norms, but does not explicitly enforce agreement among task
+updates.
+  Both examples illustrate the diversity of algorithmic behaviors—robust coordinate-wise aggregation and learned tensor-
+specific weighting—that can emerge in the LLM-driven evolutionary framework.
+
+                                                      E    Additional Analysis
+E.1   Probing Analysis
+At n = 50, we conduct probing experiments on task-specific experts from the RF-TE backbone and their merged models
+produced by Genome and CEMM. Following Probing Task 4 in (Zhang et al. 2025), we train a probe on the final encoder
+embeddings to predict whether two customer nodes belong to the same optimal route. We construct 20,000 labeled positive and
+negative node pairs from n = 50 instances and report AUC across the five VRP variants.
+   As shown in Table 3, CEMM matches the task-specific experts in average AUC (0.907) and clearly outperforms Genome
+(0.752). Its AUC differs from that of the corresponding expert by at most 0.003 on every variant. These results suggest that
+CEMM retains VRP-specific route-structure knowledge after merging.
+
+                                          Table 3: Route-structure probing AUC at n = 50.
+
+                     Method                CVRP           OVRP         VRPB           VRPL             VRPTW     Average
+                     Expert model           0.918         0.924        0.881          0.909              0.901    0.907
+                     Genome                 0.749         0.795        0.744          0.762              0.709    0.752
+                     CEMM                   0.918         0.923        0.880          0.910              0.904    0.907
+
+
+E.2   Cross-Backbone Transfer
+We directly apply merging algorithm 1 from Appendix D, discovered on the RF-TE backbone, to the POMO-MTL backbone
+without further algorithm search. As shown in Figure 3, it achieves an average gap of 2.219%, outperforming all compared static
+merging methods. This result suggests that the merging strategy discovered by CEMM has the potential to transfer across NCO
+architectures for VRPs.
+                                                  2.717
+                                         2.72
+                                         2.70
+
+                                         2.30                                          2.291
+
+
+
+
+                               Gap (%)
+                                                              2.245
+                                         2.25                              2.242
+                                                                                                    2.219
+
+                                         2.20
+
+                                         2.15
+
+                                         2.10
+                                                  Wudi        Task         Dare        PCB         Merging
+                                                           Arithmetic      ties                  Algorithm 1
+
+
+Figure 3: Average optimality gap on POMO-MTL. Merging Algorithm 1, discovered on RF-TE source models, is applied
+unchanged to POMO-MTL source models.
+
+                    Table 4: Optimality gaps (%) on n = 200 instances using models obtained at n = 100.
+
+                           Method                CVRP     OVRP          VRPB       VRPL        VRPTW        Average
+                           Genome                5.065    10.361        11.095     5.799       5.471         7.558
+                           CEMM                  4.839     9.780        10.805     5.380       5.335         7.228
+                           Genome+               4.774    8.991         10.160     5.084       5.155         6.833
+                           CEMM+                 4.406    8.420          9.301     4.772       4.775         6.335
+
+
+E.3   Cross-Scale Out-of-Distribution Generalization
+We evaluate the RF-TE backbone models obtained at n = 100 on larger n = 200 instances across the same five VRP variants.
+As shown in Table 4, CEMM consistently outperforms Genome across all five tasks, while CEMM+ consistently outperforms
+Genome+. The average gaps decrease from 7.558% to 7.228% for single-model inference and from 6.833% to 6.335% for
+ensemble inference. These results suggest that the models obtained through CEMM exhibit stronger cross-scale generalization
+potential.
+
+E.4   Matched Inference Budget
+In the default setting, each task-specific expert uses ×8 instance augmentation, whereas CEMM+ and Genome+ evaluate k = 3
+models with ×8 augmentation each, resulting in a threefold rollout budget. To match the rollout budget, we increase each
+task-specific expert from ×8 to ×24 augmentation via rotational invariance (Kim, Park, and Park 2022), matching the number
+of rollouts used by CEMM+. As shown in Table 5, CEMM+ outperforms the experts on all five tasks at n = 50, reducing the
+average gap from 1.826% to 1.701%. This indicates that its improvement is not solely attributable to the larger rollout budget.
+
+                   Table 5: Comparison under same rollout budgets at n = 50 using the RF-TE backbone.
+
+                     Method                     CVRP      OVRP            VRPB        VRPL        VRPTW          Average
+                     Expert (×24)               1.034%    2.374%         2.731%      1.206%       1.785%         1.826%
+                     Genome+                    1.142%    2.411%         2.789%      1.282%       2.119%         1.949%
+                     CEMM+                      0.886%    2.243%         2.572%      1.086%       1.716%         1.701%
+
+
+
+                                                          F    Broader Impacts
+This work may positively impact real-world routing applications, such as logistics, transportation, and manufacturing, by
+providing a robust generalist neural solver for multiple VRP variants and reducing the need to train and deploy separate task-
+specific models. However, the LLM-driven evolutionary process introduces additional computational overhead, which may
+increase financial costs and raise sustainability concerns due to associated carbon emissions. Future work will explore more
+efficient LLM-driven operators to mitigate these potential drawbacks.
+                                      Table 6: Licenses for the code and datasets used.
+
+         Type                         Asset                                      License                  Usage
+                         POMO-MTL (Liu et al. 2024)                          MIT License                Evaluation
+                           RF-TE (Berto et al. 2025)                         MIT License                Evaluation
+                      Task Arithmetic (Ilharco et al. 2023)       Available for academic research use   Evaluation
+         Code            DARE-TIES (Yu et al. 2024)                          MIT License                Evaluation
+                             PCB (Du et al. 2024)                            MIT License                Evaluation
+                           Wudi (Cheng et al. 2025)                          MIT License                Evaluation
+                        Model Swarm (Feng et al. 2025)            Available for academic research use   Evaluation
+                          Genome (Zhang et al. 2026)                         MIT License                Evaluation
+                      PyVRP (Wouda, Lan, and Kool 2024)                      MIT License                Evaluation
+        Dataset    CVRPLIB http://vrp.atd-lab.inf.puc-rio.br/     Available for academic research use    Testing
+
+
+                                                      G    Licenses
+The assets used in this work are shown in Table 6.
+                                                         References
+Berto, F.; Hua, C.; Zepeda, N. G.; Hottung, A.; Wouda, N.; Lan, L.; Park, J.; Tierney, K.; and Park, J. 2025. RouteFinder:
+Towards foundation models for vehicle routing problems. Transactions on Machine Learning Research.
+Cheng, R.; Xiong, F.; Wei, Y.; Zhu, W.; and Yuan, C. 2025. Whoever started the interference should end it: Guiding data-free
+model merging via task vectors. In International Conference on Machine Learning.
+Du, G.; Lee, J.; Li, J.; Jiang, R.; Guo, Y.; Yu, S.; Liu, H.; Goh, S. K.; Tang, H.-K.; He, D.; et al. 2024. Parameter competition
+balancing for model merging. In Advances in Neural Information Processing Systems, volume 37, 84746–84776.
+Feng, S.; Wang, Z.; Wang, Y.; Ebrahimi, S.; Palangi, H.; Miculicich, L.; Kulshrestha, A.; Rauschmayr, N.; Choi, Y.; Tsvetkov,
+Y.; et al. 2025. Model Swarms: Collaborative search to adapt LLM experts via swarm intelligence. In International Conference
+on Machine Learning.
+Ilharco, G.; Ribeiro, M. T.; Wortsman, M.; Schmidt, L.; Hajishirzi, H.; and Farhadi, A. 2023. Editing models with task arithmetic.
+In International Conference on Learning Representations.
+Kim, M.; Park, J.; and Park, J. 2022. Sym-NCO: Leveraging symmetricity for neural combinatorial optimization. In Advances
+in Neural Information Processing Systems.
+Liu, F.; Lin, X.; Wang, Z.; Zhang, Q.; Xialiang, T.; and Yuan, M. 2024. Multi-task learning for routing problem with cross-
+problem zero-shot generalization. In Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data
+Mining, 1898–1908.
+Wouda, N. A.; Lan, L.; and Kool, W. 2024. PyVRP: A High-performance VRP solver package. INFORMS Journal on
+Computing, 36(4): 943–955.
+Yu, L.; Yu, B.; Yu, H.; Huang, F.; and Li, Y. 2024. Language models are super mario: Absorbing abilities from homologous
+models as a free lunch. In International Conference on Machine Learning.
+Zhang, Y.; Ye, P.; Yang, X.; Feng, S.; Zhang, S.; Bai, L.; Ouyang, W.; and Hu, S. 2026. Nature-inspired population-based
+evolution of large language models. In Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics
+(Volume 1: Long Papers).
+Zhang, Z.; Ma, Y.; Cao, Z.; and Lau, H. C. 2025. Probing neural combinatorial optimization models. In Conference on Neural
+Information Processing Systems.
+

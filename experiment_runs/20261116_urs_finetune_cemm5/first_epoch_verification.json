@@ -1,0 +1,22 @@
+[
+  {
+    "task": "cvrptw",
+    "epoch": 1,
+    "optimizer_steps": [
+      782
+    ],
+    "finite_weights": true,
+    "base_no_aug_gap": 6.801507076157106,
+    "base_aug_gap": 6.129026383134722
+  },
+  {
+    "task": "cvrpl",
+    "epoch": 1,
+    "optimizer_steps": [
+      782
+    ],
+    "finite_weights": true,
+    "base_no_aug_gap": 1.2261087941963271,
+    "base_aug_gap": 0.43330079184424497
+  }
+]

@@ -1,0 +1,4 @@
+START cvrp 3090 GPU 0
+START ocvrp 3090 GPU 1
+COMPLETED cvrp
+COMPLETED ocvrp

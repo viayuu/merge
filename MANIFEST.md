@@ -145,3 +145,17 @@
 | 2026-11-16T14:08:55 | Common Base independent verification | experiment_runs/20261116_common_base_audit/coordinate_fingerprint_check.json | verified | 精确指纹与候选可重复；9+2组统计证据；不声称获得历史完整base |
 | 2026-11-16T14:20:00 | common-base code and paper crosscheck | experiment_runs/20261116_common_base_audit/CODE_PAPER_ASSESSMENT.md | verified | 复核原训练路径、论文H.2及11专家初始化分组，未运行性能实验 |
 | 2026-11-16T14:20:00 | common-base code and paper crosscheck | experiment_runs/20261116_common_base_audit/code_paper_crosscheck.json | verified | 复核原训练路径、论文H.2及11专家初始化分组，未运行性能实验 |
+| 2026-11-16T20:25:11+08:00 | CEMM dialogue and literature reading | research_notes/cemm_merge_20261116/README.md | documented | 对话理解与阅读入口；未新增性能实验 |
+| 2026-11-16T20:25:11+08:00 | CEMM dialogue and literature reading | research_notes/cemm_merge_20261116/THINKING_AND_EVIDENCE.md | documented | 用户已选方向、当前实验和共同起点证据；未新增性能实验 |
+| 2026-11-16T20:25:11+08:00 | CEMM dialogue and literature reading | research_notes/cemm_merge_20261116/CEMM_READING.md | documented | 原文附录与代码核对，记录差异和复现缺口；未新增性能实验 |
+| 2026-11-16T20:25:11+08:00 | CEMM dialogue and literature reading | research_notes/cemm_merge_20261116/LITERATURE_MAP.md | documented | 20组核心方法及8篇背景应用近邻；未新增性能实验 |
+| 2026-11-16T20:25:11+08:00 | CEMM dialogue and literature reading | research_notes/cemm_merge_20261116/PAPERS.csv | documented | 28项去重文献索引；未新增性能实验 |
+| 2026-11-16T20:25:11+08:00 | CEMM dialogue and literature reading | research_notes/cemm_merge_20261116/COVERAGE.json | documented | 阅读覆盖范围、来源和未解决项；未新增性能实验 |
+| 2026-11-16T20:25:11+08:00 | CEMM dialogue and literature reading | research_notes/cemm_merge_20261116/downloads.json | documented | 新增5篇PDF来源和校验值；未新增性能实验 |
+| 2026-11-16T22:33:59+08:00 | URS shared-base five-task fine-tuning | merge_lab/finetune.py | implemented | 复用URS训练循环；共同多任务base独立微调；五任务GPU通路已验证 |
+| 2026-11-16T22:33:59+08:00 | URS shared-base five-task fine-tuning | experiment_runs/20261116_urs_finetune_cemm5/README.md | running | CEMM五任务各30epoch；2张4090；自动五任务交叉评测 |
+| 2026-11-16T22:33:59+08:00 | URS shared-base five-task fine-tuning | experiment_runs/20261116_urs_finetune_cemm5/manifest.json | recorded | base、原数据与代码SHA；固定epoch30与超参数 |
+| 2026-11-16T22:33:59+08:00 | URS shared-base five-task fine-tuning | experiment_runs/20261116_urs_finetune_cemm5/RESULTS.md | baseline-complete | 原URS五任务基线已完成，新专家结果随运行更新 |
+| 2026-11-16T22:47:19+08:00 | User task-set correction | experiment_runs/20261116_urs_finetune_cemm5/queue_state.json | cancelled | 旧Slurm step1475.1137及监控已停止；保留中间产物，不混入新run |
+| 2026-11-16T22:47:19+08:00 | URS seen-five fine-tuning | experiment_runs/20261116_urs_finetune_seen5/README.md | running | cvrp,cvrpb,cvrptw,ocvrp,ocvrptw，各30epoch；2张4090；新组smoke已通过 |
+| 2026-11-16T23:26:42+08:00 | URS four-GPU scheduling | experiment_runs/20261116_urs_finetune_seen5/README.md | running | 保留2个4090训练，增加3090训练CVRP/OCVRP；最终评测统一4090 |

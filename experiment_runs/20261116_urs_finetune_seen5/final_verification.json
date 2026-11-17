@@ -1,0 +1,57 @@
+[
+  {
+    "task": "cvrp",
+    "epoch": 30,
+    "optimizer_steps": [
+      23460
+    ],
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrp/checkpoint_30.pt",
+    "checkpoint_sha256": "62c24d910808ff9ad1a17ec1869fcba1c52656aed5c6dab879156a3a1d1864ff",
+    "finite_weights": true
+  },
+  {
+    "task": "cvrpb",
+    "epoch": 30,
+    "optimizer_steps": [
+      23460
+    ],
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrpb/checkpoint_30.pt",
+    "checkpoint_sha256": "8b2d387e7d53357441055443826e4a18a9b4cc771e5aa9e20b4f18c325642b6c",
+    "finite_weights": true
+  },
+  {
+    "task": "cvrptw",
+    "epoch": 30,
+    "optimizer_steps": [
+      23460
+    ],
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/cvrptw/checkpoint_30.pt",
+    "checkpoint_sha256": "d633f15676e10df78a52461079d285db3397631c45d219ccbfdc2922e1f1e334",
+    "finite_weights": true
+  },
+  {
+    "task": "ocvrp",
+    "epoch": 30,
+    "optimizer_steps": [
+      23460
+    ],
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrp/checkpoint_30.pt",
+    "checkpoint_sha256": "004b812a65e130dbd2f9fa9f2ec843dd53329cfaeaba0f7c6c649eb14f361769",
+    "finite_weights": true
+  },
+  {
+    "task": "ocvrptw",
+    "epoch": 30,
+    "optimizer_steps": [
+      23460
+    ],
+    "initial_model_sha256": "9ee478454c6cd1e33461308f4c6e4eda8ea85f806e5ba7fd3663ecca67054887",
+    "checkpoint": "/public/home/shiys/merge/experiment_runs/20261116_urs_finetune_seen5/models/ocvrptw/checkpoint_30.pt",
+    "checkpoint_sha256": "21fbef02699ce9791e4477d77a9bd042d4a2e80282384c36a2d7d13d124fb38d",
+    "finite_weights": true
+  }
+]
